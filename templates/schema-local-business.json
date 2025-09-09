@@ -1,0 +1,99 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "AJ Long Electric - [LOCATION]",
+  "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+  "url": "https://ajlongelectric.com/virginia-electrical-services/[location-slug].html",
+  "telephone": "855-353-8755",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2724 Dorr Ave, Suite 102",
+    "addressLocality": "Fairfax",
+    "addressRegion": "VA",
+    "postalCode": "22031",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.8383686,
+    "longitude": -77.2664536
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "07:00",
+    "closes": "19:00"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "[CITY_NAME]"
+    },
+    {
+      "@type": "County",
+      "name": "[COUNTY_NAME]",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Virginia"
+      }
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/ajlongelectric",
+    "https://www.instagram.com/ajlongelectric"
+  ],
+  "description": "Professional electrical services in [LOCATION], VA. Specializing in residential electrical upgrades, smart home integrations, EV charger installations, and commercial electrical solutions throughout [LOCATION].",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Electrical Services in [LOCATION]",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Residential Electrical Upgrades",
+          "description": "Comprehensive electrical panel replacements, circuit additions, and whole-home rewiring for [LOCATION] homes"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "EV Charger Installation",
+          "description": "Professional EV charging station installation for [LOCATION] homes with expert assessment and setup"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Smart Home Integration",
+          "description": "Modern smart home electrical solutions with integrated lighting, security, and convenience systems in [LOCATION]"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Electrical Solutions",
+          "description": "Professional electrical services for [LOCATION] businesses, retail spaces, and commercial properties"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1200",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

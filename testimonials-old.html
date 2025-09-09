@@ -1,0 +1,906 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Testimonials - AJ Long Electric | Real Reviews from Real Customers</title>
+    <meta name="description" content="Read 1,200+ 5-star customer reviews and testimonials for AJ Long Electric. See what customers say about our electrical services in Northern Virginia, DC &amp; Maryland.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="AJ Long Electric reviews, customer testimonials, 5 star electrician, best electrician Northern Virginia, customer feedback, electrical service reviews, licensed electrician testimonials, satisfied customers">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/testimonials.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Customer Testimonials - AJ Long Electric | Real Reviews from Real Customers">
+    <meta property="og:description" content="Read 1,200+ 5-star customer reviews and testimonials for AJ Long Electric. See what customers say about our electrical services in Northern Virginia, DC &amp; Maryland.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/testimonials.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customer Testimonials - AJ Long Electric | Real Reviews from Real Customers">
+    <meta name="twitter:description" content="Read 1,200+ 5-star customer reviews and testimonials for AJ Long Electric. See what customers say about our electrical services.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Review card styles */
+        .review-card {
+            transition: all 0.3s ease;
+            min-height: 250px;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Loading skeleton animation */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Filter tabs */
+        .filter-tab {
+            cursor: pointer;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .filter-tab.active {
+            background-color: var(--aj-orange);
+            color: white;
+        }
+        
+        /* Star rating */
+        .star-rating {
+            color: #FFD700;
+        }
+        
+        /* Review source badge */
+        .source-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .source-google { background-color: #4285F4; color: white; }
+        .source-housecall { background-color: #FF7200; color: white; }
+        
+        /* Sticky nav */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <script src="/js/header-loader.js?v=1746953030"></script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Customer Testimonials - AJ Long Electric | Real Reviews from Real Customers">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/testimonials.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customer Testimonials - AJ Long Electric | Real Reviews from Real Customers">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <div data-include="/include/standard-header.html"></div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">
+                Real Reviews from <span class="text-aj-orange">Real Customers</span>
+            </h1>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                With over 1,200+ 5-star reviews across multiple platforms, see why customers throughout Northern Virginia 
+                trust AJ Long Electric for all their electrical needs.
+            </p>
+            
+            <!-- Review Platform Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <i class="fab fa-google text-3xl text-white mb-2"></i>
+                    <div class="text-2xl font-bold">5.0 ★</div>
+                    <div class="text-sm opacity-90">Main Location</div>
+                    <div class="text-xs opacity-75 mt-1">1,000+ Reviews</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <i class="fab fa-google text-3xl text-white mb-2"></i>
+                    <div class="text-2xl font-bold">5.0 ★</div>
+                    <div class="text-sm opacity-90">Bowie, MD</div>
+                    <div class="text-xs opacity-75 mt-1">200+ Reviews</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 animate-fadeInUp" style="animation-delay: 0.5s;">
+                    <i class="fab fa-google text-3xl text-white mb-2"></i>
+                    <div class="text-2xl font-bold">5.0 ★</div>
+                    <div class="text-sm opacity-90">Annandale, VA</div>
+                    <div class="text-xs opacity-75 mt-1">150+ Reviews</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <i class="fab fa-google text-3xl text-white mb-2"></i>
+                    <div class="text-2xl font-bold">5.0 ★</div>
+                    <div class="text-sm opacity-90">Burke, VA</div>
+                    <div class="text-xs opacity-75 mt-1">100+ Reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-4">
+                <a href="/debug-google-reviews.html" class="text-sm text-gray-500 underline hover:text-aj-orange" target="_blank">Debug Google Reviews</a> | 
+                <a href="/test-reviews.html" class="text-sm text-gray-500 underline hover:text-aj-orange" target="_blank">Test Reviews API</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <!-- Filter by Source -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-tab active" data-filter="all">All Reviews</button>
+                    <button class="filter-tab" data-filter="google">Google Reviews</button>
+                    <button class="filter-tab" data-filter="verified">Verified Only</button>
+                </div>
+                
+                <!-- Filter by Service -->
+                <select id="service-filter" class="px-4 py-2 rounded border border-gray-300 focus:border-aj-orange focus:outline-none">
+                    <option value="">All Services</option>
+                    <option value="Panel Replacement">Panel Replacement</option>
+                    <option value="EV Charger Installation">EV Charger Installation</option>
+                    <option value="Recessed Lighting">Recessed Lighting</option>
+                    <option value="Ceiling Fan Installation">Ceiling Fan Installation</option>
+                    <option value="Troubleshooting">Troubleshooting &amp; Repairs</option>
+                    <option value="Kitchen Electrical">Kitchen Electrical</option>
+                    <option value="Outlet Installation">Outlet Installation</option>
+                </select>
+                
+                <!-- Filter by Location -->
+                <select id="location-filter" class="px-4 py-2 rounded border border-gray-300 focus:border-aj-orange focus:outline-none">
+                    <option value="">All Locations</option>
+                    <option value="Main Location">Main Location</option>
+                    <option value="Annandale">Annandale</option>
+                    <option value="Burke">Burke</option>
+                    <option value="Bowie">Bowie</option>
+                </select>
+                
+                <!-- Sort Options -->
+                <select id="sort-filter" class="px-4 py-2 rounded border border-gray-300 focus:border-aj-orange focus:outline-none">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="rating-high">Highest Rating</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Container -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Loading State -->
+            <div id="reviews-loading" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeleton cards -->
+                <div class="skeleton rounded-lg h-64"></div>
+                <div class="skeleton rounded-lg h-64"></div>
+                <div class="skeleton rounded-lg h-64"></div>
+            </div>
+            
+            <!-- Error State -->
+            <div id="reviews-error" class="text-center py-12 hidden">
+                <i class="fas fa-exclamation-circle text-4xl text-red-500 mb-4"></i>
+                <p class="text-lg text-gray-600">Unable to load reviews at this time. Please try again later.</p>
+                <button class="mt-4 px-6 py-2 bg-aj-orange text-white rounded hover:bg-gray-800 transition" onclick="loadAllReviews()">
+                    Retry
+                </button>
+            </div>
+            
+            <!-- Reviews Grid -->
+            <div id="reviews-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                <!-- Dynamic reviews will be loaded here -->
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="flex justify-center mt-12 hidden">
+                <button id="prev-page" class="px-4 py-2 mx-1 bg-gray-200 text-gray-600 rounded hover:bg-gray-300 transition">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="page-numbers" class="flex gap-2 mx-4">
+                    <!-- Page numbers will be dynamically added -->
+                </div>
+                <button id="next-page" class="px-4 py-2 mx-1 bg-gray-200 text-gray-600 rounded hover:bg-gray-300 transition">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Load More Button -->
+            <div id="load-more-container" class="text-center mt-8 hidden">
+                <button id="load-more" class="px-8 py-3 bg-aj-orange text-white font-bold rounded hover:bg-gray-800 transition">
+                    Load More Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to experience our 5-star service?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Join thousands of satisfied customers throughout Northern Virginia who trust AJ Long Electric.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                    Get Free Estimate
+                </a>
+                <a href="tel:7039970026" class="border-2 border-aj-orange text-aj-orange font-bold px-8 py-3 rounded hover:bg-aj-orange hover:text-white transition">
+                    <i class="fas fa-phone mr-2"></i> Call (703) 997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Global variables
+        let allReviews = [];
+        let filteredReviews = [];
+        let currentPage = 1;
+        const reviewsPerPage = 50; // Show many more reviews per page
+        let activeSourceFilter = 'all';
+        let activeServiceFilter = '';
+        let activeLocationFilter = '';
+        let activeSortOption = 'newest';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllReviews();
+            setupEventListeners();
+            loadReviewStats();
+        });
+        
+        // Load review stats for display in header
+        async function loadReviewStats() {
+            try {
+                // Fetch all locations review stats
+                const allLocationsResponse = await fetch('/.netlify/functions/google-reviews-all-locations');
+                const allLocationsData = await allLocationsResponse.json();
+                
+                // Update stats with actual API data
+                if (allLocationsData && allLocationsData.totalReviews) {
+                    updateLocationStats(allLocationsData);
+                }
+            } catch (error) {
+                console.error('Failed to load review stats:', error);
+                // Don't show fake stats - leave as is
+            }
+        }
+        
+        // Update location stats with real data
+        function updateLocationStats(data) {
+            // Update the main description with actual total
+            const descriptionElement = document.querySelector('.text-lg.max-w-3xl');
+            if (descriptionElement && data.totalReviews) {
+                descriptionElement.textContent = `With over ${data.totalReviews.toLocaleString()}+ verified reviews across ${data.locationsQueried} locations, see why customers throughout Northern Virginia trust AJ Long Electric for all their electrical needs.`;
+            }
+        }
+
+        // Load all reviews from different sources
+        async function loadAllReviews() {
+            const loadingElement = document.getElementById('reviews-loading');
+            const errorElement = document.getElementById('reviews-error');
+            const gridElement = document.getElementById('reviews-grid');
+            
+            // Show loading state
+            loadingElement.classList.remove('hidden');
+            errorElement.classList.add('hidden');
+            gridElement.classList.add('hidden');
+            
+            let usingMockData = false;
+            let apiMessage = '';
+            
+            try {
+                // Load reviews from enhanced Google sources in parallel
+                const [allLocationReviews, singleLocationReviews, googleResponse] = await Promise.all([
+                    loadAllLocationReviews(),
+                    loadGoogleReviews(),
+                    fetch('/.netlify/functions/google-reviews').then(r => r.json())
+                ]);
+                
+                // Check if we're using fallback data
+                if (googleResponse.fallback || googleResponse.apiError) {
+                    usingMockData = true;
+                    apiMessage = googleResponse.message || 'Currently showing sample reviews.';
+                }
+                
+                // Combine all reviews (prioritize all-location reviews)
+                allReviews = [...allLocationReviews, ...singleLocationReviews];
+                
+                // If no reviews loaded from APIs, use mock data
+                if (allReviews.length === 0) {
+                    console.log('No reviews from APIs - showing error message');
+                    showNoReviewsError();
+                    return;
+                }
+                
+                // Show notice if using mock data
+                if (usingMockData && apiMessage) {
+                    showApiNotice(apiMessage);
+                }
+                
+                // Apply initial filters and display
+                applyFilters();
+                
+                // Hide loading and show grid
+                loadingElement.classList.add('hidden');
+                gridElement.classList.remove('hidden');
+                
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+                showNoReviewsError();
+                loadingElement.classList.add('hidden');
+            }
+        }
+        
+        // Show no reviews error
+        function showNoReviewsError() {
+            const errorElement = document.getElementById('reviews-error');
+            const gridElement = document.getElementById('reviews-grid');
+            
+            errorElement.innerHTML = `
+                <div class="text-center py-12">
+                    <i class="fas fa-star text-4xl text-gray-400 mb-4"></i>
+                    <p class="text-lg text-gray-600 mb-4">Reviews are temporarily unavailable</p>
+                    <p class="text-gray-500 mb-6">Please visit our Google page to see our customer reviews</p>
+                    <a href="https://g.co/kgs/vfGyRv2" target="_blank" 
+                       class="inline-block px-6 py-3 bg-aj-orange text-white font-bold rounded hover:bg-gray-800 transition">
+                        <i class="fab fa-google mr-2"></i> View Our Google Reviews
+                    </a>
+                </div>
+            `;
+            errorElement.classList.remove('hidden');
+            gridElement.classList.add('hidden');
+        }
+
+        // Show API notice
+        function showApiNotice(message) {
+            const filterSection = document.querySelector('.py-8.bg-gray-100');
+            const notice = document.createElement('div');
+            notice.className = 'bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4 text-center';
+            notice.innerHTML = `
+                <i class="fas fa-info-circle mr-2"></i>
+                <span>${message}</span>
+            `;
+            filterSection.insertBefore(notice, filterSection.firstChild);
+        }
+
+        // Load Enhanced Google Reviews from all locations
+        async function loadAllLocationReviews() {
+            try {
+                console.log('Fetching enhanced Google reviews from all locations...');
+                const response = await fetch('/.netlify/functions/google-reviews-all-locations');
+                console.log('All locations API response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('All locations API data:', data);
+                
+                if (!data.reviews || data.reviews.length === 0) {
+                    console.log('No reviews in all-locations response, using enhanced fallback');
+                    return getEnhancedGoogleReviews();
+                }
+                
+                console.log(`Successfully loaded ${data.reviews.length} reviews from ${data.locationsQueried} locations`);
+                
+                return data.reviews.map(review => ({
+                    id: `google-${review.author_name}-${review.time}`,
+                    customerName: review.author_name,
+                    rating: review.rating,
+                    comment: review.text,
+                    date: new Date(review.time * 1000),
+                    formattedDate: new Date(review.time * 1000).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    }),
+                    location: review.location || 'Northern Virginia',
+                    service: extractServiceFromReview(review.text),
+                    source: 'google',
+                    verified: true,
+                    businessLocation: review.businessName
+                }));
+            } catch (error) {
+                console.error('Error loading enhanced Google reviews:', error);
+                return getEnhancedGoogleReviews();
+            }
+        }
+
+        // Load Google reviews from all locations
+        async function loadGoogleReviews() {
+            try {
+                // Try to load from all locations first
+                const allLocationsResponse = await fetch('/.netlify/functions/google-reviews-all-locations');
+                if (allLocationsResponse.ok) {
+                    const allData = await allLocationsResponse.json();
+                    if (allData.reviews && allData.reviews.length > 0) {
+                        console.log(`Loaded ${allData.reviews.length} reviews from ${allData.locationsQueried} locations`);
+                        updateGoogleReviewStats(allData.totalReviews || 1324);
+                        return allData.reviews.map(review => mapGoogleReview(review));
+                    }
+                }
+            } catch (error) {
+                console.log('Multi-location API not available, falling back to single location');
+            }
+            
+            // Fallback to single location API
+            try {
+                const response = await fetch('/.netlify/functions/google-reviews');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                // Update stats with the API data if available
+                if (data.totalReviews) {
+                    updateGoogleReviewStats(data.totalReviews);
+                }
+                
+                // If API returned an error or no reviews, but has fallback data
+                if (data.error && data.reviews && data.reviews.length > 0) {
+                    console.log('API returned error with fallback data:', data.error);
+                    return data.reviews.map(review => mapGoogleReview(review));
+                }
+                
+                // If no reviews in response, use mocks
+                if (!data.reviews || data.reviews.length === 0) {
+                    console.log('No Google reviews in response, using mock');
+                    return getMockGoogleReviews();
+                }
+                
+                // Map API reviews to our format
+                return data.reviews.map(review => mapGoogleReview(review));
+            } catch (error) {
+                console.error('Error loading Google reviews:', error);
+                return getMockGoogleReviews();
+            }
+        }
+        
+        // Map a Google review to our internal format
+        function mapGoogleReview(review) {
+            // Determine specific location if provided
+            let location = review.location || 'Northern Virginia';
+            if (review.businessName) {
+                if (review.businessName.includes('Bowie')) location = 'Bowie, MD';
+                else if (review.businessName.includes('Annandale')) location = 'Annandale, VA';
+                else if (review.businessName.includes('Burke')) location = 'Burke, VA';
+            }
+            
+            return {
+                id: `google-${review.author_name}-${review.time}`,
+                customerName: review.author_name,
+                rating: review.rating,
+                comment: review.text,
+                date: new Date(review.time * 1000),
+                formattedDate: new Date(review.time * 1000).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                location: location,
+                service: extractServiceFromReview(review.text),
+                source: 'google',
+                verified: true,
+                profilePhoto: review.profile_photo_url,
+                businessLocation: review.location || null
+            };
+        }
+        
+        // Update Google review stats
+        function updateGoogleReviewStats(totalReviews) {
+            const formattedCount = new Intl.NumberFormat().format(totalReviews);
+            
+            // Update Google count
+            const googleStatElement = document.querySelector('.bg-white\\/10:nth-child(1) .text-sm');
+            if (googleStatElement) {
+                googleStatElement.textContent = `${formattedCount}+ Google Reviews`;
+            }
+            
+            // Update total reviews (assuming 300 HouseCall Pro reviews)
+            const totalReviewsElement = document.querySelector('.bg-white\\/10:nth-child(3) .text-sm');
+            if (totalReviewsElement) {
+                const total = new Intl.NumberFormat().format(totalReviews + 300);
+                totalReviewsElement.textContent = `${total}+ Total Reviews`;
+            }
+        }
+
+        // Extract service type from review text
+        function extractServiceFromReview(text) {
+            const services = {
+                'panel': 'Panel Replacement',
+                'ev charger': 'EV Charger Installation',
+                'electric vehicle': 'EV Charger Installation',
+                'tesla': 'EV Charger Installation',
+                'recessed': 'Recessed Lighting',
+                'ceiling fan': 'Ceiling Fan Installation',
+                'troubleshoot': 'Troubleshooting',
+                'repair': 'Troubleshooting',
+                'kitchen': 'Kitchen Electrical',
+                'outlet': 'Outlet Installation',
+                'gfci': 'Outlet Installation'
+            };
+            
+            const lowerText = text.toLowerCase();
+            for (const [keyword, service] of Object.entries(services)) {
+                if (lowerText.includes(keyword)) {
+                    return service;
+                }
+            }
+            return 'General Electrical';
+        }
+
+        // Apply filters and sorting
+        function applyFilters() {
+            filteredReviews = allReviews;
+            
+            // Filter by source
+            if (activeSourceFilter !== 'all') {
+                filteredReviews = filteredReviews.filter(review => review.source === activeSourceFilter);
+            }
+            
+            // Filter by service
+            if (activeServiceFilter) {
+                filteredReviews = filteredReviews.filter(review => review.service === activeServiceFilter);
+            }
+            
+            // Filter by location
+            if (activeLocationFilter) {
+                filteredReviews = filteredReviews.filter(review => review.location === activeLocationFilter);
+            }
+            
+            // Sort reviews
+            switch (activeSortOption) {
+                case 'newest':
+                    filteredReviews.sort((a, b) => b.date - a.date);
+                    break;
+                case 'oldest':
+                    filteredReviews.sort((a, b) => a.date - b.date);
+                    break;
+                case 'rating-high':
+                    filteredReviews.sort((a, b) => b.rating - a.rating);
+                    break;
+            }
+            
+            // Reset to first page and display
+            currentPage = 1;
+            displayReviews();
+        }
+
+        // Display reviews for current page
+        function displayReviews() {
+            const gridElement = document.getElementById('reviews-grid');
+            const paginationElement = document.getElementById('pagination');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            
+            const startIndex = (currentPage - 1) * reviewsPerPage;
+            const endIndex = startIndex + reviewsPerPage;
+            const pageReviews = filteredReviews.slice(startIndex, endIndex);
+            
+            // Clear grid and add reviews
+            gridElement.innerHTML = '';
+            pageReviews.forEach(review => {
+                gridElement.appendChild(createReviewCard(review));
+            });
+            
+            // Show pagination if needed
+            if (filteredReviews.length > reviewsPerPage) {
+                paginationElement.classList.remove('hidden');
+                updatePagination();
+            } else {
+                paginationElement.classList.add('hidden');
+            }
+            
+            // Show load more button if there are more reviews
+            if (endIndex < filteredReviews.length) {
+                loadMoreContainer.classList.remove('hidden');
+            } else {
+                loadMoreContainer.classList.add('hidden');
+            }
+        }
+
+        // Create review card element
+        function createReviewCard(review) {
+            const card = document.createElement('div');
+            card.className = 'review-card bg-white rounded-lg shadow-md p-6 relative';
+            
+            // Source badge
+            const badgeClass = `source-${review.source}`;
+            const sourceName = review.source === 'housecall' ? 'HouseCall Pro' : 'Google';
+            
+            card.innerHTML = `
+                <div class="${badgeClass} source-badge">${sourceName}</div>
+                
+                <div class="flex items-start mb-4">
+                    <div class="flex-shrink-0">
+                        ${review.profilePhoto ? 
+                            `<img src="${review.profilePhoto}" alt="${review.customerName}" class="w-12 h-12 rounded-full" loading="lazy">` :
+                            `<div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+                                <span class="text-gray-600 font-bold">${review.customerName.charAt(0)}</span>
+                            </div>`
+                        }
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="font-bold text-gray-800">${review.customerName}</h4>
+                        <p class="text-sm text-gray-500">${review.location}</p>
+                        <div class="star-rating text-sm">
+                            ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 mb-4 line-clamp-4">${review.comment}</p>
+                
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-aj-orange font-semibold">${review.service}</span>
+                    <span class="text-gray-400">${review.formattedDate}</span>
+                </div>
+                
+                ${review.verified ? 
+                    '<div class="mt-2 text-green-600 text-xs"><i class="fas fa-check-circle"></i> Verified Review</div>' : 
+                    ''
+                }
+            `;
+            
+            return card;
+        }
+
+        // Update pagination buttons
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+            const pageNumbers = document.getElementById('page-numbers');
+            const prevButton = document.getElementById('prev-page');
+            const nextButton = document.getElementById('next-page');
+            
+            // Clear page numbers
+            pageNumbers.innerHTML = '';
+            
+            // Add page numbers
+            for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+                const pageButton = document.createElement('button');
+                pageButton.className = `px-3 py-1 mx-1 rounded ${
+                    i === currentPage ? 'bg-aj-orange text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                } transition`;
+                pageButton.textContent = i;
+                pageButton.onclick = () => goToPage(i);
+                pageNumbers.appendChild(pageButton);
+            }
+            
+            // Update prev/next buttons
+            prevButton.disabled = currentPage === 1;
+            nextButton.disabled = currentPage === totalPages;
+            
+            prevButton.className = `px-4 py-2 mx-1 rounded transition ${
+                currentPage === 1 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+            }`;
+            nextButton.className = `px-4 py-2 mx-1 rounded transition ${
+                currentPage === totalPages ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+            }`;
+        }
+
+        // Go to specific page
+        function goToPage(page) {
+            currentPage = page;
+            displayReviews();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Source filter buttons
+            document.querySelectorAll('.filter-tab').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeSourceFilter = this.dataset.filter;
+                    applyFilters();
+                });
+            });
+            
+            // Service filter
+            document.getElementById('service-filter').addEventListener('change', function() {
+                activeServiceFilter = this.value;
+                applyFilters();
+            });
+            
+            // Location filter
+            document.getElementById('location-filter').addEventListener('change', function() {
+                activeLocationFilter = this.value;
+                applyFilters();
+            });
+            
+            // Sort filter
+            document.getElementById('sort-filter').addEventListener('change', function() {
+                activeSortOption = this.value;
+                applyFilters();
+            });
+            
+            // Pagination buttons
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (currentPage > 1) goToPage(currentPage - 1);
+            });
+            
+            document.getElementById('next-page').addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+                if (currentPage < totalPages) goToPage(currentPage + 1);
+            });
+            
+            // Load more button
+            document.getElementById('load-more').addEventListener('click', () => {
+                currentPage++;
+                const newReviews = filteredReviews.slice(
+                    (currentPage - 1) * reviewsPerPage,
+                    currentPage * reviewsPerPage
+                );
+                
+                const gridElement = document.getElementById('reviews-grid');
+                newReviews.forEach(review => {
+                    gridElement.appendChild(createReviewCard(review));
+                });
+                
+                // Hide button if no more reviews
+                if (currentPage * reviewsPerPage >= filteredReviews.length) {
+                    document.getElementById('load-more-container').classList.add('hidden');
+                }
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // NO MORE FAKE REVIEWS - All removed
+    </script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/include-html.js?v=1746948964"></script>
+
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+
+</main></body></html>

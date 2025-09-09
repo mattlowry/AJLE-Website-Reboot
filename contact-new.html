@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact AJ Long Electric | (703) 997-0026 | Licensed Electricians NoVA DC MD</title>
+    <meta name="description" content="Contact AJ Long Electric for electrical services in Northern Virginia, DC & Maryland. Get an estimate, schedule service, or ask questions. Call (703) 997-0026.">
+    
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="contact electrician, AJ Long Electric phone number, electrician Fairfax VA, electrical contractor contact, emergency electrician, Northern Virginia electrician, DC electrician, Maryland electrician, 703-997-0026">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/contact.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact AJ Long Electric | (703) 997-0026 | Licensed Electricians NoVA DC MD">
+    <meta property="og:description" content="Contact AJ Long Electric for electrical services in Northern Virginia, DC & Maryland. Call (703) 997-0026, email, or visit our Fairfax office.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/contact.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact AJ Long Electric | (703) 997-0026 | Licensed Electricians NoVA DC MD">
+    <meta name="twitter:description" content="Contact AJ Long Electric for electrical services in Northern Virginia, DC & Maryland.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Form tab styling */
+        .form-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .form-tab.active {
+            background-color: var(--aj-orange);
+            color: white;
+            border-bottom-color: var(--aj-orange);
+        }
+        
+        .form-tab:hover {
+            background-color: rgba(255, 114, 0, 0.1);
+        }
+        
+        .form-tab.active:hover {
+            background-color: var(--aj-orange);
+        }
+
+        /* Form content styling */
+        .form-content {
+            display: none;
+        }
+        
+        .form-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* File upload styling */
+        .file-upload-area {
+            border: 2px dashed #d1d5db;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-area:hover,
+        .file-upload-area.dragover {
+            border-color: var(--aj-orange);
+            background-color: rgba(255, 114, 0, 0.05);
+        }
+
+        /* Mobile responsive tabs */
+        @media (max-width: 768px) {
+            .form-tabs {
+                flex-direction: column;
+            }
+            
+            .form-tab {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+                text-align: left;
+            }
+            
+            .form-tab.active {
+                border-left-color: var(--aj-orange);
+                border-bottom-color: transparent;
+            }
+        }
+
+        /* Success/Error message styling */
+        .message-popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            max-width: 400px;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .message-popup.show {
+            transform: translateX(0);
+        }
+        
+        .message-popup.success {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .message-popup.error {
+            background-color: #ef4444;
+            color: white;
+        }
+    </style>
+    
+    <script src="/js/header-loader.js?v=1746953030"></script>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Include the standard header -->
+    
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4 animate-fadeInUp">Contact <span class="text-aj-orange">AJ Long</span> Electric</h1>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                Get in touch with our team for all your residential electrical needs. Choose from the options below to get started.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap -mx-4">
+                    
+                    <!-- Contact Information Sidebar -->
+                    <div class="w-full lg:w-1/3 px-4 mb-8 lg:mb-0">
+                        <div class="bg-white rounded-lg shadow-lg p-8 sticky top-8">
+                            <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-aj-orange text-white flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Phone</h3>
+                                        <p class="text-gray-600 mb-1">Call us for immediate assistance</p>
+                                        <a href="tel:7039970026" class="text-aj-orange font-semibold text-lg hover:underline">703-997-0026</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-aj-orange text-white flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Email</h3>
+                                        <p class="text-gray-600 mb-1">Send us an email anytime</p>
+                                        <div class="space-y-1">
+                                            <a href="mailto:estimate@ajlongelectric.com" class="text-aj-orange font-semibold hover:underline block">Estimate@AJLongElectric.com</a>
+                                            <a href="mailto:schedule@ajlongelectric.com" class="text-aj-orange font-semibold hover:underline block">Schedule@AJLongElectric.com</a>
+                                            <a href="mailto:contact@ajlongelectric.com" class="text-aj-orange font-semibold hover:underline block">Contact@AJLongElectric.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-aj-orange text-white flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Service Area</h3>
+                                        <p class="text-gray-600 mb-1">We proudly serve:</p>
+                                        <p class="font-semibold">Northern Virginia, Washington DC, and Maryland</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-aj-orange text-white flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Hours</h3>
+                                        <p class="text-gray-600 mb-1">Our office is open:</p>
+                                        <p class="font-semibold">Monday-Friday: 8am - 6pm</p>
+                                        <p class="font-semibold">Saturday: By Appointment</p>
+                                        <p class="font-semibold">Sunday: Emergency Only</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h3 class="font-bold text-lg mb-4">Emergency Service</h3>
+                                <p class="text-sm text-gray-600 mb-4">
+                                    For electrical emergencies outside business hours, call our main number. 
+                                    Emergency service available 24/7 for critical electrical issues.
+                                </p>
+                                <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                                    <p class="text-sm font-semibold text-red-700">⚡ Electrical Emergency?</p>
+                                    <p class="text-sm text-red-600">Call immediately: (703) 997-0026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Forms Section -->
+                    <div class="w-full lg:w-2/3 px-4">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            
+                            <!-- Form Tabs -->
+                            <div class="bg-gray-50 p-4">
+                                <h2 class="text-2xl font-bold mb-4 text-center">How Can We Help You?</h2>
+                                <div class="form-tabs flex flex-wrap justify-center">
+                                    <button class="form-tab active flex-1 md:flex-none px-6 py-4 font-semibold rounded-lg mr-2 mb-2" data-form="estimate">
+                                        <i class="fas fa-calculator mr-2"></i>
+                                        <span class="hidden sm:inline">Get an </span>Estimate
+                                    </button>
+                                    <button class="form-tab flex-1 md:flex-none px-6 py-4 font-semibold rounded-lg mr-2 mb-2" data-form="schedule">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span class="hidden sm:inline">Schedule </span>Service
+                                    </button>
+                                    <button class="form-tab flex-1 md:flex-none px-6 py-4 font-semibold rounded-lg mb-2" data-form="inquiry">
+                                        <i class="fas fa-question-circle mr-2"></i>
+                                        <span class="hidden sm:inline">General </span>Inquiry
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Form Contents -->
+                            <div class="p-6">
+                                
+                                <!-- Get Estimate Form -->
+                                <div class="form-content active" id="estimate-form-content">
+                                    <div class="mb-6 text-center">
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Request an Estimate</h3>
+                                        <p class="text-gray-600">Tell us about your electrical project and we'll provide a detailed estimate within 24 hours.</p>
+                                    </div>
+                                    
+                                    <form id="estimate-form" class="space-y-6" enctype="multipart/form-data">
+                                        <!-- Contact Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label for="estimate-firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                                    <input type="text" id="estimate-firstName" name="firstName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="estimate-lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                                    <input type="text" id="estimate-lastName" name="lastName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="estimate-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                                    <input type="email" id="estimate-email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="estimate-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                                    <input type="tel" id="estimate-phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Project Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Project Information</h4>
+                                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                                <div>
+                                                    <label for="estimate-projectType" class="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
+                                                    <select id="estimate-projectType" name="projectType" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                        <option value="">Select project type</option>
+                                                        <option value="Panel Upgrade">Panel Upgrade/Replacement</option>
+                                                        <option value="EV Charger">EV Charger Installation</option>
+                                                        <option value="Recessed Lighting">Recessed Lighting</option>
+                                                        <option value="Kitchen Electrical">Kitchen/Bathroom Electrical</option>
+                                                        <option value="Whole House Rewiring">Whole House Rewiring</option>
+                                                        <option value="Smart Home">Smart Home Integration</option>
+                                                        <option value="Outdoor Lighting">Outdoor/Landscape Lighting</option>
+                                                        <option value="Generator Installation">Generator Installation</option>
+                                                        <option value="Commercial Project">Commercial Project</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label for="estimate-budgetRange" class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                                                    <select id="estimate-budgetRange" name="budgetRange" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                        <option value="">Select budget range</option>
+                                                        <option value="Under $500">Under $500</option>
+                                                        <option value="$500 - $1,000">$500 - $1,000</option>
+                                                        <option value="$1,000 - $2,500">$1,000 - $2,500</option>
+                                                        <option value="$2,500 - $5,000">$2,500 - $5,000</option>
+                                                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                                        <option value="Over $25,000">Over $25,000</option>
+                                                        <option value="Not sure">Not sure</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="estimate-timeline" class="block text-sm font-medium text-gray-700 mb-2">Timeline</label>
+                                                <select id="estimate-timeline" name="timeline" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                    <option value="">Select timeline</option>
+                                                    <option value="ASAP">ASAP/Emergency</option>
+                                                    <option value="Within 1 week">Within 1 week</option>
+                                                    <option value="Within 2-4 weeks">Within 2-4 weeks</option>
+                                                    <option value="1-3 months">1-3 months</option>
+                                                    <option value="3+ months">3+ months</option>
+                                                    <option value="Flexible">Flexible</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="estimate-description" class="block text-sm font-medium text-gray-700 mb-2">Project Description *</label>
+                                                <textarea id="estimate-description" name="description" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange resize-vertical" placeholder="Please describe your electrical project in detail. Include any specific requirements, challenges, or questions you have..."></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Photos Upload -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Project Photos (Optional)</h4>
+                                            <div class="file-upload-area border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-aj-orange transition-colors" onclick="document.getElementById('estimate-photos').click()">
+                                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                                <p class="text-gray-600">Click to upload photos or drag and drop</p>
+                                                <p class="text-sm text-gray-500 mt-1">Supported: JPG, PNG, PDF (max 10MB per file)</p>
+                                            </div>
+                                            <input type="file" id="estimate-photos" name="attachments" multiple accept="image/*,application/pdf" class="hidden">
+                                            <div id="estimate-file-preview" class="mt-4 hidden">
+                                                <h5 class="font-medium text-gray-700 mb-2">Selected Files:</h5>
+                                                <div id="estimate-file-list" class="space-y-2"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="w-full bg-aj-orange text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors">
+                                            <i class="fas fa-paper-plane mr-2"></i>
+                                            Request Estimate
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                                <!-- Schedule Service Form -->
+                                <div class="form-content" id="schedule-form-content">
+                                    <div class="mb-6 text-center">
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Schedule Service</h3>
+                                        <p class="text-gray-600">Ready to get started? Schedule your electrical service appointment with us.</p>
+                                    </div>
+                                    
+                                    <form id="schedule-form" class="space-y-6" enctype="multipart/form-data">
+                                        <!-- Contact Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label for="schedule-firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                                    <input type="text" id="schedule-firstName" name="firstName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="schedule-lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                                    <input type="text" id="schedule-lastName" name="lastName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="schedule-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                                    <input type="email" id="schedule-email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="schedule-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                                    <input type="tel" id="schedule-phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Service Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Service Information</h4>
+                                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                                <div>
+                                                    <label for="schedule-serviceType" class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+                                                    <select id="schedule-serviceType" name="serviceType" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                        <option value="">Select service type</option>
+                                                        <option value="Repair">Electrical Repair</option>
+                                                        <option value="Installation">Installation</option>
+                                                        <option value="Troubleshooting">Troubleshooting</option>
+                                                        <option value="Maintenance">Maintenance</option>
+                                                        <option value="Emergency">Emergency Service</option>
+                                                        <option value="Follow-up">Follow-up Service</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label for="schedule-urgency" class="block text-sm font-medium text-gray-700 mb-2">Urgency</label>
+                                                    <select id="schedule-urgency" name="urgency" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                        <option value="normal">Normal</option>
+                                                        <option value="high">High Priority</option>
+                                                        <option value="emergency">Emergency</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                                <div>
+                                                    <label for="schedule-preferredDate" class="block text-sm font-medium text-gray-700 mb-2">Preferred Date *</label>
+                                                    <input type="date" id="schedule-preferredDate" name="preferredDate" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="schedule-preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+                                                    <select id="schedule-preferredTime" name="preferredTime" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                        <option value="">Select preferred time</option>
+                                                        <option value="Morning (8AM-12PM)">Morning (8AM-12PM)</option>
+                                                        <option value="Afternoon (12PM-5PM)">Afternoon (12PM-5PM)</option>
+                                                        <option value="Evening (5PM-8PM)">Evening (5PM-8PM)</option>
+                                                        <option value="Anytime">Anytime</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="schedule-description" class="block text-sm font-medium text-gray-700 mb-2">Service Description *</label>
+                                                <textarea id="schedule-description" name="description" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange resize-vertical" placeholder="Please describe the electrical service you need. Include any relevant details about the issue or work to be performed..."></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Photos Upload -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Supporting Photos (Optional)</h4>
+                                            <div class="file-upload-area border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-aj-orange transition-colors" onclick="document.getElementById('schedule-photos').click()">
+                                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                                <p class="text-gray-600">Click to upload photos or drag and drop</p>
+                                                <p class="text-sm text-gray-500 mt-1">Supported: JPG, PNG, PDF (max 10MB per file)</p>
+                                            </div>
+                                            <input type="file" id="schedule-photos" name="attachments" multiple accept="image/*,application/pdf" class="hidden">
+                                            <div id="schedule-file-preview" class="mt-4 hidden">
+                                                <h5 class="font-medium text-gray-700 mb-2">Selected Files:</h5>
+                                                <div id="schedule-file-list" class="space-y-2"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="w-full bg-aj-orange text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors">
+                                            <i class="fas fa-calendar-check mr-2"></i>
+                                            Schedule Service
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                                <!-- General Inquiry Form -->
+                                <div class="form-content" id="inquiry-form-content">
+                                    <div class="mb-6 text-center">
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-2">General Inquiry</h3>
+                                        <p class="text-gray-600">Have questions about our services? Need advice? We're here to help!</p>
+                                    </div>
+                                    
+                                    <form id="inquiry-form" class="space-y-6" enctype="multipart/form-data">
+                                        <!-- Contact Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label for="inquiry-firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                                    <input type="text" id="inquiry-firstName" name="firstName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="inquiry-lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                                    <input type="text" id="inquiry-lastName" name="lastName" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="inquiry-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                                    <input type="email" id="inquiry-email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                                <div>
+                                                    <label for="inquiry-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                                    <input type="tel" id="inquiry-phone" name="phone" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Inquiry Information -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Your Inquiry</h4>
+                                            <div class="mb-4">
+                                                <label for="inquiry-category" class="block text-sm font-medium text-gray-700 mb-2">Inquiry Category</label>
+                                                <select id="inquiry-category" name="category" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange">
+                                                    <option value="">Select category</option>
+                                                    <option value="General Questions">General Questions</option>
+                                                    <option value="Service Information">Service Information</option>
+                                                    <option value="Pricing">Pricing Information</option>
+                                                    <option value="Technical Support">Technical Support</option>
+                                                    <option value="Business Hours">Business Hours</option>
+                                                    <option value="Service Area">Service Area</option>
+                                                    <option value="Warranty">Warranty Information</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="inquiry-subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                                <input type="text" id="inquiry-subject" name="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange" placeholder="Brief subject of your inquiry">
+                                            </div>
+                                            <div>
+                                                <label for="inquiry-message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                                                <textarea id="inquiry-message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange resize-vertical" placeholder="Please describe your question or inquiry in detail..."></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Photos Upload -->
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <h4 class="text-lg font-semibold mb-4">Supporting Documents (Optional)</h4>
+                                            <div class="file-upload-area border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-aj-orange transition-colors" onclick="document.getElementById('inquiry-photos').click()">
+                                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                                <p class="text-gray-600">Click to upload files or drag and drop</p>
+                                                <p class="text-sm text-gray-500 mt-1">Supported: JPG, PNG, PDF (max 10MB per file)</p>
+                                            </div>
+                                            <input type="file" id="inquiry-photos" name="attachments" multiple accept="image/*,application/pdf" class="hidden">
+                                            <div id="inquiry-file-preview" class="mt-4 hidden">
+                                                <h5 class="font-medium text-gray-700 mb-2">Selected Files:</h5>
+                                                <div id="inquiry-file-list" class="space-y-2"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="w-full bg-aj-orange text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors">
+                                            <i class="fas fa-envelope mr-2"></i>
+                                            Send Inquiry
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success/Error Message Popup -->
+    <div id="message-popup" class="message-popup">
+        <div class="flex justify-between items-start">
+            <div>
+                <h4 class="font-bold mb-1" id="message-title">Success!</h4>
+                <p id="message-text">Your message has been sent successfully.</p>
+            </div>
+            <button onclick="hideMessage()" class="ml-4 text-white hover:text-gray-200">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer (include your existing footer here) -->
+    
+    <script>
+        // Form tab switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.form-tab');
+            const contents = document.querySelectorAll('.form-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const formType = this.dataset.form;
+                    
+                    // Update tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update content
+                    contents.forEach(c => c.classList.remove('active'));
+                    document.getElementById(formType + '-form-content').classList.add('active');
+                });
+            });
+            
+            // Set minimum date to today for date inputs
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInputs.forEach(input => {
+                input.min = today;
+            });
+            
+            // File upload handlers
+            setupFileUpload('estimate');
+            setupFileUpload('schedule');
+            setupFileUpload('inquiry');
+            
+            // Form submission handlers
+            setupFormSubmission('estimate');
+            setupFormSubmission('schedule');
+            setupFormSubmission('inquiry');
+        });
+        
+        function setupFileUpload(formType) {
+            const fileInput = document.getElementById(formType + '-photos');
+            const preview = document.getElementById(formType + '-file-preview');
+            const fileList = document.getElementById(formType + '-file-list');
+            
+            if (fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    displayFiles(e.target.files, preview, fileList);
+                });
+            }
+        }
+        
+        function displayFiles(files, preview, fileList) {
+            if (files.length > 0) {
+                preview.classList.remove('hidden');
+                fileList.innerHTML = '';
+                
+                Array.from(files).forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'flex items-center justify-between bg-white p-2 rounded border';
+                    fileItem.innerHTML = `
+                        <div class="flex items-center">
+                            <i class="fas fa-file text-gray-500 mr-2"></i>
+                            <span class="text-sm">${file.name}</span>
+                            <span class="text-xs text-gray-500 ml-2">(${(file.size / 1024).toFixed(1)}KB)</span>
+                        </div>
+                        <button type="button" onclick="removeFile(this, ${index})" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    fileList.appendChild(fileItem);
+                });
+            } else {
+                preview.classList.add('hidden');
+            }
+        }
+        
+        function removeFile(button, index) {
+            // Note: This is a simplified implementation
+            // In a production app, you'd want to maintain a proper file list
+            button.parentElement.remove();
+        }
+        
+        function setupFormSubmission(formType) {
+            const form = document.getElementById(formType + '-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+                submitButton.disabled = true;
+                
+                // Prepare form data
+                const formData = new FormData(form);
+                
+                // Determine endpoint
+                const endpoint = `/.netlify/functions/form-${formType}`;
+                
+                // Submit form
+                fetch(endpoint, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showMessage('success', 'Success!', data.message);
+                        form.reset();
+                        // Hide file previews
+                        const preview = document.getElementById(formType + '-file-preview');
+                        if (preview) preview.classList.add('hidden');
+                    } else {
+                        showMessage('error', 'Error', data.message || 'Something went wrong. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showMessage('error', 'Error', 'There was an error sending your message. Please try again or call us directly at (703) 997-0026.');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+            });
+        }
+        
+        function showMessage(type, title, text) {
+            const popup = document.getElementById('message-popup');
+            const titleEl = document.getElementById('message-title');
+            const textEl = document.getElementById('message-text');
+            
+            popup.className = `message-popup ${type}`;
+            titleEl.textContent = title;
+            textEl.textContent = text;
+            
+            popup.classList.add('show');
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                hideMessage();
+            }, 5000);
+        }
+        
+        function hideMessage() {
+            const popup = document.getElementById('message-popup');
+            popup.classList.remove('show');
+        }
+        
+        // Drag and drop functionality
+        document.querySelectorAll('.file-upload-area').forEach(area => {
+            area.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            
+            area.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+            });
+            
+            area.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+                
+                const formType = this.onclick.toString().match(/getElementById\('(\w+)-photos'\)/)[1];
+                const fileInput = document.getElementById(formType + '-photos');
+                const preview = document.getElementById(formType + '-file-preview');
+                const fileList = document.getElementById(formType + '-file-list');
+                
+                fileInput.files = e.dataTransfer.files;
+                displayFiles(e.dataTransfer.files, preview, fileList);
+            });
+        });
+    </script>
+</body>
+</html>

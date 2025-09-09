@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recessed Lighting Installation Arlington VA | Modern LED Lighting | AJ Long Electric</title>
+    <meta name="description" content="Professional recessed lighting installation in Arlington, VA. Transform your home with energy-efficient LED lighting, expert design and installation from AJ Long Electric. Free estimates.">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Recessed Lighting Installation Arlington VA",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "AJ Long Electric",
+        "image": "https://ajlongelectric.com/assets/logos/logo.png",
+        "url": "https://ajlongelectric.com",
+        "telephone": "703-997-0026",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2832 Dorr Ave Suite D",
+          "addressLocality": "Fairfax",
+          "addressRegion": "VA",
+          "postalCode": "22031",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Arlington",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Virginia"
+        }
+      },
+      "description": "Professional recessed lighting installation services in Arlington, VA. Transform your kitchen, living room, basement, or any space with modern, energy-efficient LED recessed lighting. Expert design and installation by licensed electricians.",
+      "offers": {
+        "@type": "Offer",
+        "price": "200.00",
+        "priceCurrency": "USD",
+        "description": "Starting at $200 per light. Includes professional installation, all materials, and dimmer switch installation.",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Recessed Lighting Installation in <span class="text-aj-orange">Arlington, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">Transform your Arlington home with professionally installed, energy-efficient LED recessed lighting. Perfect for kitchens, living rooms, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-start">
+                <div class="md:w-2/3 md:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Professional Recessed Lighting Installation in Arlington</h2>
+                    
+                    <p class="text-gray-700 mb-6">AJ Long Electric specializes in custom recessed lighting installations throughout Arlington, VA. Our expert electricians have transformed countless homes in neighborhoods including Clarendon, Ballston, Rosslyn, Pentagon City, and Crystal City with beautiful, energy-efficient recessed lighting solutions.</p>
+                    
+                    <p class="text-gray-700 mb-6">Whether you're renovating a classic Arlington Colonial, updating a mid-century ranch, or modernizing a high-rise condo, our recessed lighting installations will enhance both the aesthetics and functionality of your space while increasing your home's value.</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Why Choose Recessed Lighting?</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold text-aj-orange mb-2 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i> Modern Aesthetic
+                            </h4>
+                            <p class="text-gray-700">Clean, streamlined look that creates an open, spacious feeling without hanging fixtures or lamps taking up visual space.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold text-aj-orange mb-2 flex items-center">
+                                <i class="fas fa-bolt mr-2"></i> Energy Efficiency
+                            </h4>
+                            <p class="text-gray-700">LED recessed lights consume up to 85% less energy than traditional lighting and last for 25,000+ hours, reducing your utility bills.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold text-aj-orange mb-2 flex items-center">
+                                <i class="fas fa-adjust mr-2"></i> Customizable Lighting
+                            </h4>
+                            <p class="text-gray-700">Dimmer-compatible options allow you to adjust brightness levels for different activities and times of day.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold text-aj-orange mb-2 flex items-center">
+                                <i class="fas fa-home mr-2"></i> Increased Home Value
+                            </h4>
+                            <p class="text-gray-700">Modern lighting upgrades can boost your Arlington home's appeal to potential buyers and increase resale value.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Recessed Lighting Services in Arlington</h3>
+                    
+                    <ul class="list-none space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Kitchen Recessed Lighting</h4>
+                                <p class="text-gray-700">Strategically placed lights for task lighting over countertops and ambient lighting throughout, perfect for Arlington's open-concept homes.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Living Room & Dining Room Lighting</h4>
+                                <p class="text-gray-700">Ambient lighting with strategic accent lighting to highlight artwork or architectural features common in Arlington homes.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Basement Recessed Lighting</h4>
+                                <p class="text-gray-700">Evenly distributed lighting to eliminate shadows in finished basements, creating usable living space without sacrificing ceiling height.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Bathroom Recessed Lighting</h4>
+                                <p class="text-gray-700">Moisture-rated fixtures for bathrooms with proper placement for ideal vanity lighting and shower illumination.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Smart Lighting Integration</h4>
+                                <p class="text-gray-700">Compatible dimmer switches and smart home integration with systems like Lutron Caseta, Philips Hue, and Google Nest for Arlington's tech-savvy homeowners.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">The AJ Long Electric Process</h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Personalized Consultation</h4>
+                                <p class="text-gray-700">Our Arlington lighting specialists will discuss your goals, evaluate your space, and recommend the optimal placement, quantity, and type of recessed lights for your specific needs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Detailed Proposal</h4>
+                                <p class="text-gray-700">You'll receive a comprehensive quote with transparent pricing that includes all labor, materials, and timeline expectations tailored to your Arlington property.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Professional Installation</h4>
+                                <p class="text-gray-700">Our licensed electricians will carefully install your new recessed lighting with minimal disruption to your Arlington home, ensuring proper wiring, placement, and function.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Final Inspection & Walkthrough</h4>
+                                <p class="text-gray-700">We'll demonstrate how to use your new lighting system, including any dimmers or smart features, and ensure you're completely satisfied before we consider the job complete.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Why Arlington Homeowners Choose AJ Long Electric</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-certificate text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Licensed & Insured</h4>
+                            <p class="text-gray-700 text-sm">Fully licensed to work in Arlington County with liability insurance and worker's compensation coverage.</p>
+                        </div>
+                        
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">5-Star Rated</h4>
+                            <p class="text-gray-700 text-sm">Over 1,200 5-star reviews from satisfied customers throughout Northern Virginia, including many in Arlington.</p>
+                        </div>
+                        
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-shield-alt text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">5-Year Warranty</h4>
+                            <p class="text-gray-700 text-sm">All of our Arlington recessed lighting installations include a comprehensive 5-year warranty on parts and labor.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Recessed Lighting Pricing for Arlington Homes</h3>
+                        <p class="text-gray-700 mb-4">Our recessed lighting installation services in Arlington start at $200 per light, which includes:</p>
+                        <ul class="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+                            <li>Professional consultation and layout design</li>
+                            <li>High-quality 4" or 6" LED recessed lights</li>
+                            <li>Proper wiring and electrical connections</li>
+                            <li>Dimmer switch installation (when applicable)</li>
+                            <li>Clean installation with minimal ceiling damage</li>
+                            <li>All labor and materials</li>
+                            <li>Thorough cleanup after installation</li>
+                        </ul>
+                        <p class="text-gray-700">For a personalized quote for your Arlington home, contact us today. We provide detailed, transparent pricing tailored to your specific project requirements.</p>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition mr-4 inline-flex items-center">
+                            <i class="fas fa-clipboard-list mr-2"></i> Get a Free Estimate
+                        </a>
+                        <a href="/resources/recessed-lighting-guide.html" class="border-2 border-aj-orange text-aj-orange hover:bg-aj-orange hover:text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                            <i class="fas fa-book mr-2"></i> Read Our Lighting Guide
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3 mt-8 md:mt-0">
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md mb-8">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Request a Recessed Lighting Consultation</h3>
+                            <p class="text-gray-700 mb-4">Get a free, no-obligation estimate for your Arlington home's recessed lighting project.</p>
+                            <a href="/estimate.html" class="block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-6 rounded shadow-md transition text-center mb-4">
+                                Schedule Now
+                            </a>
+                            <p class="text-gray-600 text-sm text-center">Or call us at <a href="tel:7039970026" class="text-aj-orange font-bold">703-997-0026</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md mb-8">
+                        <img src="/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg" alt="Recessed Lighting Installation in Arlington Home" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Recent Arlington Project</h3>
+                            <p class="text-gray-700 mb-3">Complete kitchen transformation with LED recessed lighting in Clarendon neighborhood.</p>
+                            <a href="/gallery.html" class="text-aj-orange hover:underline inline-flex items-center">
+                                View Project Gallery <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md mb-8">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Arlington Service Areas</h3>
+                            <p class="text-gray-700 mb-3">We provide recessed lighting installation services throughout Arlington, including:</p>
+                            <ul class="text-gray-700 space-y-1 mb-4">
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Clarendon</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Ballston</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Rosslyn</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Pentagon City</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Crystal City</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Shirlington</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Lyon Village</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Virginia Square</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> All of Arlington County</li>
+                            </ul>
+                            <a href="/virginia-electrical-services/arlington.html" class="text-aj-orange hover:underline inline-flex items-center">
+                                View All Arlington Services <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Customer Testimonial</h3>
+                            <div class="mb-4 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 italic mb-3">"AJ Long Electric installed recessed lighting throughout our Arlington home. Their design advice was excellent, and the installation team was professional and clean. The new lighting has completely transformed our space!"</p>
+                            <p class="text-gray-800 font-semibold">— Sarah M., Clarendon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions about recessed lighting installation in Arlington homes.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">How long does recessed lighting installation take in Arlington homes?</h3>
+                        <p class="text-gray-700">For a typical Arlington home, installing 6-10 recessed lights usually takes 1-2 days. The timeline depends on factors such as the complexity of your ceiling structure, whether you're replacing existing fixtures or adding new lights, and if we need to run new wiring. We'll provide a specific timeline estimate during your consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Do I need a permit for recessed lighting installation in Arlington?</h3>
+                        <p class="text-gray-700">Yes, Arlington County typically requires electrical permits for recessed lighting installation. As licensed electricians, we handle all permitting requirements on your behalf as part of our service, ensuring your installation is code-compliant and inspected properly.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">How many recessed lights do I need in my Arlington home?</h3>
+                        <p class="text-gray-700">The number of recessed lights depends on the size and function of your space. For Arlington kitchens, we typically recommend one light per 25 square feet for ambient lighting, with additional task lighting over work areas. For living rooms, one light per 50-100 square feet is common. During our in-home consultation, we'll determine the ideal number and placement for your specific space.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Can you install recessed lights in my Arlington condo with concrete ceilings?</h3>
+                        <p class="text-gray-700">Yes, we specialize in recessed lighting solutions for Arlington's many high-rise condos with concrete ceilings. We can utilize a variety of approaches, including shallow-depth LED fixtures, surface-mounted lights that mimic recessed fixtures, or creating a drop ceiling in strategic areas. Our experience with Arlington's urban housing stock ensures we can find the right solution for your specific building.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Do you offer smart lighting options for Arlington homes?</h3>
+                        <p class="text-gray-700">Absolutely! We specialize in smart lighting solutions that are popular in Arlington's tech-savvy community. We can install compatible dimmer switches and integrate your recessed lighting with systems like Lutron Caseta, Philips Hue, Samsung SmartThings, and Google Nest for voice control and smartphone app functionality. We'll discuss your smart home preferences during your consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Arlington Home with Recessed Lighting?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Contact AJ Long Electric today for a free consultation and detailed estimate for your recessed lighting project.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request a Free Estimate
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="/assets/logos/ajlelogo_white.png" alt="AJ Long Electric Logo White" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC & MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i>
+                        <span>Fairfax, VA (Main Office)</span>
+                    </p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements & Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen & Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting & Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC & Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-6">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                    </div>
+                    <p class="text-sm mb-1">VA License #: 2705031092</p>
+                    <p class="text-sm mb-1">MD License #: 3309</p>
+                    <p class="text-sm mb-1">DC License #: EM40000654</p>
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                 <p>&copy; <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                 <div class="mt-4 md:mt-0 space-x-4">
+                     <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                     <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                     <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                 </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+            document.getElementById('menu-overlay').style.display = 'block';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('menu-overlay').style.display = 'none';
+        });
+
+        document.getElementById('menu-overlay').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            this.style.display = 'none';
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Set copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+<script src="/js/include-html.js?v=1746948964"></script>
+</body>

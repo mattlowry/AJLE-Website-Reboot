@@ -1,0 +1,623 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Enhanced Title Tag -->
+    <title>Bathroom Ventilation Sizing Guide | CFM Calculator | AJ Long Electric</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="Calculate the proper exhaust fan size for your bathroom. Professional ventilation sizing guide with CFM calculator for Northern Virginia homes. Free consultation available.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bathroom Ventilation Sizing Guide | CFM Calculator | AJ Long Electric">
+    <meta property="og:description" content="Calculate the proper exhaust fan size for your bathroom. Professional ventilation sizing guide with CFM calculator for Northern Virginia homes.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/services/exhaust-fans/ventilation-sizing-guide.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bathroom Ventilation Sizing Guide | CFM Calculator | AJ Long Electric">
+    <meta name="twitter:description" content="Calculate the proper exhaust fan size for your bathroom. Professional ventilation sizing guide with CFM calculator for Northern Virginia homes.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/services/exhaust-fans/ventilation-sizing-guide.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/mobile-accessibility.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto;}
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Calculator styles */
+        .calculator-input {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--aj-orange);
+            box-shadow: 0 0 0 3px rgba(255, 114, 0, 0.1);
+        }
+        .result-box {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f4f7 100%);
+            border-left: 4px solid var(--aj-orange);
+        }
+    </style>
+    <!-- SEO: Schema.org for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Bathroom Ventilation Sizing Guide",
+      "description": "Professional guide for calculating proper exhaust fan sizing for bathrooms, including CFM requirements and installation recommendations.",
+      "url": "https://ajlongelectric.com/services/exhaust-fans/ventilation-sizing-guide.html",
+      "publisher": {
+        "@type": "ElectricalContractor",
+        "name": "AJ Long Electric",
+        "telephone": "703-997-0026",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2724 Dorr Ave, Suite 102",
+          "addressLocality": "Fairfax",
+          "addressRegion": "VA",
+          "postalCode": "22031",
+          "addressCountry": "US"
+        }
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+<!-- Include the standard header -->
+<div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pattern-bg text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-fadeInUp">
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-4">Bathroom Ventilation Sizing Guide</h1>
+                    <p class="text-lg mb-6">
+                        Calculate the proper exhaust fan size for your bathroom with our professional CFM calculator. Ensure optimal ventilation for homes in <strong class="text-aj-orange">Fairfax County, Arlington, Alexandria, DC, Montgomery County,</strong> and Prince George's County.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#calculator" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Use CFM Calculator
+                        </a>
+                        <a href="/estimate.html" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition">
+                            Get Professional Quote
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/kitchen/GFCI-Near-Sink.jpg?_a=BBFAAAAA0" alt="Bathroom ventilation sizing guide and CFM calculator" class="rounded transform -rotate-2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CFM Calculator -->
+    <section id="calculator" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Bathroom Exhaust Fan <span class="text-aj-orange">CFM Calculator</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Use our professional calculator to determine the proper CFM (cubic feet per minute) rating for your bathroom exhaust fan.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <form method="POST" action="/api/submit-estimate" data-netlify="true" name="cfm_calculator" id="cfm-calculator" class="space-y-6">
+                        <!-- Bathroom Dimensions -->
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <label for="room-length" class="block text-sm font-semibold text-gray-700 mb-2">Room Length (feet)</label>
+                                <input type="number" id="room-length" class="calculator-input w-full" placeholder="10" min="3" max="30" value="10">
+                            </div>
+                            <div>
+                                <label for="room-width" class="block text-sm font-semibold text-gray-700 mb-2">Room Width (feet)</label>
+                                <input type="number" id="room-width" class="calculator-input w-full" placeholder="8" min="3" max="30" value="8">
+                            </div>
+                            <div>
+                                <label for="ceiling-height" class="block text-sm font-semibold text-gray-700 mb-2">Ceiling Height (feet)</label>
+                                <input type="number" id="ceiling-height" class="calculator-input w-full" placeholder="9" min="7" max="12" value="9">
+                            </div>
+                        </div>
+
+                        <!-- Fixture Count -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Bathroom Fixtures</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div>
+                                    <label for="toilets" class="block text-sm font-semibold text-gray-700 mb-2">Toilets</label>
+                                    <input type="number" id="toilets" class="calculator-input w-full" min="0" max="3" value="1">
+                                </div>
+                                <div>
+                                    <label for="showers" class="block text-sm font-semibold text-gray-700 mb-2">Showers</label>
+                                    <input type="number" id="showers" class="calculator-input w-full" min="0" max="3" value="1">
+                                </div>
+                                <div>
+                                    <label for="bathtubs" class="block text-sm font-semibold text-gray-700 mb-2">Bathtubs</label>
+                                    <input type="number" id="bathtubs" class="calculator-input w-full" min="0" max="2" value="0">
+                                </div>
+                                <div>
+                                    <label for="sinks" class="block text-sm font-semibold text-gray-700 mb-2">Sinks</label>
+                                    <input type="number" id="sinks" class="calculator-input w-full" min="0" max="3" value="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Special Considerations -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Special Considerations</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="jetted-tub" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">Jetted Tub</span>
+                                        <p class="text-sm text-gray-600">Requires additional CFM for steam/moisture</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="steam-shower" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">Steam Shower</span>
+                                        <p class="text-sm text-gray-600">High-moisture environment requiring extra ventilation</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="no-window" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">No Window</span>
+                                        <p class="text-sm text-gray-600">Interior bathroom requiring additional ventilation</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="multiple-users" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">High Traffic</span>
+                                        <p class="text-sm text-gray-600">Master bathroom or multiple daily users</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Calculate Button -->
+                        <div class="text-center">
+                            <button type="button" id="calculate-cfm" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                                <i class="fas fa-calculator mr-2"></i> Calculate Required CFM
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    <div id="results" class="mt-12 hidden">
+                        <div class="result-box rounded-lg p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Ventilation Requirements</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="required-cfm">0</div>
+                                    <div class="text-gray-600">Required CFM</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="recommended-cfm">0</div>
+                                    <div class="text-gray-600">Recommended CFM</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="air-changes">0</div>
+                                    <div class="text-gray-600">Air Changes/Hour</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-4 bg-white rounded border-l-4 border-aj-orange">
+                                <h4 class="font-bold text-gray-800 mb-2">Fan Recommendations</h4>
+                                <div id="fan-recommendations" class="text-gray-600">
+                                    <!-- Dynamic recommendations will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sizing Guidelines -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Professional <span class="text-aj-orange">Sizing Guidelines</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Understanding the industry standards and best practices for bathroom ventilation sizing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-ruler"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Basic Rule</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">1 CFM per square foot of bathroom space, with a minimum of 50 CFM for any bathroom.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Small bathroom (50 sq ft): 50 CFM minimum</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Medium bathroom (80 sq ft): 80 CFM</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Large bathroom (120 sq ft): 120 CFM</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Fixture Method</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">For bathrooms over 100 sq ft, calculate CFM based on individual fixtures.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Toilet: 50 CFM</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Shower: 50 CFM</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Bathtub: 50 CFM</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Jetted tub: 100 CFM</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Air Changes</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Optimal ventilation provides 8-10 air changes per hour for effective moisture removal.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>8 ACH: Standard bathrooms</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>10 ACH: High-moisture areas</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>12+ ACH: Steam showers</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-volume-down"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Noise Levels</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Choose fans with appropriate sone ratings for comfortable operation.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>0.3-0.9 sones: Ultra-quiet</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>1.0-1.5 sones: Quiet</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>2.0+ sones: Standard</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Ductwork</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Proper ductwork design is critical for achieving rated CFM performance.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Shortest path to exterior</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Minimal bends and turns</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Proper duct sizing</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Code Requirements</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Virginia building codes require mechanical ventilation in windowless bathrooms.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Must vent to exterior</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>No venting to attics</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Timer or humidity controls</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Considerations -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Installation <span class="text-aj-orange">Considerations</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Important factors that affect exhaust fan performance and installation requirements.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Factors That Increase CFM Requirements</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">High Ceilings</h4>
+                                <p class="text-gray-600">Ceilings over 8 feet require additional CFM to handle increased air volume.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Multiple Fixtures</h4>
+                                <p class="text-gray-600">Separate shower and tub, multiple sinks, or jetted tubs increase moisture production.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Poor Insulation</h4>
+                                <p class="text-gray-600">Inadequate insulation allows more condensation on cold surfaces.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Long Duct Runs</h4>
+                                <p class="text-gray-600">Extensive ductwork reduces effective CFM, requiring higher-rated fans.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Installation Challenges</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">No Attic Access</h4>
+                                <p class="text-gray-600">May require wall-mounted fans or creative ductwork routing through walls.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Structural Constraints</h4>
+                                <p class="text-gray-600">Joists, HVAC ducts, or plumbing may limit fan placement options.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Electrical Requirements</h4>
+                                <p class="text-gray-600">New circuits may be needed for fans with lights, heaters, or high CFM ratings.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-aj-orange text-xl mr-4 mt-1">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Exterior Venting</h4>
+                                <p class="text-gray-600">Proper exterior termination prevents moisture infiltration and backdrafts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Professional Ventilation Design?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Our licensed electricians provide expert ventilation design and installation throughout <strong class="text-aj-orange">Fairfax County, Arlington, Alexandria, DC, Montgomery County, and Prince George's County.</strong></p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-orange-600 transition">
+                    Get Professional Assessment
+                </a>
+                <a href="tel:703-997-0026" class="bg-transparent border-2 border-white font-bold px-8 py-3 rounded hover:bg-white hover:text-aj-dark transition">
+                    Call (703) 997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+
+    <!-- Include HTML Components Script -->
+    <script src="/js/include-html.js?v=.1746952695."></script>
+    <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu - Fixed to target elements in included header
+            setTimeout(() => {
+                const menuToggle = document.getElementById('menu-toggle');
+                const closeMenu = document.getElementById('close-menu');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuOverlay = document.getElementById('menu-overlay');
+
+                if (menuToggle && closeMenu && mobileMenu && menuOverlay) {
+                    menuToggle.addEventListener('click', () => {
+                        mobileMenu.classList.add('active');
+                        menuOverlay.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    });
+
+                    const hideMenu = () => {
+                        mobileMenu.classList.remove('active');
+                        menuOverlay.style.display = 'none';
+                        document.body.style.overflow = '';
+                    };
+
+                    closeMenu.addEventListener('click', hideMenu);
+                    menuOverlay.addEventListener('click', hideMenu);
+                }
+            }, 500);
+
+            // CFM Calculator functionality
+            const calculateBtn = document.getElementById('calculate-cfm');
+            const resultsSection = document.getElementById('results');
+
+            calculateBtn.addEventListener('click', function() {
+                // Get input values
+                const length = parseFloat(document.getElementById('room-length').value) || 10;
+                const width = parseFloat(document.getElementById('room-width').value) || 8;
+                const height = parseFloat(document.getElementById('ceiling-height').value) || 9;
+                
+                const toilets = parseInt(document.getElementById('toilets').value) || 0;
+                const showers = parseInt(document.getElementById('showers').value) || 0;
+                const bathtubs = parseInt(document.getElementById('bathtubs').value) || 0;
+                const sinks = parseInt(document.getElementById('sinks').value) || 0;
+                
+                const jettedTub = document.getElementById('jetted-tub').checked;
+                const steamShower = document.getElementById('steam-shower').checked;
+                const noWindow = document.getElementById('no-window').checked;
+                const multipleUsers = document.getElementById('multiple-users').checked;
+
+                // Calculate room area and volume
+                const area = length * width;
+                const volume = area * height;
+
+                // Calculate CFM using area method (1 CFM per sq ft, minimum 50)
+                let areaCFM = Math.max(area, 50);
+
+                // Calculate CFM using fixture method
+                let fixtureCFM = 0;
+                fixtureCFM += toilets * 50;
+                fixtureCFM += showers * 50;
+                fixtureCFM += bathtubs * 50;
+                fixtureCFM += sinks * 25; // Sinks require less CFM
+                
+                if (jettedTub) fixtureCFM += 50; // Additional CFM for jetted tub
+                if (steamShower) fixtureCFM += 100; // Steam showers need significant ventilation
+
+                // Use the higher of the two methods
+                let requiredCFM = Math.max(areaCFM, fixtureCFM);
+
+                // Apply multipliers for special conditions
+                if (noWindow) requiredCFM *= 1.2; // 20% increase for no natural ventilation
+                if (multipleUsers) requiredCFM *= 1.15; // 15% increase for high traffic
+                if (height > 8) requiredCFM *= (height / 8); // Adjust for high ceilings
+
+                // Calculate recommended CFM (15-20% higher than required)
+                const recommendedCFM = Math.round(requiredCFM * 1.15);
+                requiredCFM = Math.round(requiredCFM);
+
+                // Calculate air changes per hour
+                const airChanges = Math.round((requiredCFM * 60) / volume);
+
+                // Update results
+                document.getElementById('required-cfm').textContent = requiredCFM;
+                document.getElementById('recommended-cfm').textContent = recommendedCFM;
+                document.getElementById('air-changes').textContent = airChanges;
+
+                // Generate fan recommendations
+                let recommendations = '';
+                if (recommendedCFM <= 80) {
+                    recommendations = 'Standard bathroom fan (50-80 CFM) suitable for basic ventilation needs. Look for ultra-quiet models under 1.0 sones.';
+                } else if (recommendedCFM <= 120) {
+                    recommendations = 'Medium-capacity fan (80-120 CFM) recommended. Consider models with humidity sensors for automatic operation.';
+                } else if (recommendedCFM <= 200) {
+                    recommendations = 'High-capacity fan (120-200 CFM) required. May need multiple fans or commercial-grade unit. Professional assessment recommended.';
+                } else {
+                    recommendations = 'Multiple fans or commercial-grade ventilation system required. Professional design consultation strongly recommended for optimal performance.';
+                }
+
+                // Add special feature recommendations
+                if (steamShower || jettedTub) {
+                    recommendations += ' Consider fans with delay timers to continue operation after use.';
+                }
+                if (noWindow) {
+                    recommendations += ' Humidity sensor controls are essential for windowless bathrooms.';
+                }
+
+                document.getElementById('fan-recommendations').textContent = recommendations;
+
+                // Show results
+                resultsSection.classList.remove('hidden');
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+    
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-5 sm:bottom-20 right-4 sm:right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-700 text-white font-bold px-4 sm:px-6 py-2 rounded shadow hover:bg-gray-800 transition text-sm sm:text-base" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2 text-aj-orange"></i> <span class="text-aj-orange">Book Online</span>
+        </button>
+    </div>
+    
+    <!-- Housecall Pro Booking Widget Script -->
+    <script async="" src="https://online-booking.housecallpro.com/script.js?token=4bcbc2f7231b4633abc97173fe9db382&amp;orgName=AJ-Long-Electric"></script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

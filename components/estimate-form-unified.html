@@ -1,0 +1,103 @@
+<!-- Unified Estimate Form Implementation Example
+     Replace existing estimate forms with this implementation --><!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Free Electrical Estimate - Unified Form</title>
+    
+    <!-- Existing stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Unified form styles -->
+    <link rel="stylesheet" href="/assets/css/unified-forms.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+
+    <!-- Google Places API for address autocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=YOUR_API_KEY" async="" defer=""></script>
+</head>
+<body>
+    <main class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-aj-dark mb-4">Get Your Free Electrical Estimate</h1>
+                <p class="text-xl text-gray-600">Professional estimates with detailed pricing and project timeline</p>
+                <div class="flex justify-center items-center mt-4 text-green-600">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span class="font-medium">Free • No Obligation • 24-Hour Response</span>
+                </div>
+            </div>
+
+            <!-- Unified Estimate Form (2-step) -->
+            <div class="unified-form-container" data-form-type="estimate">
+                <!-- Include the unified form component -->
+                <div data-include="/components/unified-form.html"></div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-6">Why Choose AJ Long Electric?</h2>
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <i class="fas fa-award text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">1,200+ 5-Star Reviews</h3>
+                        <p class="text-sm text-gray-600">Trusted by homeowners across VA, MD, and DC</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-users text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Family Owned Since 1996</h3>
+                        <p class="text-sm text-gray-600">Three generations of electrical expertise</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-shield-alt text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Licensed &amp; Insured</h3>
+                        <p class="text-sm text-gray-600">VA #2705031092, MD #3309, DC #EM40000654</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">24-Hour Response</h3>
+                        <p class="text-sm text-gray-600">Quick turnaround on all estimates</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Areas -->
+            <div class="mt-12 text-center">
+                <h3 class="text-xl font-bold mb-4">Serving Northern Virginia, Maryland &amp; Washington DC</h3>
+                <div class="flex flex-wrap justify-center gap-2 text-sm text-gray-600">
+                    <span class="bg-gray-100 px-3 py-1 rounded">Fairfax</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Arlington</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Alexandria</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Vienna</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">McLean</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Herndon</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Reston</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">Falls Church</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded">&amp; More</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include backup forms -->
+    <div data-include="/components/netlify-forms-backup.html"></div>
+
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/unified-form-handler.js"></script>
+    
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+        }
+        
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+    </style>
+
+</body></html>

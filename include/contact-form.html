@@ -1,0 +1,102 @@
+<!-- Simple Contact Form --><html><head></head><body><div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+    <form id="simple-contact-form" class="space-y-4" method="POST" data-netlify="true" name="contact">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="formType" value="contact">
+        
+        <div>
+            <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+        </div>
+        
+        <div>
+            <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+        </div>
+        
+        <div>
+            <label for="phone" class="block text-gray-700 font-medium mb-1">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+        </div>
+        
+        <div>
+            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required=""></textarea>
+        </div>
+        
+        <div>
+            <button type="submit" class="bg-aj-orange text-white font-bold px-4 py-2 rounded shadow hover:bg-gray-800 transition">
+                Send Message
+            </button>
+        </div>
+        
+        <div id="form-status" class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded"></div>
+    </form>
+</div>
+
+<script>
+// Include this script with the form
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('simple-contact-form');
+    const formStatus = document.getElementById('form-status');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(form);
+            
+            // Check if we're on Netlify
+            const isNetlify = window.location.hostname === 'ajlongelectric.netlify.app' || 
+                              window.location.hostname.includes('netlify');
+            
+            // Determine the endpoint based on the hosting platform
+            const endpoint = isNetlify 
+                ? '/.netlify/functions/form-handler' 
+                : '/api/contact-form';
+            
+            // Send the form using fetch
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    form.reset();
+                    formStatus.innerHTML = 'Thank you for your message! We\'ll get back to you soon.';
+                    formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    formStatus.classList.add('bg-green-100', 'text-green-700');
+                } else {
+                    throw new Error(data.message || 'Something went wrong');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formStatus.innerHTML = 'There was an error sending your message. Please try again or call us directly.';
+                formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                formStatus.classList.add('bg-red-100', 'text-red-700');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                formStatus.classList.remove('hidden');
+                
+                // Scroll to status message
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+    }
+});
+</script></body></html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Electrical Service Process | Transparent &amp; Professional | AJ Long Electric</title>
+    <meta name="description" content="Learn about AJ Long Electric's transparent 4-step service process: Request estimate, receive quote, schedule service, expert installation. Licensed electricians serving NoVA, DC &amp; MD since 1996.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="electrical service process, how electrical work done, electrician process, transparent pricing, professional electrical service, licensed electrician process, Northern Virginia electrician, electrical estimate process">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/process.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Electrical Service Process | Transparent &amp; Professional | AJ Long Electric">
+    <meta property="og:description" content="Learn about AJ Long Electric's transparent 4-step service process: Request estimate, receive quote, schedule service, expert installation. Licensed electricians serving NoVA, DC &amp; MD since 1996.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/process.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Electrical Service Process | Transparent &amp; Professional | AJ Long Electric">
+    <meta name="twitter:description" content="Learn about AJ Long Electric's transparent 4-step service process: Request estimate, receive quote, schedule service, expert installation.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+
+        /* Process timeline */
+        /* Fix for the timeline container */
+        .timeline-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Remove the vertical line that's causing issues */
+        .timeline-container::before {
+            display: none;
+        }
+        
+        /* Add connecting lines between steps */
+        .timeline-connector {
+            position: absolute;
+            background: linear-gradient(90deg, var(--aj-orange) 50%, transparent 50%);
+            background-size: 20px 2px;
+            height: 2px;
+            z-index: 0;
+        }
+        
+        /* Pulse animation for active step */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .timeline-dot.active {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Style timeline items as boxes with rounded corners */
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            margin-bottom: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid #333;
+            float: none;
+        }
+        
+        /* Fix timeline dot positioning */
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: 1.5rem;
+            margin-top: 1.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--aj-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Ensure content is properly positioned */
+        .timeline-content {
+            padding-left: 4.5rem;
+            width: 100%;
+        }
+        
+        /* Clear any floats */
+        .timeline-item::after {
+            content: none;
+        }
+        
+        /* Remove any float styles */
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+            float: none;
+            clear: none;
+            text-align: left;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot,
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: 0;
+            right: auto;
+        }
+        
+        /* Explicitly place items in grid */
+        .timeline-item:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .timeline-item:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .timeline-item:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .timeline-item:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        
+        /* For mobile view, make it a single column */
+        @media (max-width: 767px) {
+            .timeline-container {
+                grid-template-columns: 1fr;
+            }
+            .timeline-item:nth-child(1),
+            .timeline-item:nth-child(2),
+            .timeline-item:nth-child(3),
+            .timeline-item:nth-child(4) {
+                grid-column: 1;
+                grid-row: auto;
+            }
+        }
+
+        </style>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Process - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/process.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Process - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Sticky Header -->
+            <!-- Standard Header -->
+            <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+            <!-- Mobile menu is included in standard-header.html -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4 animate-fadeInUp">Our <span class="text-aj-orange">Process</span></h2>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                We follow a simple, transparent process to ensure your electrical projects are completed efficiently
+                and to your complete satisfaction.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The <span class="text-aj-orange">AJ Long Electric</span> Way</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our process is designed to make your electrical project experience as smooth, transparent, and hassle-free as possible. From the initial estimate to the final walkthrough, we keep you informed every step of the way.
+                </p>
+            </div>
+            
+            <div class="timeline-container max-w-4xl mx-auto">
+                <div class="timeline-item animate-fadeInUp">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <!-- Step 1 content -->
+                        <div class="md:flex items-center">
+                            <div class="md:w-2/3 md:pr-8 mb-4 md:mb-0">
+                                <h3 class="text-2xl font-bold mb-2">Step 1: Request an Estimate</h3>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-clock text-aj-orange mr-2"></i>
+                                    <span class="text-sm text-gray-500">Takes only 5 minutes</span>
+                                </div>
+                                <p class="text-gray-600 mb-3">Fill out our detailed estimate request form with information about your project. Add photos or videos to help us better understand your needs - no in-person visit required!</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Upload photos/videos directly</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Select from common services</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Choose your preferred timeline</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/3 text-center">
+                                <div class="bg-gray-100 rounded-lg p-4">
+                                    <i class="fas fa-file-invoice text-5xl text-aj-orange mb-2"></i>
+                                    <p class="text-sm font-semibold">No obligation</p>
+                                    <p class="text-xs text-gray-500">100% free estimates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <!-- Step 2 content -->
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/3 text-center md:order-2">
+                                <div class="bg-gray-100 rounded-lg p-4">
+                                    <i class="fas fa-file-alt text-5xl text-aj-orange mb-2"></i>
+                                    <p class="text-sm font-semibold">24-hour response</p>
+                                    <p class="text-xs text-gray-500">Often same-day</p>
+                                </div>
+                            </div>
+                            <div class="md:w-2/3 md:pr-8 md:order-1">
+                                <h3 class="text-2xl font-bold mb-2">Step 2: Receive Your Detailed Estimate</h3>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-clock text-aj-orange mr-2"></i>
+                                    <span class="text-sm text-gray-500">Within 24 hours</span>
+                                </div>
+                                <p class="text-gray-600 mb-3">Our expert team reviews your submission and prepares a comprehensive, flat-rate estimate:</p>
+                                <ul class="text-left text-sm text-gray-600 mb-3 space-y-1">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Itemized pricing - no hidden fees</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Material costs included</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Time estimates for completion</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Any code requirements explained</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <!-- Step 3 content -->
+                        <div class="md:flex items-center">
+                            <div class="md:w-2/3 md:pr-8 mb-4 md:mb-0">
+                                <h3 class="text-2xl font-bold mb-2">Step 3: Schedule Your Service</h3>
+                                <p class="text-gray-600 mb-3">Once you approve the estimate, we'll find a convenient time that works with your schedule:</p>
+                                <ul class="text-left text-sm text-gray-600 mb-3 pl-5 list-disc">
+                                    <li>Morning or afternoon appointments</li>
+                                    <li>Weekend options for certain services</li>
+                                    <li>24-hour advance confirmation</li>
+                                    <li>30-minute arrival window</li>
+                                </ul>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <!-- Step 4 content -->
+                        <div class="md:flex items-center">
+                            
+                            <div class="md:w-2/3 md:pr-8 md:order-1">
+                                <h3 class="text-2xl font-bold mb-2">Step 4: Professional Installation &amp; Satisfaction</h3>
+                                <p class="text-gray-600 mb-3">Our licensed electricians arrive on time, work efficiently, and thoroughly clean up when finished. We ensure your complete satisfaction:</p>
+                                <ul class="text-left text-sm text-gray-600 mb-3 pl-5 list-disc">
+                                    <li>Clear communication throughout</li>
+                                    <li>Floor protection and dust mitigation</li>
+                                    <li>Thorough cleanup after completion</li>
+                                    <li>Final walkthrough and explanation</li>
+                                    <li>Digital photos of completed work</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <a href="estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                Get Free Estimate
+            </a>
+        </div>
+        
+    </section>
+    
+    <!-- Success Metrics -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-6 text-center">
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <i class="fas fa-clock text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="text-3xl font-bold text-gray-800">98%</h3>
+                    <p class="text-gray-600">On-Time Arrival</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <i class="fas fa-star text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="text-3xl font-bold text-gray-800">1,200+</h3>
+                    <p class="text-gray-600">5-Star Reviews</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <i class="fas fa-calendar-check text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="text-3xl font-bold text-gray-800">24hr</h3>
+                    <p class="text-gray-600">Estimate Response</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <i class="fas fa-shield-alt text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="text-3xl font-bold text-gray-800">5 Year</h3>
+                    <p class="text-gray-600">Warranty Coverage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Our Process Different -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Makes Our Process <span class="text-aj-orange">Different</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    We've refined our process over the years to provide an exceptional customer experience that sets us apart.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-images text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Photo &amp; Video Estimates</h3>
+                    <p class="text-gray-600">Unlike many other electrical companies, we don't require an in-person visit for every estimate. You can upload photos and videos of your project area, allowing us to provide accurate estimates faster.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Transparent Flat-Rate Pricing</h3>
+                    <p class="text-gray-600">We provide detailed, itemized estimates with flat-rate pricing. You'll know exactly what you're paying for, with no hidden fees or surprise charges. Our pricing is competitive and transparent.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-phone-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">24-Hour Response Time</h3>
+                    <p class="text-gray-600">We respond to all estimate requests within 24 hours. We understand that electrical issues can be urgent, and we pride ourselves on our quick response times and efficient scheduling.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Single-Visit Completion</h3>
+                    <p class="text-gray-600">We plan our work meticulously to complete most projects in a single visit. Our trucks are well-stocked with quality materials, minimizing delays and return trips.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-broom text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clean Work Guarantee</h3>
+                    <p class="text-gray-600">We treat your home with respect. Our electricians wear boot covers, use drop cloths, and clean up thoroughly when the job is complete. We leave your home cleaner than we found it.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-clipboard-check text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Thorough Final Inspection</h3>
+                    <p class="text-gray-600">Before we consider a job complete, we conduct a thorough inspection and walkthrough with you. We want to ensure you're 100% satisfied with our work and understand any new electrical features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process FAQs -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Common Questions About <span class="text-aj-orange">Our Process</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Answers to frequently asked questions about working with AJ Long Electric.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">How quickly can I get an estimate?</h3>
+                        <p class="text-gray-600">We provide estimates within 24 hours of receiving your request. For simple projects with clear photos or videos, we can often provide same-day estimates. More complex projects may require additional questions or a brief phone consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Do I need to be home for the estimate?</h3>
+                        <p class="text-gray-600">No, one of the advantages of our process is that you don't need to be home for the initial estimate. Simply fill out our online form and upload photos/videos of the project area. If an in-person assessment is necessary, we'll let you know.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">How long does the scheduling process take?</h3>
+                        <p class="text-gray-600">Once you approve an estimate, we can typically schedule your project within 1-2 weeks, depending on our current workload and the project scope. For urgent issues, we offer priority scheduling options. We also provide specific appointment times with a 30-minute arrival window.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Do you handle permits and inspections?</h3>
+                        <p class="text-gray-600">Yes, we handle all necessary permits and coordinate inspections with local authorities. Our estimates include permit fees, and we manage the entire permitting process to ensure your electrical work meets all code requirements and passes inspection.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">What happens if I'm not satisfied with the work?</h3>
+                        <p class="text-gray-600">Your satisfaction is our priority. If you're not completely satisfied with any aspect of our work, we'll return to address your concerns at no additional cost. All our work is backed by a comprehensive 5-year warranty, giving you peace of mind that we stand behind our craftsmanship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to experience our streamlined process?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Request your free, detailed estimate today and see how easy it is to work with AJ Long Electric.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="estimate.html" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                    Get Free Estimate
+                </a>
+                <a href="tel:7039970026" class="border-2 border-aj-orange text-aj-orange font-bold px-8 py-3 rounded hover:bg-aj-orange hover:text-white transition">
+                    <i class="fas fa-phone mr-2"></i> Call (703) 997-0026
+                </a>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+
+
+</main></main></main></body></html>

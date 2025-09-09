@@ -1,0 +1,17 @@
+# robots.txt for AJLongElectric.com
+User-agent: *
+
+# Allow all bots to access most content
+Allow: /
+
+# Disallow test and temporary pages
+Disallow: /2222.html
+Disallow: /thank-you.html
+Disallow: /test.html
+Disallow: /code.html
+
+# Disallow duplicate content URL
+Disallow: /dc-electrical-services/dupoint-circle.html
+
+# Sitemap location
+Sitemap: https://ajlongelectric.com/sitemap.xml

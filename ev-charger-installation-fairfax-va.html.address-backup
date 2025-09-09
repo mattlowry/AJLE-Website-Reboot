@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Optimized Title - Enhanced for Local Pack -->
+    <title>EV Charger Installation Fairfax VA | Local Electricians | AJ Long Electric</title>
+    <!-- SEO Optimized Meta Description - Enhanced for Local Pack -->
+    <meta name="description" content="Expert home EV charger installation in Fairfax, VA by licensed local electricians. Serving Vienna, Falls Church, Arlington & McLean. Guide to Level 2 chargers, costs & permits in NoVA. Contact AJ Long Electric.">
+    
+    <!-- Existing CSS Links (Identical to blog.html) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Existing Styles (Identical to blog.html) -->
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+        
+        /* Styles specific to blog posts */
+         .blog-content h2 {
+            @apply text-2xl font-bold mt-8 mb-4 text-aj-dark;
+         }
+         .blog-content h3 {
+            @apply text-xl font-semibold mt-6 mb-3 text-aj-dark;
+         }
+         .blog-content p {
+            @apply mb-4 text-gray-700 leading-relaxed;
+         }
+         .blog-content ul {
+            @apply list-disc list-inside mb-4 pl-4 text-gray-700;
+         }
+         .blog-content li {
+            @apply mb-2;
+         }
+         .blog-content a {
+             @apply text-aj-orange hover:underline;
+         }
+         .blog-content strong {
+             @apply font-semibold text-gray-800;
+         }
+         .category-badge { 
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .date-badge { 
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .local-focus { 
+            font-weight: 600; 
+        }
+    </style>
+
+    <!-- ======== START SCHEMA MARKUP ======== -->
+
+    <!-- 1. LocalBusiness (Electrician) Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician", 
+      "name": "AJ Long Electric",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com",
+      "telephone": "+1-703-997-0026",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": { 
+        "@type": "GeoCoordinates",
+        "latitude": 38.8383686,
+        "longitude": -77.2690286
+      },
+      "areaServed": [ 
+        { "@type": "City", "name": "Fairfax" },
+        { "@type": "City", "name": "Vienna" },
+        { "@type": "City", "name": "Falls Church" },
+        { "@type": "City", "name": "Arlington" },
+        { "@type": "City", "name": "McLean" },
+        { "@type": "AdministrativeArea", "name": "Fairfax County" },
+        { "@type": "AdministrativeArea", "name": "Arlington County" },
+        { "@type": "AdministrativeArea", "name": "Northern Virginia" } 
+      ],
+      "priceRange": "$$",
+      "openingHoursSpecification": [ 
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "makesOffer": { 
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Home EV Charger Installation",
+          "serviceType": "Electrician",
+           "areaServed": [ // Service areas for THIS specific offer
+              { "@type": "City", "name": "Fairfax" },
+              { "@type": "City", "name": "Vienna" },
+              { "@type": "City", "name": "Falls Church" },
+              { "@type": "City", "name": "Arlington" },
+              { "@type": "City", "name": "McLean" }
+           ],
+           "provider": { // Link back to the main business info
+                "@type": "Electrician",
+                "name": "AJ Long Electric"
+           }
+        }
+      }
+    }
+    </script>
+
+    <!-- 2. Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/ev-charger-installation-fairfax-va.html"
+      },
+      "headline": "Home EV Charger Installation: Fairfax, VA & Nearby Areas Guide",
+      "image": "https://ajlongelectric.com/assets/images/gallery/ev/EV-Charger-truck.jpg",
+      "datePublished": "2024-05-24",
+      "dateModified": "2024-05-24",
+      "author": {
+        "@type": "Organization", 
+        "name": "AJ Long Electric" 
+      },
+       "publisher": {
+        "@type": "Organization",
+        "name": "AJ Long Electric",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png"
+        }
+      },
+      "description": "Expert home EV charger installation in Fairfax, VA by licensed local electricians. Serving Vienna, Falls Church, Arlington & McLean. Guide to Level 2 chargers, costs & permits in NoVA. Contact AJ Long Electric.",
+      "articleBody": "Electric vehicles (EVs) are becoming common sight on the roads of Fairfax, Arlington, and across Northern Virginia. If you're an EV owner in Fairfax, VA, or nearby towns like Vienna, Falls Church, Arlington, or McLean, installing a home EV charger is the key to unlocking ultimate convenience..."
+    }
+    </script>
+
+    <!-- ======== END SCHEMA MARKUP ======== -->
+
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-aj-light-gray">
+    
+    <!-- Standard Header (loaded via JavaScript - Identical to blog.html) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+
+    <!-- Page Title Section (Using styles from blog.html) -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <!-- SEO Optimized H1 - Stronger Local Focus -->
+            <h1 class="text-4xl font-bold mb-4 animate-fadeInUp">Home EV Charger Installation: Fairfax, VA & Nearby Areas Guide</h1>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                Your local guide for installing EV chargers in <span class="local-focus">Fairfax</span>, <span class="local-focus">Vienna</span>, <span class="local-focus">Falls Church</span>, <span class="local-focus">Arlington</span>, and <span class="local-focus">McLean, VA</span>. Information from AJ Long Electric, your trusted Northern Virginia electricians.
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Post Content (Replaces blog list from blog.html) -->
+    <main class="py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <article class="bg-white rounded-lg shadow-md p-6 md:p-10 blog-content">
+                
+                <div class="flex items-center mb-6 border-b pb-4">
+                    <span class="category-badge bg-blue-100 text-blue-800 mr-3">EV Chargers</span>
+                    <span class="date-badge">May 24, 2024</span> <!-- Update date as needed -->
+                </div>
+
+                <img src="/assets/images/gallery/ev/EV-Charger-truck.jpg" alt="AJ Long Electric installing a home EV charger in Fairfax County, VA" class="w-full h-auto rounded-lg mb-8 shadow-sm object-cover" style="max-height: 400px;">
+
+                <p>Electric vehicles (EVs) are becoming common sight on the roads of <strong class="local-focus">Fairfax</strong>, <strong class="local-focus">Arlington</strong>, and across Northern Virginia. If you're an EV owner in <strong class="local-focus">Fairfax, VA</strong>, or nearby towns like <strong class="local-focus">Vienna</strong>, <strong class="local-focus">Falls Church</strong>, <strong class="local-focus">Arlington</strong>, or <strong class="local-focus">McLean</strong>, installing a home EV charger is the key to unlocking ultimate convenience. Forget searching for public stations – charge overnight right in your own garage or driveway. AJ Long Electric, your local Fairfax electricians, put together this guide specifically for homeowners in our service area.</p>
+
+                <h2>Why Install a Home EV Charger in the Fairfax Area?</h2>
+                <p>For residents in the bustling communities of Fairfax County and Arlington County, the benefits are clear:</p>
+                <ul>
+                    <li><strong>Unmatched Convenience:</strong> Start every day in Fairfax or Arlington with a fully charged EV.</li>
+                    <li><strong>Lower Charging Costs:</strong> Home electricity rates in <strong class="local-focus">Vienna</strong> or <strong class="local-focus">McLean</strong> are typically much cheaper than public DC fast chargers, especially using off-peak rates.</li>
+                    <li><strong>Save Valuable Time:</strong> No more waiting at busy charging stations in <strong class="local-focus">Falls Church</strong> or elsewhere.</li>
+                    <li><strong>Boost Your Home's Appeal:</strong> An EV charger is a desirable feature for potential buyers throughout Northern Virginia.</li>
+                </ul>
+
+                <h2>Level 1 vs. Level 2 Charging for Your NoVA Home</h2>
+                <ul>
+                    <li><strong>Level 1:</strong> Uses a standard outlet. Very slow (3-5 miles range/hour). Okay for occasional top-ups, but impractical for daily driving needs in areas like <strong class="local-focus">Fairfax</strong> or <strong class="local-focus">Arlington</strong>.</li>
+                    <li><strong>Level 2:</strong> Uses a 240V circuit (like a dryer). Much faster (20-60 miles range/hour). This is the standard for home charging and <strong>requires professional installation by a licensed electrician familiar with codes in Fairfax County and surrounding jurisdictions (Arlington, City of Fairfax, etc.).</strong></li>
+                </ul>
+                <p>AJ Long Electric specializes in safe and efficient <strong>Level 2 EV charger installations</strong> across our Northern Virginia service area, including <strong class="local-focus">Fairfax</strong>, <strong class="local-focus">Vienna</strong>, <strong class="local-focus">Falls Church</strong>, <strong class="local-focus">Arlington</strong>, and <strong class="local-focus">McLean</strong>.</p>
+
+                <h2>Key Factors for Your EV Charger Installation (Fairfax, Arlington, Vienna, etc.)</h2>
+                
+                <h3>1. Electrical Panel Check</h3>
+                <p>Can your current electrical panel handle the extra load? Homes in older neighborhoods of <strong class="local-focus">Arlington</strong> or <strong class="local-focus">Falls Church</strong> might need a panel assessment or upgrade. Our electricians can determine if your panel in <strong class="local-focus">Fairfax</strong> or <strong class="local-focus">McLean</strong> is sufficient.</p>
+
+                <h3>2. Best Location for Your Charger</h3>
+                <p>Think about garage vs. driveway installation, cable reach to your EV's port, and weather protection, whether you're in <strong class="local-focus">Vienna</strong> or <strong class="local-focus">Fairfax</strong>.</p>
+
+                <h3>3. Permits for EV Chargers in Fairfax, Arlington, and Local Cities</h3>
+                <p>Yes, permits are generally required! Whether you're in <strong class="local-focus">Fairfax County</strong>, <strong class="local-focus">Arlington County</strong>, the City of Falls Church, or Town of Vienna, a permit ensures your Level 2 charger installation is safe and code-compliant. <strong>AJ Long Electric handles the entire permit process</strong> with the correct local authorities for your peace of mind.</p>
+
+                <h3>4. Selecting the Right EV Charger</h3>
+                <p>We can help you choose based on your vehicle, desired charging speed (amperage), and smart features beneficial for managing charging times and costs in the Dominion Energy service area.</p>
+
+                <h2>Our EV Charger Installation Process in Northern Virginia</h2>
+                <p>When you choose AJ Long Electric, here’s what to expect for your installation in <strong class="local-focus">Fairfax</strong>, <strong class="local-focus">Arlington</strong>, or nearby:</p>
+                <ol class="list-decimal list-inside mb-4 pl-4 text-gray-700">
+                    <li class="mb-2"><strong>Local Consultation:</strong> We visit your home in <strong class="local-focus">Fairfax</strong>, <strong class="local-focus">Vienna</strong>, <strong class="local-focus">Falls Church</strong>, <strong class="local-focus">Arlington</strong>, or <strong class="local-focus">McLean</strong> to assess your setup.</li>
+                    <li class="mb-2"><strong>Clear Quote:</strong> Transparent pricing including materials, labor, and local permit fees.</li>
+                    <li class="mb-2"><strong>Permit Management:</strong> We navigate the specific requirements for <strong class="local-focus">Fairfax County</strong>, <strong class="local-focus">Arlington County</strong>, or other local jurisdictions.</li>
+                    <li class="mb-2"><strong>Expert Installation:</strong> Our licensed Virginia electricians perform the work safely and efficiently.</li>
+                    <li class="mb-2"><strong>Inspection Coordination:</strong> We arrange the necessary electrical inspection.</li>
+                    <li class="mb-2"><strong>User Guidance:</strong> We ensure you're comfortable using your new home EV charger.</li>
+                </ol>
+
+                <h2>Cost Considerations for Home EV Charger Installation</h2>
+                <p>Costs vary, but factors include the charger itself, installation complexity (wiring distance, panel work), and specific permit fees for your location (e.g., permit costs can differ slightly between <strong class="local-focus">Fairfax County</strong> and <strong class="local-focus">Arlington County</strong>). Request a custom quote from AJ Long Electric for accurate pricing for your home.</p>
+
+                <hr class="my-8">
+
+                <!-- Enhanced Local SEO Section -->
+                <h2 class="text-center">Your Local Experts for EV Charger Installation: Serving Fairfax, Arlington & More</h2>
+                <p>Choosing a qualified, local electrician is crucial for a safe and reliable EV charger installation. AJ Long Electric is proud to serve homeowners throughout Northern Virginia, specializing in:</p>
+                <ul class="list-disc list-inside mb-4 pl-6 text-gray-700 text-center columns-2">
+                    <li><strong>EV Charger Installation Fairfax VA</strong></li>
+                    <li><strong>EV Charger Installation Arlington VA</strong></li>
+                    <li><strong>EV Charger Installation Vienna VA</strong></li>
+                    <li><strong>EV Charger Installation Falls Church VA</strong></li>
+                    <li><strong>EV Charger Installation McLean VA</strong></li>
+                    <li>And surrounding communities!</li>
+                </ul>
+                <p>We are licensed, insured, experienced with all major EV charger brands, and deeply familiar with the local electrical codes and permitting processes in <strong class="local-focus">Fairfax County</strong>, <strong class="local-focus">Arlington County</strong>, and the cities within.</p>
+
+                <div class="text-center mt-6">
+                     <p class="text-lg font-semibold mb-4">Ready to add convenient home EV charging? Contact your trusted local electricians at AJ Long Electric today!</p>
+                     <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-700 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onClick="HCPWidget.openModal()">
+                        <i class="fas fa-calendar-alt mr-2 text-aj-orange"></i> <span class="text-aj-orange">Book Your Estimate Online</span>
+                    </button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Standard Footer (loaded via JavaScript - Identical to blog.html) -->
+    <div data-include="/include/standard-footer.html"></div>
+
+    <!-- JavaScript (Identical to blog.html) -->
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <script src="/js/navigation.js"></script>
+    
+    <!-- Housecall Pro Booking Widget Script (Identical to blog.html) -->
+    <script async src="https://online-booking.housecallpro.com/script.js?token=4bcbc2f7231b4633abc97173fe9db382&orgName=AJ-Long-Electric"></script>
+    
+    <!-- Housecall Pro Booking Button (Fixed Position - Identical to blog.html) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-700 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2 text-aj-orange"></i> <span class="text-aj-orange">Book Online</span>
+        </button>
+    </div>
+</body>

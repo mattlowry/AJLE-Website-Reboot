@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Forms Test - AJ Long Electric</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-container { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #FF7200; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #e55a00; }
+        .note { background: #e7f3ff; padding: 15px; border-left: 4px solid #007cba; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Netlify Forms Test Page</h1>
+    <div class="note">
+        <strong>Test Page:</strong> This page contains all the form patterns used across the AJ Long Electric website to ensure Netlify can properly detect and handle form submissions.
+    </div>
+
+    <!-- Standard Contact Form (like in contact-form.html include) -->
+    <div class="form-container">
+        <h2>Standard Contact Form</h2>
+        <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required="">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required=""></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Estimate Form (like in estimate.html) -->
+    <div class="form-container">
+        <h2>Estimate Request Form</h2>
+        <form name="estimate" method="POST" data-netlify="true" action="/.netlify/functions/housecall-pro-estimate" enctype="multipart/form-data">
+            <input type="hidden" name="form-name" value="estimate">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required="">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required="">
+            </div>
+            <div class="form-group">
+                <label for="estimatePhone">Phone</label>
+                <input type="tel" id="estimatePhone" name="phone" required="">
+            </div>
+            <div class="form-group">
+                <label for="estimateEmail">Email</label>
+                <input type="email" id="estimateEmail" name="email" required="">
+            </div>
+            <div class="form-group">
+                <label for="address">Service Address</label>
+                <input type="text" id="address" name="address" required="">
+            </div>
+            <div class="form-group">
+                <label for="description">Description of Work</label>
+                <textarea id="description" name="description" rows="4" required=""></textarea>
+            </div>
+            <div class="form-group">
+                <label for="preferredTime">Preferred Time</label>
+                <select id="preferredTime" name="preferredTime">
+                    <option value="">Select preferred time</option>
+                    <option value="morning">Morning (8AM-12PM)</option>
+                    <option value="afternoon">Afternoon (12PM-5PM)</option>
+                    <option value="evening">Evening (5PM-7PM)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="photos">Photos/Videos (optional)</label>
+                <input type="file" id="photos" name="photos" multiple="" accept="image/*,video/*">
+            </div>
+            <button type="submit">Request Estimate</button>
+        </form>
+    </div>
+
+    <!-- Scheduling Form (like in comprehensive-form.html) -->
+    <div class="form-container">
+        <h2>Service Scheduling Form</h2>
+        <form name="scheduling" method="POST" data-netlify="true" action="/api/schedule-job">
+            <input type="hidden" name="form-name" value="scheduling">
+            <div class="form-group">
+                <label for="scheduleName">Full Name</label>
+                <input type="text" id="scheduleName" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="schedulePhone">Phone Number</label>
+                <input type="tel" id="schedulePhone" name="phone" required="">
+            </div>
+            <div class="form-group">
+                <label for="scheduleEmail">Email Address</label>
+                <input type="email" id="scheduleEmail" name="email" required="">
+            </div>
+            <div class="form-group">
+                <label for="serviceType">Service Type</label>
+                <select id="serviceType" name="serviceType" required="">
+                    <option value="">Select service type</option>
+                    <option value="outlet-installation">Outlet Installation</option>
+                    <option value="lighting">Lighting Work</option>
+                    <option value="panel-upgrade">Panel Upgrade</option>
+                    <option value="troubleshooting">Troubleshooting</option>
+                    <option value="emergency">Emergency Service</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="urgency">Urgency Level</label>
+                <select id="urgency" name="urgency" required="">
+                    <option value="">Select urgency</option>
+                    <option value="emergency">Emergency (same day)</option>
+                    <option value="urgent">Urgent (within 2 days)</option>
+                    <option value="standard">Standard (within 1 week)</option>
+                    <option value="flexible">Flexible scheduling</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="scheduleDescription">Work Description</label>
+                <textarea id="scheduleDescription" name="description" rows="3" required=""></textarea>
+            </div>
+            <button type="submit">Schedule Service</button>
+        </form>
+    </div>
+
+    <!-- Simple Service Quote Form (like on service pages) -->
+    <div class="form-container">
+        <h2>Service Quote Form</h2>
+        <form name="service-quote" method="POST" data-netlify="true" action="/api/submit-estimate">
+            <input type="hidden" name="form-name" value="service-quote">
+            <div class="form-group">
+                <label for="quoteName">Your Name</label>
+                <input type="text" id="quoteName" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="quotePhone">Phone Number</label>
+                <input type="tel" id="quotePhone" name="phone" required="">
+            </div>
+            <div class="form-group">
+                <label for="quoteService">Service Needed</label>
+                <select id="quoteService" name="service" required="">
+                    <option value="">Select service</option>
+                    <option value="panel-upgrade">Panel Upgrade</option>
+                    <option value="ev-charger">EV Charger Installation</option>
+                    <option value="recessed-lighting">Recessed Lighting</option>
+                    <option value="outlet-installation">Outlet Installation</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button type="submit">Get Quote</button>
+        </form>
+    </div>
+
+    <!-- Newsletter Signup (like in blog.html) -->
+    <div class="form-container">
+        <h2>Newsletter Signup</h2>
+        <form name="newsletter" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="newsletter">
+            <div class="form-group">
+                <label for="newsletterEmail">Email Address</label>
+                <input type="email" id="newsletterEmail" name="email" required="">
+            </div>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <div class="note">
+        <strong>Note:</strong> This test page ensures that Netlify's build process can detect all form patterns used across the website. In production, forms are submitted via JavaScript to appropriate API endpoints, but having these static forms ensures proper Netlify form registration.
+    </div>
+
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+
+</body></html>

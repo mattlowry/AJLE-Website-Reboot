@@ -1,0 +1,783 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AJ Long Electric | Licensed Electricians in NoVA, DC &amp; MD</title>
+    <meta name="description" content="Learn about AJ Long Electric, our family-owned business, values, experienced team, and commitment to providing 5-star electrical services in Fairfax, Arlington, DC, and Maryland.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="about AJ Long Electric, family owned electrician, licensed electrician, experienced electrical team, Northern Virginia electrician, Fairfax electrical contractor, electrical company history, certified electricians, bonded insured electrician">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/about.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About AJ Long Electric | Licensed Electricians in NoVA, DC &amp; MD">
+    <meta property="og:description" content="Learn about AJ Long Electric, our family-owned business, values, experienced team, and commitment to providing 5-star electrical services in Fairfax, Arlington, DC, and Maryland.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/about.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About AJ Long Electric | Licensed Electricians in NoVA, DC &amp; MD">
+    <meta name="twitter:description" content="Learn about AJ Long Electric, our family-owned business, values, experienced team, and commitment to providing 5-star electrical services in Fairfax, Arlington, DC, and Maryland.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto; }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Team member */
+        .team-member {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem; /* rounded-lg */
+            aspect-ratio: 4 / 5; /* Maintain aspect ratio */
+        }
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%; /* Position to better show faces and logos */
+            max-height: 380px; /* Control maximum height */
+        }
+        .team-member-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7) 60%, rgba(0,0,0,0));
+            padding: 2.5rem 1rem 1.25rem; /* More top padding for gradient effect */
+            transform: translateY(calc(100% - 4.5rem)); /* Only show name and title initially */
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+            height: auto; /* Let it size naturally */
+            min-height: 9rem; /* Ensure minimum height */
+        }
+        .team-member:hover .team-member-info {
+            transform: translateY(0);
+        }
+        .team-member-info h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1.25rem;
+            color: white;
+        }
+        .team-member-info p.role {
+            margin-bottom: 0.5rem;
+            color: var(--aj-orange);
+            font-weight: 600;
+        }
+        .team-member-info p.description {
+            line-height: 1.4;
+            font-size: 0.875rem;
+            color: #e2e2e2;
+        }
+
+        /* Animated counter */
+        .counter-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--aj-orange);
+             line-height: 1; /* Adjust line height */
+        }
+        .counter-label {
+             font-size: 1.125rem; /* text-xl */
+             font-weight: bold;
+             margin-bottom: 0.25rem; /* mb-1 */
+         }
+         .counter-desc {
+             color: #4b5563; /* text-gray-600 */
+         }
+
+        /* Back to top button */
+        #back-to-top { position: fixed; bottom: 20px; right: 100px; z-index: 99; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+    </style>
+     <!-- Schema.org markup for About Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AJ Long Electric",
+      "url": "https://ajlongelectric.com/",
+      "logo": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+       "description": "AJ Long Electric is a family-owned, licensed electrical contractor serving Northern Virginia, DC, and Maryland since 1996. We specialize in residential electrical services with a focus on safety, quality, and customer satisfaction. We offer panel upgrades, lighting installation, EV charger setup, and more, backed by a 5-year warranty.",
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "2724 Dorr Ave, Suite 102",
+         "addressLocality": "Fairfax",
+         "addressRegion": "VA",
+         "postalCode": "22031",
+         "addressCountry": "US"
+       },
+       "telephone": "+1-703-997-0026",
+       "foundingDate": "1996", // Adjust if founding date is different
+       "founder": {
+         "@type": "Person",
+         "name": "[Founder's Name, e.g., AJ Long]" // Replace with actual founder name
+       },
+       "aggregateRating": {
+         "@type": "AggregateRating",
+         "ratingValue": "5", // Or your actual average rating
+         "reviewCount": "1200" // Or your actual review count
+       },
+        "areaServed": [
+           { "@type": "County", "name": "Fairfax County" },
+           { "@type": "County", "name": "Arlington County" },
+           { "@type": "City", "name": "Alexandria" },
+           { "@type": "City", "name": "Washington D.C." },
+           { "@type": "County", "name": "Montgomery County" },
+           { "@type": "County", "name": "Prince George's County" }
+        ],
+       "sameAs": [
+         "[Your Facebook URL]",
+         "[Your Google Review URL]",
+         "[Your Yelp URL]",
+         "[Your Angi URL]"
+        // Add other relevant profiles
+       ]
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get Free Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-orange-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call (703) 997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get Free Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-aj-orange text-white font-bold py-3 rounded-lg hover:bg-orange-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+             <h2 class="text-4xl font-bold mb-4 animate-fadeInUp">About <span class="text-aj-orange">AJ Long</span> Electric</h2>
+             <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                 Get to know our family-owned company, our mission, and the dedicated team that makes AJ Long Electric
+                 one of the highest-rated electrical service providers in Northern Virginia, DC, and Maryland.
+             </p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                 <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our <span class="text-aj-orange">Story</span></h2>
+                    <p class="text-lg text-gray-600 mb-4">AJ Long Electric began in 1996 as a true family business, founded by John Long with a commitment to honest work and treating customers like neighbors. After years of seeing homeowners frustrated with unreliable contractors and unclear pricing, John decided to build a company based on transparency, quality, and exceptional service.</p>
+                     <p class="text-lg text-gray-600 mb-4">Joined by his son, Matt Long, the company has grown while maintaining those core family values. We are a father-and-son team at heart, bringing generations of experience and a personal touch to every job. We understand the importance of trust when inviting someone into your home, which is why we focus on clear communication, meticulous workmanship, and leaving your space cleaner than we found it.</p>
+                     <p class="text-lg text-gray-600">Today, AJ Long Electric is proud to be one of the most trusted and highly-rated residential electricians in the DMV area, with over 1,200 5-star reviews reflecting our dedication to customer satisfaction.</p>
+                 </div>
+                 <div class="md:w-1/2">
+                     <div class="grid grid-cols-2 gap-4">
+                         <div class="bg-white p-2 rounded shadow transform rotate-1 hover-grow">
+                              <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="AJ Long Electric team working on an electrical panel" class="rounded transform -rotate-1 w-full h-full object-cover" loading="lazy">
+                         </div>
+                         <div class="bg-white p-2 rounded shadow transform -rotate-1 mt-8 hover-grow">
+                              <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/AJLE-Sprinter-van.png?_a=BBFAAAAA0" alt="AJ Long Electric service van" class="rounded transform rotate-1 w-full h-full object-cover" loading="lazy">
+                         </div>
+                         <div class="bg-white p-2 rounded shadow transform -rotate-2 col-span-2 hover-grow">
+                              <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/ev/ev-charger-installation-resources.png?_a=BBFAAAAA0" alt="AJ Long Electric EV Charger Installation" class="rounded transform rotate-2 w-full h-full object-cover" loading="lazy">
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+     <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Our Core <span class="text-aj-orange">Values</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">These principles guide every interaction and project</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                     <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                         <i class="fas fa-shield-alt text-3xl"></i>
+                     </div>
+                     <h3 class="text-xl font-bold mb-3">Safety First</h3>
+                     <p class="text-gray-600 text-sm">Prioritizing the safety of your home, your family, and our team in every task we perform.</p>
+                 </div>
+
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                     <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                         <i class="fas fa-award text-3xl"></i>
+                     </div>
+                     <h3 class="text-xl font-bold mb-3">Quality Workmanship</h3>
+                     <p class="text-gray-600 text-sm">Delivering meticulous, code-compliant electrical work using high-quality materials for lasting reliability.</p>
+                </div>
+
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                     <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                         <i class="fas fa-handshake text-3xl"></i> <!-- Changed icon -->
+                    </div>
+                     <h3 class="text-xl font-bold mb-3">Honesty &amp; Integrity</h3>
+                     <p class="text-gray-600 text-sm">Operating with transparency, providing clear estimates, and communicating openly throughout the process.</p>
+                 </div>
+
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                     <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-headset text-3xl"></i> <!-- Changed icon -->
+                    </div>
+                     <h3 class="text-xl font-bold mb-3">Customer Focus</h3>
+                     <p class="text-gray-600 text-sm">Treating every customer with respect, listening to their needs, and striving for 100% satisfaction.</p>
+                 </div>
+
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                    <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-book-open text-3xl"></i> <!-- Changed icon -->
+                     </div>
+                     <h3 class="text-xl font-bold mb-3">Continuous Learning</h3>
+                     <p class="text-gray-600 text-sm">Staying current with the latest electrical codes, technologies, and best practices through ongoing training.</p>
+                 </div>
+
+                 <div class="bg-white p-8 rounded-lg shadow-md text-center transition duration-300 ease-in-out hover:shadow-xl">
+                     <div class="w-20 h-20 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-6 shadow-lg">
+                         <i class="fas fa-broom text-3xl"></i>
+                     </div>
+                     <h3 class="text-xl font-bold mb-3">Respect for Property</h3>
+                     <p class="text-gray-600 text-sm">Working cleanly, protecting your home during service, and leaving the work area spotless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+             <div class="text-center mb-12">
+                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Meet Our <span class="text-aj-orange">Team</span></h2>
+                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our skilled and courteous electricians bring years of experience to every project.</p>
+             </div>
+
+             <div class="grid md:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-member shadow-lg hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/about/about-dad.jpg?_a=BBFAAAAA0" alt="John Long" class="w-full object-cover" style="object-position: center 30%;" loading="lazy">
+                    <div class="team-member-info">
+                        <h3>John Long</h3>
+                        <p class="role">Founder &amp; Master Electrician</p>
+                        <p class="description">With over 40 years of experience, John Long founded AJ Long Electric on the foundations of high quality workmanship, fair and honest prices, and exceptional customer care.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member shadow-lg hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/about/About-Matt.jpg?_a=BBFAAAAA0" alt="Matt Long" class="w-full object-cover" style="object-position: center 25%;" loading="lazy">
+                    <div class="team-member-info">
+                        <h3>Matt Long</h3>
+                        <p class="role">Operations &amp; Business Manager</p>
+                        <p class="description">Teaming up with his dad to continue the established foundations, Matt focuses on integrating technological applications to enhance the customer experience while ensuring exceptional service.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member shadow-lg hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/about/about-bo.jpeg?_a=BBFAAAAA0" alt="Bo Keo" class="w-full object-cover" style="object-position: center 15%;" loading="lazy">
+                    <div class="team-member-info">
+                        <h3>Bo Keo</h3>
+                        <p class="role">Lead Electrician</p>
+                        <p class="description">Specializing in complex installations, panel upgrades, and older homes, with 36 years in the field.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-member shadow-lg hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/about/about-sai.jpeg?_a=BBFAAAAA0" alt="Sai Phom" class="w-full object-cover" style="object-position: center 18%;" loading="lazy">
+                    <div class="team-member-info">
+                        <h3>Sai Phom</h3>
+                        <p class="role">Lead Electrician</p>
+                        <p class="description">Specializing in code compliance, complex diagnostics, and estimates, with 38 years in the field.</p>
+                    </div>
+                </div>
+                <!-- Add more team members as needed -->
+             </div>
+         </div>
+    </section>
+
+    <!-- By the Numbers -->
+    <section class="py-16 bg-gray-100">
+     `   <div class="container mx-auto px-4">
+             <div class="text-center mb-12">
+                 <h2 class="text-3xl font-bold text-gray-800 mb-2">AJ Long Electric <span class="text-aj-orange">By The Numbers</span></h2>
+                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our track record speaks volumes about our commitment and experience.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 text-center gap-8">
+                 <div class="p-4">
+                    <p class="counter-value mb-1" data-count="1200">1200+</p>
+                    <p class="counter-label mb-1">5-Star Reviews</p>
+                    <p class="counter-desc text-sm">From happy customers</p>
+                 </div>
+
+                 <div class="p-4">
+                    <p class="counter-value mb-1" data-count="25">29</p> <!-- Assuming 1996 start -->
+                    <p class="counter-label mb-1">Years of Service</p>
+                    <p class="counter-desc text-sm">Serving NoVA, DC, MD</p>
+                </div>
+
+                 <div class="p-4">
+                     <p class="counter-value mb-1" data-count="10000">150,000+</p> <!-- Adjust as needed -->
+                    <p class="counter-label mb-1">Projects Completed</p>
+                    <p class="counter-desc text-sm">Thousands served</p>
+                 </div>
+
+                 <div class="p-4">
+                    <p class="counter-value mb-1" data-count="5">5</p>
+                    <p class="counter-label mb-1">Year Warranty</p>
+                    <p class="counter-desc text-sm">On parts &amp; labor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials & Service Area -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+             <div class="md:flex items-stretch"> <!-- Use items-stretch -->
+                 <!-- Credentials -->
+                 <div class="md:w-1/2 md:pr-8 mb-12 md:mb-0">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full"> <!-- Added h-full -->
+                        <h3 class="text-2xl font-bold mb-6">Our <span class="text-aj-orange">Credentials</span></h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-id-badge text-aj-orange mt-1 mr-3 text-xl"></i> <!-- Changed icon -->
+                                <div>
+                                    <h4 class="font-bold mb-1">Licensed &amp; Insured</h4>
+                                     <p class="text-gray-600 text-sm">VA: 2705031092<br>MD: 3309<br>DC: EM40000654</p>
+                                 </div>
+                             </li>
+                             <li class="flex items-start">
+                                 <i class="fas fa-file-contract text-aj-orange mt-1 mr-3 text-xl"></i> <!-- Changed icon -->
+                                <div>
+                                    <h4 class="font-bold mb-1">Comprehensive Insurance</h4>
+                                     <p class="text-gray-600 text-sm">General liability and workers' compensation coverage for your protection.</p>
+                                 </div>
+                             </li>
+                             <li class="flex items-start">
+                                 <i class="fas fa-shield-alt text-aj-orange mt-1 mr-3 text-xl"></i>
+                                <div>
+                                     <h4 class="font-bold mb-1">5-Year Comprehensive Warranty</h4>
+                                     <p class="text-gray-600 text-sm">Industry-leading warranty covering parts and labor on our installations.</p>
+                                 </div>
+                             </li>
+                             <li class="flex items-start">
+                                 <i class="fas fa-check-circle text-aj-orange mt-1 mr-3 text-xl"></i>
+                                 <div>
+                                     <h4 class="font-bold mb-1">Code Compliance Experts</h4>
+                                     <p class="text-gray-600 text-sm">Deep understanding of NEC and local codes across VA, DC, and MD jurisdictions.</p>
+                                </div>
+                             </li>
+                             <li class="flex items-start">
+                                 <i class="fas fa-user-graduate text-aj-orange mt-1 mr-3 text-xl"></i> <!-- Changed icon -->
+                                 <div>
+                                    <h4 class="font-bold mb-1">Ongoing Training</h4>
+                                     <p class="text-gray-600 text-sm">Our team regularly trains on the latest electrical technologies and safety standards.</p>
+                                 </div>
+                             </li>
+                         </ul>
+                    </div>
+                 </div>
+
+                 <!-- Service Area -->
+                 <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full"> <!-- Added h-full -->
+                        <h3 class="text-2xl font-bold mb-6">Our <span class="text-aj-orange">Service Area</span></h3>
+                         <p class="text-lg text-gray-600 mb-4">We proudly provide expert electrical services across the DMV region:</p>
+
+                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                             <div>
+                                <h4 class="font-semibold text-aj-dark mb-2 border-b pb-1">Virginia</h4>
+                                <ul class="space-y-1 text-sm">
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/virginia-electrical-services/fairfax-county.html" class="hover:text-aj-orange transition">Fairfax County</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington County</a></li>
+                                    <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria City</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/virginia-electrical-services/falls-church.html" class="hover:text-aj-orange transition">Falls Church</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/virginia-electrical-services/leesburg.html" class="hover:text-aj-orange transition">Loudoun County</a></li>
+                                 </ul>
+                             </div>
+                             <div>
+                                <h4 class="font-semibold text-aj-dark mb-2 border-b pb-1">DC &amp; Maryland</h4>
+                                <ul class="space-y-1 text-sm">
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery County</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                     <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                 </ul>
+                             </div>
+                         </div>
+
+                         <div class="bg-aj-orange bg-opacity-10 p-4 rounded-lg mb-4">
+                            <h4 class="font-semibold text-aj-dark mb-2">Immediate Response Area</h4>
+                            <p class="text-sm text-gray-600">We provide same-day service within a 15-mile radius of Fairfax, VA, and next-day service throughout the DMV region.</p>
+                         </div>
+
+                         <a href="/service-areas.html" class="inline-flex items-center text-aj-orange hover:text-aj-dark font-semibold">
+                            <span>View All Service Areas</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                         </a>
+                    </div>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Why Customers Choose <span class="text-aj-orange">AJ Long Electric</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We go above and beyond to deliver an exceptional electrical service experience</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-clock text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Punctual &amp; Reliable</h3>
+                            <p class="text-gray-600 text-sm">We respect your time – arriving on schedule and completing work promptly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-dollar-sign text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Transparent Pricing</h3>
+                            <p class="text-gray-600 text-sm">Clear upfront quotes with no hidden fees or surprise charges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-broom text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Clean &amp; Respectful</h3>
+                            <p class="text-gray-600 text-sm">We protect your property and leave work areas spotless.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-certificate text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Guaranteed Work</h3>
+                            <p class="text-gray-600 text-sm">Industry-leading 5-year warranty on all installations and repairs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-graduation-cap text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Expert Knowledge</h3>
+                            <p class="text-gray-600 text-sm">Experienced technicians who stay current with codes and technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-aj-orange bg-opacity-10 rounded-full p-3 mr-4">
+                            <i class="fas fa-comments text-aj-orange text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Clear Communication</h3>
+                            <p class="text-gray-600 text-sm">We explain work clearly and keep you informed throughout the process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Experience the <span class="text-aj-orange">AJ Long Electric</span> Difference?</h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers who trust us for all their electrical needs.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg hover:bg-orange-700 transition whitespace-nowrap">
+                    Get Free Estimate
+                </a>
+                <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-white text-aj-dark font-bold py-3 px-8 rounded-lg text-lg shadow-lg hover:bg-gray-100 transition whitespace-nowrap" onclick="HCPWidget.openModal()">
+                    <i class="fas fa-calendar-alt mr-2"></i> Book Service Now
+                </button>
+                <a href="tel:7039970026" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg hover:bg-gray-600 transition whitespace-nowrap">
+                    <i class="fas fa-phone mr-2"></i> Call (703) 997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Standard Footer (loaded via JavaScript) -->
+    <div w3-include-html="/include/standard-footer.html" role="contentinfo"></div>
+
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="bg-aj-orange text-white px-4 py-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Include HTML
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        includeHTML();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            menuOverlay.style.display = 'block';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.style.display = 'none';
+        }
+
+        closeMenu.addEventListener('click', closeMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Chat Widget
+        function toggleChat() {
+            const chatPopup = document.getElementById('chat-popup');
+            if (chatPopup.style.display === 'flex') {
+                chatPopup.style.display = 'none';
+            } else {
+                chatPopup.style.display = 'flex';
+                document.getElementById('chat-input-field').focus();
+            }
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <script src="/js/include-html.js"></script>
+    <script src="/js/ai-chat-service.js?v=1.0.6"></script>
+
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+
+</body></html>

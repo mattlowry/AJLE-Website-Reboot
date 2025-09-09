@@ -1,0 +1,941 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Electrical Project Costs | AJ Long Electric | Northern Virginia</title>
+    <meta name="description" content="Learn about factors affecting electrical project costs in Northern Virginia. Transparent pricing information, common project costs, and tips for accurate estimates from AJ Long Electric.">
+    <meta name="keywords" content="electrical cost guide, electrical project costs, electrician pricing, Northern Virginia electrical costs, electrical installation costs, electrical repair costs, electrical estimate">
+    <link rel="canonical" href="https://ajlongelectric.com/resources/electrical-cost-guide">
+    
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Northern Virginia">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Understanding Electrical Project Costs | AJ Long Electric | Northern Virginia">
+    <meta property="og:description" content="Learn about factors affecting electrical project costs in Northern Virginia. Transparent pricing information, common project costs, and tips for accurate estimates from AJ Long Electric.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/resources/electrical-cost-guide.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Understanding Electrical Project Costs | AJ Long Electric | Northern Virginia">
+    <meta name="twitter:description" content="Learn about factors affecting electrical project costs in Northern Virginia. Transparent pricing information, common project costs, and tips for accurate estimates from AJ Long Electric.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto; }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Cost cards */
+        .cost-card {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .cost-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Price range table */
+        .price-table th {
+            background-color: var(--aj-dark);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .price-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .price-table tr:hover td {
+            background-color: var(--aj-light-gray);
+        }
+        
+        /* Factor cards */
+        .factor-card {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: white;
+        }
+        
+        .factor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .factor-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            background-color: var(--aj-orange);
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Back to top button */
+        #back-to-top { position: fixed; bottom: 20px; right: 100px; z-index: 99; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+    </style>
+     <!-- Schema.org markup for Electrical Costs Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Understanding Electrical Project Costs - AJ Long Electric",
+      "url": "https://ajlongelectric.com/electrical-project-costs.html",
+      "description": "Learn about factors affecting electrical project costs, typical price ranges for common projects, and tips for getting accurate estimates in Northern Virginia.",
+      "mainEntity": {
+        "@type": "Article",
+        "headline": "Understanding Electrical Project Costs",
+        "description": "A comprehensive guide to electrical project pricing for Northern Virginia homeowners",
+        "author": {
+          "@type": "Organization",
+          "name": "AJ Long Electric"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AJ Long Electric",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png"
+          }
+        }
+      },
+      "areaServed": "Northern Virginia",
+      "offers": {
+        "@type": "AggregateOffer",
+        "category": "Electrical Services",
+        "priceCurrency": "USD",
+        "offerCount": "20+",
+        "highPrice": "5000",
+        "lowPrice": "150",
+        "description": "Wide range of residential electrical services at transparent, fair pricing"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/include-html.js?v=1746953607"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Sticky Header -->
+            <!-- Standard Header -->
+            <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+            <!-- Mobile menu is included in standard-header.html -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800" aria-label="Close Menu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+         <div class="sticky bottom-0 left-0 w-full p-4 bg-gray-100 border-t">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg shadow">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4 animate-fadeInUp">Understanding Electrical <span class="text-aj-orange">Project Costs</span></h1>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                Get insights into factors affecting electrical work pricing, typical cost ranges for common projects, and tips for obtaining accurate estimates in Northern Virginia.
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Transparent <span class="text-aj-orange">Pricing</span> from the Start</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        At AJ Long Electric, we believe in complete transparency when it comes to the cost of your electrical projects. We understand that budget planning is a crucial part of your home improvement decisions, and we're committed to providing clear, upfront pricing information.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Unlike many contractors who provide vague estimates or use hourly rates that can lead to unexpected final bills, we use a flat-rate pricing system. This means you'll know exactly what your project will cost before we begin any work.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        On this page, we'll explain the key factors that influence electrical project costs, provide general price ranges for common services, and share tips to help you get the most accurate estimate for your specific needs.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/about/About-Matt.jpg?_a=BBFAAAAA0" alt="AJ Long Electric technician discussing estimate with Northern Virginia homeowner" class="rounded-lg shadow-xl w-full" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Factors Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16">Key Factors That <span class="text-aj-orange">Influence</span> Electrical Project Costs</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Factor 1 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Project Complexity</h3>
+                    <p class="text-gray-700">
+                        The complexity of an electrical project significantly affects its cost. Simple repairs or replacements will naturally cost less than whole-house rewiring or installing complex systems that require special expertise.
+                    </p>
+                </div>
+                
+                <!-- Factor 2 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Materials &amp; Equipment</h3>
+                    <p class="text-gray-700">
+                        The quality and type of materials used directly impact project costs. Higher-quality fixtures, specialized equipment, and premium components will increase costs but often provide better performance and longevity.
+                    </p>
+                </div>
+                
+                <!-- Factor 3 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Home Accessibility</h3>
+                    <p class="text-gray-700">
+                        The accessibility of work areas affects labor costs. Projects requiring access to difficult areas such as crawl spaces, attics with limited clearance, or working within finished walls typically take more time and effort.
+                    </p>
+                </div>
+                
+                <!-- Factor 4 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Permits &amp; Inspections</h3>
+                    <p class="text-gray-700">
+                        Many electrical projects in Northern Virginia require permits and inspections to ensure code compliance. Permit fees vary by locality and project scope, and must be factored into the overall project cost.
+                    </p>
+                </div>
+                
+                <!-- Factor 5 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Existing Conditions</h3>
+                    <p class="text-gray-700">
+                        The current state of your electrical system impacts costs. Older homes may have outdated wiring, insufficient service capacity, or code violations that need to be addressed, increasing the scope and cost of the project.
+                    </p>
+                </div>
+                
+                <!-- Factor 6 -->
+                <div class="factor-card p-8 shadow-md">
+                    <div class="factor-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Project Timeline</h3>
+                    <p class="text-gray-700">
+                        Rush projects or those requiring work during evenings, weekends, or holidays may incur premium rates. Planning ahead and scheduling during normal business hours can reduce costs when possible.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-6 text-center">The <span class="text-aj-orange">True Cost</span> of Quality Electrical Work</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    When evaluating electrical project costs, it's important to consider the value you're receiving beyond just the price tag. Quality electrical work provides:
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="rounded-full bg-gray-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-aj-orange text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Safety &amp; Peace of Mind</h4>
+                        <p class="text-sm text-gray-600">Properly executed electrical work protects your family and property from fire and shock hazards.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="rounded-full bg-gray-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-certificate text-aj-orange text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Code Compliance</h4>
+                        <p class="text-sm text-gray-600">Work that meets or exceeds electrical codes prevents insurance issues and facilitates home sales.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="rounded-full bg-gray-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-piggy-bank text-aj-orange text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Long-Term Savings</h4>
+                        <p class="text-sm text-gray-600">Quality installations reduce future repair costs and improve energy efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Range Table Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-6">Typical Cost Ranges for <span class="text-aj-orange">Common Projects</span></h2>
+            <p class="text-lg text-center text-gray-700 max-w-4xl mx-auto mb-12">
+                The following table provides general price ranges for common electrical projects in Northern Virginia. Keep in mind that your specific project cost may vary based on the factors discussed above.
+            </p>
+            
+            <div class="overflow-x-auto max-w-5xl mx-auto bg-white rounded-lg shadow-lg">
+                <table class="w-full price-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Typical Price Range</th>
+                            <th>Key Variables</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-semibold">Panel Replacement</td>
+                            <td>$3,500 - $6,500</td>
+                            <td>Amperage (100A vs 200A), location, upgrades needed</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">EV Charger Installation</td>
+                            <td>$800 - $2,500</td>
+                            <td>Charger type, panel capacity, distance from panel</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Recessed Lighting</td>
+                            <td>$150 - $300 per light</td>
+                            <td>Ceiling type, fixture type, accessibility, quantity</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Ceiling Fan Installation</td>
+                            <td>$175 - $450</td>
+                            <td>Existing wiring, fan type, ceiling height, accessibility</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Outlet/Switch Replacement</td>
+                            <td>$150 - $300</td>
+                            <td>Type (standard, GFCI, smart), accessibility, quantity</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Whole-House Rewiring</td>
+                            <td>$8,000 - $20,000+</td>
+                            <td>Home size, wall/ceiling access, material choices</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Generator Installation</td>
+                            <td>$5,000 - $15,000+</td>
+                            <td>Generator size, transfer switch type, fuel source</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Electrical Troubleshooting</td>
+                            <td>$150 - $500</td>
+                            <td>Problem complexity, accessibility, repairs needed</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Dedicated Circuit Addition</td>
+                            <td>$350 - $800</td>
+                            <td>Distance from panel, accessibility, special requirements</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Kitchen Electrical Upgrade</td>
+                            <td>$1,000 - $5,000</td>
+                            <td>Number of circuits, appliances, lighting design</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center text-gray-600 text-sm italic">
+                <p>Note: These price ranges are general estimates for Northern Virginia and may vary based on specific project requirements, market conditions, and your home's unique characteristics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value vs. Cost Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16">The <span class="text-aj-orange">True Value</span> of Professional Electrical Work</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 mr-4"></i> 
+                        The Cost of Cutting Corners
+                    </h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <p class="text-gray-700 mb-4">
+                            While it may be tempting to choose the lowest bid or attempt DIY electrical work to save money, these approaches often lead to higher costs in the long run:
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Safety Risks:</strong> Improper electrical work can lead to fires, shocks, and even fatalities.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Code Violations:</strong> Non-compliant work can result in failed inspections and require costly corrections.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Insurance Problems:</strong> Issues caused by improper wiring may not be covered by homeowners insurance.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Repeat Repairs:</strong> Low-quality work often needs to be redone, resulting in paying twice for the same project.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <p class="text-red-800 text-sm italic">
+                            <i class="fas fa-info-circle mr-2"></i> According to the Electrical Safety Foundation International, home electrical fires account for an estimated 51,000 fires annually, causing hundreds of deaths and over $1.3 billion in property damage.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-4"></i> 
+                        The Value of Professional Service
+                    </h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <p class="text-gray-700 mb-4">
+                            Professional electrical work from a licensed contractor like AJ Long Electric provides substantial value that goes beyond the immediate service:
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Licensed Expertise:</strong> Our technicians have the training to complete complex projects safely and correctly.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Proper Insurance:</strong> We carry liability insurance and workers' compensation to protect you from liability.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Code Compliance:</strong> All work meets or exceeds local electrical codes and passes inspections.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Warranty Protection:</strong> Our work is backed by comprehensive warranties for your peace of mind.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span><strong>Future Support:</strong> Established local contractors are available for future service and support.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-800 text-sm italic">
+                            <i class="fas fa-lightbulb mr-2"></i> Professional electrical work not only ensures safety but can also add significant value to your home—up to 2-4 times the project cost in increased property value, according to real estate appraisers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Accurate Estimates Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How to Get an <span class="text-aj-orange">Accurate Estimate</span></h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-clipboard-list text-aj-orange mr-3"></i> 
+                            Prepare for Your Estimate
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            To help us provide the most accurate estimate for your electrical project, consider preparing the following information:
+                        </p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Detailed description of the work you need</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Photos of the areas involved (when applicable)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Age of your home and any known electrical issues</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Your preferred timeline for the project</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Brand preferences for fixtures or equipment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Any special requirements or concerns</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-question-circle text-aj-orange mr-3"></i> 
+                            Questions to Ask Your Electrician
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            When reviewing estimates from electrical contractors, be sure to ask these important questions:
+                        </p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Is this a flat-rate estimate or time-and-materials?</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>What potential unforeseen costs might arise?</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>Are permits and inspections included in the price?</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>What brands/materials will be used?</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>What warranties are offered on labor and materials?</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                <span>What is the estimated timeline for completion?</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-aj-dark text-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center">The AJ Long Electric <span class="text-aj-orange">Estimate Process</span></h3>
+                    <p class="text-lg mb-6">
+                        We provide detailed, transparent estimates that break down all costs involved in your project:
+                    </p>
+                    <div class="grid md:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">1</div>
+                            <p class="font-semibold">Submit Request</p>
+                            <p class="text-sm text-gray-300">Online or by phone with project details</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">2</div>
+                            <p class="font-semibold">Initial Assessment</p>
+                            <p class="text-sm text-gray-300">We review your requirements</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">3</div>
+                            <p class="font-semibold">Detailed Estimate</p>
+                            <p class="text-sm text-gray-300">Clear, itemized pricing within 24hrs</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">4</div>
+                            <p class="font-semibold">No-Pressure Decision</p>
+                            <p class="text-sm text-gray-300">Review and approve when ready</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                            Request Your Free Estimate Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Options Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Flexible <span class="text-aj-orange">Payment Options</span></h2>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <div class="md:flex">
+                    <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center items-center">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/5-star-review.jpg?_a=BBFAAAAA0" alt="Flexible payment options for electrical projects" class="rounded-lg shadow-md max-h-64" loading="lazy">
+                    </div>
+                    <div class="md:w-2/3 md:pl-8">
+                        <h3 class="text-2xl font-bold mb-4">Making Your Electrical Project Affordable</h3>
+                        <p class="text-gray-700 mb-4">
+                            We understand that larger electrical projects can represent a significant investment in your home. That's why we offer several payment options to help make these necessary improvements more affordable:
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-credit-card text-aj-orange mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Credit Cards:</strong> We accept all major credit cards for your convenience.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-percentage text-aj-orange mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Financing Options:</strong> Through our financing partners, qualified customers can access 0% interest plans and flexible payment terms.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tags text-aj-orange mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Seasonal Promotions:</strong> We regularly offer special pricing on selected services throughout the year.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clipboard-check text-aj-orange mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Military &amp; Senior Discounts:</strong> We're proud to offer special discounts to active military, veterans, and senior citizens.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-gray-50 rounded-md">
+                    <p class="text-sm text-gray-600 italic">
+                        <i class="fas fa-info-circle mr-2 text-aj-orange"></i> Financing subject to credit approval. Ask your estimator about current promotions and payment options available for your specific project.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions About <span class="text-aj-orange">Electrical Costs</span></h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold mb-3">Why do electrical project estimates vary so much between contractors?</h3>
+                    <p class="text-gray-700">
+                        Estimates can vary due to differences in expertise, quality of materials used, scope interpretation, overhead costs, and pricing models. Some contractors may offer lower initial estimates but add charges later, while others (like us) provide comprehensive flat-rate pricing upfront. Always compare the details, not just the bottom line.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold mb-3">Do I need to pay for an estimate?</h3>
+                    <p class="text-gray-700">
+                        At AJ Long Electric, we provide free estimates for most residential electrical projects. For very complex projects that require extensive on-site assessment or design work, a nominal fee may apply, which is typically credited toward your project if you choose us for the work.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold mb-3">How much should I budget for electrical work in a home renovation?</h3>
+                    <p class="text-gray-700">
+                        For general renovations, electrical work typically accounts for 7-10% of the total project budget. For kitchen or bathroom renovations specifically, electrical costs often range from 10-15% due to the higher concentration of electrical fixtures and appliances in these spaces.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold mb-3">Will my electrical project require a permit, and how does that affect cost?</h3>
+                    <p class="text-gray-700">
+                        In Northern Virginia, most significant electrical changes require permits, including panel upgrades, added circuits, and major rewiring. Permit costs typically range from $75-$300 depending on the project scope and locality. Our estimates include permit fees, and we handle all the paperwork and inspections for you.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold mb-3">Are there ways to reduce the cost of my electrical project?</h3>
+                    <p class="text-gray-700">
+                        Yes, several strategies can help manage costs: schedule non-emergency work during our slower seasons, consider bundling multiple small projects together, prepare clear access to work areas, and plan ahead to avoid rush charges. We're happy to discuss cost-saving options that don't compromise safety or quality.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="/faq.html" class="text-aj-orange font-semibold hover:underline text-lg">
+                    View more Electrical Cost FAQs <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Get a Clear, Detailed Estimate?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Contact AJ Long Electric today for a free, comprehensive estimate on your electrical project. No surprises, no hidden fees—just transparent pricing from Northern Virginia's most trusted electricians.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-gray-800 transition text-lg">
+                    Request Your Free Estimate
+                </a>
+                <a href="tel:7039970026" class="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-aj-dark transition flex items-center justify-center text-lg">
+                    <i class="fas fa-phone mr-2"></i> Call 703-997-0026
+                </a>
+            </div>
+            <p class="mt-6 text-gray-300">
+                Over 1,200 5-star reviews from satisfied customers across Northern Virginia!
+            </p>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body></html>

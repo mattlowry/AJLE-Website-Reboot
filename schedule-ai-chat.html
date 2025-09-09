@@ -1,0 +1,534 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule With AI Assistant | AJ Long Electric</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Pattern background */
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* AI Chat specific styles */
+        .chat-container {
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background-color: white;
+        }
+
+        .chat-header-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-bot-avatar {
+            width: 30px;
+            height: 30px;
+            background-color: var(--aj-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .chat-body {
+            display: flex;
+            height: calc(100% - 60px);
+        }
+
+        .info-panel {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-left: 1px solid #e5e7eb;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-content {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-top-left-radius: 5px;
+        }
+
+        .message.user .message-content {
+            background-color: var(--aj-orange);
+            color: white;
+            border-top-right-radius: 5px;
+        }
+
+        .message-content p {
+            margin: 0;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--aj-orange);
+            box-shadow: 0 0 0 2px rgba(255, 114, 0, 0.2);
+        }
+
+        .send-btn {
+            background-color: var(--aj-orange);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .send-btn:hover {
+            background-color: #e66600;
+        }
+
+        .send-btn:disabled {
+            background-color: #ffc299;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .typing-indicator span {
+            height: 10px;
+            width: 10px;
+            background-color: #b3b3b3;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: typing 1.5s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        .info-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #6b7280;
+            padding: 20px 0;
+        }
+
+        .info-placeholder i {
+            font-size: 48px;
+            color: var(--aj-orange);
+            margin-bottom: 15px;
+        }
+
+        .info-placeholder p {
+            margin-bottom: 10px;
+        }
+
+        /* Date and time selection */
+        .date-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .date-selector::-webkit-scrollbar {
+            display: none;
+        }
+
+        .date-option {
+            flex: 0 0 auto;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .date-option.selected {
+            border-color: var(--aj-orange);
+            background-color: #fff8f5;
+            color: var(--aj-orange);
+        }
+
+        .day-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .date {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .time-slot {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .time-slot:hover:not(.unavailable) {
+            border-color: var(--aj-orange);
+            background-color: #fff8f5;
+        }
+
+        .time-slot.selected {
+            border-color: var(--aj-orange);
+            background-color: var(--aj-orange);
+            color: white;
+        }
+
+        .time-slot.unavailable {
+            background-color: #f1f1f1;
+            color: #9ca3af;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        /* Confirmation details */
+        .confirmation-details {
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #f9fafb;
+        }
+
+        .confirmation-details h4 {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--aj-orange);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            width: 120px;
+            color: #4b5563;
+        }
+
+        .confirmation-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--aj-orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e66600;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #4b5563;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .chat-body {
+                flex-direction: column;
+            }
+            
+            .info-panel {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #e5e7eb;
+                height: 250px;
+            }
+            
+            .chat-container {
+                height: 700px;
+            }
+
+        }
+    </style>
+    <script src="/js/header-loader.js?v=1746953030"></script>
+    <script src="/js/include-html.js?v=1746953585"></script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Schedule With AI Assistant | AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/schedule-ai-chat.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schedule With AI Assistant | AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-800">
+    <!-- Include the standard header -->
+    <div data-include="/include/standard-header.html"></div>
+
+    <!-- Page Title -->
+    <section class="py-16 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4 animate__animated animate__fadeInUp">Schedule With Our AI Assistant</h1>
+            <p class="text-lg max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
+                Our AI assistant is available 24/7 to help you schedule electrical services with ease. Simply describe what you need, and we'll find the perfect appointment for you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 -mt-10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <!-- Chat Interface -->
+                <div class="chat-container">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="chat-header-title">
+                            <div class="chat-bot-avatar">
+                                <i class="fas fa-bolt text-white"></i>
+                            </div>
+                            <span>AJ Long Electric AI Assistant</span>
+                        </div>
+                        <span class="text-sm bg-green-500 rounded-full px-2 py-1 text-xs">Online</span>
+                    </div>
+                    
+                    <!-- Chat Body -->
+                    <div class="chat-body">
+                        <!-- Chat Messages -->
+                        <div class="chat-messages" id="chat-messages">
+                            <!-- System welcome message -->
+                            <div class="message bot">
+                                <div class="message-content">
+                                    <p>👋 Hi there! I'm your AI scheduling assistant for AJ Long Electric. I can help you book a service appointment for:</p>
+                                    <ul class="mt-2 ml-5 list-disc">
+                                        <li>Electrical panel upgrades</li>
+                                        <li>EV charger installations</li>
+                                        <li>Lighting installations</li>
+                                        <li>Outlet/switch repairs</li>
+                                        <li>Ceiling fan installations</li>
+                                        <li>Electrical troubleshooting</li>
+                                    </ul>
+                                    <p class="mt-2">What type of service are you looking for today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Info Panel -->
+                        <div class="info-panel" id="info-content">
+                            <div class="info-placeholder">
+                                <i class="fas fa-comments"></i>
+                                <p>Chat with our AI assistant to schedule your service.</p>
+                                <p class="mt-4 text-sm">We'll need to know:</p>
+                                <ul class="text-left mt-2 space-y-1 text-sm">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Type of service</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Service location</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Contact information</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Preferred timeframe</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Input -->
+                    <div class="chat-input-container">
+                        <textarea id="user-input" class="chat-input" placeholder="Type your message here..." rows="1"></textarea>
+                        <button id="send-btn" class="send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Features Box -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover-grow">
+                        <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-calendar-check text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Quick Scheduling</h3>
+                        <p class="text-gray-600">Book your electrical service appointment in minutes, without waiting on hold or complex forms.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6 hover-grow">
+                        <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-clock text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">24/7 Availability</h3>
+                        <p class="text-gray-600">Our AI assistant is available any time, day or night, to help you schedule service at your convenience.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6 hover-grow">
+                        <div class="w-12 h-12 bg-aj-orange rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-user-shield text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Secure &amp; Reliable</h3>
+                        <p class="text-gray-600">Your information is handled securely, and all appointments are confirmed with our technicians.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Section -->
+                <div class="mt-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                    
+                    <div class="space-y-4 max-w-3xl mx-auto">
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                            <div class="p-4 flex justify-between items-center cursor-pointer faq-toggle">
+                                <h3 class="font-semibold">How does scheduling with the AI assistant work?</h3>
+                                <i class="fas fa-chevron-down text-aj-orange transition-transform faq-icon"></i>
+                            </div>
+                            <div class="faq-content hidden px-4 pb-4">
+                                <p class="text-gray-600">Simply chat with our AI assistant about the electrical service you need. The assistant will ask for details like service type, location, and your contact information. Then it will show you available time slots to book your appointment. Once you select a time, the appointment is confirmed in our system.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                            <div class="p-4 flex justify-between items-center cursor-pointer faq-toggle">
+                                <h3 class="font-semibold">Do I need to provide payment information?</h3>
+                                <i class="fas fa-chevron-down text-aj-orange transition-transform faq-icon"></i>
+                            </div>
+                            <div class="faq-content hidden px-4 pb-4">
+                                <p class="text-gray-600">No, payment is not required to schedule an appointment. Our technician will provide an estimate during the service visit, and payment is collected after the service is completed to your satisfaction.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                            <div class="p-4 flex justify-between items-center cursor-pointer faq-toggle">
+                                <h3 class="font-semibold">Can I reschedule or cancel my appointment?</h3>
+                                <i class="fas fa-chevron-down text-aj-orange transition-transform faq-icon"></i>
+                            </div>
+                            <div class="faq-content hidden px-4 pb-4">
+                                <p class="text-gray-600">Yes, you can reschedule or cancel your appointment by calling our office at (703) 997-0026 or by using the links in your confirmation email. We ask that you provide at least 24 hours notice for any changes to your appointment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+
+    <!-- Scripts -->
+    <script src="/js/ai-chat-service.js"></script>
+    <script>
+        // FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('transform');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

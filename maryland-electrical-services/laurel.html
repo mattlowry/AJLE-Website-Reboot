@@ -1,0 +1,614 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Laurel MD | Technical Infrastructure &amp; Commercial Specialists | AJ Long Electric</title>
+    <meta name="description" content="Laurel's trusted electricians specializing in industrial infrastructure, commercial buildings, and mixed-use developments. Licensed experts in technical electrical systems, commercial wiring, and industrial power solutions.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Laurel MD | Technical Infrastructure &amp; Commercial Specialists | AJ Long Electric">
+    <meta property="og:description" content="Laurel's trusted electricians specializing in industrial infrastructure, commercial buildings, and mixed-use developments. Licensed experts in technical electrical systems, commercial wiring, and industrial power solutions.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/maryland-electrical-services/laurel.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrician Laurel MD | Technical Infrastructure &amp; Commercial Specialists | AJ Long Electric">
+    <meta name="twitter:description" content="Laurel's trusted electricians specializing in industrial infrastructure, commercial buildings, and mixed-use developments. Licensed experts in technical electrical systems, commercial wiring, and industrial power solutions.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Location card styles */
+        .location-card {
+            transition: all 0.3s ease;
+        }
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* City link styles */
+        .city-link {
+            display: inline-block;
+            margin: 0.25rem 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--aj-light-gray);
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .city-link:hover {
+            background-color: var(--aj-orange);
+            color: white;
+        }
+
+        /* Map responsive styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <!-- JavaScript for loading includes -->
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "@id": "https://ajlongelectric.com/maryland-electrical-services/laurel.html",
+      "name": "AJ Long Electric - Laurel",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com/maryland-electrical-services/laurel.html",
+      "telephone": "+1-703-997-0026",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "15518 Orchard Run Drive",
+        "addressLocality": "Bowie",
+        "addressRegion": "MD",
+        "postalCode": "20715",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.0993,
+        "longitude": -76.8483
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "15:00"
+      }],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Laurel",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Maryland"
+          }
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "West Laurel"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "South Laurel"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Maryland City"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Laurel Historic District"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.instagram.com/ajlongelectric",
+        "https://www.google.com/maps/place/AJ+Long+Electric/@38.8383686,-77.2690285,17z/data=!4m6!3m5!1s0x89b64c0325cc1293:0x7d2783cfbec92c1a!8m2!3d38.8383686!4d-77.2664536!16s%2Fg%2F11bxf2f69x",
+        "https://www.yelp.com/biz/aj-long-electric-fairfax"
+      ],
+      "description": "Commercial and technical infrastructure electrical specialists in Laurel, MD. Offering industrial power solutions, commercial electrical systems, warehouse wiring, and mixed-use building technologies.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Laurel Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Industrial Electrical Systems",
+              "description": "High-capacity electrical solutions for Laurel's industrial and warehouse facilities"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Building Wiring",
+              "description": "Specialized electrical systems for Laurel's commercial and retail spaces"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Three-Phase Power Installation",
+              "description": "Heavy-duty power systems for manufacturing and industrial equipment"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landscape Lighting for Commercial Properties",
+              "description": "Professional outdoor lighting systems for Laurel's commercial properties"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Warehouse Distribution Systems",
+              "description": "Power distribution systems designed for warehouse and logistics operations"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical Infrastructure Solutions",
+              "description": "Specialized electrical infrastructure for data centers and tech facilities"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1200",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Michael T."
+        },
+        "datePublished": "2023-10-12",
+        "reviewBody": "AJ Long Electric handled the complete electrical installation for our new warehouse facility in Laurel. Their knowledge of industrial electrical systems was impressive, and they finished the project on schedule and within budget."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/maryland-electrical-services/laurel.html"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header -->
+    <div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Commercial Electrician in <span class="text-aj-orange">Laurel, MD</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric provides expert commercial and industrial electrical services for Laurel's technical facilities, warehouses, and mixed-use developments. Professional electricians serving Laurel, Maryland's unique commercial corridor with over 1,200 5-star reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="bg-aj-orange text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>24/7 Emergency Service in Laurel</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>1,200+ 5-Star Reviews</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Licensed &amp; Insured</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-industry mr-2"></i>
+                    <span>Commercial &amp; Industrial Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Info Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Expert Commercial Electrical Services in <span class="text-aj-orange">Laurel, Maryland</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">As Laurel's trusted commercial electrician, AJ Long Electric brings specialized expertise to this strategic industrial and commercial hub. From the historic Main Street district to the modern industrial corridors along Route 1, we understand Laurel's unique position spanning four counties and diverse commercial electrical needs.</p>
+            </div>
+ 
+            <div class="md:flex items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-4 flex items-center text-gray-800">
+                            <i class="fas fa-bolt text-aj-orange mr-2"></i> Laurel's Premier Commercial Electrical Contractor
+                        </h3>
+                        <p class="text-gray-600 mb-4">When searching for a "commercial electrician near me" in Laurel, MD, you want a company that understands industrial electrical systems, warehouse power distribution, and the complex technical requirements of multi-county operations. AJ Long Electric has been serving Laurel's distinctive commercial landscape, building expertise in:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            <li><a href="/services/panel-replacements/" class="text-aj-orange hover:underline">Industrial electrical systems</a> for warehouse and manufacturing facilities</li>
+                            <li><a href="/services/" class="text-aj-orange hover:underline">Commercial building wiring</a> for retail and office complexes</li>
+                            <li><a href="/services/recessed-lighting/" class="text-aj-orange hover:underline">Technical infrastructure solutions</a> for data centers and tech facilities</li>
+                            <li>Three-phase power installations for heavy equipment</li>
+                            <li>Mixed-use development electrical systems</li>
+                            <li>Emergency commercial electrical repairs with priority Laurel response</li>
+                        </ul>
+                        <h3 class="text-xl font-bold my-4 flex items-center text-gray-800">
+                            <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> Serving All Laurel Commercial Areas
+                        </h3>
+                        <p class="text-gray-600 mb-4">Our Laurel commercial electricians serve the entire business corridor:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Historic Main Street commercial district</li>
+                            <li>Route 1 industrial corridor</li>
+                            <li>West Laurel business parks</li>
+                            <li>South Laurel mixed-use developments</li>
+                            <li>Maryland City commercial zones</li>
+                            <li>Laurel Lakes business area</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12418.234567890123!2d-76.84834567890123!3d39.09935678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c8234567890a%3A0x1234567890abcdef!2sLaurel%2C%20MD!5e0!3m2!1sen!2sus!4v1714366300321!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laurel Specialties Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Laurel <span class="text-aj-orange">Commercial Electrical Specialties</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Laurel's unique position as a commercial and industrial hub between Baltimore and Washington DC requires specialized electrical expertise. Our team understands the diverse technical demands of this strategic Maryland community.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Specialty 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Electrical-Panel-open.jpg?_a=BBFAAAAA0" alt="An industrial electrical panel in Laurel, MD." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Industrial Electrical Systems</h3>
+                    <p class="text-gray-700 mb-4">
+                        High-capacity electrical solutions for Laurel's industrial and warehouse facilities, including specialized three-phase power installations and heavy equipment wiring.
+                    </p>
+                    <a href="/services/panel-replacements/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+
+                <!-- Specialty 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Rough-in-addition.jpg?_a=BBFAAAAA0" alt="Commercial building wiring in Laurel, MD." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Building Wiring</h3>
+                    <p class="text-gray-700 mb-4">
+                        Professional electrical installations for Laurel's commercial buildings, from historic Main Street properties to modern mixed-use developments and retail centers.
+                    </p>
+                    <a href="/services/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+
+                <!-- Specialty 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Electrican-Theater-va.jpg?_a=BBFAAAAA0" alt="Technical infrastructure in a Laurel, MD facility." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Technical Infrastructure Solutions</h3>
+                    <p class="text-gray-700 mb-4">
+                        Advanced electrical systems for Laurel's data centers, tech facilities, and specialized technical operations requiring precision electrical work and specialized power distribution.
+                    </p>
+                    <a href="/services/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Commercial &amp; Industrial <span class="text-aj-orange">Electrical Solutions</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">High-Capacity Power Systems</h3>
+                    <p class="text-gray-600">Heavy-duty electrical infrastructure for Laurel's industrial and manufacturing facilities</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-warehouse text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Warehouse Distribution Systems</h3>
+                    <p class="text-gray-600">Specialized power distribution for logistics and warehouse operations</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code-branch text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Multi-County Code Compliance</h3>
+                    <p class="text-gray-600">Expert navigation of electrical codes across four counties</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Minimal Downtime Service</h3>
+                    <p class="text-gray-600">Fast, efficient electrical work designed to minimize business disruption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Areas Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-6">We Also Serve Nearby Commercial Areas</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="/maryland-electrical-services/bowie.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Bowie</a>
+                <a href="/maryland-electrical-services/greenbelt.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Greenbelt</a>
+                <a href="/maryland-electrical-services/college-park.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">College Park</a>
+                <a href="/maryland-electrical-services/prince-georges-county.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Prince George's County</a>
+                <a href="/dc-electrical-services/washington-dc.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Washington DC</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose <span class="text-aj-orange">AJ Long Electric</span> in Laurel?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">When you need a commercial or industrial electrician in Laurel, MD, here's why businesses trust us with their electrical infrastructure.</p>
+            </div>
+ 
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Local Expertise</h3>
+                    <p class="text-gray-600">Deep knowledge of Laurel's commercial landscape and technical requirements for all four counties' electrical codes and regulations.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fast Response</h3>
+                    <p class="text-gray-600">Rapid service for Laurel businesses with dedicated commercial teams that understand downtime is not an option.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Licensed &amp; Insured</h3>
+                    <p class="text-gray-600">Fully licensed Maryland electricians with comprehensive commercial insurance coverage for complete business protection.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Star Service</h3>
+                    <p class="text-gray-600">Consistently rated 5 stars by Laurel's commercial property owners for our technical expertise and professional project management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Areas Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-6">We Also Serve Nearby Areas</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="/maryland-electrical-services/bowie.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Bowie</a>
+                <a href="/maryland-electrical-services/greenbelt.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Greenbelt</a>
+                <a href="/maryland-electrical-services/college-park.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">College Park</a>
+                <a href="/maryland-electrical-services/prince-georges-county.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Prince George's County</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need a Commercial Electrician in Laurel?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Whether you're managing a warehouse, retail space, office building, or industrial facility in Laurel, MD, our team of expert commercial electricians is ready to solve your electrical challenges.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request an Estimate
+                </a>
+                <a href="tel:+17039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: +1-703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+    
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <!-- Consolidated main scripts -->
+    <script src="/js/main-scripts.js" defer=""></script>
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> <span>Book Laurel Electrician</span>
+        </button>
+    </div>
+    
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

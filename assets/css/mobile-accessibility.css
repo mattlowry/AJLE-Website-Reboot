@@ -1,0 +1,53 @@
+/* 
+ * Mobile Accessibility CSS
+ * Improves tap targets for mobile devices
+ */
+
+/* Make footer links more tappable */
+@media (max-width: 767px) {
+  footer a.hover\:text-aj-orange {
+    padding: 12px 8px;
+    margin: 4px 0;
+    display: inline-block;
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Service area links in city-link-list */
+  .city-link-list a {
+    padding: 12px 16px !important;
+    margin: 6px 4px !important;
+    min-height: 48px !important;
+    min-width: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  
+  /* Links in service areas sidebar */
+  .sticky-sidebar a {
+    padding: 16px !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Popular services links */
+  footer ul.space-y-2 li a {
+    min-height: 48px;
+    padding: 8px 0;
+    display: inline-block;
+  }
+  
+  /* Increase spacing between stacked links in mobile view */
+  footer ul.space-y-1,
+  footer ul.space-y-2 {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(8px * (1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(8px * var(--tw-space-y-reverse));
+  }
+  
+  /* Ensure clickable areas don't overlap */
+  footer ul li {
+    margin-bottom: 8px;
+  }
+}

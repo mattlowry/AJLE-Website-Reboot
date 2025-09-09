@@ -1,0 +1,499 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Service | AJ Long Electric</title>
+    <meta name="description" content="Schedule your electrical service appointment with AJ Long Electric. Our AI assistant will help you find the perfect time.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Schedule Service | AJ Long Electric">
+    <meta property="og:description" content="Schedule your electrical service appointment with AJ Long Electric. Our AI assistant will help you find the perfect time.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/form-to-chat.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schedule Service | AJ Long Electric">
+    <meta name="twitter:description" content="Schedule your electrical service appointment with AJ Long Electric. Our AI assistant will help you find the perfect time.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Form and Container Styles */
+        .service-form-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-title {
+            color: var(--aj-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--aj-dark);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--aj-orange);
+            outline: none;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+        }
+        
+        .form-btn {
+            background-color: var(--aj-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-btn:hover {
+            background-color: #e56500;
+        }
+        
+        /* AI Chat Container */
+        .chat-container {
+            display: none; /* Hidden initially */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+        }
+        
+        .message.user {
+            align-self: flex-end;
+        }
+        
+        .message.bot {
+            align-self: flex-start;
+        }
+        
+        .message-content {
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+        }
+        
+        .user .message-content {
+            background-color: var(--aj-orange);
+            color: white;
+            border-radius: 18px 18px 0 18px;
+        }
+        
+        .bot .message-content {
+            background-color: var(--aj-light-gray);
+            color: var(--aj-dark);
+            border-radius: 18px 18px 18px 0;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input:focus {
+            border-color: var(--aj-orange);
+            outline: none;
+        }
+        
+        .send-btn {
+            background-color: var(--aj-orange);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0 1rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .send-btn:hover {
+            background-color: #e56500;
+        }
+        
+        /* Info panel styles */
+        .info-panel {
+            background-color: var(--aj-light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .info-placeholder {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .info-placeholder i {
+            font-size: 3rem;
+            color: var(--aj-orange);
+            margin-bottom: 1rem;
+        }
+        
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+        
+        .typing-indicator span {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #999;
+            margin: 0 2px;
+            animation: blink 1s infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-title {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .modal-content {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Include Header -->
+    <div data-include="/include/standard-header.html"></div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-aj-dark text-white py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Schedule Your Electrical Service</h1>
+                    <p class="text-xl mb-8">Fill out the form below and our AI scheduling assistant will help you find the perfect appointment time.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Service Scheduling Section -->
+        <section class="py-16">
+            <div class="service-form-container">
+                <!-- Initial Contact Form -->
+                <div id="contact-form" class="form-container">
+                    <h2 class="form-title text-2xl">Your Information</h2>
+                    <p class="mb-6">Share your details and we'll connect you with our AI assistant to schedule your service.</p>
+                    
+                    <form method="POST" action="/api/submit-estimate" data-netlify="true" name="initial_form" id="initial-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service-type" class="form-label">Service Type</label>
+                                <select id="service-type" name="service-type" class="form-select" required="">
+                                    <option value="">Select a service...</option>
+                                    <option value="panel-upgrade">Panel Upgrade/Replacement</option>
+                                    <option value="ev-charger">EV Charger Installation</option>
+                                    <option value="recessed-lighting">Recessed Lighting Installation</option>
+                                    <option value="outlet-switch">Outlet/Switch Installation</option>
+                                    <option value="ceiling-fan">Ceiling Fan Installation</option>
+                                    <option value="troubleshooting">Electrical Troubleshooting</option>
+                                    <option value="other">Other Service</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group md:col-span-2">
+                                <label for="address" class="form-label">Service Address</label>
+                                <input type="text" id="address" name="address" class="form-input" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" id="city" name="city" class="form-input" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="zip" class="form-label">ZIP Code</label>
+                                <input type="text" id="zip" name="zip" class="form-input" required="">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <button type="submit" class="form-btn">Continue to Schedule</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- AI Chat Interface (hidden initially) -->
+                <div id="ai-chat-interface" class="hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="chat-container">
+                                <div class="chat-header">
+                                    <i class="fas fa-bolt mr-2"></i> AJ Long Electric Scheduling Assistant
+                                </div>
+                                <div id="chat-messages" class="chat-messages"></div>
+                                <div class="chat-input-container">
+                                    <textarea id="user-input" class="chat-input" placeholder="Type your message here..." rows="1"></textarea>
+                                    <button id="send-btn" class="send-btn">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-1">
+                            <div class="info-panel">
+                                <h3 class="text-xl font-bold mb-4">Scheduling Information</h3>
+                                <div id="info-content" class="info-content">
+                                    <div class="info-placeholder">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <p>Our AI assistant will help you find the perfect time for your service.</p>
+                                        <p class="mt-4 text-sm">We schedule services Monday-Friday, 8am-5pm Eastern Time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Include Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+    
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/ai-chat-service.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialForm = document.getElementById('initial-form');
+            const contactForm = document.getElementById('contact-form');
+            const aiChatInterface = document.getElementById('ai-chat-interface');
+            
+            initialForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    serviceType: document.getElementById('service-type').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    zip: document.getElementById('zip').value
+                };
+                
+                // Store form data in session storage
+                sessionStorage.setItem('userFormData', JSON.stringify(formData));
+                
+                // Hide contact form and show AI chat interface
+                contactForm.style.display = 'none';
+                aiChatInterface.classList.remove('hidden');
+                
+                // Initialize the chat with user's information
+                initializeAIChat(formData);
+            });
+            
+            // Function to initialize the AI chat with user's information
+            function initializeAIChat(userData) {
+                // Get chat elements
+                const chatMessages = document.getElementById('chat-messages');
+                const userInput = document.getElementById('user-input');
+                const sendBtn = document.getElementById('send-btn');
+                
+                // Create initial bot message
+                const introMessage = document.createElement('div');
+                introMessage.classList.add('message', 'bot');
+                
+                const messageContent = document.createElement('div');
+                messageContent.classList.add('message-content');
+                
+                // Create personalized greeting using the form data
+                const serviceLabels = {
+                    'panel-upgrade': 'Panel Upgrade/Replacement',
+                    'ev-charger': 'EV Charger Installation',
+                    'recessed-lighting': 'Recessed Lighting Installation',
+                    'outlet-switch': 'Outlet/Switch Installation',
+                    'ceiling-fan': 'Ceiling Fan Installation',
+                    'troubleshooting': 'Electrical Troubleshooting',
+                    'other': 'Electrical Service'
+                };
+                
+                const serviceLabel = serviceLabels[userData.serviceType] || 'Electrical Service';
+                
+                messageContent.innerHTML = `
+                    <p>Hi ${userData.name}, I'm your scheduling assistant for AJ Long Electric!</p>
+                    <p>I see you're interested in scheduling a ${serviceLabel} at ${userData.address}, ${userData.city} ${userData.zip}.</p>
+                    <p>Let's find the perfect appointment time for you. Would you prefer a morning or afternoon appointment?</p>
+                `;
+                
+                introMessage.appendChild(messageContent);
+                chatMessages.appendChild(introMessage);
+                
+                // Scroll to bottom of chat
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Focus on input field
+                userInput.focus();
+                
+                // Update the service details in the chat state
+                window.setTimeout(() => {
+                    if (window.state) {
+                        window.state.serviceDetails = {
+                            ...window.state.serviceDetails,
+                            type: serviceLabel,
+                            location: `${userData.address}, ${userData.city} ${userData.zip}`,
+                            customer: {
+                                name: userData.name,
+                                email: userData.email,
+                                phone: userData.phone
+                            }
+                        };
+                        
+                        // Update current step to scheduling
+                        window.state.currentStep = 'scheduling';
+                        
+                        console.log('Updated AI chat state with form data:', window.state);
+                    } else {
+                        console.warn('AI chat state not available yet');
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

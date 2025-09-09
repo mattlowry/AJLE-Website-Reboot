@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Falls Church VA | Historic Home Specialists | AJ Long Electric</title>
+    <meta name="description" content="Top-rated electrician in Falls Church, VA specializing in historic Colonial home electrical upgrades, space-efficient urban solutions, downtown commercial services. Licensed & insured Falls Church electricians with 1200+ 5-star reviews. Call 703-997-4974.">
+    <meta name="keywords" content="electrician falls church va, falls church electrician, electrical contractor falls church virginia, licensed electrician falls church, emergency electrician falls church, panel upgrade falls church, ev charger installation falls church, historic home electrician">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.position" content="38.8823;-77.1710">
+    <meta name="geo.placename" content="Falls Church, Virginia">
+    <meta name="geo.region" content="US-VA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/virginia-electrical-services/falls-church.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Falls Church VA | AJ Long Electric">
+    <meta property="og:description" content="Professional electrician services in Falls Church VA. Historic home specialists, urban electrical solutions, commercial services. Licensed & insured. Call 703-997-4974.">
+    <meta property="og:url" content="https://ajlongelectric.com/virginia-electrical-services/falls-church.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/falls-church-electrician.jpg">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Fix for nearby areas hover */
+        .nearby-area-link {
+            background-color: white;
+            color: #222222;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+        .nearby-area-link:hover {
+            background-color: var(--aj-orange);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Enhanced Schema.org markup for Falls Church Location -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric - Falls Church",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/falls-church.html",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/falls-church.html",
+      "telephone": "+1-703-997-4974",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8823,
+        "longitude": -77.1710
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "16:00"
+      }],
+      "areaServed": [
+        { "@type": "City", "name": "Falls Church", "sameAs": "https://en.wikipedia.org/wiki/Falls_Church,_Virginia" },
+        { "@type": "PostalCode", "name": "22046" },
+        { "@type": "PostalCode", "name": "22042" },
+        { "@type": "PostalCode", "name": "22044" },
+        { "@type": "Place", "name": "West End" },
+        { "@type": "Place", "name": "Winter Hill" },
+        { "@type": "Place", "name": "Broadmont" },
+        { "@type": "Place", "name": "The City of Falls Church" }
+      ],
+      "sameAs": [
+         "https://www.facebook.com/AJLongElectric",
+         "https://www.google.com/maps?cid=12345",
+         "https://www.yelp.com/biz/aj-long-electric-falls-church"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Sarah M."
+          },
+          "datePublished": "2023-09-15",
+          "reviewBody": "AJ Long Electric did an amazing job updating the electrical system in our historic Falls Church home. They were respectful of the property's character while bringing everything up to modern code. Highly recommend their expertise!"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Michael D."
+          },
+          "datePublished": "2023-10-22",
+          "reviewBody": "Excellent work on our downtown Falls Church business. The team handled our commercial electrical needs professionally and efficiently. They worked around our business hours and completed everything on schedule."
+        }
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/falls-church.html"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services in Falls Church",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Historic Home Electrical Services Falls Church VA",
+              "description": "Specialized electrical upgrades for Falls Church's historic Colonial and Victorian homes, preserving architectural character while modernizing safety",
+              "url": "https://ajlongelectric.com/services/panel-replacements/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Small Space Electrical Solutions Falls Church VA",
+              "description": "Space-efficient electrical installations for Falls Church townhomes, condos, and urban properties",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Commercial Electrical Services Falls Church VA",
+              "description": "Complete electrical services for Falls Church businesses, including retail, restaurants, and offices",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Electrical Panel Upgrades Falls Church VA",
+              "description": "Professional panel upgrades and replacements for Falls Church homes and businesses",
+              "url": "https://ajlongelectric.com/services/panel-replacements/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "EV Charger Installation Falls Church VA",
+              "description": "Electric vehicle charger installation for Falls Church homes, supporting all major EV brands",
+              "url": "https://ajlongelectric.com/services/ev-charger-installation/"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header -->
+    <div data-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4">Electrician in <span class="text-aj-orange">Falls Church, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric is Falls Church's premier electrical contractor, specializing in historic home preservation, space-efficient urban solutions, and downtown commercial services. With over 1,200 5-star reviews, we're the trusted electrician for Falls Church properties.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="bg-aj-orange text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>24/7 Emergency Service</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>1,200+ 5-Star Reviews</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Licensed & Insured</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-building mr-2"></i>
+                    <span>Commercial Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Falls Church Service Area -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Expert Electrical Services for <span class="text-aj-orange">Falls Church</span> Homes & Businesses</h2>
+                    <p class="text-gray-600 mb-4">As Falls Church's most trusted electrician, AJ Long Electric brings specialized expertise to this unique historic city. From century-old Colonial homes in the historic districts to modern mixed-use developments downtown, we understand the diverse electrical needs of Falls Church properties.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-gray-800">
+                        <i class="fas fa-bolt text-aj-orange mr-2"></i> Falls Church's Electrical Experts
+                    </h3>
+                    <p class="text-gray-600 mb-4">When searching for an electrician in Falls Church, VA, you need a contractor who understands:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li><a href="/services/panel-replacements/" class="text-aj-orange hover:underline">Historic home electrical preservation</a> and code-compliant upgrades</li>
+                        <li><a href="/services/" class="text-aj-orange hover:underline">Space-efficient solutions</a> for urban townhomes and condos</li>
+                        <li><a href="/services/recessed-lighting/" class="text-aj-orange hover:underline">Commercial electrical services</a> for downtown businesses</li>
+                        <li>Modern infrastructure for mixed-use developments</li>
+                        <li><a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline">EV charger installation</a> for eco-conscious residents</li>
+                        <li>Emergency electrical repairs with rapid response</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold my-4 flex items-center text-gray-800">
+                        <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> Serving All Falls Church Neighborhoods
+                    </h3>
+                    <p class="text-gray-600 mb-4">Our Falls Church electricians know every neighborhood:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Falls Church Historic District</li>
+                        <li>West End</li>
+                        <li>Broadmont</li>
+                        <li>Winter Hill</li>
+                        <li>Downtown Business District / Broad Street</li>
+                        <li>Meridian Street Corridor</li>
+                        <li>East Falls Church Metro area</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12454.598066379307!2d-77.18107301801598!3d38.882929794770534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b4c6badcf3bf%3A0xb9301ca8d346d6!2sFalls%20Church%2C%20VA!5e0!3m2!1sen!2sus!4v1682174000531!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Falls Church, VA Service Area"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Picture Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Falls Church Electrical <span class="text-aj-orange">Project Gallery</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Recent electrical projects completed throughout Falls Church</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/falls-church-historic-home.jpg" alt="Historic Falls Church home electrical work" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Historic Colonial Rewiring</h3>
+                        <p class="text-gray-600 text-sm">Complete electrical modernization of 1890s Falls Church home, preserving architectural details</p>
+                        <a href="/services/panel-replacements/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Panel Services →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/falls-church-commercial.jpg" alt="Commercial electrical in Falls Church" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Downtown Business Upgrade</h3>
+                        <p class="text-gray-600 text-sm">Commercial lighting retrofit and panel upgrade for Broad Street restaurant</p>
+                        <a href="/services/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Commercial Services →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/falls-church-ev-charger.jpg" alt="EV charger in Falls Church" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Townhome EV Installation</h3>
+                        <p class="text-gray-600 text-sm">Space-efficient Level 2 EV charger install in West End townhome garage</p>
+                        <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">EV Solutions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized <span class="text-aj-orange">Electrical Services</span> in Falls Church</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Tailored electrical solutions for Falls Church's unique mix of historic homes, urban properties, and commercial spaces.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Historic Home Electrical</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">Falls Church's historic homes require specialized expertise. We carefully update knob-and-tube wiring, install period-appropriate fixtures, and upgrade service panels while preserving your home's character.</p>
+                    <a href="/services/panel-replacements/" class="text-aj-orange hover:underline flex items-center">
+                        Panel Upgrades <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/signs-panel-upgrade.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Signs You Need an Upgrade <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Small Space Solutions</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">Expert electrical solutions for Falls Church urban living. From efficient lighting in townhomes to maximizing function in condos, we make every square foot count.</p>
+                    <a href="/services/recessed-lighting/" class="text-aj-orange hover:underline flex items-center">
+                        Recessed Lighting <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/recessed-lighting-guide.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Lighting Design Guide <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-store text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Commercial Services</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">Complete electrical services for Falls Church businesses. From retail lighting to restaurant equipment installation, we keep your business powered and compliant.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline flex items-center">
+                        All Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/electrical-cost-guide.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Cost Guide <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-car-battery text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">EV Charger Installation</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">Professional EV charger installation for Falls Church homes and businesses. We handle permits, panel upgrades, and safe installation for all electric vehicle brands.</p>
+                    <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline flex items-center">
+                        EV Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/ev-charger-basics.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        EV Charger Guide <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Emergency Repairs</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">24/7 emergency electrical service in Falls Church. Fast response for power outages, electrical emergencies, and urgent repairs throughout the city.</p>
+                    <a href="tel:7039974974" class="text-aj-orange hover:underline flex items-center">
+                        Call Now <i class="fas fa-phone ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Energy Efficiency</h3>
+                    <p class="text-gray-600 mb-3 text-sm flex-grow">Reduce energy costs with LED upgrades, smart home technology, and energy-efficient electrical solutions designed for Falls Church properties.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline flex items-center">
+                        View Solutions <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/services.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Falls Church Residents <span class="text-aj-orange">Say About Us</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from your Falls Church neighbors about their experience with AJ Long Electric</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Our 1920s Falls Church colonial needed a complete electrical overhaul. AJ Long preserved all the historic charm while making our home safe and modern. They even helped with permits for our historic district!"</p>
+                    <p class="font-bold">Elizabeth R. - Historic Falls Church</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Perfect solution for our small townhome! They installed recessed lighting and added outlets without any wall damage. The electrician was on time, clean, and very professional."</p>
+                    <p class="font-bold">James K. - West End</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"AJ Long handled all the electrical work for our restaurant renovation on Broad Street. They worked around our schedule, finished on time, and helped us pass inspection easily."</p>
+                    <p class="font-bold">Maria S. - Downtown Falls Church</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/testimonials.html" class="text-aj-orange hover:underline text-lg">Read More Falls Church Reviews →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Falls Church-Specific FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions - <span class="text-aj-orange">Falls Church Electricians</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions from Falls Church property owners</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Can you work on historic homes in Falls Church?</h3>
+                    <p class="text-gray-600">Absolutely! We specialize in electrical work for Falls Church's historic properties. We're experienced with preserving architectural features while updating electrical systems to meet modern code requirements.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you handle permits in Falls Church?</h3>
+                    <p class="text-gray-600">Yes, we handle all electrical permits for Falls Church projects. We're familiar with the City of Falls Church's specific requirements and work closely with local inspectors to ensure compliance.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">How fast can you respond to emergencies in Falls Church?</h3>
+                    <p class="text-gray-600">We typically arrive within 45-60 minutes for Falls Church emergency calls. Our electricians are based nearby, ensuring rapid response throughout the city, from downtown to residential areas.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you work on commercial properties in Falls Church?</h3>
+                    <p class="text-gray-600">Yes! We provide comprehensive commercial electrical services for Falls Church businesses, including retail stores, restaurants, offices, and mixed-use properties throughout the downtown district.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/faq.html" class="text-aj-orange hover:underline text-lg">View All FAQs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us for Falls Church -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Falls Church Chooses <span class="text-aj-orange">AJ Long Electric</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Experience, expertise, and exceptional service for Falls Church properties.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Local Expertise</h3>
+                    <p class="text-gray-600 text-sm">Deep knowledge of Falls Church building codes, historic preservation requirements, and urban electrical needs.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Licensed & Insured</h3>
+                    <p class="text-gray-600 text-sm">Fully licensed in Falls Church with comprehensive insurance for residential and commercial projects.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1,200+ Reviews</h3>
+                    <p class="text-gray-600">Consistently rated 5 stars by Falls Church residents and businesses for quality workmanship.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fast Response</h3>
+                    <p class="text-gray-600">Same-day service available throughout Falls Church with 24/7 emergency support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Also Serve Nearby Areas -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">We Also Serve Nearby Areas</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">AJ Long Electric provides quality electrical services to these communities surrounding Falls Church:</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <a href="/virginia-electrical-services/vienna.html" class="nearby-area-link">
+                    Vienna
+                </a>
+                <a href="/virginia-electrical-services/merrifield.html" class="nearby-area-link">
+                    Merrifield
+                </a>
+                <a href="/virginia-electrical-services/arlington.html" class="nearby-area-link">
+                    Arlington
+                </a>
+                <a href="/virginia-electrical-services/mclean.html" class="nearby-area-link">
+                    McLean
+                </a>
+                <a href="/virginia-electrical-services/annandale.html" class="nearby-area-link">
+                    Annandale
+                </a>
+                <a href="/virginia-electrical-services/fairfax.html" class="nearby-area-link">
+                    Fairfax
+                </a>
+                <a href="/virginia-electrical-services/alexandria.html" class="nearby-area-link">
+                    Alexandria
+                </a>
+                <a href="/virginia-electrical-services/fairfax-county.html" class="nearby-area-link">
+                    Fairfax County
+                </a>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="/service-areas.html" class="text-aj-orange hover:underline inline-flex items-center">
+                    View All Northern Virginia Service Areas <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need an Electrician in Falls Church?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Whether you're renovating a historic home, upgrading your business, or need emergency repairs, Falls Church's most trusted electricians are ready to help.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Get Free Estimate
+                </a>
+                <a href="tel:7039974974" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Falls Church: 703-997-4974
+                </a>
+                <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                    <i class="fas fa-calendar-alt mr-2"></i> Book Online Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include-html="/include/standard-footer.html"></div>
+    
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <!-- Consolidated main scripts -->
+    <script src="/js/main-scripts.js" defer></script>
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> <span>Book Falls Church Electrician</span>
+        </button>
+    </div>
+</body>
+</html>

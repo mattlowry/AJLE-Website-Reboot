@@ -1,0 +1,213 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Local development - disable for production deployment
+# local_backend: true
+
+# Production backend configuration
+# For local testing, uncomment local_backend above
+
+# Media and public folders - Using Cloudinary
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+# Cloudinary configuration
+cloudinary:
+  cloud_name: "{{CLOUDINARY_CLOUD_NAME}}"
+  api_key: "{{CLOUDINARY_API_KEY}}"
+  api_secret: "{{CLOUDINARY_API_SECRET}}"
+  secure: true
+
+# Site URL (update when deployed)
+site_url: https://ajlongelectric.com
+display_url: https://ajlongelectric.com
+
+# Logo
+logo_url: /assets/logos/AJLongElectric-Logo.png
+
+# Collections
+collections:
+  # Main Site Pages
+  - name: "main_pages"
+    label: "Main Pages"
+    files:
+      - file: "public/index.html"
+        label: "Homepage"
+        name: "homepage"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      
+      - file: "public/about.html"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Team Photo", name: "team_image", widget: "image", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      
+      - file: "public/services.html"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Services Hero Image", name: "hero_image", widget: "image", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      
+      - file: "public/contact.html"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Contact Image", name: "contact_image", widget: "image", required: false }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+
+  # Virginia Service Areas
+  - name: "virginia_locations"
+    label: "Virginia Locations"
+    folder: "public/virginia-electrical-services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Location Name", name: "location", widget: "string" }
+      - { label: "Hero Image", name: "hero_image", widget: "image", required: false, hint: "Main location image (1920x1080 recommended)" }
+      - { label: "Service 1 Image", name: "service1_image", widget: "image", required: false, hint: "First service image (800x600 recommended)" }
+      - { label: "Service 2 Image", name: "service2_image", widget: "image", required: false, hint: "Second service image (800x600 recommended)" }
+      - { label: "Service 3 Image", name: "service3_image", widget: "image", required: false, hint: "Third service image (800x600 recommended)" }
+      - { label: "Project 1 Image", name: "project1_image", widget: "image", required: false, hint: "Recent project photo" }
+      - { label: "Project 2 Image", name: "project2_image", widget: "image", required: false, hint: "Recent project photo" }
+      - { label: "Project 3 Image", name: "project3_image", widget: "image", required: false, hint: "Recent project photo" }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # DC Service Areas
+  - name: "dc_locations"
+    label: "DC Locations"
+    folder: "public/dc-electrical-services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Location Name", name: "location", widget: "string" }
+      - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
+      - { label: "Service 1 Image", name: "service1_image", widget: "image", required: false }
+      - { label: "Service 2 Image", name: "service2_image", widget: "image", required: false }
+      - { label: "Service 3 Image", name: "service3_image", widget: "image", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # Maryland Service Areas
+  - name: "maryland_locations"
+    label: "Maryland Locations"
+    folder: "public/maryland-electrical-services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Location Name", name: "location", widget: "string" }
+      - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
+      - { label: "Service 1 Image", name: "service1_image", widget: "image", required: false }
+      - { label: "Service 2 Image", name: "service2_image", widget: "image", required: false }
+      - { label: "Service 3 Image", name: "service3_image", widget: "image", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # Blog Posts
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "public/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "AJ Long Electric" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Individual Services
+  - name: "services"
+    label: "Service Pages"
+    folder: "public/services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: "service_name", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Service Icon", name: "service_icon", widget: "string", hint: "FontAwesome icon class (e.g., fas fa-bolt)" }
+      - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
+      - { label: "Service Images", name: "service_images", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Price Range", name: "price_range", widget: "string", required: false }
+      - { label: "Duration", name: "duration", widget: "string", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # Gallery/Projects
+  - name: "gallery"
+    label: "Project Gallery"
+    folder: "public/assets/images/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Name", name: "project_name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Service Type", name: "service_type", widget: "select", options: ["Residential", "Commercial", "Panel Upgrade", "EV Charger", "Smart Home", "Lighting", "Remodel", "Emergency"] }
+      - { label: "Featured Image", name: "featured_image", widget: "image" }
+      - { label: "Before Image", name: "before_image", widget: "image", required: false }
+      - { label: "After Image", name: "after_image", widget: "image", required: false }
+      - { label: "Additional Images", name: "gallery_images", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Project Details", name: "details", widget: "markdown" }
+
+# Site settings
+site_title: "AJ Long Electric CMS"
+display_url: "https://ajlongelectric.com"
+
+# Media library settings - Cloudinary integration
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: "{{CLOUDINARY_CLOUD_NAME}}"
+    api_key: "{{CLOUDINARY_API_KEY}}"
+    multiple: true
+    max_file_size: 10000000
+    default_transformations:
+      - - fetch_format: auto
+          quality: auto
+      - - width: 1920
+          height: 1080
+          crop: limit
+    use_transformations:
+      - media_library_thumbnail: 
+          - width: 300
+            height: 300
+            crop: lfill
+            effect: sharpen
+      - media_library_large:
+          - width: 1000
+            height: 1000
+            crop: limit
+            quality: auto
+            fetch_format: auto
+
+# Editor settings
+editor:
+  preview: true
+
+# Slug settings
+slug:
+  encoding: "ascii"
+  clean_accents: true

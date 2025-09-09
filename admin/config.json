@@ -1,0 +1,39 @@
+{
+  "media_folder": "public/assets/images",
+  "public_folder": "/assets/images",
+  "load_config_file": true,
+  "display_url": "https://ajlongelectric.com",
+  "logo_url": "/assets/logos/AJLongElectric-Logo.png",
+  "local_backend": true,
+  "backend": {
+    "name": "git-gateway",
+    "branch": "main"
+  },
+  "editor": {
+    "preview": true
+  },
+  "cloudinary": {
+    "cloud_name": "{{CLOUDINARY_CLOUD_NAME}}",
+    "api_key": "{{CLOUDINARY_API_KEY}}",
+    "api_secret": "{{CLOUDINARY_API_SECRET}}",
+    "secure": true,
+    "transformations": {
+      "thumbnail": "c_fill,w_300,h_300,q_auto,f_auto",
+      "hero": "c_fill,w_1920,h_1080,q_auto,f_auto",
+      "service": "c_fill,w_800,h_600,q_auto,f_auto",
+      "gallery": "c_limit,w_1200,h_800,q_auto,f_auto"
+    }
+  },
+  "image_optimization": {
+    "enabled": true,
+    "provider": "cloudinary",
+    "formats": ["webp", "avif", "jpg"],
+    "quality": "auto",
+    "max_width": 1920
+  },
+  "site_settings": {
+    "name": "AJ Long Electric",
+    "url": "https://ajlongelectric.com",
+    "description": "Professional electrical services in Northern Virginia, DC, and Maryland"
+  }
+}

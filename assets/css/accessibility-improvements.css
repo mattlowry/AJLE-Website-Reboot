@@ -1,0 +1,343 @@
+/* Accessibility Improvements for AJ Long Electric Website
+ * WCAG 2.1 Level AA Compliance Enhancements
+ */
+
+/* Skip Navigation Links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--aj-dark, #222222);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 1000;
+    font-weight: 600;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 6px;
+    outline: 2px solid #0066CC;
+    outline-offset: 2px;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.sr-only:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: inherit !important;
+}
+
+/* Enhanced Focus Indicators */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+    outline: 2px solid #0066CC !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15) !important;
+}
+
+/* Remove default focus for mouse users */
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --aj-orange: #FF8C00;
+        --aj-dark: #000000;
+    }
+    
+    .bg-gray-200 {
+        background-color: #FFFFFF !important;
+        border: 2px solid #000000 !important;
+    }
+    
+    .text-gray-600 {
+        color: #000000 !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Form Accessibility Enhancements */
+.form-field {
+    position: relative;
+}
+
+.required-indicator {
+    color: #DC2626;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.error-message {
+    color: #DC2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+.form-field.error input,
+.form-field.error textarea,
+.form-field.error select {
+    border-color: #DC2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Better Color Contrast for Orange Text */
+.text-aj-orange {
+    /* Ensure 4.5:1 contrast ratio on white backgrounds */
+    color: #CC5500 !important;
+}
+
+.bg-aj-orange .text-white {
+    /* Ensure sufficient contrast on orange backgrounds */
+    color: #FFFFFF !important;
+}
+
+/* Enhanced Link Accessibility */
+a:not([class]) {
+    color: #CC5500;
+    text-decoration: underline;
+}
+
+a:not([class]):hover,
+a:not([class]):focus {
+    color: #AA4400;
+    text-decoration: underline;
+    background-color: rgba(255, 114, 0, 0.1);
+}
+
+/* Mobile Touch Target Improvements */
+@media (max-width: 768px) {
+    button,
+    .btn,
+    a[role="button"],
+    input[type="submit"],
+    input[type="button"] {
+        min-height: 48px !important;
+        min-width: 48px !important;
+        padding: 12px 16px !important;
+    }
+    
+    /* Ensure adequate spacing between touch targets */
+    .mobile-menu a,
+    .mobile-menu button {
+        margin: 4px 0 !important;
+        padding: 16px !important;
+    }
+}
+
+/* ARIA Live Region Styling */
+.status-message {
+    padding: 12px;
+    border-radius: 4px;
+    margin: 16px 0;
+    font-weight: 600;
+}
+
+.status-message.success {
+    background-color: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #10B981;
+}
+
+.status-message.error {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #EF4444;
+}
+
+.status-message.warning {
+    background-color: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #F59E0B;
+}
+
+/* Enhanced Mobile Menu Accessibility */
+.mobile-menu {
+    /* Ensure proper focus trap */
+    visibility: hidden;
+}
+
+.mobile-menu.active {
+    visibility: visible;
+}
+
+.mobile-menu a,
+.mobile-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: var(--aj-dark, #222222);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a:focus,
+.mobile-menu button:hover,
+.mobile-menu button:focus {
+    background-color: rgba(0, 102, 204, 0.1);
+    color: #0066CC;
+}
+
+/* Form File Upload Accessibility */
+.file-upload-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border: 2px dashed #D1D5DB;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    background-color: #F9FAFB;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.file-upload-wrapper:hover,
+.file-upload-wrapper:focus-within {
+    border-color: #0066CC;
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+.file-upload-input {
+    position: absolute;
+    left: -9999px;
+}
+
+.file-upload-label {
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    color: var(--aj-dark, #222222);
+}
+
+/* Table Accessibility (if needed) */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #D1D5DB;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #F3F4F6;
+    font-weight: 600;
+}
+
+/* Error and Success Message Animations */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Focus Management for Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+}
+
+/* Print Styles for Accessibility */
+@media print {
+    .skip-link,
+    .mobile-menu,
+    .menu-overlay,
+    button:not(.print-button) {
+        display: none !important;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+}

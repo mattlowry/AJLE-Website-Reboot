@@ -1,0 +1,906 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Safety Resources | AJ Long Electric</title>
+    <meta name="description" content="Learn essential electrical safety tips for your home from AJ Long Electric's expert guides. Protect your family with our comprehensive electrical safety resources.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrical Safety Resources | AJ Long Electric">
+    <meta property="og:description" content="Learn essential electrical safety tips for your home from AJ Long Electric's expert guides. Protect your family with our comprehensive electrical safety resources.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/safety.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrical Safety Resources | AJ Long Electric">
+    <meta name="twitter:description" content="Learn essential electrical safety tips for your home from AJ Long Electric's expert guides. Protect your family with our comprehensive electrical safety resources.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+        
+        .safety-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .safety-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .safety-tip-card {
+            border-left: 4px solid var(--aj-orange);
+        }
+        
+        .emergency-card {
+            border-left: 4px solid #e53e3e;
+        }
+        
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Electrical Safety Resources",
+        "description": "Learn essential electrical safety tips for your home from AJ Long Electric's expert guides.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "AJ Long Electric",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ajlongelectric.com/images/logo.png" // Placeholder - Update if needed
+            }
+        },
+        "mainEntity": {
+            "@type": "HowTo",
+            "name": "How to Ensure Electrical Safety in Your Home",
+            "description": "Follow these steps to ensure electrical safety in your home.",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "text": "Regularly inspect your electrical panel for warning signs",
+                    "name": "Inspect your electrical panel",
+                    "url": "https://www.ajlongelectric.com/safety.html#panel-inspection" // Updated URL
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Test GFCI outlets monthly to ensure they're functioning properly",
+                    "name": "Test GFCI outlets",
+                    "url": "https://www.ajlongelectric.com/safety.html#gfci-testing" // Updated URL
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Look for warning signs of electrical problems throughout your home",
+                    "name": "Identify warning signs",
+                    "url": "https://www.ajlongelectric.com/safety.html#warning-signs" // Updated URL
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Know how to respond in an electrical emergency",
+                    "name": "Emergency response",
+                    "url": "https://www.ajlongelectric.com/safety.html#emergency-response" // Updated URL
+                }
+            ]
+        }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Sticky Header -->
+            <!-- Standard Header -->
+            <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+            <!-- Mobile menu is included in standard-header.html -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-100 py-2">
+        <div class="container mx-auto px-4">
+            <div class="text-sm">
+                <a href="/" class="text-gray-600 hover:text-aj-orange">Home</a>
+                <span class="mx-2">/</span>
+                <a href="resources.html" class="text-gray-600 hover:text-aj-orange">Resources</a> <!-- Updated Link -->
+                <span class="mx-2">/</span>
+                <span class="text-aj-orange font-medium">Electrical Safety</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-2/3 mb-8 md:mb-0 md:pr-12">
+                    <h1 class="text-4xl font-bold mb-4">Electrical <span class="text-aj-orange">Safety</span> Resources</h1>
+                    <p class="text-lg mb-6">Protect your family and home with these essential electrical safety guidelines. Learn how to identify potential hazards and respond appropriately to electrical emergencies.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#electrical-hazards" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow text-center hover:bg-gray-800 transition">
+                            Common Hazards
+                        </a>
+                        <a href="#emergency-response" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition">
+                            Emergency Response
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/safety/lightning-protection.jpg?_a=BBFAAAAA0" alt="Electrical safety - Lightning strike protection" class="rounded transform -rotate-2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Why Electrical Safety Matters</h2>
+                <p class="text-lg text-gray-600 mb-8">Electrical safety is not just about preventing inconvenient power outages – it's about protecting your family and home from serious hazards. According to the Electrical Safety Foundation International (ESFI), electrical failures cause approximately 51,000 home fires each year, resulting in nearly 500 deaths, 1,400 injuries, and $1.3 billion in property damage.</p>
+                
+                <p class="text-lg text-gray-600 mb-8">As a homeowner in Fairfax County, understanding electrical safety is essential. Our team of licensed electricians has compiled these resources based on our experience serving over 1,200 satisfied customers across Northern Virginia. Use these guides to identify potential issues and learn when it's time to call a professional.</p>
+                
+                <div class="bg-red-100 rounded-lg p-6 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> Important Safety Notice
+                    </h3>
+                    <p class="text-red-700">The information provided here is for educational purposes only. Always consult with a licensed electrician before attempting any electrical work in your home. If you encounter a situation that seems hazardous, don't take risks – call a professional immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electrical Hazards Section -->
+    <section id="electrical-hazards" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Common Electrical <span class="text-aj-orange">Hazards</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Learn to identify these common electrical hazards in your home to keep your family safe.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Hazard 1: Outdated Electrical Panels -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden" id="panel-inspection">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-Before-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="Outdated electrical panel - safety hazard" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Outdated Electrical Panels</h3>
+                        <p class="text-gray-600 mb-4">Certain electrical panels, particularly Federal Pacific Electric (FPE) and Zinsco panels installed between 1950-1990, are known fire hazards. These panels may fail to trip properly during overloads, causing fires.</p>
+
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Warning Signs:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Flickering lights</li>
+                                <li>Burning smell from the panel</li>
+                                <li>Warm panel cover</li>
+                                <li>Frequent circuit breaker trips</li>
+                                <li>Panel labeled "Federal Pacific," "FPE," or "Zinsco"</li>
+                            </ul>
+                        </div>
+
+                        <a href="/blog/understanding-your-homes-electrical-panel.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+                
+                <!-- Hazard 2: Overloaded Circuits -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/tripped%20breaker.jpeg?_a=BBFAAAAA0" alt="Overloaded circuit with tripped breaker" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Overloaded Circuits</h3>
+                        <p class="text-gray-600 mb-4">Overloaded circuits occur when you draw more electricity than a circuit is designed to handle. This is especially common in older homes with fewer circuits or when using multiple high-wattage appliances.</p>
+
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Warning Signs:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Frequent circuit breaker trips</li>
+                                <li>Dimming lights when appliances turn on</li>
+                                <li>Warm wall plates</li>
+                                <li>Buzzing sounds from outlets</li>
+                                <li>Burning smell</li>
+                            </ul>
+                        </div>
+
+                        <a href="/services/panel-upgrades.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+                
+                <!-- Hazard 3: Faulty GFCI Protection -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden" id="gfci-testing">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/safety/gfci-protection.jpg?_a=BBFAAAAA0" alt="GFCI outlet near kitchen sink for safety" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Inadequate GFCI Protection</h3>
+                        <p class="text-gray-600 mb-4">Ground Fault Circuit Interrupters (GFCIs) protect against electric shocks by quickly cutting power when they detect current leakage. They're required in wet locations like bathrooms, kitchens, and outdoors.</p>
+
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Areas Requiring GFCIs:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Kitchens (countertop areas)</li>
+                                <li>Bathrooms</li>
+                                <li>Garages and accessory buildings</li>
+                                <li>Outdoor receptacles</li>
+                                <li>Crawl spaces and unfinished basements</li>
+                                <li>Laundry areas and utility sinks</li>
+                            </ul>
+                        </div>
+
+                        <a href="/blog/why-gfci-outlets-are-essential.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+                
+                <!-- Hazard 4: Faulty or Outdated Wiring -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="Modern wiring in updated electrical panel" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Outdated Wiring</h3>
+                        <p class="text-gray-600 mb-4">Homes built before 1980 may have aluminum wiring or knob-and-tube wiring, which can deteriorate over time and pose fire hazards. Modern devices and appliances require updated wiring for safety.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Warning Signs:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Frequently blown fuses or tripped breakers</li>
+                                <li>Discolored outlets or switches</li>
+                                <li>Burning smell</li>
+                                <li>Visible frayed or damaged wires</li>
+                                <li>Two-prong ungrounded outlets</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="/services/troubleshooting.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+                
+                <!-- Hazard 5: Extension Cord Hazards -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/safety/hanging-lighting-stranded.jpg?_a=BBFAAAAA0" alt="Extension cord hazard with improper use" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Extension Cord Hazards</h3>
+                        <p class="text-gray-600 mb-4">Extension cords are meant for temporary use. Permanent use, improper sizing, or daisy-chaining can create fire risks. Using extension cords as a long-term solution indicates you need additional outlets.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Safety Tips:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Never run cords under carpets or furniture</li>
+                                <li>Don't daisy-chain multiple cords</li>
+                                <li>Use appropriate gauge for the load</li>
+                                <li>Replace damaged cords immediately</li>
+                                <li>Consider installing additional outlets</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="/blog/electrical-safety-tips.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+                
+                <!-- Hazard 6: Water and Electricity -->
+                <div class="safety-card bg-white rounded-lg overflow-hidden">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/kitchen/GFCI-Kitchen.webp?_a=BBFAAAAA0" alt="Water electrical hazard in kitchen area" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Water and Electricity</h3>
+                        <p class="text-gray-600 mb-4">Water and electricity create a dangerous combination that can lead to electrocution. Special precautions must be taken in kitchens, bathrooms, and outdoor areas to prevent water contact with electrical components.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2">Safety Tips:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Ensure GFCI protection in wet locations</li>
+                                <li>Use weather-resistant covers outdoors</li>
+                                <li>Keep cords and devices away from water</li>
+                                <li>Never handle electrical items with wet hands</li>
+                                <li>Use appliance leakage current interrupters (ALCIs)</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="/blog/preventing-electrical-hazards.html" class="text-aj-orange font-semibold hover:underline">Learn More <i class="fas fa-arrow-right ml-1"></i></a> <!-- Placeholder Link -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Signs Section -->
+    <section id="warning-signs" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Warning <span class="text-aj-orange">Signs</span> of Electrical Problems</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Recognizing these warning signs early can prevent dangerous situations and expensive repairs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Warning Sign 1 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-bolt text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Frequent Circuit Breaker Trips</h3>
+                            <p class="text-gray-600">If your circuit breakers trip repeatedly, it's often a sign that the circuit is overloaded or there's a more serious wiring issue. This is your electrical system's way of preventing overheating and potential fires.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: Reduce the load on that circuit by unplugging devices. If the problem persists, contact a licensed electrician to evaluate your electrical system.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Sign 2 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-lightbulb text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Flickering or Dimming Lights</h3>
+                            <p class="text-gray-600">Lights that flicker or dim when appliances turn on indicate your electrical system is struggling to meet demand. This can be due to loose connections, overloaded circuits, or outdated wiring.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: Note when the flickering occurs and which appliances trigger it. This information will help an electrician diagnose the issue accurately.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Sign 3 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-plug text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Warm or Discolored Outlets</h3>
+                            <p class="text-gray-600">Outlets or switches that are warm to the touch, discolored, or emit a burning odor indicate dangerous overheating. This can be caused by loose connections, improper wiring, or arc faults.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: Stop using the outlet immediately and turn off the circuit at your electrical panel. This requires immediate attention from a professional electrician.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Sign 4 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-volume-up text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Buzzing Sounds</h3>
+                            <p class="text-gray-600">Electrical components should operate silently. Buzzing, sizzling, or crackling sounds from outlets, switches, or the electrical panel can indicate loose connections, arcing, or other serious problems.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: Identify the source of the sound but don't investigate further yourself. Contact a licensed electrician promptly to inspect the issue.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Sign 5 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-nose text-3xl"></i> <!-- Placeholder Icon -->
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Burning Smell</h3>
+                            <p class="text-gray-600">A burning smell with no obvious source is a serious warning sign of electrical problems. This smell often indicates that wire insulation is melting, which is a fire hazard.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: If you can safely do so, turn off power at the main circuit breaker. This is an emergency situation requiring immediate professional help.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Sign 6 -->
+                <div class="safety-tip-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-aj-orange mr-4">
+                            <i class="fas fa-tint-slash text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Electrical Shocks</h3>
+                            <p class="text-gray-600">Feeling even a mild shock when touching appliances or outlets indicates a serious electrical problem. This could mean improper grounding, water intrusion, or damaged wiring.</p>
+                            <p class="text-gray-600 mt-2 font-semibold">What to do: Stop using the problematic appliance or outlet immediately. Have a licensed electrician inspect the issue as soon as possible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="/services/troubleshooting.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                    Schedule an Electrical Safety Inspection
+                </a> <!-- Placeholder Link -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Safety Checklist -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Home Electrical <span class="text-aj-orange">Safety Checklist</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Use this checklist to perform a basic safety assessment of your home's electrical system.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Monthly Checks</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Test all GFCI outlets by pressing the "Test" button and then "Reset"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Test smoke detectors and carbon monoxide detectors</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Check for frayed cords on appliances and devices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Inspect extension cords for damage and ensure they're not overloaded</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Quarterly Checks</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Visually inspect your electrical panel for rust, moisture, or discoloration</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Check that panel breakers are labeled correctly and legibly</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Inspect outlets and switches for damage, discoloration, or looseness</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Check outdoor electrical equipment for weather damage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Annual Professional Inspection</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Schedule a comprehensive electrical safety inspection by a licensed electrician</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Have surge protectors and whole-house surge protection systems checked</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Review any electrical panel upgrades or additional circuit needs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange rounded">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Review and update family emergency plans for electrical fires or outages</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="#" class="inline-block px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-download mr-2"></i> Download Printable Checklist (PDF)
+                    </a> <!-- Placeholder Link -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Response Section -->
+    <section id="emergency-response" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Electrical <span class="text-aj-orange">Emergency</span> Response</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Know what to do when electrical emergencies occur to keep your family safe.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Emergency 1: Electrical Fire -->
+                <div class="emergency-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-red-600 mr-4">
+                            <i class="fas fa-fire text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Electrical Fire Response</h3>
+                            <ol class="list-decimal pl-5 text-gray-600 space-y-2">
+                                <li>If safe to do so, turn off power at the circuit breaker or main panel.</li>
+                                <li>Call 911 immediately from a safe location.</li>
+                                <li>Only use a Class C fire extinguisher rated for electrical fires.</li>
+                                <li>Never use water on an electrical fire.</li>
+                                <li>Evacuate immediately if the fire cannot be quickly contained.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emergency 2: Electric Shock -->
+                <div class="emergency-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-red-600 mr-4">
+                            <i class="fas fa-bolt text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Electric Shock Response</h3>
+                            <ol class="list-decimal pl-5 text-gray-600 space-y-2">
+                                <li>Do not touch the person if they are still in contact with the electrical source.</li>
+                                <li>Turn off power at the circuit breaker if possible and safe to do so.</li>
+                                <li>Call 911 immediately.</li>
+                                <li>If the person is not breathing, begin CPR if you are trained.</li>
+                                <li>Keep the person warm and still until emergency services arrive.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emergency 3: Downed Power Lines -->
+                <div class="emergency-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-red-600 mr-4">
+                            <i class="fas fa-exclamation-triangle text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Downed Power Line Safety</h3>
+                            <ol class="list-decimal pl-5 text-gray-600 space-y-2">
+                                <li>Stay at least 35 feet away from downed power lines.</li>
+                                <li>Call 911 and your power company immediately.</li>
+                                <li>Never touch a downed line or anything in contact with it.</li>
+                                <li>If a power line falls on your car, stay inside the vehicle until help arrives.</li>
+                                <li>If you must exit the vehicle due to fire, jump clear without touching the car and ground simultaneously, then shuffle away with small steps.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emergency 4: Power Outage -->
+                <div class="emergency-card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-red-600 mr-4">
+                            <i class="fas fa-power-off text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Power Outage Safety</h3>
+                            <ol class="list-decimal pl-5 text-gray-600 space-y-2">
+                                <li>Check if the outage affects just your home or the neighborhood.</li>
+                                <li>Check your electrical panel for tripped breakers.</li>
+                                <li>Report the outage to your utility company.</li>
+                                <li>Unplug sensitive electronics to protect from power surges when electricity returns.</li>
+                                <li>Use flashlights instead of candles when possible to reduce fire risk.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main></body></html>

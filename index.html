@@ -1,0 +1,609 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Enhanced Title Tag -->
+    <title>AJ Long Electric | Expert Electricians in Fairfax, NoVA, DC &amp; MD</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="Top-rated electricians serving Fairfax County, Arlington, Alexandria, DC, Montgomery &amp; PG County. 1,200+ 5-star reviews &amp; 5-year warranty. Get a free estimate!">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="electrician, electrical services, Fairfax, Arlington, Alexandria, Washington DC, Maryland, Northern Virginia, NoVA, panel upgrade, EV charger installation, recessed lighting, electrical repair, emergency electrician, residential electrician, commercial electrician, licensed electrician, electrical contractor">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <meta name="geo.position" content="38.8462;-77.3064">
+    <meta name="ICBM" content="38.8462, -77.3064">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AJ Long Electric | Expert Electricians in Fairfax, NoVA, DC &amp; MD">
+    <meta property="og:description" content="Top-rated electricians serving Fairfax County, Arlington, Alexandria, DC, Montgomery &amp; PG County. 1,200+ 5-star reviews &amp; 5-year warranty. Get a free estimate!">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AJ Long Electric | Expert Electricians in Fairfax, NoVA, DC &amp; MD">
+    <meta name="twitter:description" content="Top-rated electricians serving Fairfax County, Arlington, Alexandria, DC, Montgomery &amp; PG County. 1,200+ 5-star reviews &amp; 5-year warranty. Get a free estimate!">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    
+    <!-- Netlify Identity Widget for CMS Authentication -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/mobile-accessibility.css">
+    <link rel="stylesheet" href="/assets/css/mobile-fab.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto;}
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Section preview */
+        .section-preview { position: relative; overflow: hidden; }
+        .section-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1rem 1rem; transition: all 0.3s ease; }
+        .section-preview:hover .section-overlay { background: linear-gradient(to top, rgba(255,114,0,0.9), transparent); }
+
+        
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 100px; /* Position next to chat */
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+         #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <!-- SEO: Schema.org for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png", // Replace with your actual logo URL
+      "@id": "https://ajlongelectric.com/", // Replace with your actual domain
+      "url": "https://ajlongelectric.com/", // Replace with your actual domain
+      "telephone": "+1-703-997-0026",
+      "priceRange": "$$", // Optional: Indicate price range ($, $$, $$$)
+      "address": { // Use your MAIN business address here
+        "@type": "PostalAddress",
+        "streetAddress": "2724 Dorr Ave, Suite 102", // Primary Address
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": { // Geo Coordinates for primary address
+        "@type": "GeoCoordinates",
+        "latitude": 38.8383686, // Replace with actual Lat for Dorr Ave
+        "longitude": -77.2690285 // Replace with actual Long for Dorr Ave
+      },
+      "openingHoursSpecification": { // Adjust to your actual hours
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      // Add more opening hours specs for Sat/Sun if applicable
+      "aggregateRating": { // Pull this data dynamically if possible, or update manually
+        "@type": "AggregateRating",
+        "ratingValue": "5", // Example rating
+        "reviewCount": "1200" // Example count
+      },
+      "areaServed": [ // List major service areas
+        {
+          "@type": "County",
+          "name": "Fairfax County"
+        },
+         {
+          "@type": "County",
+          "name": "Arlington County"
+        },
+         {
+          "@type": "City",
+          "name": "Alexandria"
+        },
+        {
+          "@type": "City",
+          "name": "Washington D.C."
+        },
+         {
+          "@type": "County",
+          "name": "Montgomery County"
+        },
+        {
+          "@type": "County",
+          "name": "Prince George's County"
+        }
+        // Add more specific cities/counties if needed
+      ],
+      "sameAs": [ // Add links to your social profiles
+        "https://www.facebook.com/ajlongelectric", // Replace with actual URL
+        "https://www.google.com/maps/place/AJ+Long+Electric/@38.8383686,-77.2690285,17z/data=!4m6!3m5!1s0x89b64c0325cc1293:0x7d2783cfbec92c1a!8m2!3d38.8383686!4d-77.2664536!16s%2Fg%2F11bxf2f69x", // Replace with actual Google Maps URL
+        "https://www.yelp.com/biz/aj-long-electric-fairfax" // Replace with actual Yelp URL if applicable
+        // Add Instagram, LinkedIn etc.
+      ]
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+  <script src="/js/mobile-fab.js"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+<!-- Include the standard header -->
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+    <!-- Hero Section -->
+    <section id="home" class="pattern-bg text-white py-8 sm:py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-fadeInUp">
+                    <!-- Family-owned badge positioned better -->
+                    <div class="inline-block bg-aj-orange text-white px-3 sm:px-5 py-2 rounded-full font-bold shadow-lg animate__animated animate__fadeIn mb-4 text-sm sm:text-base">
+                        <i class="fas fa-users mr-2"></i> Family-Owned &amp; Operated Since 1996
+                    </div>
+
+                    <!-- SEO: Main Heading (H1) -->
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">Generations of Expertise: Fairfax County's Premier Father &amp; Son Electricians</h1>
+                    <p class="text-base sm:text-lg mb-6 leading-relaxed">
+                        <!-- SEO: Include target keywords/locations naturally -->
+                        Choose reliability and trust built over decades. We're a father-and-son electrical company, proudly serving <strong class="text-aj-orange">Fairfax County, Arlington, Alexandria, DC, Montgomery County, Prince George's County</strong> and surrounding areas. You benefit from electricians with over 20 years of experience providing safe, code-compliant solutions. Our reputation shines with over 1,200 5-star reviews – let our family take care of yours!
+                    </p>
+                    <div class="flex flex-col space-y-3 sm:space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                        <a href="estimate.html" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition text-center min-h-12">
+                            <i class="fas fa-calculator mr-2"></i>Get Free Estimate
+                        </a>
+                        <a href="services.html" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition min-h-12">
+                            <i class="fas fa-tools mr-2"></i>Explore Our Services
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeInUp mt-6 md:mt-0" style="animation-delay: 0.3s;">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2 max-w-sm w-full">
+                        <!-- SEO: Descriptive Alt Text -->
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/Home-ElectricalServices-FatherSon.png?_a=BBFAAAAA0" alt="AJ Long Electric father and son electricians serving Northern Virginia" class="rounded transform -rotate-2 w-full h-auto" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section - Enhanced with visual elements -->
+    <section class="bg-gradient-to-r from-gray-50 via-white to-gray-50 py-6 sm:py-8 md:py-10 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="flex flex-col items-center bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-b-2 border-aj-orange">
+                    <div class="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-aj-orange text-white mb-3 sm:mb-4 shadow-md">
+                        <i class="fas fa-star text-lg sm:text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-lg sm:text-2xl">1,200+</p>
+                        <p class="text-gray-600 text-sm sm:text-base">5-Star Reviews</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-b-2 border-aj-orange">
+                    <div class="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-aj-orange text-white mb-3 sm:mb-4 shadow-md">
+                        <i class="fas fa-shield-alt text-lg sm:text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-lg sm:text-2xl">5-Year</p>
+                        <p class="text-gray-600 text-sm sm:text-base">Warranty</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-b-2 border-aj-orange">
+                    <div class="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-aj-orange text-white mb-3 sm:mb-4 shadow-md">
+                        <i class="fas fa-users-cog text-lg sm:text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-base sm:text-lg md:text-xl">Licensed</p>
+                        <p class="text-gray-600 text-sm sm:text-base">&amp; Insured</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-b-2 border-aj-orange">
+                    <div class="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-aj-orange text-white mb-3 sm:mb-4 shadow-md">
+                        <i class="fas fa-headset text-lg sm:text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-base sm:text-lg md:text-xl">24-Hour</p>
+                        <p class="text-gray-600 text-sm sm:text-base">Response</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-10 md:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Our <span class="text-aj-orange">Electrical</span> Services</h2>
+                <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">Expert residential electrical solutions for homeowners in Northern Virginia, DC, and Maryland.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- Service Preview 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-grow">
+                     <div class="h-40 sm:h-48 bg-cover bg-center" style="background-image: url('/assets/images/gallery/panel/panelbyside.webp')"> <!-- Properly organized panel image -->
+                        <!-- Optional Icon Overlay: <i class="fas fa-plug text-aj-orange text-5xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-75"></i> -->
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Panel Replacements &amp; Upgrades</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Upgrade your outdated or hazardous electrical panel for enhanced safety and capacity.</p>
+                        <a href="services.html#panel-upgrades" class="inline-block text-aj-orange font-semibold hover:underline text-sm sm:text-base">Explore panel services <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service Preview 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-grow">
+                     <div class="h-40 sm:h-48 bg-cover bg-center" style="background-image: url('/assets/images/gallery/kitchen/Kitchen-Remodel.jpg')"> <!-- Updated to kitchen remodel image -->
+                        <!-- Optional Icon Overlay: <i class="fas fa-lightbulb text-aj-orange text-5xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-75"></i> -->
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Recessed Lighting Installation</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Transform your space with modern, energy-efficient LED recessed lighting.</p>
+                        <a href="services.html#recessed-lighting" class="inline-block text-aj-orange font-semibold hover:underline text-sm sm:text-base">View lighting options <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service Preview 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-grow">
+                     <div class="h-40 sm:h-48 bg-cover bg-center" style="background-image: url('/assets/images/index/EV-Charger-truck.jpg')"> <!-- Updated to use truck image from index dir -->
+                        <!-- Optional Icon Overlay: <i class="fas fa-car-battery text-aj-orange text-5xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-75"></i> -->
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">EV Charger Installation</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-4">Charge your electric vehicle conveniently at home with professional Level 2 EV charger setup.</p>
+                        <a href="services.html#ev-chargers" class="inline-block text-aj-orange font-semibold hover:underline text-sm sm:text-base">See EV charging details <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 sm:mt-10 md:mt-12">
+                <a href="services.html" class="inline-block bg-aj-orange text-white font-bold px-6 sm:px-8 py-3 rounded shadow hover:bg-gray-800 transition text-sm sm:text-base min-h-12">
+                    <i class="fas fa-tools mr-2"></i>View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Preview - ENHANCED -->
+    <section class="py-8 sm:py-12 md:py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
+                <div class="md:w-1/2 md:pr-8 lg:pr-12 mb-6 md:mb-0">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">About <span class="text-aj-orange">AJ Long</span> Electric</h2>
+                    <!-- SEO: Mention key service areas again -->
+                    <p class="text-base sm:text-lg text-gray-600 mb-4 leading-relaxed">AJ Long Electric is a highly-rated residential electrical service company serving <strong class="text-aj-orange">Fairfax County, Arlington County, Alexandria, Washington DC, Montgomery County, Prince George's County,</strong> and surrounding Northern Virginia / DMV areas. With over 1,200 5-star reviews on Google, we've built our reputation on quality workmanship, attention to detail, and exceptional customer service.</p>
+                    <p class="text-base sm:text-lg text-gray-600 mb-4 leading-relaxed">As a <strong>family-owned, father-and-son team</strong>, we bring generations of experience to every job.</p>
+
+                    <div class="flex flex-col space-y-3 sm:space-y-4 lg:flex-row lg:space-y-0 lg:space-x-6 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-aj-orange text-lg sm:text-xl mr-2 flex-shrink-0"></i>
+                            <span class="text-sm sm:text-base text-gray-700">Licensed &amp; Insured (VA, DC, MD)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-aj-orange text-lg sm:text-xl mr-2 flex-shrink-0"></i>
+                            <span class="text-sm sm:text-base text-gray-700">5-Year Warranty</span>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="inline-block text-aj-orange font-semibold hover:underline text-sm sm:text-base">Meet our team <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0">
+                    <div class="bg-white p-2 rounded shadow transform rotate-1 hover-grow max-w-sm mx-auto">
+                        <!-- SEO: Descriptive Alt Text -->
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/AJLE-Sprinter-van.png?_a=BBFAAAAA0" alt="AJ Long Electric service van in Northern Virginia" class="rounded transform -rotate-1 w-full h-auto" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Preview - Enhanced with visual elements -->
+    <section class="py-8 sm:py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-10 md:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Our Simple <span class="text-aj-orange">Process</span></h2>
+                <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">We follow a clear, transparent process to ensure your electrical projects are completed efficiently and to your satisfaction.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connection Line -->
+                <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-200 via-aj-orange to-gray-200 transform -translate-y-1/2 z-0"></div>
+
+                <!-- Process Steps -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 relative z-10">
+                    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg text-center hover-grow border-t-4 border-aj-orange">
+                        <div class="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-aj-orange text-white text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 shadow-md">1</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Get Free Estimate</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Fill out our detailed online form or call us to describe your project needs.</p>
+                        <div class="mt-2 sm:mt-4">
+                            <i class="fas fa-file-alt text-aj-orange text-xl sm:text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg text-center hover-grow border-t-4 border-aj-orange">
+                        <div class="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-aj-orange text-white text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 shadow-md">2</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Receive Quote</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">We provide a clear, comprehensive estimate, typically within 24 business hours.</p>
+                        <div class="mt-2 sm:mt-4">
+                            <i class="fas fa-calculator text-aj-orange text-xl sm:text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg text-center hover-grow border-t-4 border-aj-orange">
+                        <div class="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-aj-orange text-white text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 shadow-md">3</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Schedule Service</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Approve the estimate, and we'll find a convenient time for your service appointment.</p>
+                        <div class="mt-2 sm:mt-4">
+                            <i class="fas fa-calendar-check text-aj-orange text-xl sm:text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg text-center hover-grow border-t-4 border-aj-orange">
+                        <div class="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-aj-orange text-white text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 shadow-md">4</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Expert Installation</h3>
+                        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Our licensed electricians arrive on time, work professionally, and clean up thoroughly.</p>
+                        <div class="mt-2 sm:mt-4">
+                            <i class="fas fa-tools text-aj-orange text-xl sm:text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="process.html" class="inline-block bg-aj-dark hover:bg-gray-700 text-white font-bold px-6 py-3 rounded shadow transition">
+                    See Our Full Process <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Sections Previews -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Explore <span class="text-aj-orange">More</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover why homeowners trust AJ Long Electric.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <!-- Testimonials Preview -->
+                <div class="section-preview rounded-lg overflow-hidden shadow-md h-64 hover-grow">
+                     <!-- SEO: Descriptive Alt Text -->
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/Reviews-overlay.jpeg?_a=BBFAAAAA0" alt="Five star Google reviews for AJ Long Electric" class="w-full h-full object-cover" loading="lazy">
+                    <div class="section-overlay">
+                        <h3 class="text-xl font-bold text-white mb-1">Testimonials</h3>
+                        <p class="text-gray-200 mb-3">See what our satisfied customers say</p>
+                        <a href="testimonials.html" class="inline-block px-4 py-2 bg-white text-aj-orange rounded font-semibold hover:bg-gray-200 transition">Read Reviews</a>
+                    </div>
+                </div>
+
+                <!-- Project Gallery Preview -->
+                <div class="section-preview rounded-lg overflow-hidden shadow-md h-64 hover-grow">
+                     <!-- SEO: Descriptive Alt Text -->
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/Home-Preview-Projects.jpeg?_a=BBFAAAAA0" alt="Gallery of completed electrical projects by AJ Long Electric" class="w-full h-full object-cover" loading="lazy">
+                    <div class="section-overlay">
+                        <h3 class="text-xl font-bold text-white mb-1">Project Gallery</h3>
+                        <p class="text-gray-200 mb-3">Browse our completed electrical work</p>
+                        <a href="gallery.html" class="inline-block px-4 py-2 bg-white text-aj-orange rounded font-semibold hover:bg-gray-200 transition">View Gallery</a>
+                    </div>
+                </div>
+
+                <!-- FAQ Preview with new image -->
+                <div class="section-preview rounded-lg overflow-hidden shadow-md h-64 hover-grow">
+                     <!-- SEO: Descriptive Alt Text -->
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/index/faq.jpg?_a=BBFAAAAA0" alt="Frequently asked questions about electrical services" class="w-full h-full object-cover" style="object-fit: cover; object-position: center center;" loading="lazy">
+                    <div class="section-overlay">
+                        <h3 class="text-xl font-bold text-white mb-1">FAQs</h3>
+                        <p class="text-gray-200 mb-3">Find answers to common questions</p>
+                        <a href="faq.html" class="inline-block px-4 py-2 bg-white text-aj-orange rounded font-semibold hover:bg-gray-200 transition">Get Answers</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estimate CTA -->
+            <div class="mt-16 bg-white rounded-lg shadow-lg p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">Ready for Safe, Reliable Electrical Work?</h3>
+                <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">Request a free, detailed estimate for your project in <strong class="text-aj-orange">Fairfax, Arlington, Alexandria, DC, Montgomery County, PG County,</strong> or nearby areas. We provide transparent pricing and expert service.</p>
+                <a href="estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                    Get Free Estimate
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    
+    <!-- Netlify Identity Widget Initialization -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+
+</body></html>

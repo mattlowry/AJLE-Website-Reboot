@@ -1,0 +1,2561 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request an Estimate - AJ Long Electric</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Places API will be loaded dynamically with API key -->
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* File upload */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .preview-item img, .preview-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .preview-item .remove-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        /* Progress bar for estimate */
+        .progress-bar {
+            height: 4px;
+            background-color: #eee;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .progress-indicator {
+            position: absolute;
+            height: 100%;
+            background-color: var(--aj-orange);
+            transition: width 0.3s ease;
+        }
+        .step-dots {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .step-dot.active {
+            border-color: var(--aj-orange);
+            background-color: var(--aj-orange);
+        }
+        .step-dot.completed {
+            border-color: var(--aj-orange);
+            background-color: #fff;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+
+        /* Service options styling */
+        .service-option {
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .service-option:hover {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+        }
+        .service-option.selected {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+            box-shadow: 0 2px 5px rgba(255, 114, 0, 0.1);
+        }
+        
+        /* Radio buttons and checkboxes styling */
+        input[type="radio"], input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        /* Quantity input styling */
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-btn {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Service description textarea */
+        .service-description {
+            min-height: 100px;
+            resize: vertical;
+        }
+    
+    /* Mobile Form Improvements */
+    @media (max-width: 768px) {
+        /* Larger tap targets for mobile */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            font-size: 16px; /* Prevents zoom on iOS */
+            min-height: 48px;
+        }
+        
+        /* Larger checkboxes and radio buttons */
+        input[type="checkbox"],
+        input[type="radio"] {
+            min-width: 24px;
+            min-height: 24px;
+        }
+        
+        /* Better button sizing */
+        button,
+        .btn,
+        a.btn {
+            min-height: 48px;
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+        
+        /* Form spacing */
+        form > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        /* Label spacing */
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 16px;
+        }
+        
+        /* Checkbox/radio label alignment */
+        label input[type="checkbox"],
+        label input[type="radio"] {
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+    }
+    
+    </style>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Request an Estimate - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/estimate-advanced.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request an Estimate - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Sticky Header -->
+    <header class="bg-white shadow-md sticky-nav">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="mr-4">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h1>
+                    <p class="text-sm">Residential Electrical Services</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="tel:5551234567" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                    <i class="fas fa-phone mr-2 text-aj-orange"></i> (555) 123-4567
+                </a>
+                <a href="estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-orange-600 transition">
+                    Get an Estimate
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Desktop navigation -->
+        <nav class="bg-aj-dark hidden md:block">
+            <div class="container mx-auto px-4">
+                <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100">
+            <a href="tel:5551234567" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: (555) 123-4567
+            </a>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-8 sm:py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Request Your <span class="text-aj-orange">Estimate</span></h2>
+                <p class="text-base sm:text-lg max-w-2xl mx-auto px-4">Fill out the form below with details about your project, and we'll provide you with a detailed estimate within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area with Sidebar -->
+    <section class="py-8 sm:py-12 md:py-16 bg-gray-100 relative">
+        <div class="container mx-auto px-4 lg:flex lg:space-x-8">
+
+            <!-- Left Sidebar: Our Process -->
+            <aside class="lg:w-1/3 mb-8 lg:mb-0 hidden lg:block">
+                <div class="text-center mb-8 lg:mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">Our <span class="text-aj-orange">Process</span></h2>
+                    <p class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">We follow a simple, transparent process to ensure your electrical projects are completed efficiently and to your satisfaction.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Process Steps -->
+                    <div class="hidden md:block absolute left-0 top-0 bottom-0 w-1 bg-gray-200 ml-8"></div>
+
+                    <!-- Step 1 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            1
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Request an Estimate</h3>
+                            <p class="text-gray-600 mb-3">Fill out our detailed estimate request form with information about your project. Add photos or videos to help us better understand your needs.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-lightbulb text-aj-orange mr-2"></i> Tip: The more details and photos you provide, the more accurate your estimate will be!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            2
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Receive Your Detailed Estimate</h3>
+                            <p class="text-gray-600 mb-3">Within 24 hours, you'll receive a comprehensive estimate that includes:</p>
+                            <ul class="list-disc pl-5 mb-3 space-y-1 text-gray-600">
+                                <li>Detailed step-by-step work plan</li>
+                                <li>Transparent materials list with pricing</li>
+                                <li>Estimated completion time</li>
+                                <li>Any potential variables that could affect the project</li>
+                            </ul>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-tag text-aj-orange mr-2"></i> Our flat-rate pricing means no surprises – you know exactly what you'll pay before we begin.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            3
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Schedule Your Service</h3>
+                            <p class="text-gray-600 mb-3">Once you approve the estimate, we'll schedule a convenient time for your electrical work. We offer flexible appointment times to minimize disruption to your day.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-calendar-check text-aj-orange mr-2"></i> We confirm all service appointments 24 hours in advance and provide a 30-minute arrival window.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="md:flex items-start relative animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            4
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Professional Installation &amp; Satisfaction</h3>
+                            <p class="text-gray-600 mb-3">Our licensed electricians arrive on time, work efficiently, and clean up when finished. Before we leave, we'll walk you through the completed work and answer any questions.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-shield-alt text-aj-orange mr-2"></i> All work is backed by our comprehensive 5-year warranty for your peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content: Estimate Request Form -->
+            <main class="lg:w-2/3">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="lg:flex">
+                        <div class="lg:w-1/3 bg-aj-dark p-4 sm:p-6 lg:p-8 text-white">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4">Why Choose Us?</h3>
+                            <p class="mb-4 sm:mb-6 text-sm sm:text-base">When you choose AJ Long Electric, you're choosing quality, reliability, and exceptional service.</p>
+
+                            <div class="mb-4 sm:mb-6">
+                                <h4 class="text-base sm:text-lg font-bold mb-2">Our Estimate Includes:</h4>
+                                <ul class="space-y-2 text-sm sm:text-base">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange flex-shrink-0"></i>
+                                        <span>Transparent flat-rate pricing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange flex-shrink-0"></i>
+                                        <span>Detailed step-by-step work plans</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange flex-shrink-0"></i>
+                                        <span>Clear material and labor breakdown</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange flex-shrink-0"></i>
+                                        <span>5-year comprehensive warranty</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange flex-shrink-0"></i>
+                                        <span>No surprises or hidden fees</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="hidden lg:block">
+                                <h4 class="text-base sm:text-lg font-bold mb-2">Contact Us</h4>
+                                <p class="flex items-center mb-2 text-sm sm:text-base">
+                                    <i class="fas fa-phone mr-2 flex-shrink-0"></i>
+                                    <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                                </p>
+                                <p class="flex items-center mb-2 text-sm sm:text-base">
+                                    <i class="fas fa-envelope mr-2 flex-shrink-0"></i>
+                                    <a href="mailto:info@ajlongelectric.com" class="hover:text-aj-orange transition">info@ajlongelectric.com</a>
+                                </p>
+                                <p class="flex items-start text-sm sm:text-base">
+                                    <i class="fas fa-map-marker-alt mr-2 mt-1 flex-shrink-0"></i>
+                                    <span>Fairfax County, VA</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="estimate-form-container" class="lg:w-2/3 p-4 sm:p-6 lg:p-8">
+                            <!-- Progress Bar -->
+                            <div class="mb-8 relative">
+                                <div class="progress-bar">
+                                    <div class="progress-indicator" style="width: 25%"></div>
+                                    <div class="step-dots">
+                                        <div class="step-dot active"></div>
+                                        <div class="step-dot"></div>
+                                        <div class="step-dot"></div>
+                                        <div class="step-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                    <span class="hidden sm:inline">Contact Info</span>
+                                    <span class="sm:hidden">Contact</span>
+                                    <span class="hidden sm:inline">Project Details</span>
+                                    <span class="sm:hidden">Details</span>
+                                    <span class="hidden sm:inline">Upload Photos</span>
+                                    <span class="sm:hidden">Photos</span>
+                                    <span class="hidden sm:inline">Review &amp; Submit</span>
+                                    <span class="sm:hidden">Submit</span>
+                                </div>
+                            </div>
+
+                            <!-- Housecall Pro Estimate Form -->
+                            <form id="estimate-form" class="space-y-4 sm:space-y-6" action="/.netlify/functions/housecall-pro-estimate" method="POST" enctype="multipart/form-data" data-netlify="true" name="estimate">
+                                <h3 class="text-lg sm:text-xl font-bold mb-4 text-gray-800">Request an Estimate</h3>
+                                
+                                <!-- Contact Information -->
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="firstName" class="block text-sm font-medium mb-2 text-gray-700">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    </div>
+                                    <div>
+                                        <label for="lastName" class="block text-sm font-medium mb-2 text-gray-700">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    </div>
+                                </div>
+
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="phone" class="block text-sm font-medium mb-2 text-gray-700">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="" placeholder="(703) 997-0026">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium mb-2 text-gray-700">Email Address *</label>
+                                        <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    </div>
+                                </div>
+
+                                <!-- Address Fields -->
+                                <div>
+                                    <label for="address" class="block text-sm font-medium mb-2 text-gray-700">Street Address *</label>
+                                    <input type="text" id="address" name="address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="" placeholder="1234 Main St">
+                                    <small class="text-gray-500 text-xs sm:text-sm">Enter the address where you need electrical service</small>
+                                </div>
+
+                                <!-- City, State and Zip -->
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="city" class="block text-sm font-medium mb-2 text-gray-700">City *</label>
+                                        <input type="text" id="city" name="city" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    </div>
+                                    <div>
+                                        <label for="state" class="block text-sm font-medium mb-2 text-gray-700">State *</label>
+                                        <select id="state" name="state" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                            <option value="">Select State</option>
+                                            <option value="DC">Washington DC</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="MD">Maryland</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="zip" class="block text-sm font-medium mb-2 text-gray-700">Zip Code *</label>
+                                        <input type="text" id="zip" name="zip" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    </div>
+                                </div>
+                                
+                                <input type="hidden" id="country" name="country" value="US">
+
+                                <!-- Description of Work -->
+                                <div>
+                                    <label for="description" class="block text-sm font-medium mb-2 text-gray-700">Description of Work Needed *</label>
+                                    <textarea id="description" name="description" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base resize-vertical min-h-24" required="" placeholder="Please describe the electrical work you need done. Be as specific as possible to help us provide an accurate estimate."></textarea>
+                                </div>
+
+                                <!-- Scheduled Date -->
+                                <div>
+                                    <label for="scheduledDate" class="block text-sm font-medium mb-2 text-gray-700">Preferred Date for Estimate Visit *</label>
+                                    <input type="date" id="scheduledDate" name="scheduledDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base min-h-12" required="">
+                                    <small class="text-gray-500 text-xs sm:text-sm">Select your preferred date for our electrician to visit and provide the estimate</small>
+                                </div>
+
+                                <!-- Preferred Time Slots -->
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-gray-700">Preferred Arrival Window *</label>
+                                    <small class="text-gray-500 mb-3 block text-xs sm:text-sm">Select when you'd like our electrician to arrive for the estimate visit</small>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="8-12" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">8AM - 12PM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="9-13" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">9AM - 1PM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="10-14" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">10AM - 2PM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="11-15" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">11AM - 3PM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="12-16" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">12PM - 4PM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-aj-orange cursor-pointer min-h-12 transition-colors">
+                                            <input type="radio" name="timeSlot" value="13-17" class="mr-3 text-aj-orange w-4 h-4">
+                                            <span class="text-sm sm:text-base">1PM - 5PM</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Attachments -->
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-gray-700">Photos or Videos (Optional)</label>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center hover:border-aj-orange transition-colors">
+                                        <input type="file" id="attachments" name="attachments" multiple="" accept="image/*,video/*" class="hidden">
+                                        <div id="upload-area" class="cursor-pointer">
+                                            <i class="fas fa-cloud-upload-alt text-2xl sm:text-3xl text-gray-400 mb-2"></i>
+                                            <p class="text-gray-600 text-sm sm:text-base">Click to upload photos or videos</p>
+                                            <p class="text-xs sm:text-sm text-gray-500 mt-1">Supported: JPG, PNG, MP4, MOV (videos max 1 minute)</p>
+                                        </div>
+                                        <div id="file-list" class="mt-4 text-left hidden"></div>
+                                    </div>
+                                </div>
+
+                                <div id="service-area-error" class="hidden mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                                    Sorry, it appears you are outside our service area. We currently serve locations within a 40-mile radius of Washington DC. If you believe this is incorrect, please call us at 703-997-0026.
+                                </div>
+
+                                <!-- Terms and Submit -->
+                                <div class="mt-6">
+                                    <label class="flex items-start space-x-3">
+                                        <input type="checkbox" id="terms" name="terms" class="w-5 h-5 text-aj-orange border-gray-300 rounded focus:ring-aj-orange mt-0.5 flex-shrink-0" required="">
+                                        <span class="text-xs sm:text-sm text-gray-700 leading-relaxed">I agree to the <a href="/terms-of-service.html" class="text-aj-orange hover:underline" target="_blank">Terms of Service</a> and acknowledge that my information will be used in accordance with the <a href="/privacy-policy.html" class="text-aj-orange hover:underline" target="_blank">Privacy Policy</a>.</span>
+                                    </label>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="mt-6 sm:mt-8">
+                                    <button type="submit" id="submit-form" class="w-full px-6 sm:px-8 py-3 sm:py-4 bg-aj-orange text-white font-bold rounded-lg hover:bg-orange-600 transition-colors text-base sm:text-lg min-h-12">
+                                        <i class="fas fa-calculator mr-2"></i>
+                                        Request Estimate
+                                    </button>
+                                    <p class="text-sm text-gray-600 mt-2 text-center">
+                                        We'll prepare your estimate and call you during your preferred time
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </section>
+    <!-- END Main Content Area with Sidebar -->
+
+    <!-- Why Choose Our Estimate Process -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Our <span class="text-aj-orange">Estimate Process</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our estimate process sets us apart from other electrical contractors with these key advantages:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-images text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Photo &amp; Video Estimates</h3>
+                    <p class="text-gray-600">We can provide accurate estimates based on the photos and videos you upload, eliminating the need for an in-person visit in many cases, saving you time and hassle.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Transparent Flat-Rate Pricing</h3>
+                    <p class="text-gray-600">Our estimates include detailed, itemized pricing with no hidden fees or surprise charges. You'll know exactly what you're paying for before work begins.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-phone-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direct Communication</h3>
+                    <p class="text-gray-600">Have questions about your estimate? You'll have direct access to the electrician who will be working on your project, not just a sales representative.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="process.html" class="inline-block text-aj-orange font-semibold hover:underline">
+                    View our complete process <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <p class="flex items-start">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-1"></i>
+                        </p><div class="text-sm">
+                            <div class="font-semibold">Main Office:</div>
+                            <div>2724 Dorr Ave, Suite 102</div>
+                            <div>Fairfax, VA 22031</div>
+                            <div class="mt-2 font-semibold">Additional Locations:</div>
+                            <div>7138 Little River Turnpike #305</div>
+                            <div>Annandale, VA 22003</div>
+                            <div class="mt-1">5244 Lyngate Ct</div>
+                            <div>Burke, VA 22015</div>
+                            <div class="mt-1">15518 Orchard Run Dr</div>
+                            <div>Bowie, MD 20715</div>
+                        </div>
+                    <p></p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-6">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-popup" id="chat-popup">
+            <div class="chat-header">
+                <h4 class="font-bold">Live Chat</h4>
+                <button id="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="bg-gray-200 rounded-lg p-3 mb-2 max-w-xs">
+                    <p>Hi there! How can we help with your electrical needs today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chat-input-field" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-aj-orange text-base">
+                <button id="send-chat"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-orange-600">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today for appointment scheduling
+            const dateInput = document.getElementById('preferred-date');
+            if (dateInput) {
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1); // Start from tomorrow
+                dateInput.min = tomorrow.toISOString().split('T')[0];
+                
+                // Set max date to 60 days from now
+                const maxDate = new Date(today);
+                maxDate.setDate(maxDate.getDate() + 60);
+                dateInput.max = maxDate.toISOString().split('T')[0];
+            }
+            
+            // Mobile menu toggle
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('active');
+                document.getElementById('menu-overlay').style.display = 'block';
+            });
+
+            document.getElementById('close-menu').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+                document.getElementById('menu-overlay').style.display = 'none';
+            });
+
+            document.getElementById('menu-overlay').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+                this.style.display = 'none';
+            });
+
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Chat widget
+            const chatButton = document.getElementById('chat-button');
+            const chatPopup = document.getElementById('chat-popup');
+            const closeChat = document.getElementById('close-chat');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input-field');
+            const sendChat = document.getElementById('send-chat');
+
+            if (chatButton) {
+                chatButton.addEventListener('click', () => {
+                    chatPopup.style.display = chatPopup.style.display === 'block' ? 'none' : 'block';
+                });
+            }
+
+            if (closeChat) {
+                closeChat.addEventListener('click', () => {
+                    chatPopup.style.display = 'none';
+                });
+            }
+
+            const sendMessage = () => {
+                const message = chatInput.value.trim();
+                if (message) {
+                    // Add user message
+                    const userDiv = document.createElement('div');
+                    userDiv.className = 'bg-aj-orange text-white rounded-lg p-3 mb-2 ml-auto max-w-xs';
+                    userDiv.innerHTML = `<p>${message}</p>`;
+                    chatMessages.appendChild(userDiv);
+
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Simulate response after 1 second
+                    setTimeout(() => {
+                        const responseDiv = document.createElement('div');
+                        responseDiv.className = 'bg-gray-200 rounded-lg p-3 mb-2 max-w-xs';
+                        responseDiv.innerHTML = `<p>Thanks for your message! One of our representatives will respond shortly. If you'd like an immediate response, please call us at (555) 123-4567.</p>`;
+                        chatMessages.appendChild(responseDiv);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                }
+            };
+
+            if (sendChat) {
+                sendChat.addEventListener('click', sendMessage);
+            }
+
+            if (chatInput) {
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+
+            // Function to initialize Google Places Autocomplete for address field
+            function initAutocomplete(apiKey) {
+                // Load the Google Maps script with the API key
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+                script.async = true;
+                script.defer = true;
+                script.onload = function() {
+                    if (document.getElementById('address')) {
+                        const autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'), {
+                            types: ['address'],
+                            componentRestrictions: { country: 'us' }
+                        });
+
+                        autocomplete.addListener('place_changed', function() {
+                            const place = autocomplete.getPlace();
+                            
+                            if (place.address_components) {
+                                // Reset the street address to contain only the street number and street name
+                                let streetNumber = '';
+                                let route = '';
+                                
+                                // Extract all needed address components
+                                for (const component of place.address_components) {
+                                    const componentType = component.types[0];
+                                    
+                                    switch (componentType) {
+                                        case 'street_number':
+                                            streetNumber = component.long_name;
+                                            break;
+                                        case 'route':
+                                            route = component.long_name;
+                                            break;
+                                        case 'locality':
+                                            document.getElementById('city').value = component.long_name;
+                                            break;
+                                        case 'administrative_area_level_1':
+                                            const stateSelect = document.getElementById('state');
+                                            for (let i = 0; i < stateSelect.options.length; i++) {
+                                                if (stateSelect.options[i].value === component.short_name) {
+                                                    stateSelect.selectedIndex = i;
+                                                    break;
+                                                }
+                                            }
+                                            break;
+                                        case 'postal_code':
+                                            document.getElementById('zip').value = component.long_name;
+                                            break;
+                                    }
+                                }
+                                
+                                // Combine street number and route for the street address
+                                if (streetNumber && route) {
+                                    document.getElementById('address').value = `${streetNumber} ${route}`;
+                                }
+
+                                // Check if in service area
+                                if (place.geometry && place.geometry.location) {
+                                    const lat = place.geometry.location.lat();
+                                    const lng = place.geometry.location.lng();
+                                    
+                                    // DC coordinates (approximate)
+                                    const dcLat = 38.9072;
+                                    const dcLng = -77.0369;
+                                    
+                                    // Calculate distance in miles
+                                    const distance = calculateDistance(lat, lng, dcLat, dcLng);
+                                    
+                                    if (distance > 40) {
+                                        document.getElementById('service-area-error').classList.remove('hidden');
+                                    } else {
+                                        document.getElementById('service-area-error').classList.add('hidden');
+                                    }
+                                }
+                            }
+                        });
+                    }
+                };
+                document.head.appendChild(script);
+            }
+
+            // Fetch the Google API key from the serverless function
+            // Set minimum date to today for the scheduled date field
+            const scheduledDateField = document.getElementById('scheduledDate');
+            if (scheduledDateField) {
+                const today = new Date();
+                const formattedDate = today.toISOString().split('T')[0];
+                scheduledDateField.min = formattedDate;
+                
+                // Set default to tomorrow
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const formattedTomorrow = tomorrow.toISOString().split('T')[0];
+                scheduledDateField.value = formattedTomorrow;
+            }
+
+            // Only try to fetch if we're on a live server (not file://)
+            if (window.location.protocol !== 'file:') {
+                fetch('/.netlify/functions/get-google-api-key')
+                    .then(response => {
+                        if (!response.ok) {
+                            console.warn('Could not fetch Google API key, continuing without autocomplete');
+                            return null;
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data.apiKey) {
+                            initAutocomplete(data.apiKey);
+                        } else {
+                            console.warn('No API key returned from server, continuing without autocomplete');
+                        }
+                    })
+                    .catch(error => {
+                        console.warn('Error fetching Google API key, continuing without autocomplete:', error);
+                    });
+            } else {
+                console.log('Running from local file, skipping Google Maps initialization');
+            }
+
+            // Function to calculate distance between two points (Haversine formula)
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                const R = 3958.8; // Radius of the Earth in miles
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                const distance = R * c;
+                return distance;
+            }
+
+            // Phone number validation and formatting
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    const phoneNumber = phoneInput.value.replace(/\D/g, '');
+                    if (phoneNumber.length >= 10) {
+                        const formattedNumber = phoneNumber.substring(0, 10).replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+                        phoneInput.value = formattedNumber;
+                    }
+                });
+            }
+            
+            // File upload handling
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('attachments');
+            const fileList = document.getElementById('file-list');
+            
+            if (uploadArea && fileInput) {
+                // Open file picker when clicking on the upload area
+                uploadArea.addEventListener('click', function() {
+                    fileInput.click();
+                });
+                
+                // Handle file selection
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files.length > 0) {
+                        fileList.classList.remove('hidden');
+                        fileList.innerHTML = '';
+                        
+                        // Display the selected files
+                        for (let i = 0; i < fileInput.files.length; i++) {
+                            const file = fileInput.files[i];
+                            const fileSize = (file.size / 1024).toFixed(2); // Size in KB
+                            
+                            const fileItem = document.createElement('div');
+                            fileItem.className = 'flex items-center py-2 border-b border-gray-100';
+                            
+                            // Icon based on file type
+                            let fileIcon = 'fa-file';
+                            if (file.type.startsWith('image/')) {
+                                fileIcon = 'fa-file-image';
+                            } else if (file.type.startsWith('video/')) {
+                                fileIcon = 'fa-file-video';
+                            }
+                            
+                            fileItem.innerHTML = `
+                                <i class="fas ${fileIcon} text-gray-500 mr-2"></i>
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium">${file.name}</div>
+                                    <div class="text-xs text-gray-500">${fileSize} KB</div>
+                                </div>
+                                <button type="button" class="remove-file text-gray-500 hover:text-red-500" data-index="${i}">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            `;
+                            
+                            fileList.appendChild(fileItem);
+                        }
+                        
+                        // Show file count on the upload area
+                        const uploadText = document.querySelector('#upload-area p:first-of-type');
+                        if (uploadText) {
+                            uploadText.textContent = `${fileInput.files.length} file(s) selected`;
+                        }
+                        
+                        // Add event listeners to remove buttons
+                        document.querySelectorAll('.remove-file').forEach(button => {
+                            button.addEventListener('click', function(e) {
+                                e.stopPropagation(); // Don't trigger upload area click
+                                
+                                // Remove this file (can't modify FileList directly, so we need a workaround)
+                                const dt = new DataTransfer();
+                                const files = fileInput.files;
+                                const index = parseInt(this.dataset.index);
+                                
+                                for (let i = 0; i < files.length; i++) {
+                                    if (i !== index) {
+                                        dt.items.add(files[i]);
+                                    }
+                                }
+                                
+                                fileInput.files = dt.files;
+                                
+                                // Trigger change event to update the list
+                                const event = new Event('change');
+                                fileInput.dispatchEvent(event);
+                            });
+                        });
+                    } else {
+                        // No files selected, reset to default view
+                        fileList.classList.add('hidden');
+                        const uploadText = document.querySelector('#upload-area p:first-of-type');
+                        if (uploadText) {
+                            uploadText.textContent = 'Click to upload photos or videos';
+                        }
+                    }
+                });
+            }
+
+            // Form steps navigation
+            const steps = document.querySelectorAll('.form-step');
+            const progressIndicator = document.querySelector('.progress-indicator');
+            const stepDots = document.querySelectorAll('.step-dot');
+            let currentStep = 1;
+
+            // Next buttons
+            const next1Button = document.getElementById('next-1');
+            if (next1Button) {
+                next1Button.addEventListener('click', function() {
+                    console.log('Next button clicked for step 1');
+                    // Validate step 1
+                    const requiredFields = document.querySelectorAll('#step-1 input[required], #step-1 select[required]');
+                    let isValid = true;
+
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('border-red-500');
+                            console.log('Empty field:', field.id || field.name);
+                        } else {
+                            field.classList.remove('border-red-500');
+                        }
+                    });
+
+                    // Validate phone format
+                    const phoneField = document.getElementById('phone');
+                    if (phoneField && phoneField.value.trim() && !phoneField.value.match(/^\d{3}-\d{3}-\d{4}$/)) {
+                        isValid = false;
+                        phoneField.classList.add('border-red-500');
+                    }
+
+                    // Validate email format
+                    const emailField = document.getElementById('email');
+                    if (emailField && emailField.value.trim() && !emailField.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                        isValid = false;
+                        emailField.classList.add('border-red-500');
+                    }
+
+                    // Check if service area error is showing
+                    const serviceAreaError = document.getElementById('service-area-error');
+                    if (serviceAreaError && !serviceAreaError.classList.contains('hidden')) {
+                        isValid = false;
+                    }
+
+                    console.log('Validation result:', isValid);
+                    if (isValid) {
+                        goToStep(2);
+                    } else {
+                        alert('Please fill in all required fields correctly and ensure you are within our service area.');
+                    }
+                });
+            }
+
+            // Service selection is now handled through the description field
+            // Simplified estimate form without complex service category selections
+
+            const next2Button = document.getElementById('next-2');
+            if (next2Button) {
+                next2Button.addEventListener('click', function() {
+                    // Validate step 2
+                    const serviceCategorySelect = document.getElementById('service-category');
+                    let isValid = true;
+
+                    if (!serviceCategorySelect.value) {
+                        isValid = false;
+                        serviceCategorySelect.classList.add('border-red-500');
+                    } else {
+                        serviceCategorySelect.classList.remove('border-red-500');
+                        
+                        // Check service-specific validations
+                        const selectedService = serviceCategorySelect.value;
+                        
+                        // Get the corresponding description field
+                        const descField = document.getElementById(`${selectedService}-description`);
+                        
+                        // Validate panel options
+                        if (selectedService === 'panel') {
+                            const panelOptions = document.querySelectorAll('input[name="panel-option"]');
+                            let panelSelected = false;
+                            panelOptions.forEach(option => {
+                                if (option.checked) panelSelected = true;
+                            });
+                            
+                            if (!panelSelected) {
+                                isValid = false;
+                                alert('Please select a panel option.');
+                            }
+                            
+                            // Validate description
+                            if (!descField.value.trim()) {
+                                isValid = false;
+                                descField.classList.add('border-red-500');
+                                alert('Please add a project description.');
+                            } else {
+                                descField.classList.remove('border-red-500');
+                            }
+                        }
+                        
+                        // Validate EV charger distance
+                        else if (selectedService === 'ev') {
+                            const evDistance = document.getElementById('ev-distance');
+                            
+                            if (!evDistance.value) {
+                                isValid = false;
+                                evDistance.classList.add('border-red-500');
+                                alert('Please select a distance for the EV charger installation.');
+                            } else {
+                                evDistance.classList.remove('border-red-500');
+                            }
+                            
+                            // Validate description
+                            if (!descField.value.trim()) {
+                                isValid = false;
+                                descField.classList.add('border-red-500');
+                                alert('Please add a project description.');
+                            } else {
+                                descField.classList.remove('border-red-500');
+                            }
+                        }
+                        
+                        // Validate repair description
+                        else if (selectedService === 'repair') {
+                            if (!descField.value.trim()) {
+                                isValid = false;
+                                descField.classList.add('border-red-500');
+                                alert('Please describe the repair issue.');
+                            } else {
+                                descField.classList.remove('border-red-500');
+                            }
+                        }
+                        
+                        // Validate other description
+                        else if (selectedService === 'other') {
+                            if (!descField.value.trim()) {
+                                isValid = false;
+                                descField.classList.add('border-red-500');
+                                alert('Please specify the service needed.');
+                            } else {
+                                descField.classList.remove('border-red-500');
+                            }
+                        }
+                        
+                        // For quantity-based services, validate quantities and description
+                        else if (['outlet', 'switch', 'lighting', 'fan', 'fixture'].includes(selectedService)) {
+                            const quantityInputs = document.querySelectorAll(`#${selectedService}-options input[type="number"]`);
+                            let hasQuantity = false;
+                            
+                            quantityInputs.forEach(input => {
+                                if (parseInt(input.value) > 0) hasQuantity = true;
+                            });
+                            
+                            if (!hasQuantity) {
+                                isValid = false;
+                                alert('Please select at least one item with a quantity greater than 0.');
+                            }
+                            
+                            // Validate description
+                            if (!descField.value.trim()) {
+                                isValid = false;
+                                descField.classList.add('border-red-500');
+                                alert('Please add a project description.');
+                            } else {
+                                descField.classList.remove('border-red-500');
+                            }
+                        }
+                    }
+
+                    if (isValid) {
+                        goToStep(3);
+                    }
+                });
+            }
+
+            // Quantity buttons functionality
+            document.querySelectorAll('.quantity-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.parentNode.querySelector('input');
+                    let value = parseInt(input.value);
+                    
+                    if (this.classList.contains('plus')) {
+                        value++;
+                    } else if (this.classList.contains('minus') && value > 0) {
+                        value--;
+                    }
+                    
+                    input.value = value;
+                    
+                    // Trigger change event
+                    const event = new Event('change');
+                    input.dispatchEvent(event);
+                });
+            });
+
+            // Real-time Price Estimation
+            // IMPORTANT: This pricing data must be kept in sync with the pricing
+            // structure in api/housecall-pro-integration.js createEstimate method.
+            const prices = {
+                panel: {
+                    '200amp': 3500,
+                    '150amp': 3100,
+                    '100amp': 2400,
+                    'subpanel': 895,
+                    'heavy-up': 500
+                },
+                outlet: {
+                    'replace': 35,
+                    'new': 175,
+                    'gfi': 80,
+                    'outdoor': 120
+                },
+                switch: {
+                    'replace': 35,
+                    'new': 255,
+                    'dimmer': 150
+                },
+                lighting: {
+                    'replace': 100,
+                    'new': 175
+                },
+                fan: {
+                    'replace': 175,
+                    'new': 395
+                },
+                fixture: {
+                    'replace': 125,
+                    'new': 345
+                },
+                ev: {
+                    '0-5': 500,
+                    '5-10': 600,
+                    '10-15': 700,
+                    '15-20': 800,
+                    '20-30': 950,
+                    '30-45': 1185,
+                    '45-60': 1415,
+                    '60-80': 1750
+                },
+                repair: {
+                    'base': 150 // Base price for first 30 minutes
+                }
+            };
+
+            // Elements to watch for changes
+            const priceEstimation = document.getElementById('price-estimation');
+            const totalPriceElement = document.getElementById('total-price');
+            const priceBreakdown = document.getElementById('price-breakdown');
+
+            // Add event listeners to all form elements that affect price
+            if (serviceCategorySelect) {
+                serviceCategorySelect.addEventListener('change', updatePriceEstimate);
+                
+                // Panel radio buttons
+                document.querySelectorAll('input[name="panel-option"]').forEach(radio => {
+                    radio.addEventListener('change', updatePriceEstimate);
+                });
+
+                // Heavy up checkbox
+                const heavyUpCheckbox = document.querySelector('input[name="heavy-up"]');
+                if (heavyUpCheckbox) {
+                    heavyUpCheckbox.addEventListener('change', updatePriceEstimate);
+                }
+
+                // EV distance dropdown
+                const evDistanceSelect = document.getElementById('ev-distance');
+                if (evDistanceSelect) {
+                    evDistanceSelect.addEventListener('change', updatePriceEstimate);
+                }
+
+                // All quantity inputs
+                document.querySelectorAll('input[type="number"]').forEach(input => {
+                    input.addEventListener('input', updatePriceEstimate);
+                    input.addEventListener('change', updatePriceEstimate);
+                });
+
+                // Quantity buttons
+                document.querySelectorAll('.quantity-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Allow time for the input value to update
+                        setTimeout(updatePriceEstimate, 50);
+                    });
+                });
+            }
+
+            // Function to update price estimate
+            function updatePriceEstimate() {
+                const selectedService = serviceCategorySelect.value;
+                if (!selectedService) {
+                    priceEstimation.classList.add('hidden');
+                    return;
+                }
+
+                // Show the estimation section
+                priceEstimation.classList.remove('hidden');
+                
+                // Clear previous breakdown
+                priceBreakdown.innerHTML = '';
+                
+                // Calculate total price based on selected service
+                let totalPrice = 0;
+                let lineItems = [];
+
+                switch (selectedService) {
+                    case 'panel':
+                        const selectedPanel = document.querySelector('input[name="panel-option"]:checked');
+                        if (selectedPanel) {
+                            const panelPrice = prices.panel[selectedPanel.value];
+                            totalPrice += panelPrice;
+                            
+                            const panelLabel = selectedPanel.value === '200amp' ? '200 Amp Panel Replacement' : 
+                                            selectedPanel.value === '150amp' ? '150 Amp Panel Replacement' : 
+                                            selectedPanel.value === '100amp' ? '100 Amp Panel Replacement' : 
+                                            'Sub-Panel Installation';
+                            
+                            lineItems.push({
+                                label: panelLabel,
+                                price: panelPrice
+                            });
+                        }
+                        
+                        const heavyUp = document.querySelector('input[name="heavy-up"]:checked');
+                        if (heavyUp) {
+                            totalPrice += prices.panel['heavy-up'];
+                            lineItems.push({
+                                label: 'Heavy Up Option',
+                                price: prices.panel['heavy-up']
+                            });
+                        }
+                        break;
+                        
+                    case 'outlet':
+                        const replaceOutletQty = parseInt(document.querySelector('input[name="replace-outlet-qty"]').value) || 0;
+                        const newOutletQty = parseInt(document.querySelector('input[name="new-outlet-qty"]').value) || 0;
+                        const gfiUpgradeQty = parseInt(document.querySelector('input[name="gfi-upgrade-qty"]').value) || 0;
+                        const outdoorGfiQty = parseInt(document.querySelector('input[name="outdoor-gfi-qty"]').value) || 0;
+                        
+                        if (replaceOutletQty > 0) {
+                            const price = prices.outlet.replace * replaceOutletQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Replace Existing Outlet (×${replaceOutletQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (newOutletQty > 0) {
+                            const price = prices.outlet.new * newOutletQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `New Outlet Installation (×${newOutletQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (gfiUpgradeQty > 0) {
+                            const price = prices.outlet.gfi * gfiUpgradeQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `GFI Upgrade (×${gfiUpgradeQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (outdoorGfiQty > 0) {
+                            const price = prices.outlet.outdoor * outdoorGfiQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Outdoor GFI & Cover Plate (×${outdoorGfiQty})`,
+                                price: price
+                            });
+                        }
+                        break;
+                        
+                    case 'switch':
+                        const switchReplaceQty = parseInt(document.querySelector('input[name="switch-replace-qty"]').value) || 0;
+                        const newSwitchQty = parseInt(document.querySelector('input[name="new-switch-qty"]').value) || 0;
+                        const dimmerQty = parseInt(document.querySelector('input[name="dimmer-qty"]').value) || 0;
+                        
+                        if (switchReplaceQty > 0) {
+                            const price = prices.switch.replace * switchReplaceQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Switch Replacement (×${switchReplaceQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (newSwitchQty > 0) {
+                            const price = prices.switch.new * newSwitchQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `New Switch with Switch Leg (×${newSwitchQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (dimmerQty > 0) {
+                            const price = prices.switch.dimmer * dimmerQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Dimmer Upgrade (×${dimmerQty})`,
+                                price: price
+                            });
+                        }
+                        break;
+                        
+                    case 'lighting':
+                        const lightReplaceQty = parseInt(document.querySelector('input[name="light-replace-qty"]').value) || 0;
+                        const newLightQty = parseInt(document.querySelector('input[name="new-light-qty"]').value) || 0;
+                        
+                        if (lightReplaceQty > 0) {
+                            const price = prices.lighting.replace * lightReplaceQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Light Replacement (×${lightReplaceQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (newLightQty > 0) {
+                            const price = prices.lighting.new * newLightQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `New Light Installation (×${newLightQty})`,
+                                price: price
+                            });
+                        }
+                        break;
+                        
+                    case 'fan':
+                        const fanReplaceQty = parseInt(document.querySelector('input[name="fan-replace-qty"]').value) || 0;
+                        const newFanQty = parseInt(document.querySelector('input[name="new-fan-qty"]').value) || 0;
+                        
+                        if (fanReplaceQty > 0) {
+                            const price = prices.fan.replace * fanReplaceQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Fan Replacement (×${fanReplaceQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (newFanQty > 0) {
+                            const price = prices.fan.new * newFanQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `New Fan Installation (×${newFanQty})`,
+                                price: price
+                            });
+                        }
+                        break;
+                        
+                    case 'fixture':
+                        const fixtureReplaceQty = parseInt(document.querySelector('input[name="fixture-replace-qty"]').value) || 0;
+                        const newFixtureQty = parseInt(document.querySelector('input[name="new-fixture-qty"]').value) || 0;
+                        
+                        if (fixtureReplaceQty > 0) {
+                            const price = prices.fixture.replace * fixtureReplaceQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `Light Fixture Replacement (×${fixtureReplaceQty})`,
+                                price: price
+                            });
+                        }
+                        
+                        if (newFixtureQty > 0) {
+                            const price = prices.fixture.new * newFixtureQty;
+                            totalPrice += price;
+                            lineItems.push({
+                                label: `New Fixture Installation (×${newFixtureQty})`,
+                                price: price
+                            });
+                        }
+                        break;
+                        
+                    case 'ev':
+                        const evDistanceSelect = document.getElementById('ev-distance');
+                        if (evDistanceSelect && evDistanceSelect.value) {
+                            const distanceValue = evDistanceSelect.value;
+                            const evPrice = prices.ev[distanceValue];
+                            if (evPrice) {
+                                totalPrice += evPrice;
+                                lineItems.push({
+                                    label: `EV Charger Installation (${distanceValue} feet)`,
+                                    price: evPrice
+                                });
+                            }
+                        }
+                        break;
+                        
+                    case 'repair':
+                        totalPrice += prices.repair.base;
+                        lineItems.push({
+                            label: 'Diagnostic Fee (First 30 minutes)',
+                            price: prices.repair.base
+                        });
+                        lineItems.push({
+                            label: 'Additional time billed at $40 per quarter hour',
+                            price: null
+                        });
+                        break;
+                        
+                    case 'other':
+                        lineItems.push({
+                            label: 'Custom service - price will be determined after review',
+                            price: null
+                        });
+                        break;
+                }
+
+                // Update total price display
+                totalPriceElement.textContent = formatPrice(totalPrice);
+                
+                // Add line items to breakdown
+                lineItems.forEach(item => {
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'flex justify-between';
+                    
+                    const labelSpan = document.createElement('span');
+                    labelSpan.textContent = item.label;
+                    
+                    const priceSpan = document.createElement('span');
+                    priceSpan.textContent = item.price !== null ? formatPrice(item.price) : '';
+                    
+                    lineDiv.appendChild(labelSpan);
+                    lineDiv.appendChild(priceSpan);
+                    priceBreakdown.appendChild(lineDiv);
+                });
+                
+                // Add potential volume discounts note if applicable
+                if (['outlet', 'switch', 'lighting', 'fan', 'fixture'].includes(selectedService)) {
+                    const discountNote = document.createElement('div');
+                    discountNote.className = 'mt-2 text-xs text-green-600';
+                    discountNote.textContent = 'Volume discounts may apply for multiple items.';
+                    priceBreakdown.appendChild(discountNote);
+                }
+            }
+
+            // Helper function to format price
+            function formatPrice(price) {
+                if (price === 0) return '$0.00';
+                return '$' + price.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            }
+
+            // Price display removed for simplified estimate form
+
+            // File upload handling with limit and size check
+            const photoUpload = document.getElementById('photo-upload');
+            let selectedFiles = []; // Array to store all selected files
+            const MAX_FILES = 20;
+            const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+
+            if (photoUpload) {
+                photoUpload.addEventListener('change', function(e) {
+                    const newFiles = Array.from(e.target.files);
+                    let filesToAdd = [];
+                    let fileSizeError = false;
+                    
+                    // Check file count and size
+                    for (const file of newFiles) {
+                        if (selectedFiles.length + filesToAdd.length >= MAX_FILES) {
+                            alert(`You can only upload a maximum of ${MAX_FILES} files.`);
+                            break;
+                        }
+                        
+                        if (file.size > MAX_FILE_SIZE) {
+                            fileSizeError = true;
+                            continue;
+                        }
+                        
+                        filesToAdd.push(file);
+                    }
+                    
+                    if (fileSizeError) {
+                        alert('Some files were not added because they exceed the 50MB size limit.');
+                    }
+                    
+                    if (filesToAdd.length > 0) {
+                        // Add new files to the selectedFiles array
+                        selectedFiles = [...selectedFiles, ...filesToAdd];
+                        
+                        // Update file preview
+                        updateFilePreview();
+                    }
+                });
+            }
+
+            function updateFilePreview() {
+                if (selectedFiles.length > 0) {
+                    const previewContainer = document.getElementById('upload-preview');
+                    const uploadCount = document.getElementById('upload-count');
+                    const fileCount = document.getElementById('file-count');
+                    
+                    previewContainer.innerHTML = '';
+                    previewContainer.classList.remove('hidden');
+                    uploadCount.classList.remove('hidden');
+                    fileCount.textContent = selectedFiles.length;
+                    
+                    for (let i = 0; i < selectedFiles.length; i++) {
+                        const file = selectedFiles[i];
+                        const div = document.createElement('div');
+                        div.className = 'relative';
+                        
+                        if (file.type.startsWith('image/') || file.name.toLowerCase().endsWith('.heic')) {
+                            // Handle images (including HEIC)
+                            const reader = new FileReader();
+                            
+                            reader.onload = function(e) {
+                                div.innerHTML = `
+                                    <div class="h-32 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                                        <img src="${e.target.result}" alt="Preview" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                    </div>
+                                    <button type="button" data-index="${i}" class="remove-file absolute top-1 right-1 bg-white rounded-full w-6 h-6 flex items-center justify-center text-red-500 hover:text-red-700">
+                                        <i class="fas fa-times text-xs"></i>
+                                    </button>
+                                    <span class="absolute bottom-1 left-1 bg-black bg-opacity-70 text-white text-xs px-1 py-0.5 rounded">
+                                        ${formatFileSize(file.size)}
+                                    </span>
+                                `;
+                                
+                                previewContainer.appendChild(div);
+                                addRemoveListener();
+                            };
+                            
+                            reader.readAsDataURL(file);
+                        } else if (file.type.startsWith('video/')) {
+                            // Handle videos
+                            div.innerHTML = `
+                                <div class="h-32 bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                    <i class="fas fa-film text-gray-400 text-3xl absolute"></i>
+                                    <span class="absolute bottom-1 left-1 bg-black bg-opacity-70 text-white text-xs px-1 py-0.5 rounded">
+                                        ${formatFileSize(file.size)}
+                                    </span>
+                                    <span class="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 py-0.5 rounded">
+                                        ${file.name.split('.').pop().toUpperCase()}
+                                    </span>
+                                    <video class="w-full h-full object-cover opacity-70">
+                                        <source src="${URL.createObjectURL(file)}" type="${file.type}">
+                                    </video>
+                                </div>
+                                <button type="button" data-index="${i}" class="remove-file absolute top-1 right-1 bg-white rounded-full w-6 h-6 flex items-center justify-center text-red-500 hover:text-red-700">
+                                    <i class="fas fa-times text-xs"></i>
+                                </button>
+                            `;
+                            
+                            previewContainer.appendChild(div);
+                            addRemoveListener();
+                        }
+                    }
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+                else return (bytes / 1048576).toFixed(1) + ' MB';
+            }
+
+            function addRemoveListener() {
+                document.querySelectorAll('.remove-file').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        // Remove the file from our array
+                        selectedFiles.splice(index, 1);
+                        // Update the preview
+                        updateFilePreview();
+                        
+                        // If no files left, hide the preview container and count
+                        if (selectedFiles.length === 0) {
+                            document.getElementById('upload-preview').classList.add('hidden');
+                            document.getElementById('upload-count').classList.add('hidden');
+                            document.getElementById('review-photos-section').classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            const next3Button = document.getElementById('next-3');
+            if (next3Button) {
+                next3Button.addEventListener('click', function() {
+                    // Populate review step
+                    document.getElementById('review-name').textContent = document.getElementById('name').value;
+                    document.getElementById('review-phone').textContent = document.getElementById('phone').value;
+                    document.getElementById('review-email').textContent = document.getElementById('email').value;
+
+                    const address = `${document.getElementById('address').value}, ${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('zip').value}`;
+                    document.getElementById('review-address').textContent = address;
+
+                    // Get service description from the main description field
+                    let serviceDetails = "";
+                    let serviceDescription = "";
+                    
+                    // Get the description from the main description textarea
+                    const descField = document.getElementById('description');
+                    if (descField) {
+                        if (descField) {
+                            serviceDescription = descField.value;
+                        }
+                    }
+                    
+                    if (serviceCategory.value === 'panel') {
+                        const selectedPanel = document.querySelector('input[name="panel-option"]:checked');
+                        if (selectedPanel) {
+                            const panelOption = selectedPanel.value === '200amp' ? '200 Amp Panel Replacement' : 
+                                               selectedPanel.value === '150amp' ? '150 Amp Panel Replacement' : 
+                                               selectedPanel.value === '100amp' ? '100 Amp Panel Replacement' : 
+                                               'Sub-Panel Installation';
+                            serviceDetails = panelOption;
+                            
+                            const heavyUp = document.querySelector('input[name="heavy-up"]:checked');
+                            if (heavyUp) {
+                                serviceDetails += " with Heavy Up Option";
+                            }
+                        }
+                    } else if (serviceCategory.value === 'ev') {
+                        const evDistanceSelect = document.getElementById('ev-distance');
+                        if (evDistanceSelect && evDistanceSelect.value) {
+                            const distanceText = evDistanceSelect.options[evDistanceSelect.selectedIndex].text;
+                            serviceDetails = `EV Charger Installation (${distanceText})`;
+                        }
+                    } else if (['outlet', 'switch', 'lighting', 'fan', 'fixture'].includes(serviceCategory.value)) {
+                        const quantityInputs = document.querySelectorAll(`#${serviceCategory.value}-options input[type="number"]`);
+                        let items = [];
+                        
+                        quantityInputs.forEach(input => {
+                            if (parseInt(input.value) > 0) {
+                                const label = input.parentNode.parentNode.querySelector('span').textContent.split('(')[0].trim();
+                                items.push(`${input.value} × ${label}`);
+                            }
+                        });
+                        
+                        serviceDetails = items.join(', ');
+                    } else if (serviceCategory.value === 'repair') {
+                        serviceDetails = "Diagnose and Repair - Power Loss";
+                    } else if (serviceCategory.value === 'other') {
+                        serviceDetails = "Other Service";
+                    }
+                    
+                    document.getElementById('review-service').textContent = serviceDetails;
+                    document.getElementById('review-timeline').textContent = document.getElementById('timeline').options[document.getElementById('timeline').selectedIndex].text;
+                    document.getElementById('review-description').textContent = serviceDescription;
+                    
+                    // Show appointment details if selected
+                    const preferredDate = document.getElementById('preferred-date').value;
+                    const preferredTime = document.getElementById('preferred-time').value;
+                    if (preferredDate && preferredTime) {
+                        const appointmentRow = document.getElementById('review-appointment-row');
+                        const appointmentText = document.getElementById('review-appointment');
+                        const dateObj = new Date(preferredDate);
+                        const timeText = document.getElementById('preferred-time').options[document.getElementById('preferred-time').selectedIndex].text;
+                        appointmentText.textContent = `${dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} - ${timeText}`;
+                        appointmentRow.style.display = 'flex';
+                    }
+
+                    // Check if photos were uploaded
+                    if (selectedFiles.length > 0) {
+                        document.getElementById('review-photos-section').classList.remove('hidden');
+                        document.getElementById('review-photos-count').textContent = `${selectedFiles.length} files uploaded`;
+                        
+                        // Create thumbnails for review section
+                        const reviewPhotos = document.getElementById('review-photos');
+                        reviewPhotos.innerHTML = '';
+
+                        for (let i = 0; i < Math.min(selectedFiles.length, 6); i++) {
+                            const file = selectedFiles[i];
+                            const div = document.createElement('div');
+
+                            if (file.type.startsWith('image/') || file.name.toLowerCase().endsWith('.heic')) {
+                                const reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    div.innerHTML = `<img src="${e.target.result}" alt="Thumbnail" class="w-full h-16 object-cover rounded" loading="lazy">`;
+                                    reviewPhotos.appendChild(div);
+                                };
+
+                                reader.readAsDataURL(file);
+                            } else if (file.type.startsWith('video/')) {
+                                div.innerHTML = `
+                                    <div class="h-16 bg-gray-200 rounded flex items-center justify-center relative">
+                                        <i class="fas fa-film text-gray-500"></i>
+                                    </div>
+                                `;
+                                reviewPhotos.appendChild(div);
+                            }
+                        }
+                        
+                        if (selectedFiles.length > 6) {
+                            const moreDiv = document.createElement('div');
+                            moreDiv.className = "flex items-center justify-center h-16 bg-gray-200 rounded";
+                            moreDiv.innerHTML = `<span class="text-gray-500 text-sm">+${selectedFiles.length - 6} more</span>`;
+                            reviewPhotos.appendChild(moreDiv);
+                        }
+                    } else {
+                        document.getElementById('review-photos-section').classList.add('hidden');
+                    }
+
+                    goToStep(4);
+                });
+            }
+
+            // Previous buttons
+            const prev2Button = document.getElementById('prev-2');
+            if (prev2Button) {
+                prev2Button.addEventListener('click', function() {
+                    goToStep(1);
+                });
+            }
+
+            const prev3Button = document.getElementById('prev-3');
+            if (prev3Button) {
+                prev3Button.addEventListener('click', function() {
+                    goToStep(2);
+                });
+            }
+
+            const prev4Button = document.getElementById('prev-4');
+            if (prev4Button) {
+                prev4Button.addEventListener('click', function() {
+                    goToStep(3);
+                });
+            }
+
+            // Function to navigate between steps
+            function goToStep(step) {
+                console.log('Going to step', step);
+                steps.forEach((s, i) => {
+                    if (i + 1 === step) {
+                        s.classList.remove('hidden');
+                    } else {
+                        s.classList.add('hidden');
+                    }
+                });
+
+                // Update progress indicator
+                const progress = ((step - 1) / (steps.length - 1)) * 100;
+                progressIndicator.style.width = `${progress}%`;
+
+                // Update step dots
+                stepDots.forEach((dot, i) => {
+                    if (i < step) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+
+                currentStep = step;
+
+                // Scroll to top of form
+                document.querySelector('.progress-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Form submission
+            const estimateForm = document.getElementById('estimate-form');
+            if (estimateForm) {
+                estimateForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Check if terms are agreed
+                    if (!document.getElementById('terms').checked) {
+                        alert('Please agree to the terms and conditions before submitting.');
+                        return;
+                    }
+
+                    // Validate required fields
+                    const requiredFields = [
+                        { id: 'name', label: 'Full Name' },
+                        { id: 'email', label: 'Email' },
+                        { id: 'phone', label: 'Phone Number' },
+                        { id: 'address', label: 'Street Address' },
+                        { id: 'city', label: 'City' },
+                        { id: 'state', label: 'State' },
+                        { id: 'zip', label: 'ZIP Code' },
+                        { id: 'scheduledDate', label: 'Scheduled Date' }
+                    ];
+
+                    const errors = [];
+                    for (const field of requiredFields) {
+                        const element = document.getElementById(field.id);
+                        const value = element ? element.value.trim() : '';
+                        
+                        if (!value) {
+                            errors.push(field.label);
+                            if (element) {
+                                element.classList.add('border-red-500');
+                            }
+                        } else {
+                            if (element) {
+                                element.classList.remove('border-red-500');
+                            }
+                        }
+                    }
+
+                    // Validate email format
+                    const emailElement = document.getElementById('email');
+                    const emailValue = emailElement ? emailElement.value.trim() : '';
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailValue && !emailRegex.test(emailValue)) {
+                        errors.push('Valid email address');
+                        if (emailElement) {
+                            emailElement.classList.add('border-red-500');
+                        }
+                    }
+
+                    // Validate phone format (basic validation)
+                    const phoneElement = document.getElementById('phone');
+                    const phoneValue = phoneElement ? phoneElement.value.trim() : '';
+                    const phoneRegex = /^[\d\s\-\(\)]+$/;
+                    if (phoneValue && !phoneRegex.test(phoneValue)) {
+                        errors.push('Valid phone number');
+                        if (phoneElement) {
+                            phoneElement.classList.add('border-red-500');
+                        }
+                    }
+
+                    // If there are validation errors, show them and return
+                    if (errors.length > 0) {
+                        const errorMessage = 'Please provide the following required information:\n• ' + errors.join('\n• ');
+                        alert(errorMessage);
+                        return;
+                    }
+
+                    // Check if description is provided
+                    const description = document.getElementById('description').value;
+                    if (!description.trim()) {
+                        alert('Please describe the electrical work needed.');
+                        return;
+                    }
+
+                    // Show loading state
+                    const submitBtn = document.getElementById('submit-form');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+                    submitBtn.disabled = true;
+                    
+                    console.log('Form submission starting...');
+
+                    // Create FormData object to send both form fields and files
+                    const formData = new FormData();
+
+                    // Add form fields to FormData with proper field mapping for HouseCall Pro API
+                    const fullName = document.getElementById('name').value;
+                    formData.append('name', fullName);  // Include original name field
+                    formData.append('firstName', fullName.split(' ')[0] || '');
+                    formData.append('lastName', fullName.split(' ').slice(1).join(' ') || '');
+                    formData.append('email', document.getElementById('email').value);
+                    formData.append('phone', document.getElementById('phone').value);
+                    formData.append('address', document.getElementById('address').value);
+                    formData.append('city', document.getElementById('city').value);
+                    formData.append('state', document.getElementById('state').value);
+                    formData.append('zip', document.getElementById('zip').value);
+                    
+                    // Add service details from description field
+                    formData.append('service', 'General Electrical Service');
+                    // Note: timeline field doesn't exist in simplified form
+                    
+                    // Add consultation time preferences from timeSlot radio buttons
+                    const timeSlot = document.querySelector('input[name="timeSlot"]:checked');
+                    
+                    if (timeSlot) {
+                        formData.append('timeSlot', timeSlot.value);
+                    }
+                    
+                    // Add scheduled date
+                    const scheduledDate = document.getElementById('scheduledDate');
+                    if (scheduledDate && scheduledDate.value) {
+                        formData.append('scheduledDate', scheduledDate.value);
+                    }
+                    
+                    // Add description of work needed
+                    const description = document.getElementById('description');
+                    if (description && description.value) {
+                        formData.append('description', description.value);
+                    }
+
+                    // Add selected files to FormData
+                    if (selectedFiles.length > 0) {
+                        for (let i = 0; i < selectedFiles.length; i++) {
+                            formData.append('media', selectedFiles[i]);
+                        }
+                    }
+
+                    // Check if we're on Netlify
+                    const isNetlify = window.location.hostname === 'ajlongelectric.netlify.app' || 
+                                      window.location.hostname.includes('netlify');
+                    
+                    // Add the form type for Netlify
+                    formData.append('formType', 'estimate');
+                    formData.append('form-name', 'estimate');
+                    
+                    // Determine the endpoint based on the hosting platform
+                    const endpoint = isNetlify 
+                        ? '/.netlify/functions/housecall-pro-estimate' 
+                        : '/api/submit-estimate';
+                    
+                    // Log endpoint and data
+                    console.log('Submitting to endpoint:', endpoint);
+                    
+                    // Log what's in the FormData
+                    console.log('FormData entries:');
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+                    
+                    // Send the form data using fetch API
+                    fetch(endpoint, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        console.log('Response status:', response.status);
+                        return response.json().then(data => {
+                            if (!response.ok) {
+                                throw new Error(data.message || 'Network response was not ok');
+                            }
+                            return data;
+                        });
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            // Reset form and selected files
+                            document.getElementById('estimate-form').reset();
+                            selectedFiles = [];
+
+                            // Hide form and show success message
+                            document.getElementById('estimate-form-container').innerHTML = `
+                                <div class="text-center py-12">
+                                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-500 text-white text-2xl mb-4">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2">Estimate Request Submitted!</h3>
+                                    <p class="text-gray-600 mb-6">Thank you for your request. We'll be in touch within 24 hours with your detailed estimate.</p>
+                                    <p class="text-gray-600">A confirmation email has been sent to <span class="font-medium">${document.getElementById('email').value}</span>.</p>
+                                </div>
+                            `;
+                        } else {
+                            // Use the message from the server if available, otherwise a generic one
+                            throw new Error(data.message || 'An unknown error occurred during submission.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Form Submission Error:', error);
+                        // Display a more specific error message if available, otherwise a generic one
+                        const errorMessage = error.message || 'There was an error submitting your request. Please check your connection and try again. If the problem persists, please contact us directly.';
+                        alert(errorMessage);
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Housecall Pro Estimate Form Script -->
+    <script>
+        // Global variables
+        let autocomplete;
+        let uploadedFiles = [];
+        
+        // Initialize Google Places Autocomplete
+        function initAutocomplete() {
+            const addressInput = document.getElementById('address');
+            if (addressInput && window.google) {
+                autocomplete = new google.maps.places.Autocomplete(addressInput, {
+                    types: ['address'],
+                    componentRestrictions: { country: ['us'] },
+                    fields: ['address_component', 'formatted_address']
+                });
+                
+                autocomplete.addListener('place_changed', function() {
+                    const place = autocomplete.getPlace();
+                    if (place.address_components) {
+                        parseAddressComponents(place.address_components);
+                    }
+                });
+            }
+        }
+        
+        // Parse Google Places address components
+        function parseAddressComponents(components) {
+            const addressData = {
+                street: '',
+                city: '',
+                state: '',
+                zip: '',
+                country: ''
+            };
+            
+            components.forEach(component => {
+                const types = component.types;
+                
+                if (types.includes('street_number')) {
+                    addressData.street = component.long_name + ' ';
+                } else if (types.includes('route')) {
+                    addressData.street += component.long_name;
+                } else if (types.includes('locality')) {
+                    addressData.city = component.long_name;
+                } else if (types.includes('administrative_area_level_1')) {
+                    addressData.state = component.short_name;
+                } else if (types.includes('postal_code')) {
+                    addressData.zip = component.long_name;
+                } else if (types.includes('country')) {
+                    addressData.country = component.long_name;
+                }
+            });
+            
+            // Update hidden fields
+            document.getElementById('street').value = addressData.street.trim();
+            document.getElementById('city').value = addressData.city;
+            document.getElementById('state').value = addressData.state;
+            document.getElementById('zip').value = addressData.zip;
+            document.getElementById('country').value = addressData.country;
+        }
+        
+        // File upload handling
+        function handleFileUpload(files) {
+            const fileList = document.getElementById('file-list');
+            
+            Array.from(files).forEach(file => {
+                if (uploadedFiles.length >= 10) {
+                    alert('Maximum 10 files allowed.');
+                    return;
+                }
+                
+                if (file.size > 50 * 1024 * 1024) { // 50MB limit
+                    alert(`File ${file.name} is too large. Maximum size is 50MB.`);
+                    return;
+                }
+                
+                // Check if it's a video and validate duration
+                if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.preload = 'metadata';
+                    video.onloadedmetadata = function() {
+                        if (video.duration > 60) { // 1 minute = 60 seconds
+                            alert(`Video ${file.name} is too long. Maximum duration is 1 minute.`);
+                            return;
+                        } else {
+                            addFileToList(file);
+                        }
+                    };
+                    video.src = URL.createObjectURL(file);
+                } else {
+                    addFileToList(file);
+                }
+            });
+        }
+        
+        function addFileToList(file) {
+            uploadedFiles.push(file);
+            const fileList = document.getElementById('file-list');
+            
+            const fileDiv = document.createElement('div');
+            fileDiv.className = 'flex items-center justify-between p-2 bg-gray-100 rounded mb-2';
+            
+            const fileName = document.createElement('span');
+            fileName.className = 'text-sm truncate';
+            fileName.textContent = file.name;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'text-red-500 hover:text-red-700';
+            removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            removeBtn.onclick = function() {
+                const index = uploadedFiles.indexOf(file);
+                if (index > -1) {
+                    uploadedFiles.splice(index, 1);
+                    fileDiv.remove();
+                    if (uploadedFiles.length === 0) {
+                        fileList.classList.add('hidden');
+                    }
+                }
+            };
+            
+            fileDiv.appendChild(fileName);
+            fileDiv.appendChild(removeBtn);
+            fileList.appendChild(fileDiv);
+            fileList.classList.remove('hidden');
+        }
+        
+        // DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize autocomplete if Google Maps is loaded
+            if (window.google) {
+                initAutocomplete();
+            } else {
+                // Wait for Google Maps to load
+                const checkGoogleMaps = setInterval(() => {
+                    if (window.google) {
+                        initAutocomplete();
+                        clearInterval(checkGoogleMaps);
+                    }
+                }, 100);
+            }
+            
+            // File upload setup
+            const fileInput = document.getElementById('attachments');
+            const uploadArea = document.getElementById('upload-area');
+            
+            if (fileInput && uploadArea) {
+                uploadArea.addEventListener('click', () => fileInput.click());
+                fileInput.addEventListener('change', (e) => handleFileUpload(e.target.files));
+                
+                // Drag and drop
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('border-aj-orange');
+                });
+                
+                uploadArea.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('border-aj-orange');
+                });
+                
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('border-aj-orange');
+                    handleFileUpload(e.dataTransfer.files);
+                });
+            }
+            
+            // Form submission
+            const form = document.getElementById('estimate-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate required fields
+                    const requiredFields = ['firstName', 'lastName', 'phone', 'email', 'address', 'description', 'scheduledDate'];
+                    let isValid = true;
+                    
+                    requiredFields.forEach(fieldName => {
+                        const field = document.getElementById(fieldName);
+                        if (field && !field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('border-red-500');
+                        } else if (field) {
+                            field.classList.remove('border-red-500');
+                        }
+                    });
+                    
+                    // Check if time slot is selected
+                    const timeSlot = document.querySelector('input[name="timeSlot"]:checked');
+                    if (!timeSlot) {
+                        isValid = false;
+                        alert('Please select a preferred arrival window.');
+                    }
+                    
+                    // Check terms
+                    const terms = document.getElementById('terms');
+                    if (!terms.checked) {
+                        isValid = false;
+                        alert('Please accept the terms of service.');
+                    }
+                    
+                    if (!isValid) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    const submitBtn = document.getElementById('submit-form');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting Request...';
+                    submitBtn.disabled = true;
+                    
+                    // Prepare form data
+                    const formData = new FormData();
+                    
+                    // Add all form fields
+                    const inputs = form.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        if (input.type === 'checkbox' || input.type === 'radio') {
+                            if (input.checked) {
+                                formData.append(input.name, input.value);
+                            }
+                        } else if (input.type !== 'file') {
+                            formData.append(input.name, input.value);
+                        }
+                    });
+                    
+                    // Add uploaded files
+                    uploadedFiles.forEach((file) => {
+                        formData.append('attachments', file);
+                    });
+                    
+                    // Submit to Housecall Pro integration
+                    fetch('/.netlify/functions/housecall-pro-estimate', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            alert('Thank you! Your estimate request has been submitted. We will contact you during your preferred time to discuss your project and provide a detailed estimate.');
+                            
+                            // Redirect to thank you page
+                            window.location.href = '/thank-you.html';
+                        } else {
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Form Submission Error:', error);
+                        alert('There was an error submitting your request. Please try again or call us directly at (703) 997-0026.');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+            
+            // Service area validation
+            const addressInput = document.getElementById('address');
+            if (addressInput) {
+                addressInput.addEventListener('blur', validateServiceArea);
+            }
+            
+            function validateServiceArea() {
+                const zip = document.getElementById('zip').value;
+                const state = document.getElementById('state').value;
+                const errorDiv = document.getElementById('service-area-error');
+                
+                // List of served areas (you can expand this)
+                const servedZips = ['20001', '20002', '20003', '20004', '20005', '20006', '20007', '20008', '20009', '20010', 
+                                  '20011', '20012', '20013', '20015', '20016', '20017', '20018', '20019', '20020', '20024',
+                                  '20032', '20036', '20037', '20052', '20053', '20064', '20065', '20071', '20230', '20240',
+                                  '20001', '20002', '20003', '20004', '20005', '20006', '20007', '20008', '20009', '20010'];
+                const servedStates = ['VA', 'MD', 'DC'];
+                
+                if (zip && state && (!servedStates.includes(state) || !zip.match(/^[2][0-2]\d{3}$/))) {
+                    errorDiv.classList.remove('hidden');
+                } else {
+                    errorDiv.classList.add('hidden');
+                }
+            }
+        });
+        
+        // Make initAutocomplete global for Google Maps callback
+        window.initAutocomplete = initAutocomplete;
+    </script>
+
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

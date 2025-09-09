@@ -1,0 +1,689 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Crofton MD | Planned Community &amp; New Home Specialists | AJ Long Electric</title>
+    <meta name="description" content="Crofton's trusted electricians specializing in planned communities, new construction, and outdoor living electrical solutions. Experts in landscape lighting, home automation, and community-oriented electrical services.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Crofton MD | Planned Community &amp; New Home Specialists | AJ Long Electric">
+    <meta property="og:description" content="Crofton's trusted electricians specializing in planned communities, new construction, and outdoor living electrical solutions. Experts in landscape lighting, home automation, and community-oriented electrical services.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/maryland-electrical-services/crofton.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrician Crofton MD | Planned Community &amp; New Home Specialists | AJ Long Electric">
+    <meta name="twitter:description" content="Crofton's trusted electricians specializing in planned communities, new construction, and outdoor living electrical solutions. Experts in landscape lighting, home automation, and community-oriented electrical services.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Location card styles */
+        .location-card {
+            transition: all 0.3s ease;
+        }
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* City link styles */
+        .city-link {
+            display: inline-block;
+            margin: 0.25rem 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--aj-light-gray);
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .city-link:hover {
+            background-color: var(--aj-orange);
+            color: white;
+        }
+
+        /* Map responsive styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <!-- JavaScript for loading includes -->
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric - Crofton",
+      "@id": "https://ajlongelectric.com/maryland-electrical-services/crofton.html",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com/maryland-electrical-services/crofton.html",
+      "telephone": "+1-703-997-0026",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "15518 Orchard Run Drive",
+        "addressLocality": "Bowie",
+        "addressRegion": "MD",
+        "postalCode": "20715",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.0020,
+        "longitude": -76.6876
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "15:00"
+      }],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Crofton",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Maryland"
+          }
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Crofton Park"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Crofton Village"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Chapman Farms"
+        },
+        {
+          "@type": "Neighborhood",
+          "name": "Crofton Meadows"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.instagram.com/ajlongelectric",
+        "https://www.google.com/maps/place/AJ+Long+Electric/@38.8383686,-77.2690285,17z/data=!4m6!3m5!1s0x89b64c0325cc1293:0x7d2783cfbec92c1a!8m2!3d38.8383686!4d-77.2664536!16s%2Fg%2F11bxf2f69x",
+        "https://www.yelp.com/biz/aj-long-electric-fairfax"
+      ],
+      "description": "Planned community electrical specialists in Crofton, MD. Offering comprehensive services for new construction homes, outdoor living spaces, and community-focused electrical solutions throughout Anne Arundel County.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Crofton Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "New Home Electrical Systems",
+              "description": "Complete electrical solutions for Crofton's newer homes and developments"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landscape & Outdoor Lighting",
+              "description": "Custom outdoor illumination for Crofton's golf course communities and homes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Community-focused Safety Lighting",
+              "description": "Pathway, entrance, and common area lighting for neighborhoods"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Smart Home Integration",
+              "description": "Modern home automation systems for Crofton's tech-savvy residents"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Outdoor Living Electrical",
+              "description": "Power solutions for patios, decks, pools, and outdoor entertainment areas"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1200",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Robert M."
+        },
+        "datePublished": "2023-08-18",
+        "reviewBody": "AJ Long Electric did a fantastic job installing landscape lighting throughout our property in Crofton. Their attention to detail and understanding of outdoor electrical systems was impressive. The lighting has transformed our yard and significantly improved our home's curb appeal."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/maryland-electrical-services/crofton.html"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header -->
+    <div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Community Electrician in <span class="text-aj-orange">Crofton, MD</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric provides specialized electrical services designed for Crofton's planned communities, newer homes, and outdoor-focused lifestyle. Professional electricians serving Crofton, Maryland's distinctive community with over 1,200 5-star reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="bg-aj-orange text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>24/7 Emergency Service in Crofton</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>1,200+ 5-Star Reviews</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Licensed &amp; Insured</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Planned Community Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Info Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Expert Electrical Services in <span class="text-aj-orange">Crofton, Maryland</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">As Crofton's trusted electrician, AJ Long Electric brings specialized expertise to this distinctive Anne Arundel County planned community. From the original Crofton neighborhoods to newer developments like Chapman Farms and Crofton Meadows, we understand Crofton's unique character and outdoor-focused lifestyle electrical needs.</p>
+            </div>
+ 
+            <div class="md:flex items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-4 flex items-center text-gray-800">
+                            <i class="fas fa-bolt text-aj-orange mr-2"></i> Crofton's Premier Electrical Contractor
+                        </h3>
+                        <p class="text-gray-600 mb-4">When searching for an "electrician near me" in Crofton, MD, you want a company that understands planned community electrical systems, outdoor living needs, and the unique character of this distinctive community. AJ Long Electric has been serving Crofton's family-focused neighborhoods, building expertise in:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            <li><a href="/services/outdoor-lighting/" class="text-aj-orange hover:underline">Landscape lighting</a> designed for golf course adjacent properties</li>
+                            <li><a href="/services/" class="text-aj-orange hover:underline">Outdoor entertainment power</a> for patios, decks, and pools</li>
+                            <li><a href="/services/smart-home-electrical/" class="text-aj-orange hover:underline">Smart home automation</a> for modern, tech-savvy residents</li>
+                            <li>New construction electrical for growing developments</li>
+                            <li>Community-focused pathway and entrance lighting</li>
+                            <li>Emergency electrical repairs with priority Crofton response</li>
+                        </ul>
+                        <h3 class="text-xl font-bold my-4 flex items-center text-gray-800">
+                            <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> Serving All Crofton Areas
+                        </h3>
+                        <p class="text-gray-600 mb-4">Our Crofton electricians are familiar with every neighborhood:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Crofton Park and Crofton Village</li>
+                            <li>Chapman Farms development</li>
+                            <li>Crofton Meadows community</li>
+                            <li>Nantucket community</li>
+                            <li>Areas near Crofton Country Club</li>
+                            <li>Crofton Parkway corridor</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12418.234567890123!2d-76.68764567890123!3d39.00205678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c8234567890a%3A0x1234567890abcdef!2sCrofton%2C%20MD!5e0!3m2!1sen!2sus!4v1714366300321!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crofton Specialties Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Crofton <span class="text-aj-orange">Electrical Specialties</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Crofton's planned community design and outdoor-focused lifestyle require specialized electrical expertise. Our team understands the unique needs and community standards of this distinctive Maryland neighborhood.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Specialty 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Outdoor-lighting-electrician-burke-va..jpeg?_a=BBFAAAAA0" alt="Landscape lighting on a home in Crofton, MD." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Landscape &amp; Golf Course Lighting</h3>
+                    <p class="text-gray-700 mb-4">
+                        Professional outdoor lighting solutions designed for Crofton's golf course adjacent properties, featuring landscape illumination that enhances the natural beauty while respecting community standards.
+                    </p>
+                    <a href="/services/outdoor-lighting/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+
+                <!-- Specialty 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/outdoor-patio-va.webp?_a=BBFAAAAA0" alt="An outdoor patio with electrical wiring in Crofton, MD." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Outdoor Entertainment Electrical</h3>
+                    <p class="text-gray-700 mb-4">
+                        Comprehensive power solutions for Crofton's outdoor living spaces, including patios, decks, pools, and entertainment areas designed for the community's active lifestyle.
+                    </p>
+                    <a href="/services/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+
+                <!-- Specialty 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Electrical-home.jpg?_a=BBFAAAAA0" alt="A new construction home in Crofton, MD." class="w-full h-48 object-cover mb-4 rounded-lg" loading="lazy">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">New Construction &amp; Smart Homes</h3>
+                    <p class="text-gray-700 mb-4">
+                        Modern electrical systems for Crofton's newer developments and smart home automation solutions designed for the community's tech-savvy residents.
+                    </p>
+                    <a href="/services/smart-home-electrical/" class="text-aj-orange hover:underline font-semibold">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Planned Community <span class="text-aj-orange">Electrical Solutions</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-golf-ball text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Golf Course Property Specialists</h3>
+                    <p class="text-gray-600">Expert electrical solutions for homes adjacent to Crofton Country Club</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Community Standards Compliance</h3>
+                    <p class="text-gray-600">Electrical work that meets Crofton's architectural and community guidelines</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-seedling text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Outdoor Living Enhancement</h3>
+                    <p class="text-gray-600">Electrical systems designed for Crofton's outdoor-focused lifestyle</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="text-center">
+                    <div class="bg-aj-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Modern Technology Integration</h3>
+                    <p class="text-gray-600">Smart electrical solutions for Crofton's tech-savvy community</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our <span class="text-aj-orange">Community-Focused Electrical Services</span> in Crofton</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">AJ Long Electric offers specialized electrical solutions designed specifically for Crofton's planned community lifestyle and outdoor-focused design. Our services enhance both the beauty and functionality of your Crofton home and neighborhood.</p>
+            </div>
+ 
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Landscape Lighting Design</h3>
+                    <p class="text-gray-600">Custom outdoor illumination solutions that highlight the natural beauty of Crofton's golf course adjacent properties and enhance your home's curb appeal. Our <a href="/services/recessed-lighting/index.html" class="text-aj-orange hover:underline">lighting design</a> expertise ensures beautiful results.</p>
+                </div>
+ 
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Outdoor Living Electrical</h3>
+                    <p class="text-gray-600">Complete power solutions for Crofton's outdoor lifestyle, including patio and deck lighting, pool and spa wiring, and outdoor kitchen electrical systems. We ensure proper <a href="/services/panel-replacements/index.html" class="text-aj-orange hover:underline">electrical capacity</a> for all your needs.</p>
+                </div>
+ 
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">New Construction Electrical</h3>
+                    <p class="text-gray-600">Specialized electrical systems for Crofton's newer homes and developments, incorporating <a href="/services/ev-charger-installation/index.html" class="text-aj-orange hover:underline">modern technology</a> and energy efficiency from the ground up.</p>
+                </div>
+ 
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Community Area Lighting</h3>
+                    <p class="text-gray-600">Specialized lighting solutions for Crofton's community entrances, pathways, and common areas that enhance safety and neighborhood aesthetics.</p>
+                </div>
+ 
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Smart Home Integration</h3>
+                    <p class="text-gray-600">Comprehensive home automation systems designed for Crofton's tech-savvy homeowners, including <a href="/services/recessed-lighting/index.html" class="text-aj-orange hover:underline">lighting control</a>, security, and entertainment technology.</p>
+                </div>
+ 
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Energy Management Systems</h3>
+                    <p class="text-gray-600">Advanced electrical solutions that help Crofton residents monitor and reduce energy consumption, perfect for environmentally-conscious community members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose <span class="text-aj-orange">AJ Long Electric</span> in Crofton?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">When you need an electrician in Crofton, MD, here's why homeowners trust us with their electrical needs.</p>
+            </div>
+ 
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Local Expertise</h3>
+                    <p class="text-gray-600">Specialized knowledge of Crofton's planned community architecture and common electrical systems in local homes.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fast Response</h3>
+                    <p class="text-gray-600">Prompt service throughout Crofton and surrounding areas, including emergency electrical services when you need help quickly.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Licensed &amp; Insured</h3>
+                    <p class="text-gray-600">Fully licensed Maryland electricians with all required insurance, ensuring protection for you and compliance with Anne Arundel County regulations.</p>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Star Service</h3>
+                    <p class="text-gray-600">Highly rated by Crofton homeowners for our meticulous work, cleanliness, and courteous, professional service on every job.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need an Electrician in Crofton?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Whether you're dealing with an electrical emergency or planning a home improvement project in Crofton, MD, our team of expert electricians is ready to help.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request an Estimate
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Areas Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-6">We Also Serve Nearby Areas</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="/maryland-electrical-services/bowie.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Bowie</a>
+                <a href="/maryland-electrical-services/laurel.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Laurel</a>
+                <a href="/maryland-electrical-services/annapolis.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Annapolis</a>
+                <a href="/maryland-electrical-services/prince-georges-county.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-aj-orange hover:text-white transition">Prince George's County</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+    
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <!-- Consolidated main scripts -->
+    <script src="/js/main-scripts.js" defer=""></script>
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> <span>Book Crofton Electrician</span>
+        </button>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+            document.getElementById('menu-overlay').style.display = 'block';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('menu-overlay').style.display = 'none';
+        });
+
+        document.getElementById('menu-overlay').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            this.style.display = 'none';
+        });
+
+        const sendMessage = () => {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'bg-aj-orange text-white rounded-lg p-3 mb-2 ml-auto max-w-xs';
+                userDiv.innerHTML = `<p>${message}</p>`;
+                chatMessages.appendChild(userDiv);
+                
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate response after 1 second
+                setTimeout(() => {
+                    const responseDiv = document.createElement('div');
+                    responseDiv.className = 'bg-gray-200 rounded-lg p-3 mb-2 max-w-xs';
+                    responseDiv.innerHTML = `<p>Thanks for your message! One of our representatives will respond shortly. If you'd like an immediate response, please call us at 703-997-0026.</p>`;
+                    chatMessages.appendChild(responseDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        };
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+
+</body></html>

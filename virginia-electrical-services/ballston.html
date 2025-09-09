@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Enhanced Title Tag -->
+    <title>Electrician Ballston VA | Modern Mixed-Use Electrical Specialists | AJ Long Electric</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="AJ Long Electric provides specialized electrical services for Ballston's high-rise buildings, modern condos, and commercial spaces. Expert electrical solutions with over 1,200 5-star reviews serving Arlington.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="electrician Ballston VA, Ballston electrician, high-rise electrical Ballston, condo electrical Arlington, mixed-use electrical, commercial electrical Ballston, licensed electrician Arlington, electrical contractor Ballston">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/virginia-electrical-services/ballston.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Ballston, Arlington, Virginia">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Ballston VA | Modern Mixed-Use Electrical Specialists | AJ Long Electric">
+    <meta property="og:description" content="AJ Long Electric provides specialized electrical services for Ballston's high-rise buildings, modern condos, and commercial spaces. Expert electrical solutions with over 1,200 5-star reviews serving Arlington.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/virginia-electrical-services/ballston.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrician Ballston VA | Modern Mixed-Use Electrical Specialists | AJ Long Electric">
+    <meta name="twitter:description" content="AJ Long Electric provides specialized electrical services for Ballston's high-rise buildings, modern condos, and commercial spaces. Expert electrical solutions with over 1,200 5-star reviews serving Arlington.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav { 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* Mobile menu */
+        .mobile-menu { 
+            position: fixed; 
+            top: 0; 
+            right: -100%; 
+            width: 80%; 
+            height: 100%; 
+            background-color: white; 
+            z-index: 200; 
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
+            transition: right 0.3s ease; 
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
+            z-index: 199; 
+            display: none; 
+        }
+
+        /* Section preview */
+        .section-preview { position: relative; overflow: hidden; }
+        .section-overlay { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); 
+            padding: 2rem 1rem 1rem; 
+            transition: all 0.3s ease; 
+        }
+        .section-preview:hover .section-overlay { 
+            background: linear-gradient(to top, rgba(255,114,0,0.9), transparent); 
+        }
+
+        /* Increased spacing */ 
+            right: 0; 
+            width: 300px; 
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            overflow: hidden; 
+            display: none; 
+            flex-direction: column; 
+            max-height: 400px; /* Limit height */ 
+        }
+
+    
+    /* Mobile Form Improvements */
+    @media (max-width: 768px) {
+        /* Larger tap targets for mobile */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            font-size: 16px; /* Prevents zoom on iOS */
+            min-height: 48px;
+        }
+        
+        /* Larger checkboxes and radio buttons */
+        input[type="checkbox"],
+        input[type="radio"] {
+            min-width: 24px;
+            min-height: 24px;
+        }
+        
+        /* Better button sizing */
+        button,
+        .btn,
+        a.btn {
+            min-height: 48px;
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+        
+        /* Form spacing */
+        form > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        /* Label spacing */
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 16px;
+        }
+        
+        /* Checkbox/radio label alignment */
+        label input[type="checkbox"],
+        label input[type="radio"] {
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+    }
+    
+    </style>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-fadeInUp">
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-4">Expert Electricians in Ballston, VA</h1>
+                    <p class="text-lg mb-6">
+                        Specialized electrical services for high-rise buildings, modern condos, and commercial spaces in Ballston's dynamic mixed-use environment. Trusted by residents and businesses throughout Arlington.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Get Free Estimate
+                        </a>
+                        <a href="tel:7039970026" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition">
+                            <i class="fas fa-phone mr-2"></i> 703-997-0026
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg?_a=BBFAAAAA0" alt="Professional electrical services in Ballston" class="rounded transform -rotate-2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Ballston Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Ballston, VA: A Modern Urban Hub</h2>
+                <p class="text-lg text-gray-600">Ballston is a vibrant urban neighborhood known for its mix of high-rise residences, commercial spaces, and dynamic street-level retail. As local electrical experts, we provide services tailored to this unique community's needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg?_a=BBFAAAAA0" alt="Ballston Area" class="rounded-lg shadow-lg" loading="lazy">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Our Specialized Ballston Electrical Services</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>High-Rise Solutions:</strong> Specialized electrical services for Ballston's numerous apartment and condo buildings.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Condo &amp; Apartment Upgrades:</strong> Modern lighting, smart home integration, and electrical panel updates.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Commercial Electrical:</strong> Services for Ballston's office spaces, retail establishments, and restaurants.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>EV Charging Installation:</strong> Electric vehicle charging solutions for modern urban living.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Emergency Repairs:</strong> Fast, reliable service when electrical issues arise in your Ballston property.</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-gray-600">Our team has extensive experience working in Ballston's unique urban environment. We understand the specific electrical needs and challenges of the area's buildings and homes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services Section -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Popular Electrical Services in Ballston</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Our most requested services for Ballston's mix of modern high-rises, luxury condos, and commercial spaces.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Recessed-Light-Install-fairfax-va.jpg?_a=BBFAAAAA0" alt="Luxury lighting in a modern Ballston condo." class="w-full h-48 object-cover" loading="lazy">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Luxury Lighting Solutions</h3>
+                        <p class="text-gray-600 mb-4">Custom lighting designs for Ballston's modern condos and apartments, including recessed lighting, pendant installations, and smart lighting systems.</p>
+                        <a href="/services.html" class="text-aj-orange hover:underline flex items-center">
+                            Explore lighting solutions <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Tesla-EV-Charger.jpg?_a=BBFAAAAA0" alt="EV charger installed in a Ballston parking garage." class="w-full h-48 object-cover" loading="lazy">
+                    <div class="service-icon">
+                        <i class="fas fa-charging-station text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">EV Charger Installation</h3>
+                        <p class="text-gray-600 mb-4">Professional installation of electric vehicle charging stations in Ballston garages, parking areas, and residential properties.</p>
+                        <a href="/services/ev-charger-installation/index.html" class="text-aj-orange hover:underline flex items-center">
+                            Explore lighting solutions <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="/resources/ev-charger-basics.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                            EV Charger Basics <i class="fas fa-book ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/TBD/Modern-farmhouse-lightign.webp?_a=BBFAAAAA0" alt="A smart home in Ballston with integrated technology." class="w-full h-48 object-cover" loading="lazy">
+                    <div class="service-icon">
+                        <i class="fas fa-home text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Home Integration</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive smart home wiring and installation services for Ballston's tech-savvy residents and luxury properties.</p>
+                        <a href="/services.html" class="text-aj-orange hover:underline flex items-center">
+                            Explore lighting solutions <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/services.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust and Quality Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Trusted by Ballston Community</h2>
+            <p class="text-center text-gray-600 mb-12">Over 1,200 five-star reviews from satisfied customers across Northern Virginia</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">1,200+</h3>
+                    <p class="text-gray-600">Five-Star Reviews</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">High-Rise</h3>
+                    <p class="text-gray-600">Building Specialists</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-aj-orange text-4xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">24/7</h3>
+                    <p class="text-gray-600">Emergency Service</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/testimonials.html" class="text-aj-orange hover:underline font-semibold">
+                    Read our customer testimonials <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Why Choose AJ Long Electric in Ballston</h2>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-certificate text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Licensed &amp; Insured Professionals</h3>
+                                <p class="text-gray-600">Our team is fully licensed, insured, and expertly trained to handle all electrical needs in Ballston's unique urban environment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-map-marker-alt text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Local Ballston Expertise</h3>
+                                <p class="text-gray-600">We understand the specific electrical systems and requirements common in Ballston's high-rise buildings and mixed-use developments.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-clock text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Fast, Reliable Service</h3>
+                                <p class="text-gray-600">Our proximity to Ballston allows us to provide prompt service, often with same-day or next-day availability for urgent needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/arlington-recessed-lighting-install.webp?_a=BBFAAAAA0" alt="Professional electrical installation in Ballston - AJ Long Electric" class="rounded-lg shadow-lg" loading="lazy">
+                    <div class="absolute bottom-4 left-4 right-4 bg-white bg-opacity-90 p-4 rounded">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-aj-orange">
+                                <i class="fas fa-trophy text-3xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Over 1,200 Five-Star Reviews</p>
+                                <p class="text-sm text-gray-600">Trusted by homeowners and businesses across Northern Virginia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4 text-center">Serving the Ballston Area</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">AJ Long Electric proudly serves Ballston and surrounding Arlington neighborhoods. Our electricians are familiar with the area's architecture, building codes, and electrical requirements.</p>
+            
+            <div class="map-responsive rounded-lg overflow-hidden shadow-lg">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12421.861263543334!2d-77.12172212064568!3d38.88128681972641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b6a976c0d393%3A0xe8cac1c46bf89c5b!2sBallston%2C%20Arlington%2C%20VA!5e0!3m2!1sen!2sus!4v1650498763541!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="mt-8 grid md:grid-cols-3 gap-4 md:gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-building text-aj-orange mr-2"></i> Notable Areas We Serve
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>Ballston Quarter</li>
+                        <li>Liberty Center</li>
+                        <li>The Maxwell</li>
+                        <li>Ballston Point</li>
+                        <li>Ballston Metro Area</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-tools text-aj-orange mr-2"></i> Popular Services
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>Condo Electrical Upgrades</li>
+                        <li>Recessed Lighting Installation</li>
+                        <li>Smart Home Integration</li>
+                        <li>EV Charger Installation</li>
+                        <li>Electrical Troubleshooting</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-clock text-aj-orange mr-2"></i> Service Hours
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><strong>Monday-Friday:</strong> 7:00 AM - 6:00 PM</li>
+                        <li><strong>Saturday:</strong> 8:00 AM - 4:00 PM</li>
+                        <li><strong>Sunday:</strong> By appointment</li>
+                        <li class="pt-2"><strong>Emergency Service:</strong> 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhood-Specific Information Section -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Electrical Services for Ballston's Unique Properties</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-aj-orange">High-Rise Buildings &amp; Luxury Condos</h3>
+                    <p class="text-gray-600 mb-4">Ballston's skyline features numerous high-rise residential buildings including The Continental, 672 Flats, and The Crossing. Our electricians are experienced with:</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Building management coordination and HOA requirements</li>
+                        <li>• Electrical panel upgrades in multi-unit buildings</li>
+                        <li>• Smart home systems compatible with building infrastructure</li>
+                        <li>• Parking garage EV charger installations</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-aj-orange">Mixed-Use Developments</h3>
+                    <p class="text-gray-600 mb-4">Ballston Quarter, Liberty Center, and other mixed-use properties require versatile electrical solutions. We provide:</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Commercial retail electrical installations</li>
+                        <li>• Restaurant and hospitality electrical services</li>
+                        <li>• Office space electrical upgrades</li>
+                        <li>• Emergency lighting and exit sign compliance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">Ballston Metro Area Development</h3>
+                <p class="text-gray-600 mb-6 text-center max-w-3xl mx-auto">As Ballston continues to grow with new developments near the Metro station, electrical demands are evolving. We stay current with the latest building codes and technology requirements for:</p>
+                
+                <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="text-center">
+                        <div class="text-aj-orange mb-3">
+                            <i class="fas fa-charging-station text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">EV Infrastructure</h4>
+                        <p class="text-sm text-gray-600">Installing Level 2 chargers in residential garages and commercial parking facilities</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-aj-orange mb-3">
+                            <i class="fas fa-wifi text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Smart Building Tech</h4>
+                        <p class="text-sm text-gray-600">Integration with building automation systems and IoT devices</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-aj-orange mb-3">
+                            <i class="fas fa-solar-panel text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Energy Efficiency</h4>
+                        <p class="text-sm text-gray-600">LED retrofits and energy management systems for sustainable living</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-center">We Also Serve Nearby Areas</h2>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    <a href="/virginia-electrical-services/arlington.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-lg transition">
+                        Arlington
+                    </a>
+                    <a href="/virginia-electrical-services/virginia-square.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-lg transition">
+                        Virginia Square
+                    </a>
+                    <a href="/virginia-electrical-services/clarendon.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-lg transition">
+                        Clarendon
+                    </a>
+                    <a href="/virginia-electrical-services/falls-church.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-lg transition">
+                        Falls Church
+                    </a>
+                    <a href="/virginia-electrical-services/rosslyn.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-lg transition">
+                        Rosslyn
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Work with Ballston's Trusted Electricians?</h2>
+                <p class="text-lg mb-8 max-w-3xl mx-auto">Schedule your consultation today for professional electrical services tailored to your Ballston property's needs.</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                        Request Your Free Estimate
+                    </a>
+                    <a href="tel:7039970026" class="inline-block bg-white text-aj-dark font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-100 transition">
+                        <i class="fas fa-phone mr-2"></i> Call 703-997-0026
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+
+    <!-- JavaScript -->
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy loading images
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
+                    }
+                });
+            }, options);
+            
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
+            
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                    menuOverlay.style.display = 'block';
+                });
+            }
+            
+            if (closeMenu) {
+                closeMenu.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.style.display = 'none';
+                });
+            }
+            
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.style.display = 'none';
+                });
+            }
+            
+        });
+
+        // Copyright year update
+        const yearElement = document.getElementById('copyright-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    </script>
+
+    <!-- Housecall Pro Booking Widget Script -->
+    <script async="" src="https://online-booking.housecallpro.com/script.js?token=4bcbc2f7231b4633abc97173fe9db382&amp;orgName=AJ-Long-Electric"></script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+
+</main></main></main></body></html>

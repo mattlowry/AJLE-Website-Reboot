@@ -1,0 +1,33 @@
+/* Focus Override for Navigation Elements
+ * Removes intrusive orange outlines while maintaining accessibility
+ */
+
+/* Remove orange outline from navigation links specifically */
+nav a:focus,
+.mobile-menu a:focus,
+header a:focus,
+header button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep minimal focus for keyboard users only on navigation */
+nav a:focus-visible,
+.mobile-menu a:focus-visible,
+header a:focus-visible,
+header button:focus-visible {
+    outline: 2px solid #0066CC !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15) !important;
+}
+
+/* Ensure form elements and interactive elements still have proper focus */
+input:focus,
+textarea:focus,
+select:focus,
+.btn:focus,
+[role="button"]:focus {
+    outline: 2px solid #0066CC !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15) !important;
+}

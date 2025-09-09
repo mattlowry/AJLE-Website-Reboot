@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Forms Test Page - AJ Long Electric</title>
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Unified form styles -->
+    <link rel="stylesheet" href="/assets/css/unified-forms.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+
+    <!-- Google Places API for address autocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places" async="" defer=""></script>
+
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+        }
+        
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+
+        .test-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+
+        .test-form-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-aj-dark text-white py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold">AJ Long Electric - Unified Forms Test Page</h1>
+            <p class="text-gray-300">Testing all form types and functionality</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Test Results Dashboard -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-bold mb-4">Test Results Dashboard</h2>
+            <div class="grid md:grid-cols-3 gap-4" id="test-dashboard">
+                <div class="test-result" data-test="contact">
+                    <div class="p-4 border border-gray-300 rounded-lg">
+                        <h3 class="font-bold">Contact Form</h3>
+                        <p class="text-sm text-gray-600">Simple 1-step form</p>
+                        <div class="status mt-2">
+                            <span class="status-indicator bg-gray-400 text-white px-2 py-1 rounded text-xs">Not Tested</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-result" data-test="estimate">
+                    <div class="p-4 border border-gray-300 rounded-lg">
+                        <h3 class="font-bold">Estimate Form</h3>
+                        <p class="text-sm text-gray-600">2-step form with service details</p>
+                        <div class="status mt-2">
+                            <span class="status-indicator bg-gray-400 text-white px-2 py-1 rounded text-xs">Not Tested</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-result" data-test="comprehensive">
+                    <div class="p-4 border border-gray-300 rounded-lg">
+                        <h3 class="font-bold">Comprehensive Form</h3>
+                        <p class="text-sm text-gray-600">3-step form with scheduling</p>
+                        <div class="status mt-2">
+                            <span class="status-indicator bg-gray-400 text-white px-2 py-1 rounded text-xs">Not Tested</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Test -->
+        <section class="test-section">
+            <h2 class="text-2xl font-bold mb-4">
+                <i class="fas fa-envelope text-aj-orange mr-2"></i>
+                Contact Form Test (1-Step)
+            </h2>
+            <p class="text-gray-600 mb-4">Simple contact form with basic information fields.</p>
+            
+            <div class="test-form-container">
+                <div class="unified-form-container" data-form-type="contact">
+                    <!-- Form will be loaded here -->
+                    <div data-include="/components/unified-form.html"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estimate Form Test -->
+        <section class="test-section">
+            <h2 class="text-2xl font-bold mb-4">
+                <i class="fas fa-calculator text-aj-orange mr-2"></i>
+                Estimate Form Test (2-Step)
+            </h2>
+            <p class="text-gray-600 mb-4">Estimate form with contact information and service details including file uploads.</p>
+            
+            <div class="test-form-container">
+                <div class="unified-form-container" data-form-type="estimate">
+                    <!-- Form will be loaded here -->
+                    <div data-include="/components/unified-form.html"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Form Test -->
+        <section class="test-section">
+            <h2 class="text-2xl font-bold mb-4">
+                <i class="fas fa-tasks text-aj-orange mr-2"></i>
+                Comprehensive Form Test (3-Step)
+            </h2>
+            <p class="text-gray-600 mb-4">Full-featured form with contact info, service details, and scheduling preferences.</p>
+            
+            <div class="test-form-container">
+                <div class="unified-form-container" data-form-type="comprehensive">
+                    <!-- Form will be loaded here -->
+                    <div data-include="/components/unified-form.html"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testing Instructions -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Testing Instructions</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold mb-2">Functionality Tests</h3>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                        <li>Form loads and displays correctly</li>
+                        <li>Step navigation works (for multi-step forms)</li>
+                        <li>Form validation triggers on required fields</li>
+                        <li>File upload functionality works</li>
+                        <li>Phone number formatting applies</li>
+                        <li>Service area validation works</li>
+                        <li>Form submission processes correctly</li>
+                        <li>Success/error messages display</li>
+                        <li>Backup form system activates on failure</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Accessibility Tests</h3>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                        <li>Keyboard navigation works</li>
+                        <li>Focus indicators are visible</li>
+                        <li>Screen reader compatibility</li>
+                        <li>Labels are properly associated</li>
+                        <li>Error messages are announced</li>
+                        <li>ARIA attributes are present</li>
+                        <li>High contrast mode works</li>
+                        <li>Touch targets are 48px minimum</li>
+                        <li>Mobile responsiveness verified</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Include backup forms -->
+    <div data-include="/components/netlify-forms-backup.html"></div>
+
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/unified-form-handler.js"></script>
+
+    <!-- Test Script -->
+    <script>
+        // Test Results Tracking
+        class FormTestManager {
+            constructor() {
+                this.testResults = {
+                    contact: 'pending',
+                    estimate: 'pending', 
+                    comprehensive: 'pending'
+                };
+                this.init();
+            }
+
+            init() {
+                // Listen for form events
+                this.setupEventListeners();
+                
+                // Monitor form loading
+                setTimeout(() => {
+                    this.checkFormLoading();
+                }, 2000);
+            }
+
+            setupEventListeners() {
+                // Listen for successful form submissions
+                window.addEventListener('backupFormSuccess', (event) => {
+                    const formType = event.detail.formType;
+                    this.updateTestResult(formType, 'success');
+                });
+
+                window.addEventListener('formSubmissionFailed', (event) => {
+                    const formType = event.detail.formType;
+                    this.updateTestResult(formType, 'testing');
+                });
+
+                window.addEventListener('backupFormFailed', (event) => {
+                    const formType = event.detail.formType;
+                    this.updateTestResult(formType, 'failed');
+                });
+            }
+
+            checkFormLoading() {
+                const formContainers = document.querySelectorAll('.unified-form-container');
+                
+                formContainers.forEach(container => {
+                    const formType = container.dataset.formType;
+                    const form = container.querySelector('#unified-form');
+                    
+                    if (form) {
+                        this.updateTestResult(formType, 'loaded');
+                        console.log(`✓ ${formType} form loaded successfully`);
+                    } else {
+                        this.updateTestResult(formType, 'failed');
+                        console.error(`✗ ${formType} form failed to load`);
+                    }
+                });
+            }
+
+            updateTestResult(formType, status) {
+                const testResult = document.querySelector(`[data-test="${formType}"]`);
+                if (!testResult) return;
+
+                const indicator = testResult.querySelector('.status-indicator');
+                
+                // Update status
+                this.testResults[formType] = status;
+                
+                // Update visual indicator
+                indicator.className = 'status-indicator px-2 py-1 rounded text-xs';
+                
+                switch (status) {
+                    case 'loaded':
+                        indicator.classList.add('bg-blue-500', 'text-white');
+                        indicator.textContent = 'Loaded';
+                        break;
+                    case 'testing':
+                        indicator.classList.add('bg-yellow-500', 'text-white');
+                        indicator.textContent = 'Testing...';
+                        break;
+                    case 'success':
+                        indicator.classList.add('bg-green-500', 'text-white');
+                        indicator.textContent = 'Success';
+                        break;
+                    case 'failed':
+                        indicator.classList.add('bg-red-500', 'text-white');
+                        indicator.textContent = 'Failed';
+                        break;
+                    default:
+                        indicator.classList.add('bg-gray-400', 'text-white');
+                        indicator.textContent = 'Pending';
+                }
+            }
+
+            getTestSummary() {
+                const results = Object.values(this.testResults);
+                const passed = results.filter(r => r === 'success').length;
+                const failed = results.filter(r => r === 'failed').length;
+                const total = results.length;
+                
+                console.log(`Test Summary: ${passed}/${total} passed, ${failed} failed`);
+                return { passed, failed, total };
+            }
+        }
+
+        // Initialize test manager
+        document.addEventListener('DOMContentLoaded', function() {
+            const testManager = new FormTestManager();
+            
+            // Add test summary to console after 10 seconds
+            setTimeout(() => {
+                testManager.getTestSummary();
+            }, 10000);
+        });
+
+        // Add test data button functionality
+        function fillTestData(formType) {
+            const container = document.querySelector(`[data-form-type="${formType}"]`);
+            if (!container) return;
+
+            const testData = {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '(703) 997-0026',
+                address: '123 Main St, Fairfax, VA 22030',
+                projectDescription: 'Test project description for ' + formType + ' form',
+                serviceType: 'panel-upgrade',
+                urgency: 'routine',
+                contactMethod: 'phone',
+                specialInstructions: 'This is a test submission'
+            };
+
+            // Fill form fields
+            Object.keys(testData).forEach(fieldName => {
+                const field = container.querySelector(`[name="${fieldName}"]`);
+                if (field) {
+                    if (field.type === 'radio') {
+                        const radio = container.querySelector(`[name="${fieldName}"][value="${testData[fieldName]}"]`);
+                        if (radio) radio.checked = true;
+                    } else {
+                        field.value = testData[fieldName];
+                    }
+                }
+            });
+
+            // Check terms agreement
+            const termsCheckbox = container.querySelector('[name="agreeTerms"]');
+            if (termsCheckbox) termsCheckbox.checked = true;
+
+            console.log(`Test data filled for ${formType} form`);
+        }
+
+        // Add fill test data buttons
+        window.fillTestData = fillTestData;
+    </script>
+
+</body></html>

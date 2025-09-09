@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Integration Arlington VA | Home Automation | AJ Long Electric</title>
+    <meta name="description" content="Professional smart home integration services in Arlington, VA. Expert installation of smart lighting, thermostats, security systems, and whole-home automation by licensed electricians. Free consultations.">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Smart Home Integration Arlington VA",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "AJ Long Electric",
+        "image": "https://ajlongelectric.com/assets/logos/logo.png",
+        "url": "https://ajlongelectric.com",
+        "telephone": "703-997-0026",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2832 Dorr Ave Suite D",
+          "addressLocality": "Fairfax",
+          "addressRegion": "VA",
+          "postalCode": "22031",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Arlington",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Virginia"
+        }
+      },
+      "description": "Professional smart home integration services in Arlington, VA. Expert installation of smart lighting systems, thermostats, home security, voice control, and whole-home automation solutions for modern urban living.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "description": "Custom pricing based on project scope. Free consultations and detailed estimates provided.",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Smart Home Integration in <span class="text-aj-orange">Arlington, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">Transform your Arlington home with professional smart home technology installation. From lighting and thermostats to whole-home automation solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-start">
+                <div class="md:w-2/3 md:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Professional Smart Home Integration for Arlington Residents</h2>
+                    
+                    <p class="text-gray-700 mb-6">AJ Long Electric specializes in professional smart home integration services throughout Arlington, VA. Our skilled electricians and technology specialists help Arlington homeowners transform their living spaces with intelligent, connected systems that enhance convenience, security, and energy efficiency.</p>
+                    
+                    <p class="text-gray-700 mb-6">Whether you live in a modern high-rise in Rosslyn, a townhome in Clarendon, or a single-family residence in Lyon Village, we design and implement custom smart home solutions tailored to your unique needs and your Arlington home's specific characteristics. Our expertise spans from simple smart device installations to comprehensive whole-home automation systems.</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Smart Home Solutions for Arlington Living</h3>
+                    
+                    <ul class="list-none space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Smart Lighting Systems</h4>
+                                <p class="text-gray-700">Transform your Arlington home's lighting with smart switches, dimmers, and bulbs from leading brands like Lutron Caseta, Philips Hue, and Leviton. Control lighting from your smartphone, set automated schedules, create custom scenes, and integrate with voice assistants for the perfect ambiance in any room.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Smart Thermostats & Climate Control</h4>
+                                <p class="text-gray-700">Professional installation of energy-efficient smart thermostats like Nest, Ecobee, and Honeywell. Perfect for Arlington's diverse housing stock, our systems provide zoned temperature control, learning capabilities, and energy usage reports that help reduce utility costs in all seasons.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Smart Home Security</h4>
+                                <p class="text-gray-700">Comprehensive security solutions including smart doorbells, cameras, motion sensors, and integrated alarm systems. Essential for Arlington's urban environment, our security installations provide peace of mind with real-time monitoring, automatic alerts, and remote access capabilities.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Smart Outlets & Switches</h4>
+                                <p class="text-gray-700">Upgrade your Arlington home with smart outlets, plugs, and switches that allow remote control of appliances and electronics. Schedule operation times, monitor energy usage, and create automations for everyday devices throughout your home.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Voice Control Integration</h4>
+                                <p class="text-gray-700">Seamless integration of voice assistants including Amazon Alexa, Google Assistant, and Apple HomeKit. We ensure all your smart devices work together and respond to voice commands for hands-free control throughout your Arlington home.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Whole-Home Automation</h4>
+                                <p class="text-gray-700">Comprehensive smart home systems that integrate lighting, climate, security, entertainment, and more into a single, cohesive platform. Using hubs like Samsung SmartThings, Hubitat, or Home Assistant, we create a truly intelligent living environment for Arlington residents.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 text-aj-orange mr-3 mt-1">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Home Network Solutions</h4>
+                                <p class="text-gray-700">Robust networking infrastructure to support your Arlington smart home, including mesh Wi-Fi systems, wired access points, and network security. Essential for reliable smart device operation in both high-rise condos and larger single-family homes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">The AJ Long Smart Home Process</h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Consultation & Needs Assessment</h4>
+                                <p class="text-gray-700">We begin with a thorough consultation to understand your lifestyle, preferences, and goals for your Arlington home. Our specialists evaluate your existing infrastructure and discuss the smart home possibilities that best suit your needs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Custom System Design</h4>
+                                <p class="text-gray-700">Based on your input, we design a tailored smart home system that addresses your priorities, works with your Arlington home's unique characteristics, and accommodates your budget. We select appropriate devices, plan installation details, and ensure all components will work together seamlessly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Professional Installation</h4>
+                                <p class="text-gray-700">Our licensed electricians and smart home specialists perform all installations with precision and care. We ensure proper wiring, secure mounting, and optimal placement of all devices throughout your Arlington home, with minimal disruption to your daily life.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">System Configuration & Integration</h4>
+                                <p class="text-gray-700">We meticulously configure your smart home system, establishing all necessary connections, programming automations, and ensuring seamless integration between devices. We test extensively to verify everything functions exactly as intended in your Arlington home.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-aj-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="font-bold">5</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Personalized Training & Support</h4>
+                                <p class="text-gray-700">We provide comprehensive training on using your new smart home system, ensuring you understand all features and functions. Our ongoing support ensures your Arlington smart home continues to operate optimally, with assistance available whenever you need it.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Special Considerations for Arlington Smart Homes</h3>
+                        
+                        <h4 class="font-bold text-xl text-aj-orange mb-3">High-Rise & Condo Solutions</h4>
+                        <p class="text-gray-700 mb-4">Arlington's numerous high-rise buildings and condominiums present unique smart home challenges and opportunities. Our specialists understand:</p>
+                        <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+                            <li>HOA and building regulations that may impact installations</li>
+                            <li>Wi-Fi signal optimization in dense multi-unit environments</li>
+                            <li>Smart home solutions that work without requiring structural modifications</li>
+                            <li>Space-efficient systems for urban apartments and condos</li>
+                            <li>Discrete, design-conscious device placement for modern aesthetic</li>
+                        </ul>
+                        
+                        <h4 class="font-bold text-xl text-aj-orange mb-3">Retrofitting Historic Arlington Homes</h4>
+                        <p class="text-gray-700 mb-4">Many Arlington neighborhoods feature historic homes that require specialized smart home approaches:</p>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                            <li>Careful installation techniques for older construction</li>
+                            <li>Preserving architectural details while adding modern technology</li>
+                            <li>Systems that work with older electrical infrastructure</li>
+                            <li>Wireless solutions that minimize impact on historic features</li>
+                            <li>Period-appropriate device selection and placement</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Why Arlington Residents Choose AJ Long for Smart Home Integration</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-certificate text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Licensed & Certified</h4>
+                            <p class="text-gray-700 text-sm">Our team includes licensed electricians and certified smart home specialists with extensive training in the latest technologies.</p>
+                        </div>
+                        
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-tools text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Brand Expertise</h4>
+                            <p class="text-gray-700 text-sm">Authorized installers for leading smart home brands with comprehensive knowledge of device compatibility and integration.</p>
+                        </div>
+                        
+                        <div class="text-center p-4">
+                            <div class="w-16 h-16 rounded-full bg-aj-orange text-white flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-map-marked-alt text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Arlington Specialists</h4>
+                            <p class="text-gray-700 text-sm">Deep understanding of Arlington's diverse housing stock and neighborhoods, from Rosslyn high-rises to Clarendon townhomes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Smart Home Project Pricing</h3>
+                        <p class="text-gray-700 mb-4">Smart home integration projects in Arlington vary widely based on scope and complexity. Here are general price ranges to give you an idea of investment levels:</p>
+                        <ul class="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+                            <li><span class="font-semibold">Entry-Level Smart Home:</span> $1,000-$3,000 (includes basic smart lighting, thermostats, and limited automation)</li>
+                            <li><span class="font-semibold">Mid-Range Integration:</span> $3,000-$7,500 (comprehensive smart lighting, climate control, security features, and voice control)</li>
+                            <li><span class="font-semibold">Premium Whole-Home Automation:</span> $7,500+ (complete integration of all home systems with advanced automation and robust networking)</li>
+                            <li><span class="font-semibold">Individual Smart Device Installation:</span> Starting at $150-$300 per device depending on complexity</li>
+                        </ul>
+                        <p class="text-gray-700">We provide detailed, transparent quotes tailored to your specific Arlington home after a comprehensive consultation. Our proposals include all equipment, labor, programming, and training costs with no hidden fees.</p>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition mr-4 inline-flex items-center">
+                            <i class="fas fa-clipboard-list mr-2"></i> Get a Free Consultation
+                        </a>
+                        <a href="/services.html#smart-home" class="border-2 border-aj-orange text-aj-orange hover:bg-aj-orange hover:text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                            <i class="fas fa-house-signal mr-2"></i> Learn More About Our Services
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3 mt-8 md:mt-0">
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md mb-8">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Request a Smart Home Consultation</h3>
+                            <p class="text-gray-700 mb-4">Get a free, personalized smart home assessment for your Arlington residence.</p>
+                            <a href="/estimate.html" class="block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-6 rounded shadow-md transition text-center mb-4">
+                                Schedule Now
+                            </a>
+                            <p class="text-gray-600 text-sm text-center">Or call us at <a href="tel:7039970026" class="text-aj-orange font-bold">703-997-0026</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md mb-8">
+                        <img src="/assets/images/gallery/smart-dimmer-switch.jpg" alt="Smart Dimmer Switch Installation in Arlington Home" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Recent Arlington Project</h3>
+                            <p class="text-gray-700 mb-3">Complete smart home integration in a Rosslyn high-rise condo featuring Lutron lighting, Nest thermostats, Ring security, and voice control throughout.</p>
+                            <a href="/gallery.html" class="text-aj-orange hover:underline inline-flex items-center">
+                                View Project Gallery <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md mb-8">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Popular Smart Home Brands We Install</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Lighting:</span> Lutron Caseta, Philips Hue, Leviton, Wemo</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Climate:</span> Nest, Ecobee, Honeywell, Sensibo</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Security:</span> Ring, Arlo, Nest, SimpliSafe, August</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Voice Control:</span> Amazon Alexa, Google Assistant, Apple HomeKit</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Hub Systems:</span> Samsung SmartThings, Hubitat, Home Assistant</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 text-aj-orange mr-2 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700"><span class="font-semibold">Networking:</span> Eero, Google Nest WiFi, Ubiquiti, TP-Link</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md mb-8">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Arlington Service Areas</h3>
+                            <p class="text-gray-700 mb-3">We provide smart home integration throughout Arlington, including:</p>
+                            <ul class="text-gray-700 space-y-1 mb-4">
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Rosslyn</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Clarendon</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Ballston</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Pentagon City</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Crystal City</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Shirlington</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> Lyon Village</li>
+                                <li class="flex items-center"><i class="fas fa-check text-aj-orange mr-2"></i> All Arlington neighborhoods</li>
+                            </ul>
+                            <a href="/virginia-electrical-services/arlington.html" class="text-aj-orange hover:underline inline-flex items-center">
+                                View All Arlington Services <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Customer Testimonial</h3>
+                            <div class="mb-4 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 italic mb-3">"AJ Long Electric transformed our Clarendon townhouse into a smart home paradise. From Lutron lighting to security cameras to whole-home voice control, everything works flawlessly together. Their team was knowledgeable, professional, and patient in teaching us how to use everything. Highly recommend for any Arlington smart home project!"</p>
+                            <p class="text-gray-800 font-semibold">— Michelle & James T., Clarendon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions about smart home integration in Arlington residences.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Can I integrate smart home technology in my Arlington high-rise condo?</h3>
+                        <p class="text-gray-700">Absolutely! Arlington's high-rise condominiums are excellent candidates for smart home technology. We specialize in solutions specifically designed for multi-unit buildings, including wireless systems that don't require extensive rewiring, devices that work well in smaller spaces, and setups that comply with HOA regulations. We can install smart lighting, thermostats, security systems, and entertainment controls that function perfectly in high-rise environments. For condos with concrete walls or signal challenges, we implement mesh networks and signal boosters to ensure seamless operation throughout your Arlington high-rise home.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Which smart home system is best for my Arlington home?</h3>
+                        <p class="text-gray-700">The ideal smart home system depends on your specific needs, preferences, and existing technology. During our consultation, we assess factors unique to your Arlington residence, including home size, layout, construction type, internet infrastructure, and your lifestyle priorities. For many Arlington homeowners, we recommend platform-agnostic systems like Samsung SmartThings that work with multiple device brands and voice assistants. Tech-savvy users might prefer the customization of Home Assistant, while those prioritizing simplicity might benefit from ecosystems like Apple HomeKit. We'll help you select a system that balances functionality, user-friendliness, security, and future expandability based on your specific Arlington home environment.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">How disruptive is smart home installation in an Arlington residence?</h3>
+                        <p class="text-gray-700">We minimize disruption during smart home installations in Arlington homes. Many modern smart devices use wireless technology and can be installed with minimal impact on your living space. For lighting control, we often replace existing switches and fixtures without requiring additional wiring. For more comprehensive systems requiring new wiring, our experienced electricians use specialized techniques to run cables with minimal wall opening, particularly important in Arlington's older homes. We typically complete most installations in 1-3 days, depending on project scope, and we thoroughly clean up after each work session. We coordinate carefully with Arlington condo residents to ensure building requirements are met and neighbor disruption is minimized.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Can I start with a few smart devices and expand later in my Arlington home?</h3>
+                        <p class="text-gray-700">This is a popular approach for many Arlington homeowners! We can design a phased implementation plan that starts with your highest-priority smart home elements while establishing a foundation for future expansion. We typically recommend beginning with core infrastructure like robust networking and a flexible smart home hub that can accommodate additional devices over time. Many Arlington residents start with smart lighting and thermostats for immediate energy savings and comfort benefits, then add security features, entertainment controls, and more advanced automation later. We'll help you create a roadmap that fits your budget while ensuring all current and future components will work together seamlessly in your Arlington home.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">How reliable is smart home technology in Arlington's urban environment?</h3>
+                        <p class="text-gray-700">Arlington's dense urban environment presents unique challenges for smart home reliability that we've developed specific solutions to address. In high-rise buildings and areas with significant wireless congestion, we implement enterprise-grade networking equipment with advanced features like band steering and multiple access points to ensure stable connections. For homes experiencing inconsistent internet service, we design systems with local control capabilities that continue functioning during outages. We select devices with proven reliability records and implement redundant systems for critical functions. Our installation process includes thorough signal testing throughout your Arlington home and strategic device placement to avoid interference. Additionally, we provide regular maintenance services to keep your system operating optimally and offer rapid response support if issues arise in your Arlington smart home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Arlington Home with Smart Technology?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Contact AJ Long Electric today for a personalized smart home consultation and detailed proposal.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request a Free Consultation
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="/assets/logos/ajlelogo_white.png" alt="AJ Long Electric Logo White" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC & MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i>
+                        <span>Fairfax, VA (Main Office)</span>
+                    </p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements & Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen & Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting & Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC & Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-6">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                    </div>
+                    <p class="text-sm mb-1">VA License #: 2705031092</p>
+                    <p class="text-sm mb-1">MD License #: 3309</p>
+                    <p class="text-sm mb-1">DC License #: EM40000654</p>
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                 <p>&copy; <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                 <div class="mt-4 md:mt-0 space-x-4">
+                     <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                     <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                     <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                 </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+            document.getElementById('menu-overlay').style.display = 'block';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('menu-overlay').style.display = 'none';
+        });
+
+        document.getElementById('menu-overlay').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            this.style.display = 'none';
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Set copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+<script src="/js/include-html.js?v=1746948964"></script>
+</body>

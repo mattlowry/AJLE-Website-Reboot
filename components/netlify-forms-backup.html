@@ -1,0 +1,191 @@
+<!-- Netlify Forms Backup System
+     Simple fallback forms for when main integrations fail
+     These forms use native Netlify Forms processing --><!-- Contact Form Backup --><html><head></head><body><form name="contact-backup" method="POST" data-netlify="true" class="hidden netlify-backup-form">
+    <input type="hidden" name="form-name" value="contact-backup">
+    <input type="hidden" name="formType" value="contact">
+    
+    <input type="text" name="firstName" placeholder="First Name">
+    <input type="text" name="lastName" placeholder="Last Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="tel" name="phone" placeholder="Phone">
+    <input type="text" name="address" placeholder="Address">
+    <textarea name="message" placeholder="Message"></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- Estimate Form Backup -->
+<form name="estimate-backup" method="POST" data-netlify="true" class="hidden netlify-backup-form">
+    <input type="hidden" name="form-name" value="estimate-backup">
+    <input type="hidden" name="formType" value="estimate">
+    
+    <input type="text" name="firstName" placeholder="First Name">
+    <input type="text" name="lastName" placeholder="Last Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="tel" name="phone" placeholder="Phone">
+    <input type="text" name="address" placeholder="Address">
+    <input type="text" name="serviceType" placeholder="Service Type">
+    <textarea name="projectDescription" placeholder="Project Description"></textarea>
+    <input type="text" name="urgency" placeholder="Urgency">
+    <input type="text" name="contactMethod" placeholder="Contact Method">
+    <input type="text" name="contactTime" placeholder="Contact Time">
+    <textarea name="specialInstructions" placeholder="Special Instructions">    
+    &lt;button type="submit"&gt;Get Estimate&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Comprehensive Form Backup --&gt;
+&lt;form name="comprehensive-backup" method="POST" data-netlify="true" class="hidden netlify-backup-form"&gt;
+    &lt;input type="hidden" name="form-name" value="comprehensive-backup"&gt;
+    &lt;input type="hidden" name="formType" value="comprehensive"&gt;
+    
+    &lt;input type="text" name="firstName" placeholder="First Name"&gt;
+    &lt;input type="text" name="lastName" placeholder="Last Name"&gt;
+    &lt;input type="email" name="email" placeholder="Email"&gt;
+    &lt;input type="tel" name="phone" placeholder="Phone"&gt;
+    &lt;input type="text" name="address" placeholder="Address"&gt;
+    &lt;input type="text" name="serviceType" placeholder="Service Type"&gt;
+    &lt;textarea name="projectDescription" placeholder="Project Description"&gt;</textarea>
+    <input type="text" name="urgency" placeholder="Urgency">
+    <input type="text" name="contactMethod" placeholder="Contact Method">
+    <input type="text" name="contactTime" placeholder="Contact Time">
+    <textarea name="specialInstructions" placeholder="Special Instructions">    
+    &lt;button type="submit"&gt;Schedule Service&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+/**
+ * Netlify Forms Backup Handler
+ * Automatically submits to backup forms when main integration fails
+ */
+class NetlifyFormsBackup {
+    constructor() {
+        this.backupEndpoint = '/';
+        this.init();
+    }
+
+    init() {
+        // Listen for main form failures
+        window.addEventListener('formSubmissionFailed', (event) =&gt; {
+            this.submitBackupForm(event.detail);
+        });
+    }
+
+    async submitBackupForm(formData) {
+        try {
+            console.log('Submitting backup form via Netlify Forms');
+            
+            const formType = formData.formType || 'contact';
+            const backupForm = document.querySelector(`form[name="${formType}-backup"]`);
+            
+            if (!backupForm) {
+                console.error('Backup form not found for type:', formType);
+                return false;
+            }
+
+            // Populate backup form with data
+            this.populateBackupForm(backupForm, formData);
+
+            // Submit to Netlify Forms
+            const response = await fetch(this.backupEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: this.encodeFormData(backupForm)
+            });
+
+            if (response.ok) {
+                console.log('Backup form submitted successfully');
+                
+                // Dispatch success event
+                window.dispatchEvent(new CustomEvent('backupFormSuccess', {
+                    detail: { formType, response }
+                }));
+                
+                return true;
+            } else {
+                throw new Error(`Backup submission failed: ${response.status}`);
+            }
+
+        } catch (error) {
+            console.error('Backup form submission failed:', error);
+            
+            // Dispatch failure event
+            window.dispatchEvent(new CustomEvent('backupFormFailed', {
+                detail: { formType: formData.formType, error }
+            }));
+            
+            return false;
+        }
+    }
+
+    populateBackupForm(form, data) {
+        // Map form data to backup form fields
+        const fieldMapping = {
+            'firstName': data.firstName || data.name?.split(' ')[0] || '',
+            'lastName': data.lastName || data.name?.split(' ').slice(1).join(' ') || '',
+            'email': data.email || '',
+            'phone': data.phone || '',
+            'address': data.address || '',
+            'serviceType': data.serviceType || '',
+            'projectDescription': data.projectDescription || data.message || '',
+            'urgency': data.urgency || 'routine',
+            'contactMethod': data.contactMethod || 'phone',
+            'contactTime': Array.isArray(data.contactTime) ? data.contactTime.join(', ') : (data.contactTime || ''),
+            'specialInstructions': data.specialInstructions || '',
+            'message': data.message || data.projectDescription || ''
+        };
+
+        // Populate form fields
+        Object.keys(fieldMapping).forEach(fieldName =&gt; {
+            const field = form.querySelector(`[name="${fieldName}"]`);
+            if (field &amp;&amp; fieldMapping[fieldName]) {
+                field.value = fieldMapping[fieldName];
+            }
+        });
+
+        // Add timestamp and metadata
+        const metadataField = form.querySelector('[name="metadata"]') || this.createHiddenField(form, 'metadata');
+        metadataField.value = JSON.stringify({
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            url: window.location.href,
+            backupSubmission: true,
+            originalFormType: data.formType
+        });
+    }
+
+    createHiddenField(form, name) {
+        const field = document.createElement('input');
+        field.type = 'hidden';
+        field.name = name;
+        form.appendChild(field);
+        return field;
+    }
+
+    encodeFormData(form) {
+        const formData = new FormData(form);
+        const encoded = new URLSearchParams();
+        
+        for (const [key, value] of formData.entries()) {
+            encoded.append(key, value);
+        }
+        
+        return encoded.toString();
+    }
+}
+
+// Auto-initialize backup system
+document.addEventListener('DOMContentLoaded', function() {
+    new NetlifyFormsBackup();
+});
+
+// Export for manual use
+window.NetlifyFormsBackup = NetlifyFormsBackup;
+&lt;/script&gt;
+
+&lt;style&gt;
+.netlify-backup-form {
+    display: none !important;
+}
+&lt;/style&gt;</textarea></form></body></html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Arlington VA | Urban & High-Rise Specialists | AJ Long Electric</title>
+    <meta name="description" content="Top-rated electrician in Arlington, VA specializing in high-rise condos, urban electrical solutions, commercial services, and smart home installation. Licensed & insured Arlington electricians with 1200+ 5-star reviews. Call 703-997-4974.">
+    <meta name="keywords" content="electrician arlington va, arlington electrician, electrical contractor arlington virginia, licensed electrician arlington, emergency electrician arlington, high rise electrician, condo electrician arlington, ev charger installation arlington">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.position" content="38.8799;-77.1067">
+    <meta name="geo.placename" content="Arlington, Virginia">
+    <meta name="geo.region" content="US-VA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/virginia-electrical-services/arlington.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Arlington VA | AJ Long Electric">
+    <meta property="og:description" content="Professional electrician services in Arlington VA. High-rise condo specialists, urban electrical solutions, commercial services. Licensed & insured. Call 703-997-4974.">
+    <meta property="og:url" content="https://ajlongelectric.com/virginia-electrical-services/arlington.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/arlington-electrician.jpg">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Fix for nearby areas hover */
+        .nearby-area-link {
+            background-color: white;
+            color: #222222;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+        .nearby-area-link:hover {
+            background-color: var(--aj-orange);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Enhanced Schema.org markup for Arlington -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/arlington.html",
+      "name": "AJ Long Electric - Arlington",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/arlington.html",
+      "telephone": "+1-703-997-4974",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave, Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8799,
+        "longitude": -77.1067
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "16:00"
+      }],
+      "areaServed": [
+        { "@type": "City", "name": "Arlington", "sameAs": "https://en.wikipedia.org/wiki/Arlington_County,_Virginia" },
+        { "@type": "PostalCode", "name": "22201" },
+        { "@type": "PostalCode", "name": "22202" },
+        { "@type": "PostalCode", "name": "22203" },
+        { "@type": "PostalCode", "name": "22204" },
+        { "@type": "PostalCode", "name": "22205" },
+        { "@type": "PostalCode", "name": "22206" },
+        { "@type": "PostalCode", "name": "22207" },
+        { "@type": "PostalCode", "name": "22209" },
+        { "@type": "Place", "name": "Rosslyn" },
+        { "@type": "Place", "name": "Ballston" },
+        { "@type": "Place", "name": "Clarendon" },
+        { "@type": "Place", "name": "Crystal City" },
+        { "@type": "Place", "name": "Pentagon City" },
+        { "@type": "Place", "name": "Shirlington" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/AJLongElectric",
+        "https://www.google.com/maps?cid=12345",
+        "https://www.yelp.com/biz/aj-long-electric-arlington"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Michael S."
+          },
+          "datePublished": "2024-02-22",
+          "reviewBody": "AJ Long Electric installed a complete lighting system in our Rosslyn high-rise condo. The team was professional, knowledgeable about building regulations, and completed the work with minimal disruption. They coordinated everything with building management and the results are beautiful."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Jessica L."
+          },
+          "datePublished": "2024-01-15",
+          "reviewBody": "Excellent service for our Arlington townhome renovation. They handled all the electrical work including panel upgrade, EV charger installation, and smart home wiring. Very knowledgeable about Arlington's code requirements."
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/arlington.html"
+      },
+      "description": "Professional electrical services in Arlington, VA. Specializing in high-rise condo systems, urban home renovations, commercial office electrical, mixed-use development wiring, security systems, and smart technology integration. Licensed and insured electricians serving all Arlington neighborhoods.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Rise Condo Electrical",
+              "description": "Specialized electrical solutions for Arlington's urban high-rise condominiums and apartments",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Urban Home Renovation",
+              "description": "Comprehensive electrical upgrades and modernization for Arlington's residential neighborhoods",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Office Solutions",
+              "description": "Complete electrical systems for Arlington's business corridors from Rosslyn to Crystal City",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mixed-Use Development Wiring",
+              "description": "Specialized electrical services for Arlington's growing mixed-use urban developments",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EV Charger Installation",
+              "description": "Electric vehicle charger installation for Arlington high-rises, homes, and commercial properties",
+              "url": "https://ajlongelectric.com/services/ev-charger-installation/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Smart Home Systems",
+              "description": "Smart home wiring and technology integration for Arlington urban properties",
+              "url": "https://ajlongelectric.com/virginia-electrical-services/arlington-smart-home.html"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header -->
+    <div data-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Electrician in <span class="text-aj-orange">Arlington, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric is Arlington's premier electrical contractor, specializing in high-rise condominiums, urban residential properties, and commercial electrical solutions. With over 1,200 5-star reviews, we're the trusted electrician for Arlington's diverse urban landscape.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="bg-aj-orange text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>24/7 Emergency Service</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>1,200+ 5-Star Reviews</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Licensed & Insured</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-building mr-2"></i>
+                    <span>High-Rise Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Arlington Service Area -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Expert Electrical Solutions for <span class="text-aj-orange">Arlington</span> Properties</h2>
+                    <p class="text-gray-600 mb-4">As Arlington's most trusted electrician, AJ Long Electric brings specialized expertise to this vibrant urban county. From the high-rise condominiums of Rosslyn and Ballston to the historic neighborhoods of Lyon Village and Ashton Heights, we understand the unique electrical challenges of Arlington's diverse landscape.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-gray-800">
+                        <i class="fas fa-bolt text-aj-orange mr-2"></i> Arlington's Urban Electrical Experts
+                    </h3>
+                    <p class="text-gray-600 mb-4">When searching for an electrician in Arlington, VA, you need a contractor who specializes in:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li><a href="/services/" class="text-aj-orange hover:underline">High-rise condo electrical systems</a> and HOA compliance</li>
+                        <li><a href="/services/panel-replacements/" class="text-aj-orange hover:underline">Urban home renovations</a> and historic property updates</li>
+                        <li><a href="/services/" class="text-aj-orange hover:underline">Commercial electrical services</a> for office buildings</li>
+                        <li>Mixed-use development wiring and infrastructure</li>
+                        <li><a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline">EV charger installation</a> for parking garages and homes</li>
+                        <li><a href="/virginia-electrical-services/arlington-smart-home.html" class="text-aj-orange hover:underline">Smart home technology</a> for modern urban living</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold my-4 flex items-center text-gray-800">
+                        <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> Serving All Arlington Neighborhoods
+                    </h3>
+                    <p class="text-gray-600 mb-4">Our Arlington electricians know every neighborhood:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Rosslyn and Courthouse</li>
+                        <li>Clarendon and Ballston</li>
+                        <li>Crystal City and Pentagon City</li>
+                        <li>Shirlington and Columbia Pike</li>
+                        <li>Lyon Village and Ashton Heights</li>
+                        <li>Virginia Square and Cherrydale</li>
+                        <li>Arlington Ridge and Aurora Highlands</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49795.31907257366!2d-77.13894382242347!3d38.87989956435309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b69d7ba7a70f%3A0xf8cf6fc845f6b093!2sArlington%2C%20VA!5e0!3m2!1sen!2sus!4v1714366407483!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Picture Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Arlington Electrical <span class="text-aj-orange">Project Gallery</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Recent electrical projects completed throughout Arlington County</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/arlington-high-rise-condo.jpg" alt="High-rise condo electrical work in Arlington" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Rosslyn Condo Renovation</h3>
+                        <p class="text-gray-600 text-sm">Complete electrical modernization in luxury high-rise, including smart home integration</p>
+                        <a href="/services/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Condo Services →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/arlington-commercial-office.jpg" alt="Commercial electrical in Arlington" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Crystal City Office Complex</h3>
+                        <p class="text-gray-600 text-sm">Large-scale commercial electrical installation for modern office space</p>
+                        <a href="/services/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Commercial Services →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="/assets/images/arlington-ev-charger-garage.jpg" alt="EV charger installation in Arlington" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Pentagon City EV Installation</h3>
+                        <p class="text-gray-600 text-sm">Multi-unit EV charging station in residential parking garage</p>
+                        <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">EV Solutions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized <span class="text-aj-orange">Electrical Services</span> for Arlington</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive electrical solutions tailored to Arlington's unique urban environment, high-rise buildings, and diverse neighborhoods.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">High-Rise Condo Electrical</h3>
+                    <p class="text-gray-600 mb-3">Expert electrical services for Arlington's urban condominiums. From unit renovations to common area upgrades, we understand HOA requirements and building codes.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline flex items-center">
+                        Condo Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/electrical-cost-guide.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Cost Guide <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Urban Home Renovation</h3>
+                    <p class="text-gray-600 mb-3">Complete electrical modernization for Arlington homes. From historic properties to modern townhomes, we upgrade systems while respecting architectural character.</p>
+                    <a href="/services/panel-replacements/" class="text-aj-orange hover:underline flex items-center">
+                        Panel Upgrades <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/signs-panel-upgrade.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Upgrade Signs <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Office Solutions</h3>
+                    <p class="text-gray-600 mb-3">Comprehensive electrical systems for Arlington's business districts. From startups to corporate headquarters, we provide reliable commercial electrical services.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline flex items-center">
+                        Commercial Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-car-battery text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">EV Charging Infrastructure</h3>
+                    <p class="text-gray-600 mb-3">Professional EV charger installation for Arlington's urban environment. From parking garages to single-family homes, we handle all electric vehicle charging needs.</p>
+                    <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline flex items-center">
+                        EV Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/ev-charger-basics.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        EV Guide <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Home Technology</h3>
+                    <p class="text-gray-600 mb-3">Transform your Arlington property with automated lighting, security, and comfort systems. Perfect for urban living convenience.</p>
+                    <a href="/virginia-electrical-services/arlington-smart-home.html" class="text-aj-orange hover:underline flex items-center">
+                        Smart Home <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/services/recessed-lighting/" class="text-aj-orange hover:underline flex items-center mt-2">
+                        Smart Lighting <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Security & Access Systems</h3>
+                    <p class="text-gray-600 mb-3">Comprehensive security electrical systems for Arlington's urban properties. Video surveillance, access control, and integrated security solutions.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline flex items-center">
+                        Security Services <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/services.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Arlington Residents <span class="text-aj-orange">Say About Us</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from your Arlington neighbors about their experience with AJ Long Electric</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Living in a Rosslyn high-rise, finding an electrician who understands condo requirements is crucial. AJ Long coordinated perfectly with our building management and HOA. Outstanding work!"</p>
+                    <p class="font-bold">David W. - Rosslyn</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"They installed EV chargers in our Pentagon City condo garage. Handled all permits and worked seamlessly with property management. The installation was clean and professional."</p>
+                    <p class="font-bold">Sarah M. - Pentagon City</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                        <i class="fas fa-star text-aj-orange"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Complete renovation of our Lyon Village home required extensive electrical work. AJ Long preserved the historic character while modernizing everything. Exceptional attention to detail!"</p>
+                    <p class="font-bold">Jennifer P. - Lyon Village</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/testimonials.html" class="text-aj-orange hover:underline text-lg">Read More Arlington Reviews →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arlington-Specific FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions - <span class="text-aj-orange">Arlington Electricians</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions from Arlington property owners</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you work with Arlington HOAs and condo associations?</h3>
+                    <p class="text-gray-600">Yes! We regularly work with HOAs and condo boards throughout Arlington. We understand association requirements, provide proper documentation, and coordinate with property management for minimal disruption.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Can you install EV chargers in condo parking garages?</h3>
+                    <p class="text-gray-600">Absolutely. We specialize in EV charger installations for Arlington's high-rise buildings and parking structures. We handle electrical capacity assessments, permit applications, and work with building management throughout the process.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">How quickly can you respond to emergencies in Arlington?</h3>
+                    <p class="text-gray-600">We typically arrive within 45-60 minutes for Arlington emergency calls. Our strategic location allows rapid response to all Arlington neighborhoods, from Rosslyn to Shirlington.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Are you familiar with Arlington's building codes?</h3>
+                    <p class="text-gray-600">Yes, we're fully licensed in Arlington County and thoroughly familiar with local building codes and permit requirements. We handle all permitting for your project and ensure full code compliance.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/faq.html" class="text-aj-orange hover:underline text-lg">View All FAQs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us for Arlington -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Arlington Chooses <span class="text-aj-orange">AJ Long Electric</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Here's why Arlington residents and businesses trust us with their electrical needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Urban Specialists</h3>
+                    <p class="text-gray-600">Expert knowledge of Arlington's urban electrical infrastructure, from high-rises to underground systems.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Licensed & Insured</h3>
+                    <p class="text-gray-600">Full Arlington County licensing and comprehensive insurance for all residential and commercial projects.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1,200+ Reviews</h3>
+                    <p class="text-gray-600">Consistently rated 5 stars by Arlington residents for quality work and professional service.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fast Response</h3>
+                    <p class="text-gray-600">Rapid response times throughout Arlington with 24/7 emergency service available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Also Serve Nearby Areas -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">We Also Serve Nearby Areas</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">AJ Long Electric provides quality electrical services throughout Northern Virginia:</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <a href="/virginia-electrical-services/ballston.html" class="nearby-area-link">
+                    Ballston
+                </a>
+                <a href="/virginia-electrical-services/clarendon.html" class="nearby-area-link">
+                    Clarendon
+                </a>
+                <a href="/virginia-electrical-services/courthouse.html" class="nearby-area-link">
+                    Courthouse
+                </a>
+                <a href="/virginia-electrical-services/rosslyn.html" class="nearby-area-link">
+                    Rosslyn
+                </a>
+                <a href="/virginia-electrical-services/alexandria.html" class="nearby-area-link">
+                    Alexandria
+                </a>
+                <a href="/virginia-electrical-services/fairfax.html" class="nearby-area-link">
+                    Fairfax
+                </a>
+                <a href="/virginia-electrical-services/mclean.html" class="nearby-area-link">
+                    McLean
+                </a>
+                <a href="/virginia-electrical-services/vienna.html" class="nearby-area-link">
+                    Vienna
+                </a>
+                <a href="/virginia-electrical-services/falls-church.html" class="nearby-area-link">
+                    Falls Church
+                </a>
+                <a href="/service-areas.html" class="nearby-area-link">
+                    All Areas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need an Electrician in Arlington?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Whether you're in a high-rise condo, renovating your home, or managing a commercial property, Arlington's most trusted electricians are ready to help.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Get Free Estimate
+                </a>
+                <a href="tel:7039974974" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Arlington: 703-997-4974
+                </a>
+                <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                    <i class="fas fa-calendar-alt mr-2"></i> Book Online Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include-html="/include/standard-footer.html"></div>
+    
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <!-- Consolidated main scripts -->
+    <script src="/js/main-scripts.js" defer></script>
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> <span>Book Arlington Electrician</span>
+        </button>
+    </div>
+</body>
+</html>

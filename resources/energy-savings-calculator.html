@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Enhanced Title Tag -->
+    <title>Energy Savings Calculator | Electrical Efficiency &amp; Cost Analysis | AJ Long Electric</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="Calculate potential energy savings from electrical upgrades. Get estimates for panel upgrades, LED lighting, smart home systems &amp; more. Free calculator from Northern Virginia's top electricians.">
+    <meta name="keywords" content="energy savings calculator, electrical efficiency, energy cost calculator, electrical upgrades, LED lighting savings, Northern Virginia electrician, energy audit">
+    <link rel="canonical" href="https://ajlongelectric.com/resources/energy-savings-calculator">
+    
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Northern Virginia">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Energy Savings Calculator | Electrical Efficiency &amp; Cost Analysis | AJ Long Electric">
+    <meta property="og:description" content="Calculate potential energy savings from electrical upgrades. Get estimates for panel upgrades, LED lighting, smart home systems &amp; more. Free calculator from Northern Virginia's top electricians.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/resources/energy-savings-calculator.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Energy Savings Calculator | Electrical Efficiency &amp; Cost Analysis | AJ Long Electric">
+    <meta name="twitter:description" content="Calculate potential energy savings from electrical upgrades. Get estimates for panel upgrades, LED lighting, smart home systems &amp; more. Free calculator from Northern Virginia's top electricians.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/mobile-accessibility.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto;}
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Calculator specific styles */
+        .calculator-input {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--aj-orange);
+            box-shadow: 0 0 0 3px rgba(255, 114, 0, 0.1);
+        }
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            margin: 20px 0;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--aj-orange);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--aj-orange);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .savings-result {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f4f7 100%);
+            border-left: 4px solid var(--aj-orange);
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 100px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+         #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <!-- SEO: Schema.org for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "@id": "https://ajlongelectric.com/",
+      "url": "https://ajlongelectric.com/",
+      "telephone": "+1-703-997-0026",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2724 Dorr Ave, Suite 102",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8383686,
+        "longitude": -77.2690285
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1200"
+      },
+      "areaServed": [
+        {
+          "@type": "County",
+          "name": "Fairfax County"
+        },
+         {
+          "@type": "County",
+          "name": "Arlington County"
+        },
+         {
+          "@type": "City",
+          "name": "Alexandria"
+        },
+        {
+          "@type": "City",
+          "name": "Washington D.C."
+        },
+         {
+          "@type": "County",
+          "name": "Montgomery County"
+        },
+        {
+          "@type": "County",
+          "name": "Prince George's County"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.google.com/maps/place/AJ+Long+Electric/@38.8383686,-77.2690285,17z/data=!4m6!3m5!1s0x89b64c0325cc1293:0x7d2783cfbec92c1a!8m2!3d38.8383686!4d-77.2664536!16s%2Fg%2F11bxf2f69x",
+        "https://www.yelp.com/biz/aj-long-electric-fairfax"
+      ]
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+<!-- Include the standard header -->
+<div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pattern-bg text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-fadeInUp">
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-4">Energy Savings Calculator</h1>
+                    <p class="text-lg mb-6">
+                        Discover how much you can save with energy-efficient electrical upgrades in your <strong class="text-aj-orange">Fairfax County, Arlington, Alexandria, DC, Montgomery County,</strong> or Prince George's County home. Calculate potential savings from LED lighting, panel upgrades, smart home systems, and more.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#calculator" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Start Calculating
+                        </a>
+                        <a href="/estimate.html" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition">
+                            Get Professional Quote
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/Services/Energy-efficency-services.webp?_a=BBFAAAAA0" alt="Energy savings calculator for electrical efficiency upgrades" class="rounded transform -rotate-2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Savings Calculator -->
+    <section id="calculator" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Calculate Your <span class="text-aj-orange">Energy Savings</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Use our interactive calculator to estimate potential savings from electrical efficiency upgrades. Get personalized results based on your home's current setup and usage patterns.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <form method="POST" action="/api/submit-estimate" data-netlify="true" name="savings_calculator" id="savings-calculator" class="space-y-8">
+                        <!-- Home Information -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="home-size" class="block text-sm font-semibold text-gray-700 mb-2">Home Size (sq ft)</label>
+                                <input type="number" id="home-size" class="calculator-input w-full" placeholder="2000" min="500" max="10000" value="2000">
+                            </div>
+                            <div>
+                                <label for="monthly-bill" class="block text-sm font-semibold text-gray-700 mb-2">Current Monthly Electric Bill ($)</label>
+                                <input type="number" id="monthly-bill" class="calculator-input w-full" placeholder="150" min="50" max="1000" value="150">
+                            </div>
+                        </div>
+
+                        <!-- Current Usage -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Current Electrical Usage</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="incandescent-bulbs" class="block text-sm font-semibold text-gray-700 mb-2">Number of Incandescent/Halogen Bulbs</label>
+                                    <input type="range" id="incandescent-bulbs" class="slider" min="0" max="50" value="20">
+                                    <div class="flex justify-between text-sm text-gray-600">
+                                        <span>0</span>
+                                        <span id="incandescent-value" class="font-semibold">20</span>
+                                        <span>50+</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="daily-usage" class="block text-sm font-semibold text-gray-700 mb-2">Average Daily Usage (hours)</label>
+                                    <input type="range" id="daily-usage" class="slider" min="2" max="16" value="6">
+                                    <div class="flex justify-between text-sm text-gray-600">
+                                        <span>2h</span>
+                                        <span id="usage-value" class="font-semibold">6h</span>
+                                        <span>16h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Potential Upgrades -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Select Potential Upgrades</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="led-conversion" class="mr-3 text-aj-orange rounded" checked="">
+                                    <div>
+                                        <span class="font-semibold">LED Light Conversion</span>
+                                        <p class="text-sm text-gray-600">Replace all incandescent/halogen bulbs with LED</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="panel-upgrade" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">Panel Upgrade</span>
+                                        <p class="text-sm text-gray-600">Improve electrical efficiency with modern panel</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="smart-thermostat" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">Smart Home Controls</span>
+                                        <p class="text-sm text-gray-600">Automated lighting and temperature control</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                                    <input type="checkbox" id="energy-efficient-outlets" class="mr-3 text-aj-orange rounded">
+                                    <div>
+                                        <span class="font-semibold">Energy-Efficient Outlets</span>
+                                        <p class="text-sm text-gray-600">USB outlets and smart switches</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Calculate Button -->
+                        <div class="text-center">
+                            <button type="button" id="calculate-btn" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                                <i class="fas fa-calculator mr-2"></i> Calculate My Savings
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    <div id="results" class="mt-12 hidden">
+                        <div class="savings-result rounded-lg p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Estimated Savings</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="monthly-savings">$0</div>
+                                    <div class="text-gray-600">Monthly Savings</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="annual-savings">$0</div>
+                                    <div class="text-gray-600">Annual Savings</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-aj-orange" id="percentage-savings">0%</div>
+                                    <div class="text-gray-600">Bill Reduction</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-white rounded border-l-4 border-aj-orange">
+                                <h4 class="font-bold text-gray-800 mb-2">Environmental Impact</h4>
+                                <p class="text-gray-600">Your upgrades could reduce CO₂ emissions by approximately <span id="co2-savings" class="font-semibold text-aj-orange">0</span> pounds per year.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Efficiency Tips -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Maximize Your <span class="text-aj-orange">Energy Savings</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Professional electrical upgrades can significantly reduce your energy costs. Here are our top recommendations for Northern Virginia homeowners.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">LED Lighting Conversion</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">LED bulbs use 75% less energy and last 25 times longer than incandescent bulbs.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>75% energy reduction</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>25-year lifespan</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Instant savings</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Smart Home Systems</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Automated controls optimize energy usage when you're away or asleep.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>10-23% energy savings</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Remote control</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Usage monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Panel Modernization</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Modern panels improve electrical efficiency and support energy-saving devices.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Improved efficiency</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Enhanced safety</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Future-ready capacity</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Energy-Efficient Outlets</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Smart outlets and USB charging reduce phantom loads and energy waste.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Eliminate phantom loads</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Convenient charging</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Automated scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-fan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Efficient Ceiling Fans</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">ENERGY STAR certified fans use 60% less energy than conventional models.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>60% less energy use</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Improved comfort</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Reduced HVAC load</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover-grow">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                            <i class="fas fa-car-battery"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">EV Charger Efficiency</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Level 2 chargers with smart features optimize charging costs and timing.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Off-peak charging</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Load management</li>
+                        <li><i class="fas fa-check text-aj-orange mr-2"></i>Cost optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start Saving Energy?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Our licensed electricians can help you implement energy-efficient upgrades that will reduce your bills and environmental impact. Serving <strong class="text-aj-orange">Fairfax County, Arlington, Alexandria, DC, Montgomery County, and Prince George's County.</strong></p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-orange-600 transition">
+                    Get Free Energy Efficiency Quote
+                </a>
+                <a href="tel:703-997-0026" class="bg-transparent border-2 border-white font-bold px-8 py-3 rounded hover:bg-white hover:text-aj-dark transition">
+                    Call (703) 997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body></html>

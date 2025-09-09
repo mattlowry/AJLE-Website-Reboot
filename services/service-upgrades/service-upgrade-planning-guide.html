@@ -1,0 +1,697 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Upgrade Planning Guide - Electrical Capacity Assessment | AJ Long Electric</title>
+    <meta name="description" content="Comprehensive electrical service upgrade planning guide for Northern Virginia homes. Assess your electrical capacity needs, plan panel upgrades, and understand service requirements.">
+    <meta name="keywords" content="electrical service upgrade planning, panel upgrade guide, electrical capacity assessment, Northern Virginia electrician, service upgrade calculator">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ajlongelectric.com/services/service-upgrades/service-upgrade-planning-guide">
+    <meta property="og:title" content="Service Upgrade Planning Guide - Electrical Capacity Assessment">
+    <meta property="og:description" content="Professional electrical service upgrade planning guide for Northern Virginia homes.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/service-upgrade-planning.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ajlongelectric.com/services/service-upgrades/service-upgrade-planning-guide">
+    <meta property="twitter:title" content="Service Upgrade Planning Guide - Electrical Capacity Assessment">
+    <meta property="twitter:description" content="Professional electrical service upgrade planning guide for Northern Virginia homes.">
+    <meta property="twitter:image" content="https://ajlongelectric.com/assets/images/service-upgrade-planning.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aj-orange': '#FF7200',
+                        'aj-dark': '#222222',
+                        'aj-light': '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light: #f8f9fa;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--aj-orange) 0%, #e55a00 100%);
+        }
+        
+        .planning-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--aj-orange);
+        }
+        
+        .planning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 114, 0, 0.15);
+        }
+        
+        .calculator-section {
+            background: linear-gradient(45deg, #f8f9fa, #ffffff);
+            border: 2px solid var(--aj-orange);
+            border-radius: 12px;
+        }
+        
+        .load-calculator input, .load-calculator select {
+            border: 2px solid #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        
+        .load-calculator input:focus, .load-calculator select:focus {
+            border-color: var(--aj-orange);
+            outline: none;
+        }
+        
+        .upgrade-recommendation {
+            background: linear-gradient(45deg, #fff7ed, #fed7aa);
+            border-left: 4px solid var(--aj-orange);
+        }
+        
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--aj-orange);
+            border-radius: 50%;
+        }
+        
+        .timeline-step::after {
+            content: "";
+            position: absolute;
+            left: 0.4rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 2rem 1rem;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            }
+            
+            .mobile-menu.active {
+                right: 0;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Electrical Service Upgrade Planning Guide",
+        "description": "Complete guide for planning electrical service upgrades and capacity assessments",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Assess Current Service",
+                "text": "Evaluate existing electrical service capacity and condition"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Calculate Load Requirements",
+                "text": "Determine total electrical load for current and future needs"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Plan Upgrade Scope",
+                "text": "Design upgrade specifications and timeline"
+            }
+        ],
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "AJ Long Electric",
+            "telephone": "703-997-0026",
+            "url": "https://ajlongelectric.com"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Service Upgrade <span class="text-yellow-300">Planning Guide</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Professional electrical capacity assessment for Northern Virginia homes
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:703-997-0026" class="bg-white text-aj-orange px-8 py-4 rounded-lg font-bold text-xl transition duration-300 hover:bg-gray-100">
+                        📞 Call (703) 997-0026
+                    </a>
+                    <a href="#load-calculator" class="bg-aj-dark hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300">
+                        Start Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Steps -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Service Upgrade <span class="text-aj-orange">Assessment Steps</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Systematic approach to planning your electrical service upgrade</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="planning-card bg-gray-50 p-8 rounded-lg">
+                        <div class="text-aj-orange text-4xl mb-4">🔍</div>
+                        <h3 class="text-xl font-bold mb-4">1. Current Service Analysis</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Panel age and condition</li>
+                            <li>• Service amperage (100A, 150A, 200A)</li>
+                            <li>• Available circuits</li>
+                            <li>• Code compliance status</li>
+                            <li>• Safety hazards identification</li>
+                        </ul>
+                    </div>
+
+                    <div class="planning-card bg-gray-50 p-8 rounded-lg">
+                        <div class="text-aj-orange text-4xl mb-4">⚡</div>
+                        <h3 class="text-xl font-bold mb-4">2. Load Calculation</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Current electrical demands</li>
+                            <li>• Future appliance additions</li>
+                            <li>• EV charging requirements</li>
+                            <li>• HVAC system needs</li>
+                            <li>• Pool/spa equipment</li>
+                        </ul>
+                    </div>
+
+                    <div class="planning-card bg-gray-50 p-8 rounded-lg">
+                        <div class="text-aj-orange text-4xl mb-4">📋</div>
+                        <h3 class="text-xl font-bold mb-4">3. Upgrade Planning</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Service size determination</li>
+                            <li>• Panel specifications</li>
+                            <li>• Permit requirements</li>
+                            <li>• Timeline coordination</li>
+                            <li>• Budget considerations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load Calculator -->
+    <section id="load-calculator" class="py-16 bg-aj-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Electrical Load <span class="text-aj-orange">Calculator</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Calculate your total electrical load to determine service requirements</p>
+                </div>
+
+                <div class="calculator-section p-8">
+                    <div class="load-calculator">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xl font-bold mb-6">Basic Load Calculation</h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Home Square Footage</label>
+                                        <input type="number" id="squareFootage" class="w-full p-3 rounded-lg" placeholder="e.g., 2500" min="500" max="10000">
+                                        <p class="text-xs text-gray-500 mt-1">Used for general lighting and outlet calculations</p>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">HVAC System</label>
+                                        <select id="hvacSystem" class="w-full p-3 rounded-lg">
+                                            <option value="">Select HVAC type</option>
+                                            <option value="central-air">Central Air (3-4 tons)</option>
+                                            <option value="heat-pump">Heat Pump (3-4 tons)</option>
+                                            <option value="dual-system">Dual System (Heating + AC)</option>
+                                            <option value="geothermal">Geothermal System</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Water Heater</label>
+                                        <select id="waterHeater" class="w-full p-3 rounded-lg">
+                                            <option value="">Select water heater type</option>
+                                            <option value="electric-standard">Electric Standard (4.5kW)</option>
+                                            <option value="electric-tankless">Electric Tankless (24kW)</option>
+                                            <option value="gas">Gas Water Heater</option>
+                                            <option value="hybrid">Hybrid Heat Pump</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Kitchen Appliances</label>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="electricRange" class="mr-2"> Electric Range/Cooktop (8kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="electricOven" class="mr-2"> Electric Oven (5kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="dishwasher" class="mr-2"> Dishwasher (1.8kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="disposal" class="mr-2"> Garbage Disposal (1kW)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold mb-6">Additional Loads</h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Laundry</label>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="electricDryer" class="mr-2"> Electric Dryer (5kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="washer" class="mr-2"> Washing Machine (1.5kW)
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">EV Charging</label>
+                                        <select id="evCharging" class="w-full p-3 rounded-lg">
+                                            <option value="">Select EV charging needs</option>
+                                            <option value="none">No EV charging</option>
+                                            <option value="level2-32">Level 2 - 32A (7.7kW)</option>
+                                            <option value="level2-40">Level 2 - 40A (9.6kW)</option>
+                                            <option value="level2-48">Level 2 - 48A (11.5kW)</option>
+                                            <option value="level2-dual">Dual Level 2 Chargers</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Pool/Spa Equipment</label>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="poolPump" class="mr-2"> Pool Pump (2kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="poolHeater" class="mr-2"> Pool Heater (11kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="hotTub" class="mr-2"> Hot Tub/Spa (8kW)
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Other Equipment</label>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="workshop" class="mr-2"> Workshop/Garage (5kW)
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="generator" class="mr-2"> Backup Generator Connection
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 text-center">
+                            <button onclick="calculateLoad()" class="bg-aj-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                                Calculate Required Service
+                            </button>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div id="calculationResults" class="mt-8 hidden">
+                            <div class="upgrade-recommendation p-6 rounded-lg">
+                                <h3 class="text-2xl font-bold mb-4 text-aj-dark">Service Recommendation</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-aj-orange mb-2" id="totalLoad">0 kW</div>
+                                        <p class="text-gray-600">Total Calculated Load</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-aj-orange mb-2" id="recommendedService">200A</div>
+                                        <p class="text-gray-600">Recommended Service</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-aj-orange mb-2" id="loadPercentage">0%</div>
+                                        <p class="text-gray-600">Service Utilization</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="font-bold mb-2">Recommendations:</h4>
+                                    <div id="recommendations" class="text-gray-700">
+                                        <!-- Dynamic recommendations will appear here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgrade Timeline -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Upgrade <span class="text-aj-orange">Timeline</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Typical service upgrade process and timeline</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="timeline-step">
+                        <h3 class="text-xl font-bold mb-2">Week 1: Planning &amp; Permits</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Site assessment and load calculation</li>
+                            <li>• Utility coordination for service disconnect</li>
+                            <li>• Permit applications filed</li>
+                            <li>• Equipment ordering</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-step">
+                        <h3 class="text-xl font-bold mb-2">Week 2-3: Preparation</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Permit approval</li>
+                            <li>• Utility service disconnect scheduled</li>
+                            <li>• Materials delivered to site</li>
+                            <li>• Homeowner preparation completed</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-step">
+                        <h3 class="text-xl font-bold mb-2">Day of Installation</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Utility disconnects service (morning)</li>
+                            <li>• Old panel removal and new installation</li>
+                            <li>• Meter upgrade if required</li>
+                            <li>• Service reconnection (evening)</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-step">
+                        <h3 class="text-xl font-bold mb-2">Week 4: Completion</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Final electrical inspection</li>
+                            <li>• System testing and labeling</li>
+                            <li>• Homeowner walkthrough</li>
+                            <li>• Warranty documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- When to Upgrade -->
+    <section class="py-16 bg-aj-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        When to <span class="text-aj-orange">Upgrade Your Service</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Signs that indicate your electrical service needs upgrading</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-red-600 text-3xl mb-4">⚠️</div>
+                        <h3 class="text-lg font-bold mb-3">Frequent Breaker Trips</h3>
+                        <p class="text-gray-600">Circuit breakers trip regularly when using multiple appliances, indicating insufficient capacity.</p>
+                    </div>
+
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-yellow-600 text-3xl mb-4">💡</div>
+                        <h3 class="text-lg font-bold mb-3">Dimming Lights</h3>
+                        <p class="text-gray-600">Lights dim when appliances start, showing voltage drops due to overloaded circuits.</p>
+                    </div>
+
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-orange-600 text-3xl mb-4">🔥</div>
+                        <h3 class="text-lg font-bold mb-3">Warm Outlets/Panels</h3>
+                        <p class="text-gray-600">Hot outlets or panel covers indicate dangerous overloading and fire hazards.</p>
+                    </div>
+
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-blue-600 text-3xl mb-4">🏠</div>
+                        <h3 class="text-lg font-bold mb-3">Home Additions</h3>
+                        <p class="text-gray-600">Major renovations or additions that increase electrical demand beyond current capacity.</p>
+                    </div>
+
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-green-600 text-3xl mb-4">🚗</div>
+                        <h3 class="text-lg font-bold mb-3">EV Charging Needs</h3>
+                        <p class="text-gray-600">Electric vehicle charging typically requires dedicated high-amperage circuits.</p>
+                    </div>
+
+                    <div class="planning-card bg-white p-6 rounded-lg">
+                        <div class="text-purple-600 text-3xl mb-4">⏰</div>
+                        <h3 class="text-lg font-bold mb-3">Aging Equipment</h3>
+                        <p class="text-gray-600">Panels over 25 years old or with outdated breaker types (Federal Pacific, Zinsco).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Consultation CTA -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Ready to <span class="text-aj-orange">Upgrade Your Service?</span>
+                </h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Our licensed electricians provide professional service upgrades throughout Northern Virginia
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">🔍</div>
+                        <h3 class="text-lg font-semibold mb-2">Load Analysis</h3>
+                        <p class="text-gray-300 text-sm">Professional electrical load calculation and assessment</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">📋</div>
+                        <h3 class="text-lg font-semibold mb-2">Permit Handling</h3>
+                        <p class="text-gray-300 text-sm">Complete permit process and utility coordination</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">🛡️</div>
+                        <h3 class="text-lg font-semibold mb-2">5-Year Warranty</h3>
+                        <p class="text-gray-300 text-sm">Industry-leading warranty on all workmanship</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:703-997-0026" class="bg-aj-orange hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-xl transition duration-300">
+                        📞 Call (703) 997-0026
+                    </a>
+                    <a href="/services/service-upgrades/" class="border-2 border-white hover:bg-white hover:text-aj-dark text-white px-8 py-4 rounded-lg font-semibold transition duration-300">
+                        Learn More About Service Upgrades
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+
+    <!-- Scripts -->
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        includeHTML();
+
+        // Load Calculator Function
+        function calculateLoad() {
+            const squareFootage = parseInt(document.getElementById('squareFootage').value) || 0;
+            const hvacSystem = document.getElementById('hvacSystem').value;
+            const waterHeater = document.getElementById('waterHeater').value;
+            const evCharging = document.getElementById('evCharging').value;
+
+            let totalLoad = 0;
+
+            // Basic load calculations (simplified NEC method)
+            // General lighting and receptacles: 3 VA per sq ft
+            totalLoad += squareFootage * 3 / 1000; // Convert to kW
+
+            // HVAC loads
+            const hvacLoads = {
+                'central-air': 5, 'heat-pump': 6, 'dual-system': 8, 'geothermal': 4
+            };
+            totalLoad += hvacLoads[hvacSystem] || 0;
+
+            // Water heater loads
+            const waterHeaterLoads = {
+                'electric-standard': 4.5, 'electric-tankless': 24, 'gas': 0.5, 'hybrid': 3
+            };
+            totalLoad += waterHeaterLoads[waterHeater] || 0;
+
+            // Kitchen appliances
+            if (document.getElementById('electricRange').checked) totalLoad += 8;
+            if (document.getElementById('electricOven').checked) totalLoad += 5;
+            if (document.getElementById('dishwasher').checked) totalLoad += 1.8;
+            if (document.getElementById('disposal').checked) totalLoad += 1;
+
+            // Laundry
+            if (document.getElementById('electricDryer').checked) totalLoad += 5;
+            if (document.getElementById('washer').checked) totalLoad += 1.5;
+
+            // EV Charging
+            const evLoads = {
+                'level2-32': 7.7, 'level2-40': 9.6, 'level2-48': 11.5, 'level2-dual': 19.2
+            };
+            totalLoad += evLoads[evCharging] || 0;
+
+            // Pool/Spa
+            if (document.getElementById('poolPump').checked) totalLoad += 2;
+            if (document.getElementById('poolHeater').checked) totalLoad += 11;
+            if (document.getElementById('hotTub').checked) totalLoad += 8;
+
+            // Other equipment
+            if (document.getElementById('workshop').checked) totalLoad += 5;
+
+            // Apply NEC demand factors for practical load
+            let demandLoad = totalLoad * 0.75; // Simplified demand factor
+
+            // Determine service recommendation
+            let recommendedService = '100A';
+            let serviceCapacity = 24; // 100A service capacity in kW (100A × 240V / 1000)
+
+            if (demandLoad > 24) {
+                recommendedService = '200A';
+                serviceCapacity = 48; // 200A service capacity
+            }
+            if (demandLoad > 48) {
+                recommendedService = '400A';
+                serviceCapacity = 96; // 400A service capacity
+            }
+
+            const loadPercentage = Math.round((demandLoad / serviceCapacity) * 100);
+
+            // Update display
+            document.getElementById('totalLoad').textContent = demandLoad.toFixed(1) + ' kW';
+            document.getElementById('recommendedService').textContent = recommendedService;
+            document.getElementById('loadPercentage').textContent = loadPercentage + '%';
+
+            // Generate recommendations
+            let recommendations = [];
+            
+            if (loadPercentage > 80) {
+                recommendations.push('⚠️ Service upgrade recommended - load exceeds 80% capacity');
+            }
+            if (evCharging && !evCharging.includes('none')) {
+                recommendations.push('🚗 EV charging requires dedicated circuits and may need service upgrade');
+            }
+            if (totalLoad > 30) {
+                recommendations.push('🏠 Consider 200A service for future expansion and safety margin');
+            }
+            if (squareFootage > 3000) {
+                recommendations.push('🏡 Large homes typically benefit from 200A+ service');
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push('✅ Current electrical demands appear manageable with proper planning');
+            }
+
+            document.getElementById('recommendations').innerHTML = recommendations.join('<br>');
+            document.getElementById('calculationResults').classList.remove('hidden');
+        }
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

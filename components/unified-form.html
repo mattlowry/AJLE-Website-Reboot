@@ -1,0 +1,505 @@
+<!-- Unified Form Component for AJ Long Electric
+     Supports: Contact, Estimate, and Comprehensive Service Forms
+     Usage: Include this component and configure via data attributes --><html><head></head><body><div class="unified-form-container" data-form-type="contact">
+    <!-- Form Header -->
+    <div class="form-header text-center mb-8">
+        <h2 class="form-title text-3xl font-bold text-aj-dark mb-4">Contact Us</h2>
+        <p class="form-subtitle text-gray-600">Get in touch with Northern Virginia's most trusted electricians</p>
+    </div>
+
+    <!-- Progress Bar (only shown for multi-step forms) -->
+    <div class="progress-container hidden mb-8">
+        <div class="progress-bar bg-gray-200 h-2 rounded-full relative">
+            <div class="progress-fill bg-aj-orange h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <div class="progress-steps flex justify-between mt-4 text-sm">
+            <span class="step-label text-gray-500">Contact Info</span>
+            <span class="step-label text-gray-500">Service Details</span>
+            <span class="step-label text-gray-500">Scheduling</span>
+            <span class="step-label text-gray-500">Confirmation</span>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <form id="unified-form" class="space-y-6" method="POST" enctype="multipart/form-data">
+        <!-- Hidden Fields -->
+        <input type="hidden" name="form-name" value="unified-form">
+        <input type="hidden" name="formType" id="form-type-input" value="contact">
+        <input type="hidden" name="step" id="current-step" value="1">
+
+        <!-- Loading Overlay -->
+        <div id="form-loading" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-aj-orange mx-auto mb-4"></div>
+                <p class="text-lg font-medium">Processing your request...</p>
+                <p class="text-sm text-gray-600 mt-2">Please don't close this page</p>
+            </div>
+        </div>
+
+        <!-- Step 1: Contact Information -->
+        <div class="form-step active" data-step="1">
+            <div class="form-section bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-user mr-2 text-aj-orange"></i>
+                    Contact Information
+                </h3>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="firstName" class="block text-gray-700 font-medium mb-2">
+                            First Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="firstName" name="firstName" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="block text-gray-700 font-medium mb-2">
+                            Last Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="lastName" name="lastName" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">
+                            Email Address <span class="text-red-500">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">
+                            Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required="" placeholder="(___) ___-____" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-4">
+                    <label for="address" class="block text-gray-700 font-medium mb-2">
+                        Service Address <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="address" name="address" required="" placeholder="Enter your address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    <div id="service-area-error" class="hidden bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mt-2">
+                        <p class="text-sm"><i class="fas fa-exclamation-triangle mr-1"></i> Please note: We primarily serve Northern Virginia, Maryland, and Washington DC. We'll contact you to confirm service availability in your area.</p>
+                    </div>
+                    <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Service Details -->
+        <div class="form-step hidden" data-step="2">
+            <div class="form-section bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-tools mr-2 text-aj-orange"></i>
+                    Service Details
+                </h3>
+
+                <!-- Service Type Selection (for estimate/comprehensive forms) -->
+                <div class="service-type-container">
+                    <label class="block text-gray-700 font-medium mb-3">
+                        What type of service do you need? <span class="text-red-500">*</span>
+                    </label>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="panel-upgrade" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Electrical Panel</div>
+                                    <div class="text-sm text-gray-600">Upgrades, repairs, replacements</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="outlet-wiring" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-plug text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Outlets &amp; Wiring</div>
+                                    <div class="text-sm text-gray-600">New outlets, rewiring, GFCI</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="lighting" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-lightbulb text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Lighting</div>
+                                    <div class="text-sm text-gray-600">Recessed, fixtures, ceiling fans</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="smart-home" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-home text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Smart Home</div>
+                                    <div class="text-sm text-gray-600">Automation, smart switches</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="ev-charger" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-car text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">EV Charger</div>
+                                    <div class="text-sm text-gray-600">Installation, Level 2 charging</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition">
+                            <input type="radio" name="serviceType" value="other" class="sr-only">
+                            <div class="flex items-center">
+                                <i class="fas fa-wrench text-2xl text-aj-orange mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Other/Multiple</div>
+                                    <div class="text-sm text-gray-600">Describe in details below</div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Project Description -->
+                <div class="form-group mt-6">
+                    <label for="projectDescription" class="block text-gray-700 font-medium mb-2">
+                        Project Description <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="projectDescription" name="projectDescription" rows="4" required="" placeholder="Please describe your electrical project in detail..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-vertical"></textarea>
+                    <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+                </div>
+
+                <!-- File Upload Section -->
+                <div class="form-group mt-6">
+                    <label class="block text-gray-700 font-medium mb-3">
+                        <i class="fas fa-camera mr-2"></i>Photos/Videos (Optional)
+                    </label>
+                    <div class="file-upload-area border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-aj-orange transition cursor-pointer">
+                        <input type="file" id="fileUpload" name="files" multiple="" accept="image/*,video/*,.pdf,.doc,.docx" class="hidden">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
+                        <p class="text-gray-600 mb-2">Drop files here or click to upload</p>
+                        <p class="text-sm text-gray-500">Supports: Images, Videos, PDFs (Max 5MB each, 10 files total)</p>
+                    </div>
+                    <div id="file-preview" class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+                </div>
+
+                <!-- Urgency Level -->
+                <div class="form-group mt-6">
+                    <label class="block text-gray-700 font-medium mb-3">Project Urgency</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <label class="urgency-option p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="urgency" value="routine" class="sr-only" checked="">
+                            <i class="fas fa-calendar-alt text-xl text-green-500 mb-2"></i>
+                            <div class="font-medium">Routine</div>
+                            <div class="text-sm text-gray-600">Within 1-2 weeks</div>
+                        </label>
+                        <label class="urgency-option p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="urgency" value="priority" class="sr-only">
+                            <i class="fas fa-clock text-xl text-yellow-500 mb-2"></i>
+                            <div class="font-medium">Priority</div>
+                            <div class="text-sm text-gray-600">Within 2-3 days</div>
+                        </label>
+                        <label class="urgency-option p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="urgency" value="emergency" class="sr-only">
+                            <i class="fas fa-exclamation-triangle text-xl text-red-500 mb-2"></i>
+                            <div class="font-medium">Emergency</div>
+                            <div class="text-sm text-gray-600">ASAP</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Preferences (for comprehensive forms) -->
+        <div class="form-step hidden" data-step="3">
+            <div class="form-section bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-calendar-check mr-2 text-aj-orange"></i>
+                    Scheduling Preferences
+                </h3>
+
+                <!-- Preferred Contact Method -->
+                <div class="form-group mb-6">
+                    <label class="block text-gray-700 font-medium mb-3">Preferred Contact Method</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <label class="contact-method p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="contactMethod" value="phone" class="sr-only" checked="">
+                            <i class="fas fa-phone text-xl text-aj-orange mb-2"></i>
+                            <div class="font-medium">Phone Call</div>
+                        </label>
+                        <label class="contact-method p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="contactMethod" value="email" class="sr-only">
+                            <i class="fas fa-envelope text-xl text-aj-orange mb-2"></i>
+                            <div class="font-medium">Email</div>
+                        </label>
+                        <label class="contact-method p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="radio" name="contactMethod" value="text" class="sr-only">
+                            <i class="fas fa-sms text-xl text-aj-orange mb-2"></i>
+                            <div class="font-medium">Text Message</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Preferred Time -->
+                <div class="form-group mb-6">
+                    <label class="block text-gray-700 font-medium mb-3">Best Time to Contact You</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <label class="time-preference p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="checkbox" name="contactTime" value="morning" class="sr-only">
+                            <i class="fas fa-sun text-xl text-yellow-500 mb-2"></i>
+                            <div class="font-medium">Morning</div>
+                            <div class="text-sm text-gray-600">8 AM - 12 PM</div>
+                        </label>
+                        <label class="time-preference p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="checkbox" name="contactTime" value="afternoon" class="sr-only">
+                            <i class="fas fa-cloud-sun text-xl text-orange-500 mb-2"></i>
+                            <div class="font-medium">Afternoon</div>
+                            <div class="text-sm text-gray-600">12 PM - 5 PM</div>
+                        </label>
+                        <label class="time-preference p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-aj-orange transition text-center">
+                            <input type="checkbox" name="contactTime" value="evening" class="sr-only">
+                            <i class="fas fa-moon text-xl text-blue-500 mb-2"></i>
+                            <div class="font-medium">Evening</div>
+                            <div class="text-sm text-gray-600">5 PM - 8 PM</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Special Instructions -->
+                <div class="form-group">
+                    <label for="specialInstructions" class="block text-gray-700 font-medium mb-2">
+                        Special Instructions or Notes
+                    </label>
+                    <textarea id="specialInstructions" name="specialInstructions" rows="3" placeholder="Any additional information that would be helpful..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-vertical"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms and Agreements -->
+        <div class="form-section bg-white p-6 rounded-lg shadow-md">
+            <div class="form-group">
+                <label class="flex items-start space-x-3 cursor-pointer">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required="" class="mt-1 h-5 w-5 text-aj-orange focus:ring-aj-orange border-gray-300 rounded">
+                    <span class="text-sm text-gray-700">
+                        I agree to the <a href="/terms-of-service.html" class="text-aj-orange hover:underline" target="_blank">Terms of Service</a> and 
+                        <a href="/privacy-policy.html" class="text-aj-orange hover:underline" target="_blank">Privacy Policy</a>. 
+                        I understand that AJ Long Electric will contact me to discuss my project and provide service.
+                    </span>
+                </label>
+                <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+            </div>
+        </div>
+
+        <!-- Form Navigation -->
+        <div class="form-navigation flex justify-between items-center pt-6">
+            <button type="button" id="prev-step" class="hidden px-6 py-3 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition">
+                <i class="fas fa-arrow-left mr-2"></i>Previous
+            </button>
+            
+            <div class="flex-1"></div>
+            
+            <button type="button" id="next-step" class="hidden px-6 py-3 bg-aj-orange text-white font-medium rounded-lg hover:bg-orange-600 transition">
+                Next<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+            
+            <button type="submit" id="submit-form" class="px-8 py-3 bg-aj-orange text-white font-bold text-lg rounded-lg shadow hover:bg-orange-600 transition transform hover:scale-105">
+                <i class="fas fa-paper-plane mr-2"></i>
+                <span class="submit-text">Send Message</span>
+            </button>
+        </div>
+
+        <!-- Success Message -->
+        <div id="form-success" class="hidden bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg">
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-2xl mr-3"></i>
+                <div>
+                    <h4 class="font-bold text-lg">Success!</h4>
+                    <p class="mt-1">Your request has been submitted successfully. We'll contact you within 24 hours to discuss your project.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="form-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg">
+            <div class="flex items-center">
+                <i class="fas fa-exclamation-triangle text-2xl mr-3"></i>
+                <div>
+                    <h4 class="font-bold text-lg">Error</h4>
+                    <p class="mt-1" id="error-message">There was an error submitting your request. Please try again or call us directly at (703) 997-0026.</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Form Styles -->
+<style>
+:root {
+    --aj-orange: #FF7200;
+    --aj-dark: #222222;
+}
+
+.unified-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-section {
+    transition: all 0.3s ease;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Radio/Checkbox Options Styling */
+.service-option:has(input:checked),
+.urgency-option:has(input:checked),
+.contact-method:has(input:checked),
+.time-preference:has(input:checked) {
+    border-color: var(--aj-orange);
+    background-color: rgba(255, 114, 0, 0.05);
+}
+
+/* File Upload Styling */
+.file-upload-area.dragover {
+    border-color: var(--aj-orange);
+    background-color: rgba(255, 114, 0, 0.05);
+}
+
+.file-preview-item {
+    position: relative;
+    aspect-ratio: 1;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9fafb;
+}
+
+.file-preview-item img,
+.file-preview-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-file {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.remove-file:hover {
+    background-color: #dc2626;
+}
+
+/* Progress Bar */
+.progress-steps .step-label.active {
+    color: var(--aj-orange);
+    font-weight: 600;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .unified-form-container {
+        padding: 16px;
+    }
+    
+    .form-section {
+        padding: 20px 16px;
+    }
+    
+    .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid.md\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .form-navigation {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .form-navigation .flex-1 {
+        display: none;
+    }
+    
+    #submit-form,
+    #next-step,
+    #prev-step {
+        width: 100%;
+    }
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    outline: 2px solid #0066CC;
+    outline-offset: 2px;
+}
+
+/* Loading state */
+.form-loading-state {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.form-loading-state .submit-text::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '...'; }
+    40% { content: ''; }
+    60% { content: '.'; }
+    80% { content: '..'; }
+}
+</style></body></html>

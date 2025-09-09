@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Enhanced Title Tag -->
+    <title>Electrician Virginia Square VA | Historic Home & Metro Area Specialists | AJ Long Electric</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="AJ Long Electric provides specialized electrical services for Virginia Square's historic homes, educational institutions, and metro-adjacent properties. Expert electrical solutions with over 1,200 5-star reviews serving Arlington.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav { 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* Mobile menu */
+        .mobile-menu { 
+            position: fixed; 
+            top: 0; 
+            right: -100%; 
+            width: 80%; 
+            height: 100%; 
+            background-color: white; 
+            z-index: 200; 
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
+            transition: right 0.3s ease; 
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
+            z-index: 199; 
+            display: none; 
+        }
+
+        /* Section preview */
+        .section-preview { position: relative; overflow: hidden; }
+        .section-overlay { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); 
+            padding: 2rem 1rem 1rem; 
+            transition: all 0.3s ease; 
+        }
+        .section-preview:hover .section-overlay { 
+            background: linear-gradient(to top, rgba(255,114,0,0.9), transparent); 
+        }
+
+        /* Chat widget */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+        .chat-button { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            background-color: var(--aj-orange); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        }
+        .chat-popup { 
+            position: absolute; 
+            bottom: 80px; /* Increased spacing */ 
+            right: 0; 
+            width: 300px; 
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            overflow: hidden; 
+            display: none; 
+            flex-direction: column; 
+            max-height: 400px; /* Limit height */ 
+        }
+        .chat-header { 
+            background-color: var(--aj-dark); 
+            color: white; 
+            padding: 10px 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+        }
+        .chat-messages { 
+            flex-grow: 1; /* Allow messages to take available space */ 
+            padding: 15px; 
+            overflow-y: auto; /* Enable scroll */ 
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #eee;
+            padding: 10px;
+            flex-shrink: 0;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/virginia-square.html",
+      "name": "AJ Long Electric - Virginia Square",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/virginia-square.html",
+      "telephone": "+1-703-997-4974",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8835,
+        "longitude": -77.1075
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Virginia Square" },
+        { "@type": "Place", "name": "Arlington", "containedInPlace": { "@type": "State", "name": "Virginia" } }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.google.com/maps?cid=12345",
+        "https://www.yelp.com/biz/aj-long-electric"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/virginia-square.html"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Elizabeth M."
+        },
+        "datePublished": "2023-06-15",
+        "reviewBody": "We needed to update the electrical system in our 1940s Virginia Square home without compromising its historic character. AJ Long Electric did an outstanding job, carefully concealing modern wiring while preserving all the original features. Their knowledge of older homes was impressive, and they identified several safety issues we weren't aware of."
+      },
+      "description": "Professional electrical services in Virginia Square, VA. Specializing in historic home electrical modernization, educational institution solutions, and safety upgrades. Licensed and insured electricians with over 1,200 5-star reviews serving Arlington."
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-gray-800 to-gray-900 py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="animate-fadeInUp">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Premier Electrical Services in Virginia Square, VA</h1>
+                    <p class="text-lg mb-6">Specialized solutions for Virginia Square's historic homes, educational institutions, and metro-adjacent properties.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-800 transition hover-grow">
+                            Get a Free Estimate
+                        </a>
+                        <a href="tel:7039970026" class="inline-block bg-white text-aj-dark font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition hover-grow">
+                            <i class="fas fa-phone mr-2"></i> Call Us Today
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <img src="/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg" alt="Electrical Services in Virginia Square" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Virginia Square Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Virginia Square, VA: Education Hub & Historic Neighborhood</h2>
+                <p class="text-lg text-gray-600">Virginia Square is a charming Arlington neighborhood known for its educational institutions, historic homes, and convenient metro access. As local electrical experts, we provide specialized services tailored to the unique needs of this community.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg" alt="Virginia Square Area" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Our Specialized Virginia Square Electrical Services</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Historic Home Electrical:</strong> Specialized solutions for Virginia Square's older homes that preserve character while updating safety.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Educational Facility Services:</strong> Electrical work for schools, universities, and educational institutions in the area.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Panel Upgrades:</strong> Modernizing electrical panels in older homes to handle today's power demands.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>Energy-Efficient Lighting:</strong> Custom lighting solutions that enhance aesthetics while reducing costs.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3"></i>
+                            <span><strong>24/7 Emergency Service:</strong> Fast, reliable response when electrical issues arise in your Virginia Square property.</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-gray-600">Our team has extensive experience working in Virginia Square's unique environment. We understand the specific electrical needs and challenges of both historic homes and educational facilities in this area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Popular Electrical Services in Virginia Square</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Our most requested services for Virginia Square's diverse mix of historic homes and institutional buildings.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <div class="service-icon">
+                        <i class="fas fa-home text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Historic Home Electrical</h3>
+                        <p class="text-gray-600 mb-4">Specialized electrical solutions for Virginia Square's historic homes, including safe rewiring, panel upgrades, and custom lighting that preserves architectural integrity.</p>
+                        <a href="/services.html" class="text-aj-orange hover:underline flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Energy-Efficient Lighting</h3>
+                        <p class="text-gray-600 mb-4">Modern, energy-saving lighting solutions for Virginia Square homes and institutions, including LED retrofits, recessed lighting, and smart lighting systems.</p>
+                        <a href="/services.html" class="text-aj-orange hover:underline flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card rounded-lg overflow-hidden bg-white">
+                    <div class="service-icon">
+                        <i class="fas fa-plug text-aj-orange text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Electrical Safety Inspections</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive electrical safety assessments for Virginia Square's older homes and buildings to identify potential hazards and ensure code compliance.</p>
+                        <a href="/services.html" class="text-aj-orange hover:underline flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/services.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">What Virginia Square Residents Say</h2>
+            <p class="text-center text-gray-600 mb-12">Hear from our satisfied customers in the Virginia Square community</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-aj-orange mr-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-semibold">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">"We needed to update the electrical system in our 1940s Virginia Square home without compromising its historic character. AJ Long Electric did an outstanding job, carefully concealing modern wiring while preserving all the original features. Their knowledge of older homes was impressive, and they identified several safety issues we weren't aware of."</p>
+                    <div class="font-semibold">- Elizabeth M., Virginia Square Homeowner</div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-aj-orange mr-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-semibold">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">"As facility managers for an educational building in Virginia Square, we needed a reliable electrician for a complex lighting upgrade. AJ Long Electric worked around our schedule to minimize disruption, completed the project on time and under budget, and the new energy-efficient system has already reduced our electricity costs significantly."</p>
+                    <div class="font-semibold">- James W., Facilities Director</div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/testimonials.html" class="text-aj-orange hover:underline font-semibold">
+                    Read more testimonials <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Why Choose AJ Long Electric in Virginia Square</h2>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-certificate text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Licensed & Insured Professionals</h3>
+                                <p class="text-gray-600">Our team is fully licensed, insured, and expertly trained to handle all electrical needs in Virginia Square's historic homes and educational buildings.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-map-marker-alt text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Local Virginia Square Expertise</h3>
+                                <p class="text-gray-600">We understand the specific electrical systems and challenges common in Virginia Square's older homes and institutional buildings.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4 text-aj-orange">
+                                <i class="fas fa-clock text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Fast, Reliable Service</h3>
+                                <p class="text-gray-600">Our proximity to Virginia Square allows us to provide prompt service, often with same-day or next-day availability for urgent needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="/assets/images/gallery/lighting/Electrical-Under-Cabinet-Lighting.webp" alt="AJ Long Electric Professionals" class="rounded-lg shadow-lg">
+                    <div class="absolute bottom-4 left-4 right-4 bg-white bg-opacity-90 p-4 rounded">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-aj-orange">
+                                <i class="fas fa-trophy text-3xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Over 1,200 Five-Star Reviews</p>
+                                <p class="text-sm text-gray-600">Trusted by homeowners and institutions across Northern Virginia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4 text-center">Serving the Virginia Square Area</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">AJ Long Electric proudly serves Virginia Square and surrounding Arlington neighborhoods. Our electricians are familiar with the area's historic architecture, educational institutions, and residential properties.</p>
+            
+            <div class="map-responsive rounded-lg overflow-hidden shadow-lg">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.402211655789!2d-77.10750442371863!3d38.88354817130062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b6828ae3bfa7%3A0x75d0e483911bd008!2sVirginia%20Square%2C%20Arlington%2C%20VA!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-building text-aj-orange mr-2"></i> Notable Areas We Serve
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>Virginia Square Metro Area</li>
+                        <li>Arlington Center for the Arts</li>
+                        <li>GMU Arlington Campus</li>
+                        <li>Historic Residential Areas</li>
+                        <li>Wilson Boulevard Corridor</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-tools text-aj-orange mr-2"></i> Popular Services
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>Historic Home Electrical</li>
+                        <li>Panel Upgrades & Replacements</li>
+                        <li>Energy-Efficient Lighting</li>
+                        <li>Electrical Safety Inspections</li>
+                        <li>Educational Facility Services</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-clock text-aj-orange mr-2"></i> Service Hours
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><strong>Monday-Friday:</strong> 7:00 AM - 6:00 PM</li>
+                        <li><strong>Saturday:</strong> 8:00 AM - 4:00 PM</li>
+                        <li><strong>Sunday:</strong> By appointment</li>
+                        <li class="pt-2"><strong>Emergency Service:</strong> 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Also Serve Nearby Areas Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center">We Also Serve Nearby Areas</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <a href="/virginia-electrical-services/arlington.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Arlington
+                </a>
+                <a href="/virginia-electrical-services/ballston.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Ballston
+                </a>
+                <a href="/virginia-electrical-services/clarendon.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Clarendon
+                </a>
+                <a href="/virginia-electrical-services/courthouse.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Courthouse
+                </a>
+                <a href="/virginia-electrical-services/rosslyn.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Rosslyn
+                </a>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="/service-areas.html" class="text-aj-orange hover:underline inline-flex items-center">
+                    View All Service Areas <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Work with Virginia Square's Trusted Electricians?</h2>
+            <p class="text-lg mb-8 max-w-3xl mx-auto">Schedule your consultation today for professional electrical services tailored to your Virginia Square property's needs.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                    Request Your Free Estimate
+                </a>
+                <a href="tel:7039974974" class="inline-block bg-white text-aj-dark font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-100 transition">
+                    <i class="fas fa-phone mr-2"></i> Call 703-997-4974
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Footer (loaded via JavaScript) -->
+    <div data-include="/include/standard-footer.html"></div>
+
+        <div class="chat-popup" id="chat-popup">
+            <div class="chat-header">
+                <h3>Chat with Us</h3>
+                <button id="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="mb-3">
+                    <strong>AJ Long Electric:</strong> Hi there! How can we help with your electrical needs in Virginia Square?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chat-input-field">
+                <button id="send-message">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy loading images
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
+                    }
+                });
+            }, options);
+            
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
+            
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                    menuOverlay.style.display = 'block';
+                });
+            }
+            
+            if (closeMenu) {
+                closeMenu.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.style.display = 'none';
+                });
+            }
+            
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.style.display = 'none';
+                });
+            }
+            
+            // Chat functionality

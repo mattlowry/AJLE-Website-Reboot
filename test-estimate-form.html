@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Estimate Form - AJ Long Electric</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Test Estimate Form - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/test-estimate-form.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Test Estimate Form - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+</head>
+<body>
+    <h1>Test Estimate Form</h1>
+    
+    <form id="estimate-form" action="/api/housecall-pro-estimate" method="POST">
+        <h2>Contact Information</h2>
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required="">
+        </div>
+        
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required="">
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required="">
+        </div>
+        
+        <div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required="">
+        </div>
+        
+        <h2>Service Location</h2>
+        <div>
+            <label for="address">Street Address:</label>
+            <input type="text" id="address" name="address" required="">
+        </div>
+        
+        <div>
+            <label for="unit">Unit/Apt:</label>
+            <input type="text" id="unit" name="unit">
+        </div>
+        
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required="">
+        </div>
+        
+        <div>
+            <label for="state">State:</label>
+            <select id="state" name="state" required="">
+                <option value="VA">Virginia</option>
+                <option value="MD">Maryland</option>
+                <option value="DC">Washington DC</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" name="zip" required="">
+        </div>
+        
+        <h2>Service Details</h2>
+        <div>
+            <label for="service">Service Type:</label>
+            <select id="service" name="service" required="">
+                <option value="">Select a service</option>
+                <option value="Electrical Panel Upgrade">Electrical Panel Upgrade</option>
+                <option value="EV Charger Installation">EV Charger Installation</option>
+                <option value="Outlet Installation">Outlet Installation</option>
+                <option value="Lighting Installation">Lighting Installation</option>
+                <option value="Electrical Repair">Electrical Repair</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="timeline">Timeline:</label>
+            <select id="timeline" name="timeline">
+                <option value="">Select timeline</option>
+                <option value="ASAP">ASAP</option>
+                <option value="This Week">This Week</option>
+                <option value="Next Week">Next Week</option>
+                <option value="This Month">This Month</option>
+                <option value="Just Planning">Just Planning</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="description">Project Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        
+        <button type="submit">Submit Estimate Request</button>
+    </form>
+    
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
+
+    <script>
+        document.getElementById('estimate-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const formObject = {};
+            
+            // Convert FormData to plain object
+            for (let [key, value] of formData.entries()) {
+                formObject[key] = value;
+            }
+            
+            // Show loading
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = 'Submitting...';
+            
+            try {
+                const response = await fetch('/api/housecall-pro-estimate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formObject)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<strong>Success!</strong> ${result.message}`;
+                    resultDiv.style.color = 'green';
+                } else {
+                    resultDiv.innerHTML = `<strong>Error:</strong> ${result.message}`;
+                    resultDiv.style.color = 'red';
+                }
+                
+                console.log('Response:', result);
+            } catch (error) {
+                resultDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                resultDiv.style.color = 'red';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+
+</body></html>

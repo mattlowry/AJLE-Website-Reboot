@@ -1,0 +1,427 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule an Appointment | AJ Long Electric</title>
+    <meta name="description" content="Book an appointment with AJ Long Electric. Select a convenient date and time for your electrical service needs.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Schedule an Appointment | AJ Long Electric">
+    <meta property="og:description" content="Book an appointment with AJ Long Electric. Select a convenient date and time for your electrical service needs.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/schedule-appointment.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schedule an Appointment | AJ Long Electric">
+    <meta name="twitter:description" content="Book an appointment with AJ Long Electric. Select a convenient date and time for your electrical service needs.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        /* Scheduler Specific Styles */
+        .scheduler-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scheduler-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-container {
+            margin-bottom: 30px;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .calendar-nav button {
+            background-color: #FF7200;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #current-month {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .calendar-row {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .calendar-cell {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+        }
+        
+        .calendar-cell.header {
+            font-weight: bold;
+            background-color: #333;
+            color: white;
+        }
+        
+        .calendar-cell.selectable {
+            cursor: pointer;
+        }
+        
+        .calendar-cell.selectable:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .calendar-cell.selected {
+            background-color: #FF7200;
+            color: white;
+        }
+        
+        .calendar-cell.today {
+            border: 2px solid #FF7200;
+        }
+        
+        .calendar-cell.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .time-slots-container {
+            margin-bottom: 30px;
+        }
+        
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .time-slot {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .time-slot:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .time-slot.selected {
+            background-color: #FF7200;
+            color: white;
+        }
+        
+        .time-slot .time {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .time-slot .duration {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .time-slot.selected .duration {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .slot-selection {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .booking-form {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-row {
+            margin-bottom: 20px;
+        }
+        
+        .form-row label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-row input, 
+        .form-row select, 
+        .form-row textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-row input.error,
+        .form-row select.error {
+            border-color: #ff0000;
+        }
+        
+        .form-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .form-actions button {
+            background-color: #FF7200;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .form-actions button:hover {
+            background-color: #e66800;
+        }
+        
+        .confirmation-content {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .confirmation-header {
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-id {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .confirmation-details {
+            margin-bottom: 30px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+        }
+        
+        .confirmation-message {
+            margin-bottom: 30px;
+        }
+        
+        .confirmation-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: #FF7200;
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background-color: #333;
+            color: white;
+            border: none;
+        }
+        
+        /* Loading and Error States */
+        .loading, .error, .no-slots {
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .loading {
+            background-color: #f5f5f5;
+        }
+        
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .no-slots {
+            background-color: #fff8e1;
+            color: #ff8f00;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div data-include="/include/standard-header.html"></div>
+    
+    <main>
+        <section class="hero-section small-hero">
+            <div class="container">
+                <h1>Schedule an Appointment</h1>
+                <p>Select a date and time that works for you</p>
+            </div>
+        </section>
+        
+        <section class="scheduler-section">
+            <div class="container">
+                <div class="scheduler-container">
+                    <div class="scheduler-header">
+                        <h2>Book Your Electrical Service</h2>
+                        <p>Browse available time slots and select a convenient time for your service</p>
+                    </div>
+                    
+                    <!-- Calendar and Time Slots -->
+                    <div class="calendar-container">
+                        <div class="calendar-nav">
+                            <button id="prev-month">« Previous</button>
+                            <div id="current-month">May 2025</div>
+                            <button id="next-month">Next »</button>
+                        </div>
+                        <div id="scheduler-calendar"></div>
+                    </div>
+                    
+                    <div id="available-slots" class="time-slots-container">
+                        <p>Please select a date from the calendar to view available time slots.</p>
+                    </div>
+                    
+                    <!-- Selected Time Slot Display -->
+                    <div id="slot-selection" class="slot-selection"></div>
+                    
+                    <!-- Booking Form -->
+                    <form id="booking-form" class="booking-form" method="POST" action="/api/schedule-job" data-netlify="true" name="booking">
+                        <h3>Your Information</h3>
+                        
+                        <div class="form-row">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required="">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required="">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required="">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="unit">Unit/Apt (Optional)</label>
+                            <input type="text" id="unit" name="unit">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" value="VA">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" name="zip">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="service-type">Service Type *</label>
+                            <select id="service-type" name="service-category" required="">
+                                <option value="general">General Electrical Service</option>
+                                <option value="panel">Panel Replacement/Upgrade</option>
+                                <option value="lighting">Lighting Installation</option>
+                                <option value="outlet">Outlet Installation</option>
+                                <option value="switch">Switch Installation</option>
+                                <option value="fan">Ceiling Fan Installation</option>
+                                <option value="ev">EV Charger Installation</option>
+                                <option value="repair">Electrical Repair</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="description">Service Details (Optional)</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Tell us more about the service you need..."></textarea>
+                        </div>
+                        
+                        <!-- Hidden fields for selected slot data -->
+                        <input type="hidden" id="slot_start" name="slot_start">
+                        <input type="hidden" id="slot_end" name="slot_end">
+                        
+                        <div class="form-actions">
+                            <button type="submit">Book Appointment</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Booking Confirmation (hidden initially) -->
+                    <div id="booking-confirmation" class="booking-confirmation"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Include Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+    
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/scheduler.js"></script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

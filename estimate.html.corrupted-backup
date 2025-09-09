@@ -1,0 +1,96 @@
+                    });
+                    
+                    // Submit to Housecall Pro integration
+                    fetch('/.netlify/functions/housecall-pro-estimate', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            alert('Thank you! Your estimate request has been submitted. We will contact you during your preferred time to discuss your project and provide a detailed estimate.');
+                            
+                            // Redirect to thank you page
+                            window.location.href = '/thank-you.html';
+                        } else {
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Form Submission Error:', error);
+                        alert('There was an error submitting your request. Please try again or call us directly at (703) 997-0026.');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+            
+            // Service area validation
+            const addressInput = document.getElementById('address');
+            if (addressInput) {
+                addressInput.addEventListener('blur', validateServiceArea);
+            }
+            
+            function validateServiceArea() {
+                const zip = document.getElementById('zip').value;
+                const state = document.getElementById('state').value;
+                const errorDiv = document.getElementById('service-area-error');
+                
+                // List of served areas (you can expand this)
+                const servedZips = ['20001', '20002', '20003', '20004', '20005', '20006', '20007', '20008', '20009', '20010', 
+                                  '20011', '20012', '20013', '20015', '20016', '20017', '20018', '20019', '20020', '20024',
+                                  '20032', '20036', '20037', '20052', '20053', '20064', '20065', '20071', '20230', '20240',
+                                  '20001', '20002', '20003', '20004', '20005', '20006', '20007', '20008', '20009', '20010'];
+                const servedStates = ['VA', 'MD', 'DC'];
+                
+                if (zip && state && (!servedStates.includes(state) || !zip.match(/^[2][0-2]\d{3}$/))) {
+                    errorDiv.classList.remove('hidden');
+                } else {
+                    errorDiv.classList.add('hidden');
+                }
+            }
+        });
+        
+        // Make initAutocomplete global for Google Maps callback
+        window.initAutocomplete = initAutocomplete;
+    </script>
+
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+</body>
+</html>

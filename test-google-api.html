@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Google Reviews API</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Test Google Reviews API">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/test-google-api.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Test Google Reviews API">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+</head>
+<body>
+    <h1>Google Reviews API Test</h1>
+    
+    <div id="log" style="font-family: monospace; background: #f4f4f4; padding: 20px;">
+        <p>Testing Google Reviews API...</p>
+    </div>
+    
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(message, data = null) {
+            const p = document.createElement('p');
+            p.innerHTML = message;
+            if (data) {
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(data, null, 2);
+                p.appendChild(pre);
+            }
+            log.appendChild(p);
+        }
+        
+        async function testGoogleReviews() {
+            addLog('1. Testing /api/google-reviews endpoint...');
+            
+            try {
+                const response = await fetch('/api/google-reviews');
+                addLog(`2. Response status: ${response.status}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                addLog('3. Response data:', data);
+                
+                if (data.reviews && data.reviews.length > 0) {
+                    addLog(`4. Found ${data.reviews.length} reviews`);
+                    addLog('5. First review:', data.reviews[0]);
+                } else {
+                    addLog('4. No reviews found in response');
+                }
+                
+                if (data.fallback) {
+                    addLog('⚠️ Using fallback data');
+                }
+                
+                if (data.error) {
+                    addLog('❌ Error in response:', data.error);
+                }
+                
+            } catch (error) {
+                addLog('❌ Error:', error.message);
+            }
+        }
+        
+        // Also test direct Google Places API call (if we had the API key client-side)
+        async function testGooglePlacesDirectly() {
+            addLog('\n6. Testing Google Place ID...');
+            const placeId = 'ChIJi4C5KHpLtokRnL3BDyVgw90';
+            addLog(`Place ID: ${placeId}`);
+            addLog(`This would require an API key client-side (not recommended)`);
+        }
+        
+        // Run tests
+        testGoogleReviews();
+        testGooglePlacesDirectly();
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+
+</body></html>

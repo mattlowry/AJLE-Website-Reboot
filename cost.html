@@ -1,0 +1,1393 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Cost Calculators | AJ Long Electric</title>
+    <meta name="description" content="Estimate costs for electrical projects with our interactive calculators. Plan your budget for panel upgrades, recessed lighting, EV chargers, and more.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrical Cost Calculators | AJ Long Electric">
+    <meta property="og:description" content="Estimate costs for electrical projects with our interactive calculators. Plan your budget for panel upgrades, recessed lighting, EV chargers, and more.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/cost.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrical Cost Calculators | AJ Long Electric">
+    <meta name="twitter:description" content="Estimate costs for electrical projects with our interactive calculators. Plan your budget for panel upgrades, recessed lighting, EV chargers, and more.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+        
+        .calculator-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .calculator-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--aj-orange);
+            color: white;
+        }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .slider-label {
+            font-weight: 600;
+            width: 100px;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            margin: 0 10px;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--aj-orange);
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--aj-orange);
+            cursor: pointer;
+        }
+        
+        .slider-value {
+            width: 80px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--aj-dark);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--aj-dark) transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Chat widget styles */
+
+        .chat-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-header button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Electrical Cost Calculators",
+        "description": "Estimate costs for electrical projects with our interactive calculators.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "AJ Long Electric",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ajlongelectric.com/images/logo.png" // Placeholder
+            }
+        },
+        "mainContentOfPage": {
+            "@type": "WebPageElement",
+            "cssSelector": ".main-content"
+        },
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".speakable"]
+        }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Sticky Header -->
+            <!-- Standard Header -->
+            <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+            <!-- Mobile menu is included in standard-header.html -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-100 py-2">
+        <div class="container mx-auto px-4">
+            <div class="text-sm">
+                <a href="/" class="text-gray-600 hover:text-aj-orange">Home</a>
+                <span class="mx-2">/</span>
+                <a href="resources.html" class="text-gray-600 hover:text-aj-orange">Resources</a> <!-- Updated Link -->
+                <span class="mx-2">/</span>
+                <span class="text-aj-orange font-medium">Electrical Cost Calculators</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-2/3 mb-8 md:mb-0 md:pr-12">
+                    <h1 class="text-4xl font-bold mb-4 speakable">Electrical <span class="text-aj-orange">Cost</span> Calculators</h1>
+                    <p class="text-lg mb-6 speakable">Plan your electrical projects with confidence using our interactive calculators. Get estimated costs for common electrical installations based on your specific needs.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#calculators" class="bg-aj-orange text-white font-bold px-6 py-3 rounded shadow text-center hover:bg-gray-800 transition">
+                            Try Our Calculators
+                        </a>
+                        <a href="#estimate" class="bg-transparent border-2 border-white font-bold px-6 py-3 rounded text-center hover:bg-white hover:text-aj-dark transition">
+                            Request Custom Estimate
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="bg-white p-2 rounded shadow-lg transform rotate-2">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/electrical-cost-estimation.jpg?_a=BBFAAAAA0" alt="Electrical cost estimation" class="rounded transform -rotate-2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 main-content">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 speakable">Plan Your Electrical Projects</h2>
+                <p class="text-lg text-gray-600 mb-8 speakable">Whether you're budgeting for a panel upgrade, planning recessed lighting installation, or considering an EV charger, our calculators help you estimate costs before contacting an electrician. As an experienced electrical contractor with over 1,200 5-star reviews in Fairfax County, we've created these tools based on typical project costs in our area.</p>
+                
+                <div class="bg-yellow-100 rounded-lg p-6 border-l-4 border-yellow-500 mb-8">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-2 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> Important Note
+                    </h3>
+                    <p class="text-yellow-700">These calculators provide general cost estimates based on typical scenarios in Fairfax County. Actual costs may vary based on your home's specific conditions, electrical system, accessibility, and other factors. For an accurate, personalized quote, we recommend requesting a free estimate from our licensed electricians.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculators Section -->
+    <section id="calculators" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 speakable">Interactive <span class="text-aj-orange">Calculators</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Select a calculator to estimate costs for your specific electrical project.</p>
+            </div>
+            
+            <!-- Tabs Navigation -->
+            <div class="max-w-6xl mx-auto mb-8">
+                <div class="flex flex-wrap justify-center">
+                    <button id="tab-panel" class="tab-btn px-6 py-3 font-bold text-gray-700 focus:outline-none active">Panel Upgrade</button>
+                    <button id="tab-lighting" class="tab-btn px-6 py-3 font-bold text-gray-700 focus:outline-none">Recessed Lighting</button>
+                    <button id="tab-ev" class="tab-btn px-6 py-3 font-bold text-gray-700 focus:outline-none">EV Charger</button>
+                    <button id="tab-ceiling" class="tab-btn px-6 py-3 font-bold text-gray-700 focus:outline-none">Ceiling Fan</button>
+                    <button id="tab-outlets" class="tab-btn px-6 py-3 font-bold text-gray-700 focus:outline-none">Outlets &amp; Switches</button>
+                </div>
+            </div>
+            
+            <!-- Panel Upgrade Calculator -->
+            <div id="panel-calc" class="tab-content active max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Panel Upgrade Cost Calculator</h3>
+                <p class="text-gray-600 mb-8">Estimate the cost of upgrading your electrical panel based on your specific requirements. Use the sliders below to adjust parameters and see how they affect the total cost.</p>
+                
+                <div class="space-y-6">
+                    <!-- Panel Size -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Panel Size: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">The amperage rating determines how much power your home can use simultaneously. Larger homes and homes with electric heating, EV chargers, or other high-demand devices need higher amperage.</span>
+                                </span>
+                            </label>
+                            <div id="panel-size-display" class="font-semibold">150 Amp</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="3" value="2" class="slider" id="panel-size">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>100 Amp</span>
+                                    <span>125 Amp</span>
+                                    <span>150 Amp</span>
+                                    <span>200 Amp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Upgrade -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Service Upgrade Needed: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">If your current service line from the utility company isn't sufficient for the new panel, a service upgrade is required. This includes new service entrance cables, meter base, and coordination with the utility company.</span>
+                                </span>
+                            </label>
+                            <div id="service-display" class="font-semibold">Yes</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="service" value="no" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">No (Panel Only)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="service" value="yes" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Circuit Breakers -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Number of Circuit Breakers: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">How many circuit breakers need to be transferred or installed in the new panel. More circuits require more labor and materials.</span>
+                                </span>
+                            </label>
+                            <div id="circuits-display" class="font-semibold">20 Circuits</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="10" max="40" value="20" step="2" class="slider" id="circuits">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>10</span>
+                                    <span>20</span>
+                                    <span>30</span>
+                                    <span>40</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Permit & Inspection -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Permit &amp; Inspection Fees:
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Electrical panel upgrades require permits and inspections in Fairfax County. These fees vary based on project size and are paid to the county.</span>
+                                </span>
+                            </label>
+                            <div id="permit-display" class="font-semibold">Included</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accessibility Factor -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Accessibility Factor: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">How difficult it is to access and work on your panel. Limited space, finished walls, or other obstructions can increase installation time and cost.</span>
+                                </span>
+                            </label>
+                            <div id="access-display" class="font-semibold">Standard</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="access" value="easy" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Easy</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="access" value="standard" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Standard</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="access" value="difficult" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Difficult</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Features -->
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Additional Features:</label>
+                        <div class="space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="surge">
+                                <span class="ml-2">Whole-House Surge Protection (+$450)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Protects all electronics and appliances in your home from power surges and lightning strikes.</span>
+                                </span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="backuppower">
+                                <span class="ml-2">Backup Power Transfer Switch (+$350)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Allows you to safely connect backup power sources to essential circuits in your panel.</span>
+                                </span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="smart">
+                                <span class="ml-2">Smart Electrical Monitoring System (+$650)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Monitor your home's electricity usage in real-time from your smartphone.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-8">
+                    
+                    <!-- Cost Estimate -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-bold text-gray-800">Estimated Cost:</h4>
+                            <div class="text-3xl font-bold text-aj-orange" id="panel-total">$3,500</div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">*This estimate is based on typical project costs in Fairfax County and surrounding areas. Actual costs may vary based on specific conditions at your home.</p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Request Exact Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recessed Lighting Calculator -->
+            <div id="lighting-calc" class="tab-content max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Recessed Lighting Calculator</h3>
+                <p class="text-gray-600 mb-8">Estimate the cost of installing recessed lighting in your home. Adjust the parameters below to fit your specific project requirements.</p>
+                
+                <div class="space-y-6">
+                    <!-- Number of Lights -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Number of Recessed Lights: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">How many recessed light fixtures you want to install. For optimal lighting, we typically recommend one light for every 25-50 square feet, depending on ceiling height and desired brightness.</span>
+                                </span>
+                            </label>
+                            <div id="lights-display" class="font-semibold">6 Lights</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="4" max="20" value="6" step="1" class="slider" id="lights">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>4</span>
+                                    <span>8</span>
+                                    <span>12</span>
+                                    <span>16</span>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Light Type -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Light Type:</label>
+                            <div id="light-type-display" class="font-semibold">Standard LED</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="grid grid-cols-3 gap-4">
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 light-option">
+                                    <input type="radio" name="light-type" value="standard" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="mt-2 text-center">Standard LED</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$35/fixture</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 light-option">
+                                    <input type="radio" name="light-type" value="premium" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">Premium LED</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$55/fixture</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 light-option">
+                                    <input type="radio" name="light-type" value="smart" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">Smart LED</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$85/fixture</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ceiling Type -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Ceiling Type: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">The type of ceiling affects installation difficulty and time. Drywall ceilings are easiest, while insulated or finished ceilings may require additional work.</span>
+                                </span>
+                            </label>
+                            <div id="ceiling-type-display" class="font-semibold">Drywall (Standard)</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-type" value="drywall" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Drywall (Standard)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-type" value="insulated" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Insulated</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-type" value="finished" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Finished Basement</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wiring Status -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Wiring Status: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Is this a replacement of existing recessed lights or a new installation? New installations require additional wiring and potentially a new switch.</span>
+                                </span>
+                            </label>
+                            <div id="wiring-display" class="font-semibold">New Installation</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="wiring" value="replacement" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Replacing Existing Lights</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="wiring" value="new" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">New Installation</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Features -->
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Additional Features:</label>
+                        <div class="space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="dimmer">
+                                <span class="ml-2">Dimmer Switch (+$85)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Control the brightness of your lights to set the perfect mood for any occasion.</span>
+                                </span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="pot-lights">
+                                <span class="ml-2">Pot Light Trim Upgrade (+$15/light)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Decorative trim options to enhance the appearance of your recessed lights.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-8">
+                    
+                    <!-- Cost Estimate -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-bold text-gray-800">Estimated Cost:</h4>
+                            <div class="text-3xl font-bold text-aj-orange" id="lighting-total">$1,450</div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">*This estimate is based on typical project costs in Fairfax County and surrounding areas. Actual costs may vary based on specific conditions at your home.</p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Request Exact Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EV Charger Calculator -->
+            <div id="ev-calc" class="tab-content max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">EV Charger Installation Calculator</h3>
+                <p class="text-gray-600 mb-8">Estimate the cost of installing an electric vehicle charging station at your home. Adjust the parameters below to fit your specific requirements.</p>
+                
+                <div class="space-y-6">
+                    <!-- Charger Type -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Charger Type:</label>
+                            <div id="charger-type-display" class="font-semibold">Level 2 - 40 Amp</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="grid grid-cols-3 gap-4">
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 charger-option">
+                                    <input type="radio" name="charger-type" value="30amp" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">Level 2 - 30 Amp</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">Basic charging</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 charger-option">
+                                    <input type="radio" name="charger-type" value="40amp" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="mt-2 text-center">Level 2 - 40 Amp</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">Standard charging</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 charger-option">
+                                    <input type="radio" name="charger-type" value="50amp" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">Level 2 - 50 Amp</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">Fast charging</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Distance from Panel -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Distance from Electrical Panel: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">The length of wiring needed from your electrical panel to the EV charger location. Longer distances require more materials and labor.</span>
+                                </span>
+                            </label>
+                            <div id="distance-display" class="font-semibold">20 feet</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="5" max="100" value="20" step="5" class="slider" id="distance">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>5 ft</span>
+                                    <span>25 ft</span>
+                                    <span>50 ft</span>
+                                    <span>75 ft</span>
+                                    <span>100 ft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Installation Location -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Installation Location:</label>
+                            <div id="location-display" class="font-semibold">Garage (Interior)</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="location" value="garage" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Garage (Interior)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="location" value="exterior-covered" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Exterior (Covered)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="location" value="exterior-exposed" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Exterior (Exposed)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Panel Capacity -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Current Panel Capacity: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Does your electrical panel have enough available capacity for an EV charger? If not, a panel upgrade or load management system may be required.</span>
+                                </span>
+                            </label>
+                            <div id="capacity-display" class="font-semibold">Sufficient Capacity</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="capacity" value="sufficient" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Sufficient Capacity</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="capacity" value="load-management" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Needs Load Management</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="capacity" value="upgrade" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Needs Panel Upgrade</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Charger Provided -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Charger Equipment:</label>
+                            <div id="equipment-display" class="font-semibold">Provide &amp; Install</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="equipment" value="provide" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Provide &amp; Install</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="equipment" value="customer" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Customer Provided</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-8">
+                    
+                    <!-- Cost Estimate -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-bold text-gray-800">Estimated Cost:</h4>
+                            <div class="text-3xl font-bold text-aj-orange" id="ev-total">$1,750</div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">*This estimate is based on typical project costs in Fairfax County and surrounding areas. Actual costs may vary based on specific conditions at your home.</p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Request Exact Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ceiling Fan Calculator -->
+            <div id="ceiling-calc" class="tab-content max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Ceiling Fan Installation Calculator</h3>
+                <p class="text-gray-600 mb-8">Estimate the cost of installing ceiling fans in your home. Adjust the parameters below to fit your specific project requirements.</p>
+                
+                <div class="space-y-6">
+                    <!-- Number of Fans -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Number of Ceiling Fans:</label>
+                            <div id="fans-display" class="font-semibold">1 Fan</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="1" max="5" value="1" step="1" class="slider" id="fans">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span>4</span>
+                                    <span>5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Installation Type -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Installation Type: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Are you replacing an existing ceiling fan or light fixture, or is this a new installation that requires new wiring?</span>
+                                </span>
+                            </label>
+                            <div id="fan-install-display" class="font-semibold">Replace Light Fixture</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="grid grid-cols-3 gap-4">
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 fan-option">
+                                    <input type="radio" name="fan-install" value="replace-fan" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">Replace Existing Fan</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$150/fan</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 fan-option">
+                                    <input type="radio" name="fan-install" value="replace-light" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="mt-2 text-center">Replace Light Fixture</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$225/fan</span>
+                                </label>
+                                <label class="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 fan-option">
+                                    <input type="radio" name="fan-install" value="new-location" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="mt-2 text-center">New Location</span>
+                                    <span class="text-sm text-gray-500 text-center mt-1">$350/fan</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ceiling Height -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Ceiling Height: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Higher ceilings may require extension rods and additional equipment and labor.</span>
+                                </span>
+                            </label>
+                            <div id="ceiling-height-display" class="font-semibold">Standard (8-9 ft)</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-height" value="standard" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Standard (8-9 ft)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-height" value="high" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">High (10-12 ft)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ceiling-height" value="vaulted" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">Vaulted/Sloped</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Features -->
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Additional Features:</label>
+                        <div class="space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="remote">
+                                <span class="ml-2">Remote Control (+$45/fan)</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="dimmer-fan">
+                                <span class="ml-2">Fan/Light Dimmer Switch (+$85/fan)</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-aj-orange" id="brace">
+                                <span class="ml-2">Fan Rated Box/Brace (+$55/fan)</span>
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">Required for most new installations to safely support the weight and movement of a ceiling fan.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-8">
+                    
+                    <!-- Cost Estimate -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-bold text-gray-800">Estimated Cost:</h4>
+                            <div class="text-3xl font-bold text-aj-orange" id="fan-total">$225</div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">*This estimate does not include the cost of the ceiling fan itself, unless specified. Actual costs may vary based on specific conditions at your home.</p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Request Exact Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Outlets & Switches Calculator -->
+            <div id="outlets-calc" class="tab-content max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Outlets &amp; Switches Calculator</h3>
+                <p class="text-gray-600 mb-8">Estimate the cost of installing or replacing electrical outlets and switches in your home.</p>
+                
+                <div class="space-y-6">
+                    <!-- Number of Standard Outlets -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Standard Outlets to Replace/Add:</label>
+                            <div id="std-outlets-display" class="font-semibold">4 Outlets</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="20" value="4" step="1" class="slider" id="std-outlets">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>0</span>
+                                    <span>5</span>
+                                    <span>10</span>
+                                    <span>15</span>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Number of GFCI Outlets -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">GFCI Outlets to Replace/Add: 
+                                <span class="tooltip">
+                                    <i class="fas fa-info-circle text-aj-orange"></i>
+                                    <span class="tooltiptext">GFCI outlets provide shock protection and are required in kitchens, bathrooms, garages, and outdoor areas.</span>
+                                </span>
+                            </label>
+                            <div id="gfci-outlets-display" class="font-semibold">2 GFCI Outlets</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="10" value="2" step="1" class="slider" id="gfci-outlets">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>0</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>6</span>
+                                    <span>8</span>
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Number of USB Outlets -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">USB Outlets to Replace/Add:</label>
+                            <div id="usb-outlets-display" class="font-semibold">2 USB Outlets</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="10" value="2" step="1" class="slider" id="usb-outlets">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>0</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>6</span>
+                                    <span>8</span>
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Number of Standard Switches -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Standard Switches to Replace/Add:</label>
+                            <div id="std-switches-display" class="font-semibold">3 Switches</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="15" value="3" step="1" class="slider" id="std-switches">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>0</span>
+                                    <span>5</span>
+                                    <span>10</span>
+                                    <span>15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Number of Dimmer Switches -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Dimmer Switches to Replace/Add:</label>
+                            <div id="dimmer-switches-display" class="font-semibold">1 Dimmer</div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="w-full">
+                                <input type="range" min="0" max="10" value="1" step="1" class="slider" id="dimmer-switches">
+                                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                    <span>0</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>6</span>
+                                    <span>8</span>
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Installation Type -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="text-gray-700 font-medium">Installation Type:</label>
+                            <div id="outlet-install-display" class="font-semibold">Replacement (Same Location)</div>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="outlet-install" value="replacement" class="form-radio h-5 w-5 text-aj-orange" checked="">
+                                    <span class="ml-2">Replacement (Same Location)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="outlet-install" value="new" class="form-radio h-5 w-5 text-aj-orange">
+                                    <span class="ml-2">New Installation (New Location)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-8">
+                    
+                    <!-- Cost Estimate -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-bold text-gray-800">Estimated Cost:</h4>
+                            <div class="text-3xl font-bold text-aj-orange" id="outlet-total">$765</div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">*This estimate is based on typical project costs in Fairfax County and surrounding areas. Actual costs may vary based on specific conditions at your home.</p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                            Request Exact Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Estimate Section -->
+    <section id="estimate" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 speakable">Request a <span class="text-aj-orange">Custom Estimate</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">While our calculators provide good estimates, every home is unique. Get an exact quote for your specific project and needs.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-aj-dark p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Why Choose Us?</h3>
+                        <p class="mb-6">When you choose AJ Long Electric, you're choosing quality, reliability, and exceptional service.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Our Estimate Includes:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                    <span>Transparent flat-rate pricing</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                    <span>Detailed step-by-step work plans</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                    <span>Clear material and labor breakdown</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                    <span>5-year comprehensive warranty</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                    <span>No surprises or hidden fees</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Request Your Free Estimate</h3>
+                        <p class="text-gray-600 mb-6">Fill out the form below and one of our licensed electricians will contact you within 24 hours with a detailed quote.</p>
+                        
+                        <form method="POST" action="/api/submit-estimate" data-netlify="true" name="cost_form" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange" required="">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange" required="">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange" required="">
+                            </div>
+                            
+                            <div>
+                                <label for="project" class="block text-gray-700 font-medium mb-2">Project Type</label>
+                                <select id="project" name="project" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange" required="">
+                                    <option value="">-- Select Project Type --</option>
+                                    <option value="panel">Panel Upgrade</option>
+                                    <option value="lighting">Recessed Lighting</option>
+                                    <option value="ev">EV Charger Installation</option>
+                                    <option value="ceiling">Ceiling Fan Installation</option>
+                                    <option value="outlets">Outlets &amp; Switches</option>
+                                    <option value="other">Other (Please Specify)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="details" class="block text-gray-700 font-medium mb-2">Project Details</label>
+                                <textarea id="details" name="details" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange" placeholder="Please provide additional details about your project..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label for="timeline" class="block text-gray-700 font-medium mb-2">Preferred Timeline</label>
+                                <select id="timeline" name="timeline" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-aj-orange">
+                                    <option value="asap">As Soon As Possible</option>
+                                    <option value="1-week">Within 1 Week</option>
+                                    <option value="2-weeks">Within 2 Weeks</option>
+                                    <option value="month">Within a Month</option>
+                                    <option value="flexible">Flexible (No Rush)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="w-full bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                                    Submit Estimate Request
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body></html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical FAQs | Common Questions Answered | AJ Long Electric</title>
+    <meta name="description" content="Get answers to frequently asked questions about electrical services, panel upgrades, EV chargers, costs, and more. Expert advice from licensed electricians serving NoVA, DC &amp; MD.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="electrical FAQs, electrician questions, panel upgrade cost, electrical permit questions, code compliance, electrical safety, licensed electrician answers, Northern Virginia electrical questions">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/faq.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrical FAQs | Common Questions Answered | AJ Long Electric">
+    <meta property="og:description" content="Get answers to frequently asked questions about electrical services, panel upgrades, EV chargers, costs, and more. Expert advice from licensed electricians serving NoVA, DC &amp; MD.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/faq.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrical FAQs | Common Questions Answered | AJ Long Electric">
+    <meta name="twitter:description" content="Get answers to frequently asked questions about electrical services, panel upgrades, EV chargers, costs, and more.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+        
+        /* FAQ accordion */
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            color: var(--aj-orange);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        .faq-answer.active {
+            max-height: 2000px;
+            opacity: 1;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .faq-icon.active {
+            transform: rotate(45deg);
+            color: var(--aj-orange);
+        }
+        
+        /* Enhanced FAQ styling */
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .faq-question {
+            position: relative;
+            font-weight: 600;
+        }
+        .faq-answer ul {
+            margin-bottom: 1rem;
+        }
+        .faq-answer a {
+            color: var(--aj-orange);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        </style>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/include-html.js?v=1746953585"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Frequently Asked Questions - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/faq.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frequently Asked Questions - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800">
+<!-- Include the standard header -->
+<div data-include="/include/standard-header.html"></div>
+
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4 animate-fadeInUp">Frequently Asked Questions</h1>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">Find answers to common questions about our electrical services, process, and policies.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- FAQ Categories -->
+            <div class="mb-12">
+                <ul class="flex flex-wrap justify-center space-x-4 pb-6 border-b border-gray-200">
+                    <li><a href="#services" class="inline-block px-5 py-3 bg-aj-dark text-white rounded-full font-semibold hover:bg-aj-orange transition-all transform hover:scale-105 mb-2 shadow-md">
+                        <i class="fas fa-tools mr-2"></i>Services
+                    </a></li>
+                    <li><a href="#pricing" class="inline-block px-5 py-3 bg-aj-dark text-white rounded-full font-semibold hover:bg-aj-orange transition-all transform hover:scale-105 mb-2 shadow-md">
+                        <i class="fas fa-tag mr-2"></i>Pricing &amp; Estimates
+                    </a></li>
+                    <li><a href="#scheduling" class="inline-block px-5 py-3 bg-aj-dark text-white rounded-full font-semibold hover:bg-aj-orange transition-all transform hover:scale-105 mb-2 shadow-md">
+                        <i class="fas fa-calendar-alt mr-2"></i>Scheduling
+                    </a></li>
+                    <li><a href="#safety" class="inline-block px-5 py-3 bg-aj-dark text-white rounded-full font-semibold hover:bg-aj-orange transition-all transform hover:scale-105 mb-2 shadow-md">
+                        <i class="fas fa-shield-alt mr-2"></i>Electrical Safety
+                    </a></li>
+                    <li><a href="#company" class="inline-block px-5 py-3 bg-aj-dark text-white rounded-full font-semibold hover:bg-aj-orange transition-all transform hover:scale-105 mb-2 shadow-md">
+                        <i class="fas fa-building mr-2"></i>Our Company
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Services FAQs -->
+            <div id="services" class="mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-aj-orange p-3 rounded-full mr-4 shadow-md">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">Services</h2>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item pb-4 border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="faq-question flex justify-between items-center py-4 px-5 cursor-pointer hover:bg-gray-50">
+                            <h3 class="text-lg font-bold pr-8">What electrical services do you offer?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange text-xl"></i>
+                        </div>
+                        <div class="faq-answer px-5 pt-0 pb-5">
+                            <p class="text-gray-700 pb-4">
+                                We offer a comprehensive range of residential electrical services including but not limited to:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Electrical panel upgrades and replacements</li>
+                                <li>Recessed lighting installation</li>
+                                <li>EV charger installation for all vehicle brands</li>
+                                <li>Ceiling fan installation</li>
+                                <li>Kitchen and bathroom electrical upgrades</li>
+                                <li>Outlet installation and replacement (including GFCI and AFCI)</li>
+                                <li>Whole-home surge protection</li>
+                                <li>Troubleshooting and repairs</li>
+                                <li>Home remodeling electrical services</li>
+                                <li>Smart home wiring and device installation</li>
+                                <li>Generator hookups</li>
+                                <li>Electrical safety inspections</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                Visit our <a href="/services.html" class="text-aj-orange hover:underline">Services</a> page for more detailed information about each service we provide.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">Do you service commercial properties?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                AJ Long Electric specializes in residential electrical services. However, we do service small commercial properties on a case-by-case basis, particularly for long-term clients. For specific commercial electrical needs, please contact us directly to discuss your project, and we can determine if we're the right fit or recommend a trusted commercial electrical contractor in our network.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What brands of EV chargers do you install?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                We install all major brands of Electric Vehicle (EV) charging stations, including but not limited to:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Tesla Wall Connector</li>
+                                <li>ChargePoint Home Flex</li>
+                                <li>JuiceBox</li>
+                                <li>Wallbox Pulsar Plus</li>
+                                <li>Ford Charge Station Pro</li>
+                                <li>Emporia</li>
+                                <li>Grizzl-E</li>
+                                <li>Autel</li>
+                                <li>And many others</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                We can either install an EV charger you've purchased or help you select the right one for your vehicle and electrical setup. We also offer full electrical service upgrades when needed to support your EV charging needs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">Do you offer electrical safety inspections?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                Yes, we offer comprehensive electrical safety inspections for homes of all ages. Our trained electricians will check for potential hazards such as:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Outdated or unsafe wiring</li>
+                                <li>Overloaded circuits</li>
+                                <li>Improperly grounded outlets</li>
+                                <li>Panel issues or inadequate capacity</li>
+                                <li>GFCI and AFCI protection needs</li>
+                                <li>Smoke and carbon monoxide detector functionality</li>
+                                <li>Code compliance issues</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                These inspections are especially recommended when purchasing an older home, after experiencing repeated circuit breaker trips, before a major renovation, or if you haven't had your electrical system evaluated in the last 10 years.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pricing FAQs -->
+            <div id="pricing" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Pricing &amp; Estimates</h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">How much do your electrical services cost?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                The cost of electrical services varies widely depending on the specific project requirements, home configuration, materials needed, and complexity of work. For example:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Panel replacements typically range from $1,800-$4,500+</li>
+                                <li>EV charger installations generally cost $800-$1,800+ (depending on complexity)</li>
+                                <li>Recessed lighting varies based on number of fixtures and complexity</li>
+                                <li>Ceiling fans installation costs depend on whether there's existing wiring</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                The best way to get an accurate price for your specific needs is to <a href="/estimate.html" class="text-aj-orange hover:underline">request a detailed estimate</a> from us. We provide upfront pricing before any work begins, with no hidden fees or surprises.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">Do you charge for estimates?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">
+                                No, we provide free estimates for most electrical projects. You can request an estimate by filling out our <a href="/estimate.html" class="text-aj-orange hover:underline">online form</a> or calling our office. For standard services like EV charger installations, panel upgrades, and lighting projects, we can often provide estimates over the phone or online. For more complex projects or unique situations, we may need to schedule an in-person visit to assess the specifics before providing an accurate quote, but this visit is still free of charge.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What payment methods do you accept?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">
+                                We accept multiple payment methods for your convenience, including:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Credit cards (Visa, MasterCard, American Express, Discover)</li>
+                                <li>Debit cards</li>
+                                <li>Cash</li>
+                                <li>Checks</li>
+                                <li>Electronic payments (Apple Pay, Google Pay, Samsung Pay)</li>
+                                <li>Online payments through our customer portal</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                For larger projects, we may require a deposit before beginning work, with the balance due upon completion of the project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scheduling FAQs -->
+            <div id="scheduling" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Scheduling</h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">How far in advance do I need to schedule an appointment?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">
+                                Our scheduling availability varies by season and current workload. Typically, we can schedule routine service appointments within 3-7 business days. During peak seasons (spring and fall), this may extend to 1-2 weeks. For urgent issues, we make every effort to accommodate same-day or next-day service when possible. Larger projects such as panel replacements or whole-home rewiring may require scheduling 2-3 weeks in advance. The best approach is to contact us as soon as you know you need electrical work, and we'll find the earliest available appointment that works with your schedule.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item pb-4 border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="faq-question flex justify-between items-center py-4 px-5 cursor-pointer hover:bg-gray-50">
+                            <h3 class="text-lg font-bold pr-8">How do you handle urgent electrical issues?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange text-xl"></i>
+                        </div>
+                        <div class="faq-answer px-5 pt-0 pb-5">
+                            <p class="text-gray-700 mb-4">
+                                While we don't maintain a formal 24/7 emergency service, we understand that urgent electrical issues can arise. Our approach to urgent situations is:
+                            </p>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded mb-4">
+                                <p class="text-yellow-800 font-medium">
+                                    For safety-critical situations, such as:
+                                </p>
+                                <ul class="list-disc pl-5 text-yellow-800 space-y-1 pt-2">
+                                    <li>Burning odors or sparking from electrical components</li>
+                                    <li>Exposed wiring in high-traffic areas</li>
+                                    <li>Electrical components in contact with water</li>
+                                    <li>Continuous breaker tripping with unknown cause</li>
+                                </ul>
+                                <p class="text-yellow-800 font-medium mt-3">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>First ensure your safety, call 911 if necessary, and then contact us at 703-997-0026.
+                                </p>
+                            </div>
+                            <p class="text-gray-700 mb-3">
+                                During business hours (Monday-Friday, 8am-6pm), we prioritize urgent calls and will do our best to address safety concerns as quickly as possible. Outside of business hours, we value our team members' family time, but will accommodate truly urgent situations when our technicians are available.
+                            </p>
+                            <p class="text-gray-700">
+                                We believe in an honest approach - rather than promising 24/7 emergency service with long wait times, we offer reliable service during business hours and exceptional accommodation for truly urgent situations when possible.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What are your service hours?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer px-5 pt-0 pb-5">
+                            <p class="text-gray-700 mb-3">
+                                Our standard service hours are:
+                            </p>
+                            <ul class="list-none pl-0 text-gray-700 space-y-3 mb-4">
+                                <li class="flex items-center">
+                                    <span class="inline-block bg-aj-orange text-white rounded-full p-2 mr-3"><i class="fas fa-clock"></i></span>
+                                    <span class="font-medium">Monday - Friday:</span> 8:00 AM - 6:00 PM
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="inline-block bg-gray-400 text-white rounded-full p-2 mr-3"><i class="fas fa-calendar-day"></i></span>
+                                    <span class="font-medium">Weekends:</span> Closed (We value our technicians' family time)
+                                </li>
+                            </ul>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-4">
+                                <p class="text-blue-700">
+                                    <span class="font-bold">Note:</span> While we do not offer regular emergency services, we understand that electrical issues can be disruptive. If you're experiencing an urgent situation, please call us, and we'll do our best to help when possible. We value both our team members' work-life balance and our commitment to our customers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Electrical Safety FAQs -->
+            <div id="safety" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Electrical Safety</h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What are signs that I might need an electrical panel upgrade?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                Here are common signs that indicate you may need a panel upgrade:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Frequent circuit breaker trips</li>
+                                <li>Flickering or dimming lights when appliances turn on</li>
+                                <li>Need to unplug one device to use another</li>
+                                <li>Still using a fuse box instead of circuit breakers</li>
+                                <li>Buzzing sounds coming from the electrical panel</li>
+                                <li>Warm or discolored outlets or switch plates</li>
+                                <li>Home is over 25 years old with the original panel</li>
+                                <li>Panel is less than 100 amps (most modern homes need 200A or more)</li>
+                                <li>Adding major electrical loads (EV charger, hot tub, etc.)</li>
+                                <li>Panel manufacturer is Federal Pacific Electric, Zinsco, or Challenger (known safety issues)</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                If you're experiencing any of these issues, we recommend scheduling an electrical inspection to assess your panel. Read our complete <a href="/resources/signs-panel-upgrade.html" class="text-aj-orange hover:underline">panel upgrade guide</a>.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What should I do if I experience an electrical emergency?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                In case of an electrical emergency:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li><strong>If there's a fire:</strong> Evacuate immediately and call 911. Only use a fire extinguisher if the fire is small, contained, and you have a proper Class C extinguisher for electrical fires.</li>
+                                <li><strong>If someone is receiving an electrical shock:</strong> Do NOT touch them directly. Turn off power at the breaker or unplug the device if safe to do so. Call 911 immediately.</li>
+                                <li><strong>For burning odors, smoke, or sparks:</strong> Turn off power to the affected area at the main panel if safe to do so, and call us for emergency service.</li>
+                                <li><strong>For power outages affecting only your home:</strong> Check your main breaker first. If it's not tripped and your neighbors have power, call us.</li>
+                                <li><strong>For neighborhood power outages:</strong> Contact your utility company and follow their safety guidelines.</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                For electrical emergencies requiring professional help, call us at 703-997-0026 and follow the emergency prompts. Keep our number and your utility company's emergency number readily accessible.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">How often should I have my home's electrical system inspected?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                We recommend regular electrical inspections based on the age of your home:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li><strong>Homes less than 10 years old:</strong> Every 5-7 years</li>
+                                <li><strong>Homes 10-25 years old:</strong> Every 3-5 years</li>
+                                <li><strong>Homes 25-40 years old:</strong> Every 2-3 years</li>
+                                <li><strong>Homes over 40 years old:</strong> Annually</li>
+                            </ul>
+                            <p class="text-gray-600 pb-4">
+                                You should also consider an inspection:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>Before purchasing a home</li>
+                                <li>After a major storm or flood</li>
+                                <li>Before and after major renovations</li>
+                                <li>When adding significant new electrical loads (like an EV charger)</li>
+                                <li>If you notice flickering lights, tripping breakers, or other electrical issues</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                Regular inspections help identify potential issues before they become dangerous or costly problems. Contact us to schedule a comprehensive electrical safety inspection.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Company FAQs -->
+            <div id="company" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Our Company</h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">Are you licensed and insured?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                Yes, AJ Long Electric is fully licensed, bonded, and insured in Virginia, Maryland, and Washington DC. Our license and insurance information is as follows:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li><strong>Virginia:</strong> Master Electrician License #2705031092</li>
+                                <li><strong>Maryland:</strong> Master Electrician License #3309</li>
+                                <li><strong>Washington DC:</strong> Master Electrician License #EM40000654</li>
+                                <li>General Liability Insurance: $2,000,000</li>
+                                <li>Workers' Compensation Insurance: As required by law</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                We're happy to provide verification of our licenses and insurance information upon request. Working with licensed and insured electrical contractors is crucial for your protection and ensures all work is performed according to applicable codes and standards.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">Do you offer a warranty on your work?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                Yes, we stand behind our work with a comprehensive 5-year warranty that covers both labor and parts for electrical work we perform. This warranty means:
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 mb-4">
+                                <li>If any installation we perform fails within 5 years due to defective workmanship, we'll repair it at no cost to you</li>
+                                <li>Parts and materials we install that fail within this period will be replaced at no cost (excluding damage from external factors)</li>
+                                <li>This warranty is transferable to new homeowners if you sell your property</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                Manufacturer warranties for specific products (like EV chargers or ceiling fans) may vary and those warranty terms would apply for product-specific issues. Our warranty documentation is provided with all completed work, and we keep detailed records of all installations to ensure warranty coverage is honored promptly when needed.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item pb-4">
+                        <div class="faq-question flex justify-between items-center py-3">
+                            <h3 class="text-lg font-bold pr-8">What areas do you serve?</h3>
+                            <i class="fas fa-plus faq-icon text-aj-orange"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 pb-4">
+                                AJ Long Electric proudly serves the entire Northern Virginia, Washington DC, and Maryland metropolitan area, including:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                    <div class="flex items-center mb-3">
+                                        <span class="inline-block bg-red-500 text-white rounded-full p-2 mr-3">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        <h4 class="font-bold text-lg">Northern Virginia</h4>
+                                    </div>
+                                    <ul class="space-y-2">
+                                        <li><a href="/virginia-electrical-services/fairfax-county.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Fairfax County
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/arlington.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Arlington
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/alexandria.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Alexandria
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/falls-church.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Falls Church
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/vienna.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Vienna
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/mclean.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>McLean
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/great-falls.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Great Falls
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/reston.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Reston
+                                        </a></li>
+                                        <li><a href="/virginia-electrical-services/herndon.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Herndon
+                                        </a></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                    <div class="flex items-center mb-3">
+                                        <span class="inline-block bg-blue-500 text-white rounded-full p-2 mr-3">
+                                            <i class="fas fa-monument"></i>
+                                        </span>
+                                        <h4 class="font-bold text-lg">Washington DC</h4>
+                                    </div>
+                                    <ul class="space-y-2">
+                                        <li><a href="/dc-electrical-services/northwest-dc.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Northwest DC
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/northeast-dc.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Northeast DC
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/southwest-dc.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Southwest DC
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/southeast-dc.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Southeast DC
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/georgetown.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Georgetown
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/dupont-circle.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Dupont Circle
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/foggy-bottom.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Foggy Bottom
+                                        </a></li>
+                                        <li><a href="/dc-electrical-services/capitol-hill.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Capitol Hill
+                                        </a></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                    <div class="flex items-center mb-3">
+                                        <span class="inline-block bg-green-500 text-white rounded-full p-2 mr-3">
+                                            <i class="fas fa-tree"></i>
+                                        </span>
+                                        <h4 class="font-bold text-lg">Maryland</h4>
+                                    </div>
+                                    <ul class="space-y-2">
+                                        <li><a href="/maryland-electrical-services/montgomery-county.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Montgomery County
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/prince-georges-county.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Prince George's County
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/bethesda.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Bethesda
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/silver-spring.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Silver Spring
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/rockville.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Rockville
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/potomac.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Potomac
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/chevychase.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>Chevy Chase
+                                        </a></li>
+                                        <li><a href="/maryland-electrical-services/college-park.html" class="text-gray-700 hover:text-aj-orange hover:underline transition-colors flex items-center">
+                                            <i class="fas fa-angle-right text-aj-orange mr-2"></i>College Park
+                                        </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">
+                                For a complete list of areas we serve, please visit our <a href="/service-areas.html" class="text-aj-orange hover:underline">Service Areas</a> page. If you don't see your specific location listed, please contact us as we may still be able to accommodate your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact CTA -->
+            <div class="mt-16 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-xl p-10 text-center text-white relative overflow-hidden">
+                <div class="absolute inset-0 bg-aj-orange opacity-10 pattern-bg"></div>
+                <div class="relative z-10">
+                    <div class="inline-block bg-aj-orange p-4 rounded-full mb-6 shadow-lg">
+                        <i class="fas fa-question text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Still Have Questions?</h3>
+                    <p class="text-lg text-gray-100 mb-8 max-w-2xl mx-auto">If you couldn't find the answer you're looking for, we're here to help. Contact us directly and our friendly team will assist you promptly.</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="tel:7039970026" class="bg-white text-gray-800 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-aj-orange hover:text-white transition-all transform hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-phone mr-3 text-aj-orange group-hover:text-white"></i> Call Us: 703-997-0026
+                        </a>
+                        <a href="/contact.html" class="bg-aj-orange text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-white hover:text-gray-800 transition-all transform hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-envelope mr-3"></i> Send a Message
+                        </a>
+                        <a href="/estimate.html" class="bg-white text-gray-800 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-aj-orange hover:text-white transition-all transform hover:scale-105 flex items-center justify-center border-2 border-aj-orange">
+                            <i class="fas fa-clipboard-list mr-3 text-aj-orange"></i> Get Free Estimate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year for copyright
+            const year = new Date().getFullYear();
+            if (document.getElementById('copyright-year')) {
+                document.getElementById('copyright-year').textContent = year;
+            }
+            
+            // FAQ accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('.faq-icon');
+                    
+                    // Toggle active class
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('active');
+                    
+                    // Close other open FAQs (optional)
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== question) {
+                            const otherAnswer = otherQuestion.nextElementSibling;
+                            const otherIcon = otherQuestion.querySelector('.faq-icon');
+                            
+                            otherAnswer.classList.remove('active');
+                            otherIcon.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 100; // Adjust based on your header height
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Housecall Pro Booking Widget Script -->
+    <script async="" src="https://online-booking.housecallpro.com/script.js?token=4bcbc2f7231b4633abc97173fe9db382&amp;orgName=AJ-Long-Electric"></script>
+    
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2 text-aj-orange"></i> <span class="text-aj-orange">Book Online</span>
+        </button>
+    </div>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+
+</main></body></html>

@@ -1,0 +1,137 @@
+<!-- Unified Comprehensive Form Implementation Example
+     Replace existing comprehensive forms with this implementation --><!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Electrical Service - Unified Form</title>
+    
+    <!-- Existing stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Unified form styles -->
+    <link rel="stylesheet" href="/assets/css/unified-forms.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+
+    <!-- Google Places API for address autocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=YOUR_API_KEY" async="" defer=""></script>
+</head>
+<body>
+    <main class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-aj-dark mb-4">Schedule Your Electrical Service</h1>
+                <p class="text-xl text-gray-600">Complete our detailed form to get the best service experience</p>
+                <div class="flex justify-center items-center mt-4 text-blue-600">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span class="font-medium">This form takes about 3-5 minutes to complete</span>
+                </div>
+            </div>
+
+            <!-- Unified Comprehensive Form (3-step) -->
+            <div class="unified-form-container" data-form-type="comprehensive">
+                <!-- Include the unified form component -->
+                <div data-include="/components/unified-form.html"></div>
+            </div>
+
+            <!-- Process Overview -->
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-6">Our Service Process</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-aj-orange text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                        <h3 class="font-bold mb-2">Form Submission</h3>
+                        <p class="text-sm text-gray-600">Complete our comprehensive form with your project details</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-aj-orange text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                        <h3 class="font-bold mb-2">Initial Contact</h3>
+                        <p class="text-sm text-gray-600">We'll contact you within 2 hours to discuss your needs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-aj-orange text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                        <h3 class="font-bold mb-2">Schedule Visit</h3>
+                        <p class="text-sm text-gray-600">We'll schedule a convenient time for assessment or service</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-aj-orange text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+                        <h3 class="font-bold mb-2">Expert Service</h3>
+                        <p class="text-sm text-gray-600">Our licensed electricians complete your project professionally</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Types -->
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-6">Our Electrical Services</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-bolt text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Panel Upgrades</h3>
+                        <p class="text-sm text-gray-600">Electrical panel replacements, upgrades, and repairs for safer, more efficient power distribution</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-lightbulb text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Lighting Solutions</h3>
+                        <p class="text-sm text-gray-600">Recessed lighting, fixtures, ceiling fans, and complete lighting design</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-plug text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Outlets &amp; Wiring</h3>
+                        <p class="text-sm text-gray-600">New outlets, GFCI installation, rewiring, and electrical troubleshooting</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-car text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">EV Chargers</h3>
+                        <p class="text-sm text-gray-600">Level 2 EV charger installation for Tesla, Ford, BMW, and all electric vehicles</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-home text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Smart Home</h3>
+                        <p class="text-sm text-gray-600">Smart switches, dimmers, home automation, and connected device installation</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <i class="fas fa-tools text-3xl text-aj-orange mb-3"></i>
+                        <h3 class="font-bold mb-2">Emergency Repairs</h3>
+                        <p class="text-sm text-gray-600">24/7 emergency electrical repairs and troubleshooting services</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mt-12 text-center">
+                <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="tel:703-997-0026" class="bg-aj-orange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition">
+                        <i class="fas fa-phone mr-2"></i>Call Now: (703) 997-0026
+                    </a>
+                    <a href="mailto:info@ajlongelectric.com" class="bg-gray-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-700 transition">
+                        <i class="fas fa-envelope mr-2"></i>Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include backup forms -->
+    <div data-include="/components/netlify-forms-backup.html"></div>
+
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/unified-form-handler.js"></script>
+    
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+        }
+        
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+    </style>
+
+</body></html>

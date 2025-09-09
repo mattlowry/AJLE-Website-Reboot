@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Google Reviews - AJ Long Electric</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <style>
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            max-height: 400px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+        .review-card {
+            transition: all 0.3s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Debug Google Reviews - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/debug-google-reviews.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Debug Google Reviews - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+    <div class="max-w-6xl mx-auto bg-white shadow-md rounded-lg p-4 md:p-6">
+        <h1 class="text-2xl font-bold mb-6">Debug Google Reviews API - AJ Long Electric</h1>
+        
+        <div class="mb-8 flex flex-wrap gap-2">
+            <button id="test-api" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                Test Google Reviews API
+            </button>
+            <button id="test-all-locations" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+                Test All Locations API
+            </button>
+            <button id="test-netlify" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded">
+                Test Netlify Function
+            </button>
+            <a href="/testimonials.html" class="inline-block bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                Back to Testimonials
+            </a>
+        </div>
+        
+        <div id="status" class="mb-4 p-3 bg-gray-100 rounded"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div id="environment" class="mb-8">
+                <h2 class="text-xl font-bold mb-2">Environment Info</h2>
+                <div id="env-info" class="text-sm"></div>
+            </div>
+            
+            <div id="summary" class="mb-8">
+                <h2 class="text-xl font-bold mb-2">Summary</h2>
+                <div id="summary-info" class="text-sm"></div>
+            </div>
+        </div>
+        
+        <div id="api-response" class="mb-8">
+            <h2 class="text-xl font-bold mb-2">API Response</h2>
+            <div id="api-results" class="text-sm"></div>
+        </div>
+        
+        <div id="reviews-container" class="mb-8 hidden">
+            <h2 class="text-xl font-bold mb-4">Reviews Preview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="reviews-grid"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusElem = document.getElementById('status');
+            const envInfoElem = document.getElementById('env-info');
+            const summaryInfoElem = document.getElementById('summary-info');
+            const apiResultsElem = document.getElementById('api-results');
+            const reviewsContainer = document.getElementById('reviews-container');
+            const reviewsGrid = document.getElementById('reviews-grid');
+            
+            let lastData = null;
+            
+            // Test All Locations API endpoint
+            document.getElementById('test-all-locations').addEventListener('click', async function() {
+                statusElem.innerHTML = '<p class="font-medium">Fetching from /.netlify/functions/google-reviews-all-locations...</p>';
+                reviewsContainer.classList.add('hidden');
+                
+                try {
+                    const startTime = performance.now();
+                    const response = await fetch('/.netlify/functions/google-reviews-all-locations');
+                    const data = await response.json();
+                    const endTime = performance.now();
+                    
+                    lastData = data;
+                    
+                    if (data.reviews && data.reviews.length > 0) {
+                        statusElem.innerHTML = `<p class="success font-medium">All Locations API call successful! Found ${data.reviews.length} reviews (${Math.round(endTime - startTime)}ms)</p>`;
+                    } else {
+                        statusElem.innerHTML = `<p class="error font-medium">All Locations API returned no reviews (${Math.round(endTime - startTime)}ms)</p>`;
+                    }
+                    
+                    // Update summary for All Locations
+                    if (data.reviews && data.reviews.length > 0) {
+                        const avgRating = data.reviews.reduce((sum, review) => sum + review.rating, 0) / data.reviews.length;
+                        summaryInfoElem.innerHTML = `
+                            <div class="space-y-2">
+                                <div><strong>Source:</strong> Google Reviews (All Locations)</div>
+                                <div><strong>Reviews Found:</strong> ${data.reviews.length}</div>
+                                <div><strong>Total Reviews:</strong> ${data.totalReviews}</div>
+                                <div><strong>Locations Queried:</strong> ${data.locationsQueried}</div>
+                                <div><strong>Average Rating:</strong> ${avgRating.toFixed(1)} stars</div>
+                            </div>
+                        `;
+                    }
+                    
+                    // Show full response
+                    apiResultsElem.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    
+                    // Display reviews if any
+                    displayReviews(data.reviews);
+                    
+                } catch (error) {
+                    statusElem.innerHTML = `<p class="error font-medium">Error: ${error.message}</p>`;
+                    apiResultsElem.innerHTML = '<p>Failed to fetch data</p>';
+                }
+            });
+            
+            // Test standard API endpoint
+            document.getElementById('test-api').addEventListener('click', async function() {
+                statusElem.innerHTML = '<p class="font-medium">Fetching from /api/google-reviews...</p>';
+                reviewsContainer.classList.add('hidden');
+                
+                try {
+                    const startTime = performance.now();
+                    const response = await fetch('/api/google-reviews');
+                    const data = await response.json();
+                    const endTime = performance.now();
+                    
+                    lastData = data;
+                    
+                    statusElem.innerHTML = `<p class="success font-medium">API call successful! (${Math.round(endTime - startTime)}ms)</p>`;
+                    
+                    // Update summary
+                    updateSummary(data);
+                    
+                    // Show full response
+                    apiResultsElem.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    
+                    // Display reviews if any
+                    displayReviews(data.reviews);
+                    
+                } catch (error) {
+                    statusElem.innerHTML = `<p class="error font-medium">Error: ${error.message}</p>`;
+                    apiResultsElem.innerHTML = '<p>Failed to fetch data</p>';
+                }
+            });
+            
+            // Test debug endpoint
+            document.getElementById('test-debug').addEventListener('click', async function() {
+                statusElem.innerHTML = '<p class="font-medium">Fetching from /api/debug-google-reviews...</p>';
+                reviewsContainer.classList.add('hidden');
+                
+                try {
+                    const startTime = performance.now();
+                    const response = await fetch('/api/debug-google-reviews');
+                    const data = await response.json();
+                    const endTime = performance.now();
+                    
+                    lastData = data;
+                    
+                    if (data.error) {
+                        statusElem.innerHTML = `<p class="error font-medium">API returned error: ${data.error} (${Math.round(endTime - startTime)}ms)</p>`;
+                    } else {
+                        statusElem.innerHTML = `<p class="success font-medium">Debug API call successful! (${Math.round(endTime - startTime)}ms)</p>`;
+                    }
+                    
+                    // Display environment info
+                    if (data.debug) {
+                        envInfoElem.innerHTML = `<pre>${JSON.stringify(data.debug, null, 2)}</pre>`;
+                    }
+                    
+                    // Update summary if business data available
+                    if (data.businessName) {
+                        updateSummary(data);
+                    }
+                    
+                    // Show full response
+                    apiResultsElem.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    
+                    // Display reviews if any
+                    displayReviews(data.reviews);
+                    
+                } catch (error) {
+                    statusElem.innerHTML = `<p class="error font-medium">Error: ${error.message}</p>`;
+                    apiResultsElem.innerHTML = '<p>Failed to fetch data</p>';
+                }
+            });
+            
+            // Test Netlify function directly
+            document.getElementById('test-netlify').addEventListener('click', async function() {
+                statusElem.innerHTML = '<p class="font-medium">Fetching from /.netlify/functions/google-reviews...</p>';
+                reviewsContainer.classList.add('hidden');
+                
+                try {
+                    const startTime = performance.now();
+                    const response = await fetch('/.netlify/functions/google-reviews');
+                    const data = await response.json();
+                    const endTime = performance.now();
+                    
+                    lastData = data;
+                    
+                    statusElem.innerHTML = `<p class="success font-medium">Netlify function call successful! (${Math.round(endTime - startTime)}ms)</p>`;
+                    
+                    // Update summary
+                    updateSummary(data);
+                    
+                    // Show full response
+                    apiResultsElem.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    
+                    // Display reviews if any
+                    displayReviews(data.reviews);
+                    
+                } catch (error) {
+                    statusElem.innerHTML = `<p class="error font-medium">Error: ${error.message}</p>`;
+                    apiResultsElem.innerHTML = '<p>Failed to fetch data</p>';
+                }
+            });
+            
+            // Update summary information
+            function updateSummary(data) {
+                if (!data) return;
+                
+                const summaryHTML = `
+                    <div class="bg-gray-100 p-4 rounded">
+                        <p><strong>Business:</strong> ${data.businessName || 'AJ Long Electric'}</p>
+                        <p><strong>Rating:</strong> ${data.rating || 'N/A'} ⭐</p>
+                        <p><strong>Total Reviews:</strong> ${data.totalReviews || 'N/A'}</p>
+                        <p><strong>Reviews Fetched:</strong> ${data.reviews ? data.reviews.length : 0}</p>
+                        <p><strong>Cached:</strong> ${data.cached ? 'Yes' : 'No'}</p>
+                        ${data.fallback ? '<p class="text-yellow-600"><strong>Using Fallback Data</strong></p>' : ''}
+                    </div>
+                `;
+                
+                summaryInfoElem.innerHTML = summaryHTML;
+            }
+            
+            // Display reviews
+            function displayReviews(reviews) {
+                if (!reviews || reviews.length === 0) {
+                    reviewsContainer.classList.add('hidden');
+                    return;
+                }
+                
+                reviewsContainer.classList.remove('hidden');
+                reviewsGrid.innerHTML = '';
+                
+                reviews.forEach(review => {
+                    reviewsGrid.appendChild(createReviewCard(review));
+                });
+            }
+            
+            // Create review card
+            function createReviewCard(review) {
+                const card = document.createElement('div');
+                card.className = 'review-card bg-white rounded shadow p-4 border-l-4 border-blue-500';
+                
+                // Format date
+                const date = review.time ? new Date(review.time * 1000).toLocaleDateString() : 'Unknown date';
+                
+                card.innerHTML = `
+                    <div class="flex items-start mb-3">
+                        ${review.profile_photo_url ? 
+                            `<img src="${review.profile_photo_url}" alt="${review.author_name}" class="w-10 h-10 rounded-full mr-3" loading="lazy">` : 
+                            `<div class="w-10 h-10 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+                                <span>${review.author_name ? review.author_name.charAt(0) : '?'}</span>
+                            </div>`
+                        }
+                        <div>
+                            <p class="font-bold">${review.author_name || 'Anonymous'}</p>
+                            <div class="text-yellow-500">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                            <p class="text-gray-500 text-sm">${date}</p>
+                            ${review.language ? `<span class="text-xs bg-gray-200 px-2 py-1 rounded">${review.language}</span>` : ''}
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">${review.text || 'No review text'}</p>
+                `;
+                
+                return card;
+            }
+        });
+    </script>
+
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | Electrical Work Examples | AJ Long Electric</title>
+    <meta name="description" content="Browse photos of completed electrical projects by AJ Long Electric in Northern VA, DC &amp; MD. See examples of panel upgrades, lighting, EV chargers, and more.">
+    <!-- SEO: Meta Keywords -->
+    <meta name="keywords" content="electrical project gallery, panel upgrade photos, recessed lighting examples, EV charger installation photos, electrical work examples, before and after electrical, Northern Virginia electrical projects, electrician portfolio">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/gallery.html">
+    <!-- SEO: Geographic Meta Tags -->
+    <meta name="geo.region" content="US-VA">
+    <meta name="geo.placename" content="Fairfax, Virginia">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project Gallery | Electrical Work Examples | AJ Long Electric">
+    <meta property="og:description" content="Browse photos of completed electrical projects by AJ Long Electric in Northern VA, DC &amp; MD. See examples of panel upgrades, lighting, EV chargers, and more.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/gallery.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Project Gallery | Electrical Work Examples | AJ Long Electric">
+    <meta name="twitter:description" content="Browse photos of completed electrical projects by AJ Long Electric in Northern VA, DC &amp; MD. See examples of panel upgrades, lighting, EV chargers, and more.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Gallery item */
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1 / 1; /* Force square aspect ratio */
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image covers the square */
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+            text-align: center;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none; /* Changed from flex to none initially */
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+         .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensure image fits within container */
+            display: block;
+            margin: auto;
+         }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 1px solid #d1d5db; /* gray-300 */
+            color: #374151; /* gray-700 */
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--aj-orange);
+            color: white;
+            border-color: var(--aj-orange);
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; }
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; transition: right 0.3s ease; overflow-y: auto; }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+        /* Back to top button */
+        #back-to-top { position: fixed; bottom: 20px; right: 100px; z-index: 99; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+    </style>
+     <!-- Schema.org markup for Gallery Page -->
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "ImageGallery",
+       "name": "AJ Long Electric Project Gallery",
+       "url": "https://ajlongelectric.com/gallery.html",
+       "description": "Portfolio of completed electrical projects by AJ Long Electric, showcasing panel upgrades, lighting installations, EV charger setups, and more in Northern Virginia, DC, and Maryland.",
+       "publisher": {
+         "@type": "Organization",
+         "name": "AJ Long Electric",
+         "logo": {
+           "@type": "ImageObject",
+           "url": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png"
+         }
+       }
+       // Optionally add "associatedMedia" array with ImageObject for each image if feasible
+     }
+     </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+     <!-- Sticky Header -->
+            <!-- Standard Header -->
+            <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+            <!-- Mobile menu is included in standard-header.html -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800" aria-label="Close Menu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+         <div class="sticky bottom-0 left-0 w-full p-4 bg-gray-100 border-t">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg shadow">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="py-12 pattern-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4 animate-fadeInUp">Our <span class="text-aj-orange">Project</span> Gallery</h2>
+            <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                Browse through our portfolio of completed electrical projects to see the quality of our workmanship.
+                From panel upgrades to lighting installations, we take pride in every project we complete.
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Gallery Filters -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition active" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="panel">
+                    Panel Upgrades
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="lighting">
+                    Lighting
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="ev">
+                    EV Chargers
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="kitchen">
+                    Kitchen/Bath
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="fan">
+                    Ceiling Fans
+                </button>
+                 <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="outdoor">
+                    Outdoor
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white rounded-md shadow-sm transition" data-filter="other">
+                    Other Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Replace these items with your actual project photos and details -->
+                <!-- Item 1 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="panel">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-Before-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="Old Federal Pacific Panel Before Replacement" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">Panel Upgrade</h3>
+                        <p class="text-gray-300 text-sm mb-3">Before: Old FPE Panel</p>
+                        <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="panel">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="New Square D Electrical Panel After Replacement" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">Panel Upgrade</h3>
+                        <p class="text-gray-300 text-sm mb-3">After: New Square D Panel</p>
+                        <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="lighting">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/kitchen/Recesssed-Light-Installation.webp?_a=BBFAAAAA0" alt="Recessed LED Lighting Installation" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">Recessed Lighting</h3>
+                        <p class="text-gray-300 text-sm mb-3">Professional Installation</p>
+                        <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="lighting">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Electrical-Under-Cabinet-Lighting.webp?_a=BBFAAAAA0" alt="Under Cabinet LED Lighting in Kitchen" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">Kitchen Lighting</h3>
+                        <p class="text-gray-300 text-sm mb-3">Under-Cabinet LEDs</p>
+                        <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="ev">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/ev/Tesla-Wall-Charger.png?_a=BBFAAAAA0" alt="Tesla Wall Connector Installed in Garage" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">EV Charger</h3>
+                        <p class="text-gray-300 text-sm mb-3">Tesla Wall Connector</p>
+                        <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                </div>
+                 <!-- Item 6 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="ev">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/ev/EV-Charger-Fairfax.jpeg?_a=BBFAAAAA0" alt="Level 2 EV Charger Installed Outdoors" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">EV Charger</h3>
+                         <p class="text-gray-300 text-sm mb-3">Outdoor Level 2 Installation</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                     </div>
+                 </div>
+                 <!-- Item 7 -->
+                 <div class="gallery-item rounded-lg shadow-md" data-category="kitchen">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/kitchen/Kitchen-Remodel.jpg?_a=BBFAAAAA0" alt="Electrical Wiring During Kitchen Remodel" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">Kitchen Electrical</h3>
+                         <p class="text-gray-300 text-sm mb-3">Renovation Wiring</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                 </div>
+                 <!-- Item 8 -->
+                 <div class="gallery-item rounded-lg shadow-md" data-category="fan">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/fan/Ceiling-fan-install.jpg?_a=BBFAAAAA0" alt="Ceiling Fan with Light Installed in Bedroom" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">Ceiling Fan</h3>
+                         <p class="text-gray-300 text-sm mb-3">Bedroom Fan Installation</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                     </div>
+                 </div>
+                 <!-- Item 9 -->
+                <div class="gallery-item rounded-lg shadow-md" data-category="outdoor">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Landscape-lighting-install.jpg?_a=BBFAAAAA0" alt="Landscape Pathway Lighting" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">Outdoor Lighting</h3>
+                         <p class="text-gray-300 text-sm mb-3">Pathway Lights</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                     </div>
+                 </div>
+                 <!-- Item 10 -->
+                 <div class="gallery-item rounded-lg shadow-md" data-category="other">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/surge-smart-dimmer/Surge-Protector-Install.jpg?_a=BBFAAAAA0" alt="Whole House Surge Protector Installed at Panel" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">Surge Protection</h3>
+                         <p class="text-gray-300 text-sm mb-3">Whole House SPD</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                     </div>
+                 </div>
+                 <!-- Item 11 -->
+                 <div class="gallery-item rounded-lg shadow-md" data-category="other">
+                     <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/surge-smart-dimmer/smart-dimmer-switch.jpg?_a=BBFAAAAA0" alt="Smart Dimmer Switch Installation" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                         <h3 class="text-white font-bold text-lg mb-2">Smart Home</h3>
+                         <p class="text-gray-300 text-sm mb-3">Smart Dimmer Switch</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                     </div>
+                 </div>
+                 <!-- Item 12 -->
+                 <div class="gallery-item rounded-lg shadow-md" data-category="kitchen">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/kitchen/GFCI-Near-Sink.jpg?_a=BBFAAAAA0" alt="GFCI Outlet Installation Near Sink" class="w-full h-full object-cover" loading="lazy">
+                     <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-lg mb-2">Kitchen Electrical</h3>
+                         <p class="text-gray-300 text-sm mb-3">GFCI Outlet</p>
+                         <button class="view-image px-4 py-2 bg-aj-orange text-white rounded-lg text-sm" aria-label="View Larger Image">View Larger</button>
+                    </div>
+                 </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Showcase -->
+    <section id="before-after-showcase" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Before &amp; <span class="text-aj-orange">After</span> Transformations</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Before & After 1: Panel - connected to data-category="panel" -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" data-category="panel">
+                    <div class="p-4 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-center">Panel Replacement</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-0">
+                        <div class="relative">
+                            <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-Before-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="Old, unsafe electrical panel" class="w-full h-64 object-cover" loading="lazy">
+                        </div>
+                        <div class="relative">
+                            <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="New, organized electrical panel" class="w-full h-64 object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Replaced an outdated and potentially hazardous Federal Pacific panel with a new, code-compliant 200 amp Square D panel, ensuring safety and capacity.</p>
+                    </div>
+                </div>
+
+                <!-- Before & After 2: 2-Story Chandelier Replacement -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" data-category="lighting">
+                    <div class="p-4 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-center">2-Story Chandelier Replacement</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-0">
+                        <div class="relative">
+                            <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/before-after/Lighting-before.png?_a=BBFAAAAA0" alt="Old chandelier in 2-story foyer" class="w-full h-64 object-cover" loading="lazy">
+                        </div>
+                        <div class="relative">
+                            <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/before-after/Lighting-After.png?_a=BBFAAAAA0" alt="New modern chandelier in 2-story foyer" class="w-full h-64 object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mt-2 px-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/2-Story-Chandelier-Install-reston.jpg?_a=BBFAAAAA0" alt="Completed 2-story chandelier installation in Reston" class="w-full h-48 object-cover rounded" loading="lazy">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Safely removed an outdated chandelier from a challenging 2-story foyer and installed an elegant modern fixture with energy-efficient LED lighting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <main id="main-content" role="main" tabindex="-1">
+<section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Inspired to start your own electrical project?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Let us help transform your home with professional, safe, and reliable electrical services. Request your free estimate today!</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/estimate.html" class="bg-aj-orange text-white font-bold px-8 py-3 rounded shadow hover:bg-gray-800 transition">
+                    Get Free Estimate
+                </a>
+                 <a href="/services.html" class="border-2 border-aj-orange text-aj-orange font-bold px-8 py-3 rounded hover:bg-aj-orange hover:text-white transition">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox for Gallery -->
+    <div id="lightbox" class="lightbox" style="display: none;">
+        <span class="lightbox-close" aria-label="Close Lightbox">×</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" alt="Enlarged project image" loading="lazy">
+        </div>
+    </div>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+
+
+</main></body></html>

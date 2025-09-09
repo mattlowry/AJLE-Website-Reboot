@@ -1,0 +1,72 @@
+<!-- Unified Contact Form Implementation Example
+     Replace existing contact forms with this implementation --><!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact AJ Long Electric - Unified Form</title>
+    
+    <!-- Existing stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Unified form styles -->
+    <link rel="stylesheet" href="/assets/css/unified-forms.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+</head>
+<body>
+    <main class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-aj-dark mb-4">Contact AJ Long Electric</h1>
+                <p class="text-xl text-gray-600">Get in touch with Northern Virginia's most trusted electricians</p>
+            </div>
+
+            <!-- Unified Contact Form -->
+            <div class="unified-form-container" data-form-type="contact">
+                <!-- Include the unified form component -->
+                <div data-include="/components/unified-form.html"></div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <i class="fas fa-phone text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="font-bold mb-2">Call Us Now</h3>
+                    <p class="text-gray-600"><a href="tel:703-997-0026" class="text-aj-orange">(703) 997-0026</a></p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <i class="fas fa-clock text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="font-bold mb-2">24/7 Emergency</h3>
+                    <p class="text-gray-600">Available for electrical emergencies</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <i class="fas fa-shield-alt text-3xl text-aj-orange mb-3"></i>
+                    <h3 class="font-bold mb-2">Licensed &amp; Insured</h3>
+                    <p class="text-gray-600">VA #2705031092, MD #3309, DC #EM40000654</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include backup forms -->
+    <div data-include="/components/netlify-forms-backup.html"></div>
+
+    <!-- Scripts -->
+    <script src="/js/include-html.js"></script>
+    <script src="/js/unified-form-handler.js"></script>
+    
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+        }
+        
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+    </style>
+
+</body></html>

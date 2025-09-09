@@ -1,0 +1,149 @@
+[functions]
+
+  [functions.ai-chat-service-standalone]
+  timeout = 30
+
+  [functions.housecall-pro-estimate-simple]
+  node_bundler = "zisi"
+
+  [functions.test-form]
+  node_bundler = "zisi"
+
+  [functions.emails]
+  included_files = [
+    "./emails/**"
+  ]
+
+[build]
+publish = "public"
+functions = "netlify/functions"
+command = "echo 'Static site - no build step required - deploy'"
+
+  [build.environment]
+  NODE_VERSION = "18"
+
+  [build.processing]
+  skip_processing = false
+
+    [build.processing.html]
+    pretty_urls = true
+
+[[headers]]
+for = "/admin/*"
+
+  [headers.values]
+  X-Frame-Options = "SAMEORIGIN"
+  X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+from = "/images/*"
+to = "https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/cld-assets/images/:splat?_a=BBFAAAAA0"
+status = 302
+force = true
+
+[[redirects]]
+from = "/cld-assets/images/*"
+to = "/images/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[redirects]]
+from = "/api/contact-form"
+to = "/.netlify/functions/form-handler"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/submit-estimate"
+to = "/.netlify/functions/form-handler"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/housecall-pro-estimate"
+to = "/.netlify/functions/housecall-pro-estimate"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/housecall-pro-reviews"
+to = "/.netlify/functions/housecall-pro-reviews"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/google-reviews"
+to = "/.netlify/functions/google-reviews"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/debug-google-reviews"
+to = "/.netlify/functions/debug-google-reviews"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/chat"
+to = "/.netlify/functions/ai-chat-service-standalone"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/chat/stream"
+to = "/.netlify/functions/ai-chat-service-standalone/stream"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/select-slot"
+to = "/.netlify/functions/ai-chat-service-standalone/select-slot"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/get-available-slots"
+to = "/.netlify/functions/get-available-slots-new"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/schedule-job"
+to = "/.netlify/functions/schedule-job-new"
+status = 200
+force = true
+
+[[redirects]]
+from = "/admin/*"
+to = "/admin/index.html"
+status = 200
+
+[context]
+
+  [context.production]
+
+    [context.production.functions]
+
+      [context.production.functions.emails]
+      included_files = [
+        "./emails/**"
+      ]
+
+  [context.main]
+
+    [context.main.functions]
+
+      [context.main.functions.emails]
+      included_files = [
+        "./emails/**"
+      ]

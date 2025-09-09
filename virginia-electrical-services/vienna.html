@@ -1,0 +1,667 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Vienna VA | Historic Home &amp; Renovation Specialists | AJ Long Electric</title>
+    <meta name="description" content="Top-rated electrician in Vienna, VA specializing in historic home electrical upgrades, smart home installation, panel upgrades, and EV charger installation. Licensed &amp; insured Vienna electricians with 1200+ 5-star reviews. Call 703-997-0026.">
+    <meta name="keywords" content="electrician vienna va, vienna electrician, electrical contractor vienna virginia, licensed electrician vienna, emergency electrician vienna, panel upgrade vienna, ev charger installation vienna, smart home vienna">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.position" content="38.8984;-77.2713">
+    <meta name="geo.placename" content="Vienna, Virginia">
+    <meta name="geo.region" content="US-VA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ajlongelectric.com/virginia-electrical-services/vienna.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Electrician Vienna VA | AJ Long Electric">
+    <meta property="og:description" content="Professional electrician services in Vienna VA. Historic home specialists, smart home installation, panel upgrades, EV chargers. Licensed &amp; insured. Call 703-997-0026.">
+    <meta property="og:url" content="https://ajlongelectric.com/virginia-electrical-services/vienna.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/vienna-electrician.jpg">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Location card styles */
+        .location-card {
+            transition: all 0.3s ease;
+        }
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Fix for nearby areas hover */
+        .nearby-area-link {
+            background-color: white;
+            color: #222222;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+        .nearby-area-link:hover {
+            background-color: var(--aj-orange);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Map responsive styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric - Vienna",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/vienna.html",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/vienna.html",
+      "telephone": "+1-703-997-0026",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2724 Dorr Ave, Suite 102",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8984,
+        "longitude": -77.2713
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Vienna" },
+        { "@type": "Place", "name": "Vienna, Virginia", "containedInPlace": { "@type": "State", "name": "Virginia" } }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.google.com/maps?cid=12345",
+        "https://www.yelp.com/biz/aj-long-electric-vienna"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/vienna.html"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "description": "Professional electrical services in Vienna, VA. Specializing in historic home electrical renovations, panel upgrades, smart home technology, EV charger installation, and outdoor lighting systems. Licensed and insured electricians serving Vienna's unique neighborhoods.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Historic Home Electrical Upgrades",
+              "description": "Specialized electrical modernization services for Vienna's historic and older homes, preserving character while updating safety",
+              "url": "https://ajlongelectric.com/services/panel-replacements/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Home Renovation Electrical Services",
+              "description": "Complete electrical services for Vienna home renovations, including new wiring, lighting design, and modern electrical systems",
+              "url": "https://ajlongelectric.com/services/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Smart Home Automation",
+              "description": "Smart home wiring and technology integration for Vienna residents, including lighting, security, and entertainment systems",
+              "url": "https://ajlongelectric.com/virginia-electrical-services/vienna-smart-home.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EV Charger Installation",
+              "description": "Professional electric vehicle charger installation for Vienna homes, supporting all major EV brands",
+              "url": "https://ajlongelectric.com/services/ev-charger-installation/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Outdoor Lighting & Security",
+              "description": "Custom outdoor lighting design and installation for Vienna properties, enhancing security and curb appeal",
+              "url": "https://ajlongelectric.com/services/recessed-lighting/"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header -->
+    <div data-include-html="/include/standard-header.html"></div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Electrician in <span class="text-aj-orange">Vienna, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric is Vienna's top-rated electrical contractor, specializing in historic home upgrades, smart home installation, and modern electrical solutions. With over 1,200 5-star reviews, we're the trusted electrician for Vienna homes and businesses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="bg-aj-orange text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>24/7 Emergency Service in Vienna</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>1,200+ 5-Star Reviews</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Licensed &amp; Insured</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Historic Home Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Info Section with Enhanced Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Expert Electrical Services in <span class="text-aj-orange">Vienna, Virginia</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">As Vienna's most trusted electrician, AJ Long Electric combines local expertise with cutting-edge technology. From historic homes along Maple Avenue to modern properties near Tysons Corner, we deliver reliable electrical solutions tailored to Vienna's unique architecture.</p>
+            </div>
+ 
+            <div class="md:flex items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-4 flex items-center text-gray-800">
+                            <i class="fas fa-bolt text-aj-orange mr-2"></i> Vienna's Premier Electrical Contractor
+                        </h3>
+                        <p class="text-gray-600 mb-4">When searching for an "electrician near me" in Vienna, VA, you want a company that understands local codes, historic preservation requirements, and modern electrical demands. AJ Long Electric has been serving Vienna for over a decade, building a reputation for excellence in:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            <li><a href="/services/panel-replacements/" class="text-aj-orange hover:underline">Electrical panel upgrades</a> for Vienna's older homes</li>
+                            <li><a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline">EV charger installation</a> for eco-conscious Vienna residents</li>
+                            <li><a href="/services/recessed-lighting/" class="text-aj-orange hover:underline">Custom lighting design</a> for indoor and outdoor spaces</li>
+                            <li>Historic home electrical renovations preserving original charm</li>
+                            <li>Smart home technology integration and automation</li>
+                            <li>Emergency electrical repairs with rapid Vienna response</li>
+                        </ul>
+                        <h3 class="text-xl font-bold my-4 flex items-center text-gray-800">
+                            <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> Serving All Vienna Neighborhoods
+                        </h3>
+                        <p class="text-gray-600 mb-4">Our Vienna electricians are familiar with every neighborhood, from the historic properties near the W&amp;OD Trail to newer developments off Nutley Street. We serve:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Vienna Historic District</li>
+                            <li>Windover Heights</li>
+                            <li>Country Club Hills</li>
+                            <li>Westwood Country Club area</li>
+                            <li>Maple Avenue corridor businesses</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24784.348646033733!2d-77.28682833980552!3d38.8985008995111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64a047cb3031d%3A0x43a1692c1b8c8bad!2sVienna%2C%20VA!5e0!3m2!1sen!2sus!4v1714366300321!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Picture Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Vienna Electrical <span class="text-aj-orange">Project Gallery</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">See examples of our professional electrical work throughout Vienna homes and businesses</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/vienna-historic-home-upgrade.jpg?_a=BBFAAAAA0" alt="Historic Vienna home electrical upgrade" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Historic Home Panel Upgrade</h3>
+                        <p class="text-gray-600 text-sm">Modernized electrical system in a 1920s Vienna home while preserving original architecture</p>
+                        <a href="/services/panel-replacements/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/vienna-ev-charger-install.jpg?_a=BBFAAAAA0" alt="EV charger installation in Vienna" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Tesla Charger Installation</h3>
+                        <p class="text-gray-600 text-sm">Level 2 EV charger installed in Vienna garage with dedicated 240V circuit</p>
+                        <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline text-sm mt-2 inline-block">View EV Services →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/vienna-smart-home-lighting.jpg?_a=BBFAAAAA0" alt="Smart home lighting in Vienna" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Smart Home Automation</h3>
+                        <p class="text-gray-600 text-sm">Complete smart lighting system with app control installed in Vienna residence</p>
+                        <a href="/virginia-electrical-services/vienna-smart-home.html" class="text-aj-orange hover:underline text-sm mt-2 inline-block">Explore Smart Home →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded Services Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Comprehensive <span class="text-aj-orange">Electrical Services</span> in Vienna</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">From routine repairs to complete home rewiring, AJ Long Electric offers Vienna residents a full range of professional electrical services.</p>
+            </div>
+ 
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Historic Home Specialists</h3>
+                    <p class="text-gray-600 mb-4">Vienna's older homes require special expertise. We upgrade electrical systems while preserving architectural integrity.</p>
+                    <a href="/services/panel-replacements/" class="text-aj-orange hover:underline">Panel Upgrades →</a>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">EV Charger Installation</h3>
+                    <p class="text-gray-600 mb-4">Professional installation of Level 2 EV chargers for all electric vehicle brands. Fast, reliable Vienna service.</p>
+                    <a href="/services/ev-charger-installation/" class="text-aj-orange hover:underline">Get EV Ready →</a>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Smart Home Technology</h3>
+                    <p class="text-gray-600 mb-4">Transform your Vienna home with automated lighting, security systems, and voice-controlled electrical features.</p>
+                    <a href="/virginia-electrical-services/vienna-smart-home.html" class="text-aj-orange hover:underline">Go Smart →</a>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Lighting Design &amp; Installation</h3>
+                    <p class="text-gray-600 mb-4">Custom indoor and outdoor lighting solutions for Vienna homes. Recessed, landscape, and security lighting.</p>
+                    <a href="/services/recessed-lighting/" class="text-aj-orange hover:underline">Lighting Options →</a>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Renovation Electrical Work</h3>
+                    <p class="text-gray-600 mb-4">Complete electrical services for Vienna kitchen and bathroom remodels, additions, and whole-home renovations.</p>
+                    <a href="/services/" class="text-aj-orange hover:underline">View All Services →</a>
+                </div>
+ 
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Emergency Repairs</h3>
+                    <p class="text-gray-600 mb-4">24/7 emergency electrical service in Vienna. Fast response for power outages, sparking outlets, and urgent repairs.</p>
+                    <a href="tel:7039970026" class="text-aj-orange hover:underline">Call Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Quality Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Vienna's Most <span class="text-aj-orange">Trusted Electricians</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our commitment to quality and customer satisfaction has made us Vienna's premier electrical contractor</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-aj-orange mb-2">1,200+</div>
+                    <div class="text-xl font-semibold text-gray-800 mb-2">5-Star Reviews</div>
+                    <p class="text-gray-600">Consistently rated by Vienna homeowners for quality work</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-aj-orange mb-2">15+</div>
+                    <div class="text-xl font-semibold text-gray-800 mb-2">Years Experience</div>
+                    <p class="text-gray-600">Serving Vienna and Northern Virginia families</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-aj-orange mb-2">100%</div>
+                    <div class="text-xl font-semibold text-gray-800 mb-2">Licensed &amp; Insured</div>
+                    <p class="text-gray-600">Full Virginia Master Electrician license and insurance</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-aj-orange mb-2">24/7</div>
+                    <div class="text-xl font-semibold text-gray-800 mb-2">Emergency Service</div>
+                    <p class="text-gray-600">Available for Vienna electrical emergencies</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/testimonials.html" class="text-aj-orange hover:underline text-lg">Read Customer Reviews →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vienna-Specific FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions - <span class="text-aj-orange">Vienna Electricians</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions from Vienna homeowners about electrical services</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you handle electrical work for Vienna's historic homes?</h3>
+                    <p class="text-gray-600">Yes! We specialize in upgrading electrical systems in Vienna's historic district while preserving architectural integrity. We're familiar with local preservation guidelines and work to maintain your home's character.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">How quickly can you respond to emergency calls in Vienna?</h3>
+                    <p class="text-gray-600">We typically arrive within 45-60 minutes for Vienna emergency calls. Our electricians are based nearby in Fairfax, ensuring rapid response throughout Vienna, Oakton, and Merrifield.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you install EV chargers for all electric vehicle brands?</h3>
+                    <p class="text-gray-600">Absolutely! We install Level 2 chargers compatible with all EVs including Tesla, Chevrolet Bolt, Nissan Leaf, and more. We'll help you choose the right charger for your Vienna home and vehicle.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Are you licensed to work in the Town of Vienna?</h3>
+                    <p class="text-gray-600">Yes, we're fully licensed in Virginia and insured for all electrical work in Vienna. We pull all necessary permits and ensure compliance with Town of Vienna building codes.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="/faq.html" class="text-aj-orange hover:underline text-lg">View All FAQs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Vienna Chooses <span class="text-aj-orange">AJ Long Electric</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">When you need an electrician in Vienna, VA, here's why your neighbors trust us with their electrical needs.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Vienna Expertise</h3>
+                    <p class="text-gray-600">Deep knowledge of Vienna's unique electrical needs, from historic homes to modern smart technology.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Quick Response</h3>
+                    <p class="text-gray-600">Based nearby in Fairfax, we provide fast service to Vienna residents, often same-day appointments.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fully Licensed</h3>
+                    <p class="text-gray-600">Virginia Master Electrician license, fully insured, and compliant with all Vienna building codes.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1200+ Reviews</h3>
+                    <p class="text-gray-600">Consistently rated 5 stars by Vienna homeowners for quality work and professional service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Also Serve Nearby Areas Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center">We Also Serve Nearby Areas</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <a href="/virginia-electrical-services/oakton.html" class="nearby-area-link">
+                    Oakton
+                </a>
+                <a href="/virginia-electrical-services/fairfax.html" class="nearby-area-link">
+                    Fairfax
+                </a>
+                <a href="/virginia-electrical-services/tysons.html" class="nearby-area-link">
+                    Tysons
+                </a>
+                <a href="/virginia-electrical-services/merrifield.html" class="nearby-area-link">
+                    Merrifield
+                </a>
+                <a href="/virginia-electrical-services/falls-church.html" class="nearby-area-link">
+                    Falls Church
+                </a>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="/service-areas.html" class="text-aj-orange hover:underline inline-flex items-center">
+                    View All Northern Virginia Service Areas <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need an Electrician in Vienna?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Whether you're dealing with an electrical emergency, planning a home renovation, or ready to upgrade to smart technology, Vienna's most trusted electricians are ready to help.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Get Free Estimate
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Vienna: 703-997-0026
+                </a>
+                <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                    <i class="fas fa-calendar-alt mr-2"></i> Book Online Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+    
+    <script src="/js/include-html.js?v=1746948964"></script>
+    <!-- Consolidated main scripts -->
+    <script src="/js/main-scripts.js" defer=""></script>
+    <!-- Housecall Pro Booking Button (Fixed Position) -->
+    <div class="fixed bottom-20 right-20 z-50">
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition" onclick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> <span>Book Vienna Electrician</span>
+        </button>
+    </div>
+    
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy load background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                            element.classList.add('bg-loaded');
+                            imageObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyBackgrounds.forEach(function(element) {
+                    imageObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyBackgrounds.forEach(function(element) {
+                    element.style.backgroundImage = 'url(' + element.dataset.bg + ')';
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

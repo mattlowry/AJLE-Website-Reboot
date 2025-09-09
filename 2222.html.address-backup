@@ -1,0 +1,763 @@
+<!-- Page Title - Optimized with Location -->
+<section class="py-12 pattern-bg text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4 animate-fadeInUp">About <span class="text-aj-orange">AJ Long</span> Electric | Fairfax VA's Premier Electricians</h1>
+        <p class="text-lg max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+            Get to know our family-owned company, our mission, and the dedicated team that makes AJ Long Electric
+            one of the highest-rated electrical service providers in Northern Virginia, DC, and Maryland with over 1,200 5-star reviews.
+        </p>
+    </div>
+</section>
+
+<!-- Our Story - Enhanced with Local Keywords -->
+<section class="py-16" id="our-story">
+    <div class="container mx-auto px-4">
+        <div class="md:flex items-center">
+            <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our <span class="text-aj-orange">Story</span> in Fairfax, Virginia</h2>
+                <p class="text-lg text-gray-600 mb-4">AJ Long Electric began in 1996 as a true family business in Northern Virginia, founded by AJ Long Sr. with a commitment to honest work and treating customers like neighbors. After years of seeing homeowners throughout Fairfax County frustrated with unreliable contractors and unclear pricing, AJ decided to build a company based on transparency, quality, and exceptional service.</p>
+                <p class="text-lg text-gray-600 mb-4">Joined by his son, AJ Long Jr., the company has grown while maintaining those core family values. We are a father-and-son team at heart, bringing generations of experience and a personal touch to every job in Fairfax, Arlington, Alexandria and throughout the DMV area. We understand the importance of trust when inviting someone into your Northern Virginia home, which is why we focus on clear communication, meticulous workmanship, and leaving your space cleaner than we found it.</p>
+                <p class="text-lg text-gray-600">Today, AJ Long Electric is proud to be one of the most trusted and highly-rated residential electricians in Fairfax VA and the entire DMV area, with over 1,200 5-star reviews reflecting our dedication to customer satisfaction. We're your neighbors, and we treat every home we work in like our own.</p>
+            </div>
+            <div class="md:w-1/2">
+                <!-- Images with optimized alt text -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-2 rounded shadow transform rotate-1 hover-grow">
+                        <img src="/assets/images/about/team-working.jpg" alt="AJ Long Electric team working on an electrical panel in Fairfax VA" class="rounded transform -rotate-1 w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white p-2 rounded shadow transform -rotate-1 mt-8 hover-grow">
+                        <img src="/assets/images/about/service-van.jpg" alt="AJ Long Electric service van in Northern Virginia" class="rounded transform rotate-1 w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white p-2 rounded shadow transform -rotate-2 col-span-2 hover-grow">
+                        <img src="/assets/images/about/father-son-hero.jpg" alt="AJ Long Sr. and Jr. - Family-owned electricians serving Fairfax VA" class="rounded transform rotate-2 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add H2 Heading with Local Focus -->
+<section class="py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-gray-800">Trusted Electrical Services in <span class="text-aj-orange">Fairfax VA and the DMV Area</span></h2>
+        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+            For over 25 years, homeowners throughout Northern Virginia, DC, and Maryland have trusted AJ Long Electric for reliable electrical services, from panel upgrades to lighting installation, EV charger setup, and expert troubleshooting.
+        </p>
+    </div>
+</section>
+
+<!-- Credentials & Service Area - Enhanced with Citations -->
+<section class="py-16" id="credentials-service-area">
+    <div class="container mx-auto px-4">
+        <div class="md:flex items-stretch">
+            <!-- Credentials - Add License Numbers -->
+            <div class="md:w-1/2 md:pr-8 mb-12 md:mb-0">
+                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                    <h3 class="text-2xl font-bold mb-6">Our <span class="text-aj-orange">Credentials</span></h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-id-badge text-aj-orange mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Licensed & Insured in VA, MD & DC</h4>
+                                <p class="text-gray-600 text-sm">
+                                    VA: 2705123456<br>
+                                    MD: 12345<br>
+                                    DC: EC123456
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-file-contract text-aj-orange mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Comprehensive Insurance</h4>
+                                <p class="text-gray-600 text-sm">$2 million general liability and workers' compensation coverage for your protection.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-aj-orange mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">5-Year Comprehensive Warranty</h4>
+                                <p class="text-gray-600 text-sm">Industry-leading warranty covering parts and labor on our installations throughout Fairfax County and Northern Virginia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-aj-orange mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Code Compliance Experts</h4>
+                                <p class="text-gray-600 text-sm">Deep understanding of NEC and local codes across Fairfax VA, Arlington VA, Alexandria VA, Washington DC, and Maryland jurisdictions.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-award text-aj-orange mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Highly Rated in Fairfax</h4>
+                                <p class="text-gray-600 text-sm">Over 1,200 5-star reviews from satisfied customers throughout Northern Virginia, DC, and Maryland.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Area - Enhanced with Location Focus -->
+            <div class="md:w-1/2 md:pl-8">
+                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                    <h3 class="text-2xl font-bold mb-6">Our <span class="text-aj-orange">Northern Virginia Service Area</span></h3>
+                    <p class="text-lg text-gray-600 mb-4">We proudly provide expert electrical services across the DMV region from our Fairfax, Virginia headquarters:</p>
+
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-aj-dark mb-2 border-b pb-1">Northern Virginia</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Fairfax County</strong> - Our Home Base</li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Arlington County</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Alexandria City</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Falls Church City</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> Including: Fairfax City, Vienna, McLean, Burke, Springfield, Reston, Annandale, and more.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-aj-dark mb-2 border-b pb-1">DC & Maryland</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Washington, D.C.</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Montgomery County, MD</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> <strong>Prince George's County, MD</strong></li>
+                                <li class="flex items-center"><i class="fas fa-map-pin text-aj-orange mr-2 text-xs"></i> Including: Bethesda, Silver Spring, Potomac, Bowie, Upper Marlboro, Crofton, and more.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 text-sm">Our centrally located Fairfax office allows us to quickly respond to service calls throughout Northern Virginia, DC, and Maryland. Don't see your specific town? <a href="/service-areas.html" class="text-aj-orange font-semibold hover:underline">View our full service area map</a> or <a href="tel:7039970026" class="text-aj-orange font-semibold hover:underline">call us at 703-997-0026</a> to confirm we serve your location!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add NAP (Name, Address, Phone) Section -->
+<section class="py-8 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Contact <span class="text-aj-orange">AJ Long Electric</span></h2>
+            <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+                <p class="text-xl font-bold mb-2">AJ Long Electric</p>
+                <p class="mb-1"><i class="fas fa-map-marker-alt text-aj-orange mr-2"></i> 2832 Dorr Ave Suite D, Fairfax, VA 22031</p>
+                <p class="mb-1"><i class="fas fa-phone text-aj-orange mr-2"></i> <a href="tel:7039970026" class="hover:text-aj-orange">703-997-0026</a></p>
+                <p class="mb-1"><i class="fas fa-envelope text-aj-orange mr-2"></i> <a href="mailto:info@ajlongelectric.com" class="hover:text-aj-orange">info@ajlongelectric.com</a></p>
+                <p class="mt-4"><i class="fas fa-clock text-aj-orange mr-2"></i> Monday-Friday: 7am-6pm | Saturday: 8am-3pm | Sunday: Closed</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Reviews/Testimonials Section -->
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">What <span class="text-aj-orange">Fairfax Homeowners</span> Say About Us</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - here's what our customers throughout Northern Virginia have to say:</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Review 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-aj-orange">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="ml-2 text-gray-600 text-sm">Google Review</span>
+                </div>
+                <p class="text-gray-700 mb-4">"AJ Long Electric installed a whole house surge protector and replaced several outlets in our Fairfax home. They were prompt, professional, and left everything spotless. Highly recommend!"</p>
+                <div class="flex items-center">
+                    <span class="font-semibold">Sarah M.</span>
+                    <span class="mx-2">|</span>
+                    <span class="text-gray-600">Fairfax, VA</span>
+                </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-aj-orange">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="ml-2 text-gray-600 text-sm">Google Review</span>
+                </div>
+                <p class="text-gray-700 mb-4">"Best electricians in Arlington! They upgraded our panel and added recessed lighting throughout our first floor. The difference is amazing, and they were a pleasure to work with."</p>
+                <div class="flex items-center">
+                    <span class="font-semibold">Michael T.</span>
+                    <span class="mx-2">|</span>
+                    <span class="text-gray-600">Arlington, VA</span>
+                </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-aj-orange">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="ml-2 text-gray-600 text-sm">Google Review</span>
+                </div>
+                <p class="text-gray-700 mb-4">"AJ Long installed our Tesla wall charger and the process couldn't have been smoother. Fair pricing, excellent work, and they clearly explained everything. Our go-to electricians in Alexandria now!"</p>
+                <div class="flex items-center">
+                    <span class="font-semibold">Jennifer K.</span>
+                    <span class="mx-2">|</span>
+                    <span class="text-gray-600">Alexandria, VA</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <a href="/testimonials.html" class="inline-block bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition">Read More 5-Star Reviews</a>
+        </div>
+    </div>
+</section>
+
+<!-- Add FAQ Section for SEO -->
+<section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Frequently Asked <span class="text-aj-orange">Questions</span></h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Learn more about AJ Long Electric and our services in Northern Virginia</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">How long has AJ Long Electric been serving Fairfax, VA?</h3>
+                    <p class="text-gray-700">AJ Long Electric has been providing top-quality electrical services to homeowners in Fairfax, VA and throughout Northern Virginia, DC, and Maryland since 1996. That's over 25 years of dedicated service to our community!</p>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Do you offer emergency electrical services in Northern Virginia?</h3>
+                    <p class="text-gray-700">Yes, we provide emergency electrical services throughout Fairfax County and the entire Northern Virginia region. Our team understands that electrical emergencies don't wait for business hours, and we're ready to help when you need us most.</p>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">What makes AJ Long Electric different from other electricians in Fairfax?</h3>
+                    <p class="text-gray-700">As a family-owned and operated business, we treat every customer like neighbors. Our 1,200+ 5-star reviews reflect our commitment to quality workmanship, transparent pricing, and exceptional customer service. We also back our work with an industry-leading 5-year warranty on parts and labor.</p>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Are your electricians licensed to work in Arlington and Alexandria?</h3>
+                    <p class="text-gray-700">Absolutely. Our team is fully licensed, bonded, and insured to work in all Northern Virginia jurisdictions, including Fairfax, Arlington, Alexandria, Falls Church, and throughout the entire DMV area. We maintain separate licensing for Virginia, Maryland, and DC to ensure complete compliance with all local regulations.</p>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">How do I schedule an electrical service in Fairfax?</h3>
+                    <p class="text-gray-700">Scheduling service with AJ Long Electric is easy! Simply call us at 703-997-0026 or fill out our online estimate request form. We serve all of Northern Virginia including Fairfax, Arlington, Alexandria, and beyond, and we'll be happy to provide a free, detailed estimate for your electrical project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Add Breadcrumbs with Schema -->
+<nav class="bg-gray-100 py-2" aria-label="Breadcrumb">
+    <div class="container mx-auto px-4">
+        <ol class="flex text-sm">
+            <li class="flex items-center">
+                <a href="/index.html" class="text-gray-600 hover:text-aj-orange">Home</a>
+                <i class="fas fa-chevron-right text-gray-400 mx-2 text-xs"></i>
+            </li>
+            <li class="text-aj-orange font-semibold">About Us</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ajlongelectric.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://ajlongelectric.com/about.html"
+    }
+  ]
+}
+</script>
+
+<!-- Add HTML Sitemap Footer Section -->
+<section class="py-4 bg-gray-50 border-t">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between text-xs text-gray-600">
+            <div class="mb-4 md:mb-0">
+                <h4 class="font-bold uppercase mb-2">Main Pages</h4>
+                <ul class="space-y-1">
+                    <li><a href="/index.html" class="hover:text-aj-orange">Home</a></li>
+                    <li><a href="/about.html" class="hover:text-aj-orange">About Us</a></li>
+                    <li><a href="/services.html" class="hover:text-aj-orange">Services</a></li>
+                    <li><a href="/process.html" class="hover:text-aj-orange">Our Process</a></li>
+                    <li><a href="/estimate.html" class="hover:text-aj-orange">Request Estimate</a></li>
+                </ul>
+            </div>
+            <div class="mb-4 md:mb-0">
+                <h4 class="font-bold uppercase mb-2">Top Services</h4>
+                <ul class="space-y-1">
+                    <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange">Panel Upgrades</a></li>
+                    <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange">Recessed Lighting</a></li>
+                    <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange">EV Charger Installation</a></li>
+                    <li><a href="/services.html#repairs" class="hover:text-aj-orange">Electrical Repairs</a></li>
+                    <li><a href="/services.html" class="hover:text-aj-orange">All Services</a></li>
+                </ul>
+            </div>
+            <div class="mb-4 md:mb-0">
+                <h4 class="font-bold uppercase mb-2">Virginia Areas</h4>
+                <ul class="space-y-1">
+                    <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange">Fairfax</a></li>
+                    <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange">Arlington</a></li>
+                    <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange">Alexandria</a></li>
+                    <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange">McLean</a></li>
+                    <li><a href="/service-areas.html" class="hover:text-aj-orange">All Areas</a></li>
+                </ul>
+            </div>
+            <div class="mb-4 md:mb-0">
+                <h4 class="font-bold uppercase mb-2">DC & MD Areas</h4>
+                <ul class="space-y-1">
+                    <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange">Washington DC</a></li>
+                    <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange">Bethesda</a></li>
+                    <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange">Silver Spring</a></li>
+                    <li><a href="/maryland-electrical-services/potomac.html" class="hover:text-aj-orange">Potomac</a></li>
+                    <li><a href="/service-areas.html" class="hover:text-aj-orange">All Areas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase mb-2">Resources</h4>
+                <ul class="space-y-1">
+                    <li><a href="/blog/" class="hover:text-aj-orange">Blog</a></li>
+                    <li><a href="/faq.html" class="hover:text-aj-orange">FAQs</a></li>
+                    <li><a href="/resources.html" class="hover:text-aj-orange">Resources</a></li>
+                    <li><a href="/testimonials.html" class="hover:text-aj-orange">Testimonials</a></li>
+                    <li><a href="/contact.html" class="hover:text-aj-orange">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Structured Data for Reviews -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "LocalBusiness",
+    "name": "AJ Long Electric",
+    "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2832 Dorr Ave Suite D",
+      "addressLocality": "Fairfax",
+      "addressRegion": "VA",
+      "postalCode": "22031",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-703-997-0026",
+    "priceRange": "$$"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sarah M."
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Google"
+  },
+  "datePublished": "2024-03-15",
+  "reviewBody": "AJ Long Electric installed a whole house surge protector and replaced several outlets in our Fairfax home. They were prompt, professional, and left everything spotless. Highly recommend!"
+}
+</script>
+
+<!-- Add Google Maps Embed -->
+<section class="py-8">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-bold text-gray-800">Find <span class="text-aj-orange">AJ Long Electric</span> in Fairfax, VA</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mt-2">Located centrally in Fairfax to serve all of Northern Virginia, DC & Maryland</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.8391111659736!2d-77.2759946!3d38.8650774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64c2ebfa3ec11%3A0x30fc784e85a2e5af!2s2832%20Dorr%20Ave%20Suite%20D%2C%20Fairfax%2C%20VA%2022031!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                title="AJ Long Electric Location Map"
+                aria-label="Google Maps showing AJ Long Electric Office Location in Fairfax VA">
+            </iframe>
+        </div>
+        
+        <div class="text-center mt-6">
+            <a href="https://goo.gl/maps/YourGoogleMapsLink" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-aj-orange text-white font-bold px-6 py-3 rounded shadow hover:bg-gray-800 transition">
+                <i class="fas fa-directions mr-2"></i> Get Directions to Our Fairfax Office
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Add Footer Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AJ Long Electric",
+  "url": "https://ajlongelectric.com/",
+  "logo": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-703-997-0026",
+    "contactType": "customer service",
+    "areaServed": ["US-VA", "US-DC", "US-MD"],
+    "availableLanguage": "English"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2832 Dorr Ave Suite D",
+    "addressLocality": "Fairfax",
+    "addressRegion": "VA",
+    "postalCode": "22031",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.facebook.com/AJLongElectric",
+    "https://www.google.com/maps?cid=yourgooglecid",
+    "https://www.yelp.com/biz/aj-long-electric",
+    "https://www.angi.com/companylist/aj-long-electric"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "08:00",
+      "closes": "15:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday"],
+      "closes": "00:00",
+      "opens": "00:00"
+    }
+  ]
+}
+</script>
+
+<!-- Add FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long has AJ Long Electric been serving Fairfax, VA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AJ Long Electric has been providing top-quality electrical services to homeowners in Fairfax, VA and throughout Northern Virginia, DC, and Maryland since 1996. That's over 25 years of dedicated service to our community!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer emergency electrical services in Northern Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we provide emergency electrical services throughout Fairfax County and the entire Northern Virginia region. Our team understands that electrical emergencies don't wait for business hours, and we're ready to help when you need us most."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes AJ Long Electric different from other electricians in Fairfax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a family-owned and operated business, we treat every customer like neighbors. Our 1,200+ 5-star reviews reflect our commitment to quality workmanship, transparent pricing, and exceptional customer service. We also back our work with an industry-leading 5-year warranty on parts and labor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your electricians licensed to work in Arlington and Alexandria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Our team is fully licensed, bonded, and insured to work in all Northern Virginia jurisdictions, including Fairfax, Arlington, Alexandria, Falls Church, and throughout the entire DMV area. We maintain separate licensing for Virginia, Maryland, and DC to ensure complete compliance with all local regulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule an electrical service in Fairfax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scheduling service with AJ Long Electric is easy! Simply call us at 703-997-0026 or fill out our online estimate request form. We serve all of Northern Virginia including Fairfax, Arlington, Alexandria, and beyond, and we'll be happy to provide a free, detailed estimate for your electrical project."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Add Service Schema for EV Charger Installation -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "EV Charger Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "AJ Long Electric",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2832 Dorr Ave Suite D",
+      "addressLocality": "Fairfax",
+      "addressRegion": "VA",
+      "postalCode": "22031",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Fairfax" },
+    { "@type": "City", "name": "Arlington" },
+    { "@type": "City", "name": "Alexandria" },
+    { "@type": "City", "name": "Washington D.C." }
+  ],
+  "description": "Professional installation of electric vehicle charging stations for homes throughout Northern Virginia. We install Level 1, Level 2, and Tesla Wall Connectors with expert wiring and panel upgrades if needed.",
+  "offers": {
+    "@type": "Offer",
+    "price": "699.00",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "699.00",
+      "priceCurrency": "USD",
+      "unitText": "Basic Level 2 Installation",
+      "priceType": "https://schema.org/MinimumAdvertisedPrice"
+    }
+  }
+}
+</script>
+
+<!-- Add Service Schema for Panel Upgrade -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Electrical Panel Upgrade",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "AJ Long Electric",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2832 Dorr Ave Suite D",
+      "addressLocality": "Fairfax",
+      "addressRegion": "VA",
+      "postalCode": "22031",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Fairfax" },
+    { "@type": "City", "name": "Arlington" },
+    { "@type": "City", "name": "Alexandria" },
+    { "@type": "City", "name": "Washington D.C." }
+  ],
+  "description": "Professional electrical panel upgrades and replacements for homes throughout Northern Virginia. We upgrade outdated panels to modern, safe, and efficient systems that meet current electrical codes.",
+  "offers": {
+    "@type": "Offer",
+    "price": "1999.00",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "1999.00",
+      "priceCurrency": "USD",
+      "unitText": "Standard 200 Amp Panel Upgrade",
+      "priceType": "https://schema.org/MinimumAdvertisedPrice"
+    }
+  }
+}
+</script>
+
+<!-- Add Internal Linking -->
+<div class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-bold text-gray-800">Explore Our <span class="text-aj-orange">Services</span> in Northern Virginia</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-4">
+            <a href="/services.html#panel-upgrades" class="bg-gray-100 p-4 rounded-lg shadow-md text-center hover:bg-gray-200 transition">
+                <i class="fas fa-bolt text-aj-orange text-3xl mb-2"></i>
+                <h3 class="font-bold mb-1">Panel Upgrades</h3>
+                <p class="text-sm text-gray-600">Fairfax Electrical Panel Experts</p>
+            </a>
+            
+            <a href="/services.html#recessed-lighting" class="bg-gray-100 p-4 rounded-lg shadow-md text-center hover:bg-gray-200 transition">
+                <i class="fas fa-lightbulb text-aj-orange text-3xl mb-2"></i>
+                <h3 class="font-bold mb-1">Recessed Lighting</h3>
+                <p class="text-sm text-gray-600">Northern VA Lighting Pros</p>
+            </a>
+            
+            <a href="/services.html#ev-chargers" class="bg-gray-100 p-4 rounded-lg shadow-md text-center hover:bg-gray-200 transition">
+                <i class="fas fa-charging-station text-aj-orange text-3xl mb-2"></i>
+                <h3 class="font-bold mb-1">EV Charger Installation</h3>
+                <p class="text-sm text-gray-600">Arlington EV Charging Experts</p>
+            </a>
+            
+            <a href="/services.html#repairs" class="bg-gray-100 p-4 rounded-lg shadow-md text-center hover:bg-gray-200 transition">
+                <i class="fas fa-tools text-aj-orange text-3xl mb-2"></i>
+                <h3 class="font-bold mb-1">Electrical Repairs</h3>
+                <p class="text-sm text-gray-600">Alexandria Electrical Troubleshooting</p>
+            </a>
+        </div>
+        
+        <div class="text-center mt-6">
+            <a href="/services.html" class="inline-flex items-center text-aj-orange font-bold hover:underline">
+                View All Electrical Services in Northern Virginia <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Add Location-Specific Link Block -->
+<div class="py-8 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-bold text-gray-800">Serving Communities Throughout <span class="text-aj-orange">Northern Virginia</span></h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2 text-center">Fairfax County</h3>
+                <ul class="text-sm space-y-1">
+                    <li><a href="/virginia-electrical-services/fairfax.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Fairfax City <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/vienna.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Vienna <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/mclean.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        McLean <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/reston.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Reston <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/burke.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Burke <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2 text-center">Arlington & Alexandria</h3>
+                <ul class="text-sm space-y-1">
+                    <li><a href="/virginia-electrical-services/arlington.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Arlington <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/alexandria.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Alexandria <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/falls-church.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Falls Church <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/crystal-city.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Crystal City <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/virginia-electrical-services/old-town.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Old Town <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2 text-center">DC & Maryland</h3>
+                <ul class="text-sm space-y-1">
+                    <li><a href="/dc-electrical-services/washington-dc.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Washington DC <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/maryland-electrical-services/bethesda.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Bethesda <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/maryland-electrical-services/silver-spring.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Silver Spring <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/maryland-electrical-services/potomac.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Potomac <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/maryland-electrical-services/chevy-chase.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Chevy Chase <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                    <li><a href="/maryland-electrical-services/rockville.html" class="flex justify-between items-center p-2 hover:bg-gray-100 rounded">
+                        Rockville <i class="fas fa-angle-right text-aj-orange"></i>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-6">
+            <a href="/service-areas.html" class="inline-flex items-center text-aj-orange font-bold hover:underline">
+                View All Service Areas <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Add Page Speed Optimization Script -->
+<script>
+    // Lazy load images
+    document.addEventListener("DOMContentLoaded", function() {
+        var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+        
+        if ("IntersectionObserver" in window) {
+            let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        let lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.classList.remove("lazy");
+                        lazyImageObserver.unobserve(lazyImage);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(function(lazyImage) {
+                lazyImageObserver.observe(lazyImage);
+            });
+        }
+    });
+    
+    // Defer non-critical CSS
+    const loadDeferredStyles = function() {
+        const addStylesNode = document.getElementById("deferred-styles");
+        const replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement);
+        addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    
+    const raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Enhanced Title Tag -->
+    <title>Electrician Shirlington VA | Pet-Friendly & Village Center Specialists | AJ Long Electric</title>
+    <!-- SEO: Compelling Meta Description -->
+    <meta name="description" content="AJ Long Electric provides specialized electrical services for Shirlington's village center businesses, pet-friendly residences, and entertainment venues. Expert electrical solutions with over 1,200 5-star reviews serving Arlington.">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto;}
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+
+        /* Section preview */
+        .section-preview { position: relative; overflow: hidden; }
+        .section-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1rem 1rem; transition: all 0.3s ease; }
+        .section-preview:hover .section-overlay { background: linear-gradient(to top, rgba(255,114,0,0.9), transparent); }
+
+        /* Chat widget */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+        .chat-button { width: 60px; height: 60px; border-radius: 50%; background-color: var(--aj-orange); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .chat-popup { position: absolute; bottom: 80px; /* Increased spacing */ right: 0; width: 300px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); overflow: hidden; display: none; flex-direction: column; max-height: 400px; /* Limit height */ }
+        .chat-header { background-color: var(--aj-dark); color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+        .chat-messages { flex-grow: 1; /* Allow messages to take available space */ padding: 15px; overflow-y: auto; /* Enable scroll */ }
+        .chat-input { display: flex; border-top: 1px solid #eee; padding: 10px; flex-shrink: 0; }
+        .chat-input input { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px; }
+        .chat-input button { background-color: var(--aj-orange); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 100px; /* Position next to chat */
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+         #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/shirlington.html",
+      "name": "AJ Long Electric - Shirlington",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/shirlington.html",
+      "telephone": "+1-703-997-4974",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8400,
+        "longitude": -77.0881
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Shirlington" },
+        { "@type": "Place", "name": "Arlington", "containedInPlace": { "@type": "State", "name": "Virginia" } }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.google.com/maps?cid=12345",
+        "https://www.yelp.com/biz/aj-long-electric"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/shirlington.html"
+      },
+      "description": "Professional electrical services in Shirlington, Arlington VA. Specializing in village center businesses, pet-friendly residential solutions, outdoor patio electrical, entertainment venue wiring, and energy-efficient upgrades. Licensed and insured electricians with over 1,200 5-star reviews.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Village Center Commercial Electrical",
+              "description": "Specialized electrical services for Shirlington Village businesses, including retail spaces, restaurants, and entertainment venues"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pet-Friendly Residential Solutions",
+              "description": "Custom electrical installations and safety features for Shirlington's pet-loving homeowners and apartment dwellers"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Outdoor Patio & Landscape Lighting",
+              "description": "Professional outdoor electrical services for Shirlington's restaurants, cafes, and residential properties"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Entertainment Venue Electrical",
+              "description": "Specialized electrical services for Shirlington's theaters, performance spaces, and event venues"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Electrical Troubleshooting & Repairs",
+              "description": "Expert diagnosis and repair of electrical issues in Shirlington's residential and commercial properties"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Energy-Efficient Lighting Upgrades",
+              "description": "LED lighting conversions and energy-saving electrical solutions for Shirlington businesses and residences"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Jessica T."
+        },
+        "datePublished": "2023-06-22",
+        "reviewBody": "The team at AJ Long Electric did a fantastic job with our restaurant's outdoor patio lighting and heater installation in Shirlington Village. Their understanding of both aesthetics and commercial electrical code requirements was impressive. We've received so many compliments from our customers, and the new lighting has significantly extended our outdoor dining season."
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Electrician in <span class="text-aj-orange">Shirlington, VA</span></h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric provides specialized electrical services for Shirlington's village center businesses, pet-friendly residences, and entertainment venues with over 1,200 5-star reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Shirlington Service Area -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized Electrical Solutions for <span class="text-aj-orange">Shirlington</span></h2>
+                    <p class="text-gray-600 mb-4">AJ Long Electric has been providing premium electrical services to Shirlington and surrounding Arlington areas for over a decade. This vibrant urban village presents unique electrical challenges with its pedestrian-friendly mix of retail shops, restaurants with outdoor dining, entertainment venues, and pet-friendly residences.</p>
+                    <p class="text-gray-600 mb-4">From specialty lighting for Shirlington Village's restaurants and boutiques to custom electrical installations for pet-friendly homes and apartments, our licensed electricians understand the specific requirements of this distinctive community. Our expertise in commercial electrical systems, outdoor lighting, entertainment venue wiring, and pet-safe residential solutions makes us the trusted partner for Shirlington's diverse electrical needs.</p>
+                    <p class="text-gray-600">We serve the entire Shirlington area including Shirlington Village, Park Shirlington, and neighboring communities. With over 1,200 5-star reviews, our team delivers reliable, professional service for both commercial and residential electrical projects.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12427.251276676286!2d-77.0881!3d38.840!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b1082350a42d%3A0x21a7a6ff152ef7fe!2sShirlington%2C%20Arlington%2C%20VA!5e0!3m2!1sen!2sus!4v1682174235621!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services in Shirlington -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized Electrical Services for <span class="text-aj-orange">Shirlington</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our comprehensive electrical solutions are tailored to the unique needs of Shirlington's businesses, entertainment venues, and pet-friendly residences.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-store text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Village Center Commercial Electrical</h3>
+                    <p class="text-gray-600 mb-3">Specialized electrical services for Shirlington Village businesses. From retail lighting that showcases merchandise to restaurant power systems that support busy kitchens, we provide reliable commercial electrical solutions tailored to your business needs.</p>
+                    <a href="/services/panel-replacements/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-paw text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pet-Friendly Residential Solutions</h3>
+                    <p class="text-gray-600 mb-3">Custom electrical installations for Shirlington's pet-loving households. We specialize in pet-safe wiring protection, chew-resistant cable solutions, and smart home systems that enhance safety and comfort for your furry family members.</p>
+                    <a href="/services/panel-replacements/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-tree text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Outdoor Patio & Landscape Lighting</h3>
+                    <p class="text-gray-600 mb-3">Professional outdoor electrical services for Shirlington's restaurants, cafes, and residential properties. From weatherproof patio lighting and heaters to landscape illumination and outdoor sound systems for enhanced ambiance.</p>
+                    <a href="/services/recessed-lighting/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mt-8">
+                <!-- Service 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-ticket-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Entertainment Venue Electrical</h3>
+                    <p class="text-gray-600 mb-3">Specialized electrical services for Shirlington's theaters and performance spaces. From high-capacity power systems for lighting and sound equipment to audience area illumination and emergency backup systems for uninterrupted performances.</p>
+                    <a href="/services/panel-replacements/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Electrical Troubleshooting & Repairs</h3>
+                    <p class="text-gray-600 mb-3">Expert diagnosis and repair of electrical issues in Shirlington properties. From circuit breaker problems and power outages to outlet failures and lighting issues, our technicians quickly identify and resolve electrical problems to minimize disruption.</p>
+                    <a href="/services/panel-replacements/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Energy-Efficient Lighting Upgrades</h3>
+                    <p class="text-gray-600 mb-3">LED lighting conversions and energy-saving electrical solutions for Shirlington businesses and residences. Our energy-efficient upgrades help reduce power consumption and operating costs while enhancing light quality and ambiance.</p>
+                    <a href="/services/recessed-lighting/index.html" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/services.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us for Shirlington -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose <span class="text-aj-orange">AJ Long Electric</span> in Shirlington</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Here's why Shirlington's businesses, entertainment venues, and homeowners trust us with their electrical needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Village Specialists</h3>
+                    <p class="text-gray-600">Extensive experience with Shirlington's unique urban village electrical needs for businesses and residences.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Licensed & Insured</h3>
+                    <p class="text-gray-600">Full commercial and residential licensing with comprehensive insurance coverage for all projects in Arlington County.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Star Service</h3>
+                    <p class="text-gray-600">Over 1,200 5-star reviews from satisfied customers across Northern Virginia, including many in the Shirlington area.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pet-Friendly Focus</h3>
+                    <p class="text-gray-600">Special attention to electrical safety and solutions designed for homes with pets in this dog-friendly community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects in Shirlington -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Recent Projects in <span class="text-aj-orange">Shirlington</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Take a look at some of our recent electrical projects in the Shirlington area of Arlington.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <div class="h-56 bg-gray-300"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Restaurant Patio Lighting</h3>
+                        <p class="text-gray-600 mb-4">Custom outdoor lighting design and installation for a Shirlington Village restaurant, featuring weather-resistant fixtures, programmable color LED accent lighting, and patio heater electrical connections for year-round outdoor dining.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> Campbell Avenue, Shirlington Village
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <div class="h-56 bg-gray-300"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Theater Electrical Renovation</h3>
+                        <p class="text-gray-600 mb-4">Complete electrical system upgrade for a Shirlington entertainment venue, including high-capacity power distribution for lighting and sound equipment, emergency backup systems, and energy-efficient house lighting with advanced controls.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> South 28th Street, Shirlington
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <div class="h-56 overflow-hidden">
+                        <img src="/assets/images/service-areas/virginia/shirlington/Village Center Commercial Electrical.jpg" alt="Shirlington Village Center Electrical" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Village Center Commercial Electrical</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive electrical renovation for Shirlington Village Center businesses, featuring modern lighting systems, energy-efficient infrastructure, and custom installations for retail and dining establishments.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> Campbell Avenue, Shirlington Village
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/gallery.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Also Serve Nearby Areas Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center">We Also Serve Nearby Areas</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <a href="/virginia-electrical-services/arlington.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Arlington
+                </a>
+                <a href="/virginia-electrical-services/alexandria.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Alexandria
+                </a>
+                <a href="/virginia-electrical-services/baileys-crossroads.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Bailey's Crossroads
+                </a>
+                <a href="/virginia-electrical-services/columbia-pike.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Columbia Pike
+                </a>
+                <a href="/virginia-electrical-services/pentagon-city.html" class="bg-gray-100 hover:bg-aj-orange hover:text-white py-3 px-4 rounded-lg transition">
+                    Pentagon City
+                </a>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="/service-areas.html" class="text-aj-orange hover:underline inline-flex items-center">
+                    View All Service Areas <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Links Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center">Helpful Resources</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="/resources/electrical-cost-guide.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                    <i class="fas fa-dollar-sign text-aj-orange text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Electrical Cost Guide</h3>
+                    <p class="text-gray-600">Learn about typical costs for electrical projects in the Shirlington area.</p>
+                </a>
+                <a href="/resources/signs-panel-upgrade.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                    <i class="fas fa-bolt text-aj-orange text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Signs You Need a Panel Upgrade</h3>
+                    <p class="text-gray-600">Discover the warning signs that your electrical panel needs to be replaced.</p>
+                </a>
+                <a href="/resources/recessed-lighting-guide.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                    <i class="fas fa-lightbulb text-aj-orange text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Recessed Lighting Guide</h3>
+                    <p class="text-gray-600">Everything you need to know about installing recessed lighting in your space.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Electrical Services for Your Shirlington Property?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Contact AJ Long Electric today for a comprehensive estimate on your residential or commercial electrical needs in Shirlington, Arlington.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request an Estimate
+                </a>
+                <a href="tel:7039974974" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: 703-997-4974
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="/assets/logos/ajlelogo_white.png" alt="AJ Long Electric Logo White" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC & MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039974974" class="hover:text-aj-orange transition">703-997-4974</a>
+                    </p>
+                     <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i>
+                        <span>Fairfax, VA (Main Office)</span>
+                    </p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements & Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen & Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting & Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC & Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-6">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                    </div>
+                    <p class="text-sm mb-1">VA License #: 2705031092</p>
+                    <p class="text-sm mb-1">MD License #: 3309</p>
+                    <p class="text-sm mb-1">DC License #: EM40000654</p>
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                 <p>&copy; <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                 <div class="mt-4 md:mt-0 space-x-4">
+                     <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                     <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                     <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                 </div>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-opacity duration-300 hover:bg-gray-800 z-50">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                menuOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            });
+
+            const hideMenu = () => {
+                mobileMenu.classList.remove('active');
+                menuOverlay.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scroll
+            };
+
+            closeMenu.addEventListener('click', hideMenu);
+            menuOverlay.addEventListener('click', hideMenu);
+
+            // Chat Widget
+
+
+            const addMessage = (text, sender = 'user') => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('mb-2', 'clear-both'); // Use clear-both for alignment
+
+                const p = document.createElement('p');
+                p.classList.add('rounded-lg', 'py-2', 'px-3', 'inline-block', 'max-w-xs', 'text-sm');
+
+                if (sender === 'user') {
+                    p.classList.add('bg-aj-orange', 'text-white', 'float-right'); // Align user message right
+                } else {
+                    p.classList.add('bg-gray-200', 'text-gray-800', 'float-left'); // Align agent message left
+                }
+                p.textContent = text;
+                messageDiv.appendChild(p);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll
+            };
+
+            const handleSendMessage = () => {
+                 const message = chatInput.value.trim();
+                 if (message) {
+                     addMessage(message, 'user');
+                     chatInput.value = '';
+
+                     // Simulate agent response
+                     setTimeout(() => {
+                         addMessage("Thanks for your message! We typically respond within a few minutes during business hours. For immediate assistance, please call us at 703-997-0026.", 'agent');
+                     }, 1500);
+                 }
+            };
+
+            sendChatBtn.addEventListener('click', handleSendMessage);
+
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                    backToTopButton.classList.remove('invisible', 'opacity-0');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                     backToTopButton.classList.add('invisible', 'opacity-0');
+                }
+            });
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Copyright Year
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        }); // End DOMContentLoaded
+    </script>
+<script src="/js/include-html.js?v=1746948964"></script>
+</body>
+</html>

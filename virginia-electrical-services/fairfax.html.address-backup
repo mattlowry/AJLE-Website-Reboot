@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Fairfax VA | Residential & Commercial Specialists | AJ Long Electric</title>
+    <meta name="description" content="AJ Long Electric offers expert electrical services in Fairfax VA, including EV charger installation. Trusted residential and commercial electricians with over 1,200 5-star reviews in Fairfax City and County. Call us today for a free estimate!">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Map styles */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        /* Sticky header */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+
+        /* Mobile menu */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+        
+        /* Chat widget */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+        .chat-button { width: 60px; height: 60px; border-radius: 50%; background-color: var(--aj-orange); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .chat-popup { position: absolute; bottom: 80px; right: 0; width: 300px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); overflow: hidden; display: none; }
+        .chat-header { background-color: var(--aj-dark); color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-messages { padding: 15px; max-height: 250px; overflow-y: auto; }
+        .chat-input { display: flex; border-top: 1px solid #eee; padding: 10px; }
+        .chat-input input { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px; }
+        .chat-input button { background-color: var(--aj-orange); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+    </style>
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "AJ Long Electric - Fairfax",
+      "image": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png",
+      "@id": "https://ajlongelectric.com/virginia-electrical-services/fairfax.html",
+      "url": "https://ajlongelectric.com/virginia-electrical-services/fairfax.html",
+      "telephone": "+1-703-997-4974",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2832 Dorr Ave, Suite D",
+        "addressLocality": "Fairfax",
+        "addressRegion": "VA",
+        "postalCode": "22031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.8383686,
+        "longitude": -77.2664536
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "15:00"
+      }],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Fairfax City"
+        },
+        {
+          "@type": "County",
+          "name": "Fairfax County",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Virginia"
+          }
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ajlongelectric",
+        "https://www.instagram.com/ajlongelectric",
+        "https://www.google.com/maps/place/AJ+Long+Electric/@38.8383686,-77.2690285,17z/data=!4m6!3m5!1s0x89b64c0325cc1293:0x7d2783cfbec92c1a!8m2!3d38.8383686!4d-77.2664536!16s%2Fg%2F11bxf2f69x",
+        "https://www.yelp.com/biz/aj-long-electric-fairfax"
+      ],
+      "description": "Professional electrical services in Fairfax, VA. Specializing in residential electrical upgrades, panel replacements, EV charger installation, and commercial electrical solutions throughout Fairfax City and County.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services in Fairfax",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Panel Replacements & Upgrades",
+              "description": "Comprehensive electrical panel replacements and upgrades for Fairfax homes. We replace outdated Federal Pacific, Zinsco, and fuse panels with modern, safe electrical panels."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EV Charger Installation",
+              "description": "Professional Level 2 EV charging station installation for Fairfax residences, including Tesla Wall Connectors and other brands with expert assessment and setup."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Recessed & Custom Lighting",
+              "description": "Expert installation of recessed lighting, track lighting, pendant fixtures, and custom lighting solutions for Fairfax homes and businesses."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Historic Home Electrical",
+              "description": "Specialized electrical services for Fairfax's historic homes including knob-and-tube wiring replacement and preservation-conscious approaches."
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1200",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ajlongelectric.com/virginia-electrical-services/fairfax.html"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Sarah M."
+        },
+        "datePublished": "2023-09-18",
+        "reviewBody": "AJ Long Electric replaced our Federal Pacific panel in our Fairfax home. The work was excellent and they were very professional throughout the entire process."
+      }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ajlongelectric.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Service Areas",
+          "item": "https://ajlongelectric.com/service-areas.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Virginia",
+          "item": "https://ajlongelectric.com/virginia-electrical-services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Fairfax",
+          "item": "https://ajlongelectric.com/virginia-electrical-services/fairfax.html"
+        }
+      ]
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Standard Header (loaded via JavaScript) -->
+    <!-- Standard Header for AJ Long Electric Website -->
+<!-- Sticky Header -->
+<header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="mr-4">
+                <img src="/assets/logos/AJLongElectric-Logo.png" alt="AJ Long Electric Logo" class="h-16">
+            </div>
+            <div>
+                <div class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-sm">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-800 transition">
+                Get an Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-6 py-2 rounded shadow hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b">
+        <div>
+            <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4">
+        <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100 space-y-3">
+        <div class="text-center mb-1">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-0026
+            </a>
+        </div>
+        <a href="/estimate.html" class="w-full flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition">
+            <i class="fas fa-calculator mr-2"></i> Get an Estimate
+        </a>
+        <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button w-full bg-gray-800 text-white font-bold py-3 rounded-lg hover:bg-gray-700 transition" onClick="HCPWidget.openModal()">
+            <i class="fas fa-calendar-alt mr-2"></i> Book Online
+        </button>
+    </div>
+</div>
+
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100">
+            <a href="tel:7039974974" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call Us: 703-997-4974
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">Electrician in <span class="text-aj-orange">Fairfax, VA</span> | Electrical Contractor</h1>
+                <p class="text-lg max-w-3xl mx-auto">AJ Long Electric provides expert residential and commercial electrical services throughout Fairfax City and County. From panel upgrades and EV charger installations to recessed lighting and smart home integration, our licensed electricians deliver reliable solutions backed by over 1,200 5-star reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fairfax Office Information Section -->
+    <section class="py-8 bg-gray-50 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+                <div class="md:mr-8 mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold text-gray-800 flex items-center justify-center md:justify-start">
+                        <i class="fas fa-building text-aj-orange mr-2"></i> Our Fairfax Office
+                    </h3>
+                </div>
+                <div class="md:mr-8 mb-4 md:mb-0">
+                    <p class="text-gray-700 flex items-center">
+                        <i class="fas fa-map-marker-alt text-aj-orange mr-2"></i>
+                        <strong>2832 Dorr Ave, Suite D, Fairfax, VA 22031</strong>
+                    </p>
+                </div>
+                <div>
+                    <a href="tel:7039974974" class="text-aj-orange hover:text-orange-700 font-bold flex items-center justify-center md:justify-start">
+                        <i class="fas fa-phone mr-2"></i> 703-997-4974
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Fairfax Service Area -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Your Premier Electricians in <span class="text-aj-orange">Fairfax</span></h2>
+                    <p class="text-gray-600 mb-4">AJ Long Electric is proud to call Fairfax our home. With our main office located on Dorr Avenue, we've been serving Fairfax City, Fairfax County, and surrounding communities for over 25 years. Our deep roots in this area give us an unmatched understanding of the electrical needs of local homes and businesses.</p>
+                    <p class="text-gray-600 mb-4">Fairfax's diverse housing stock—from historic homes in the Old Town district to modern developments in suburban neighborhoods—requires electricians who understand the unique challenges of each property type. Whether you're in a century-old house needing careful electrical updates or a newer construction requiring smart home integrations, our team provides solutions tailored to your specific needs.</p>
+                    <p class="text-gray-600">As a family-owned business headquartered in Fairfax, we're more than just service providers—we're your neighbors. That local connection drives our commitment to excellence, transparent pricing, and the building of lasting relationships with our customers throughout the Fairfax community.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49758.36767388326!2d-77.35988117832036!3d38.85278960000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64e96394024ef%3A0x75036b8085ddb2f9!2sFairfax%2C%20VA!5e0!3m2!1sen!2sus!4v1714581682123!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services in Fairfax -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized Electrical Services for <span class="text-aj-orange">Fairfax</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our comprehensive electrical solutions are tailored to the unique needs of Fairfax homes, businesses, and properties.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Panel Replacements & Upgrades</h3>
+                    <p class="text-gray-600 mb-3">Comprehensive electrical panel replacements and upgrades for Fairfax homes. We specialize in replacing outdated Federal Pacific, Zinsco, and fuse panels with modern, safe electrical panels that meet today's power demands and code requirements.</p>
+                    <a href="/services.html#panel-upgrades" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Recessed & Custom Lighting</h3>
+                    <p class="text-gray-600 mb-3">Expert installation of recessed lighting, track lighting, pendant fixtures, and custom lighting solutions for Fairfax homes. We create beautiful, energy-efficient lighting designs that enhance your living spaces and provide the perfect ambiance.</p>
+                    <a href="/services.html#lighting" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-car-battery text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">EV Charger Installation</h3>
+                    <p class="text-gray-600 mb-3">Professional installation of Level 2 EV charging stations for Fairfax residences. From initial assessment and electrical service evaluation to charger mounting and circuit installation, we provide complete solutions for electric vehicle owners.</p>
+                    <a href="/services.html#ev-chargers" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/resources/ev-charger-basics.html" class="text-aj-orange hover:underline flex items-center mt-2">
+                        EV Charger Basics <i class="fas fa-book ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mt-8">
+                <!-- Service 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-wifi text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Home Integration</h3>
+                    <p class="text-gray-600 mb-3">Comprehensive smart home electrical solutions for Fairfax properties. We install and integrate smart lighting systems, automated switches, smart thermostats, and centralized control systems that enhance convenience, efficiency, and security.</p>
+                    <a href="/services.html#smart-home" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-landmark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Historic Home Electrical</h3>
+                    <p class="text-gray-600 mb-3">Specialized electrical services for Fairfax's historic homes and older properties. Our team expertly navigates the challenges of updating electrical systems in historic structures, maintaining architectural integrity while ensuring modern safety and functionality.</p>
+                    <a href="/services.html#historic" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-store text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Electrical</h3>
+                    <p class="text-gray-600 mb-3">Comprehensive electrical solutions for Fairfax businesses, retail spaces, and commercial properties. From office lighting and power distribution to dedicated circuits for specialized equipment, we provide reliable commercial electrical services.</p>
+                    <a href="/services.html#commercial" class="text-aj-orange hover:underline flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/services.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fairfax Electrical Permits & Regulations -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Fairfax <span class="text-aj-orange">Electrical Permits</span> & Regulations</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Understanding local permit requirements and electrical codes for your Fairfax project.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-aj-orange">Fairfax City Electrical Permits</h3>
+                    <p class="text-gray-700 mb-4">Fairfax City requires electrical permits for most electrical work, including panel replacements, new circuits, and major renovations. The Fairfax City permit office is located at City Hall on Armstrong Street, and permit applications can also be submitted online through the city's portal.</p>
+                    <p class="text-gray-700 mb-2">Common projects requiring permits in Fairfax City:</p>
+                    <ul class="list-disc pl-5 mb-4 text-gray-700">
+                        <li>Electrical panel replacements or upgrades</li>
+                        <li>EV charger installations (Level 2)</li>
+                        <li>New circuit installations</li>
+                        <li>Whole-house rewiring</li>
+                        <li>Generator installations</li>
+                    </ul>
+                    <p class="text-gray-700">As your local Fairfax electricians, we handle the entire permit process for you, ensuring all work is code-compliant and properly inspected.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-aj-orange">Fairfax County Electrical Requirements</h3>
+                    <p class="text-gray-700 mb-4">Fairfax County follows the Virginia Uniform Statewide Building Code (USBC) and the National Electrical Code (NEC) with some specific local amendments. The county's Land Development Services department oversees permits and inspections throughout Fairfax County.</p>
+                    <p class="text-gray-700 mb-2">Important Fairfax County electrical requirements:</p>
+                    <ul class="list-disc pl-5 mb-4 text-gray-700">
+                        <li>AFCI protection requirements for bedrooms and living areas</li>
+                        <li>GFCI protection for kitchens, bathrooms, and outdoor outlets</li>
+                        <li>Specific EV charger installation regulations</li>
+                        <li>Historic district special requirements (in designated areas)</li>
+                        <li>Load calculation requirements for panel upgrades</li>
+                    </ul>
+                    <p class="text-gray-700">Our team stays current with all Fairfax County electrical codes to ensure your project meets or exceeds all requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us for Fairfax -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose <span class="text-aj-orange">AJ Long Electric</span> in Fairfax</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Here's why Fairfax homeowners and businesses trust us with their electrical needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Local Expertise</h3>
+                    <p class="text-gray-600">Based in Fairfax with deep knowledge of local homes, neighborhoods, and electrical requirements.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Licensed & Insured</h3>
+                    <p class="text-gray-600">Fully licensed in Virginia with comprehensive insurance for residential and commercial projects.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Star Reputation</h3>
+                    <p class="text-gray-600">Over 1,200 five-star reviews from satisfied customers throughout Fairfax and Northern Virginia.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover-grow">
+                    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-aj-orange text-white text-2xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Year Warranty</h3>
+                    <p class="text-gray-600">Industry-leading 5-year warranty on workmanship for your peace of mind and satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects in Fairfax -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Recent Projects in <span class="text-aj-orange">Fairfax</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Take a look at some of our recent electrical projects in Fairfax homes and businesses.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <img src="/assets/images/service-areas/virginia/fairfax/Residential-Electrical-Services-Fairfax.jpg" alt="Residential Electrical Services in Fairfax" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Complete Home Electrical Upgrade</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive electrical renovation in a Fair Oaks single-family home, including 200-amp panel replacement, whole-house rewiring, recessed lighting installation throughout, and smart home integration with automated controls.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> Fair Oaks, Fairfax County
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <img src="/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg" alt="Panel Upgrade in Fairfax Home" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Historic Home Preservation</h3>
+                        <p class="text-gray-600 mb-4">Careful electrical system modernization for a historic home in Old Town Fairfax, including replacement of knob-and-tube wiring, preservation-sensitive panel upgrade, and period-appropriate lighting fixtures with modern LED technology.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> Old Town, Fairfax City
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-grow">
+                    <img src="/assets/images/service-areas/virginia/fairfax/Comerical-Electrician-Fairfax.jpg" alt="Commercial Electrical Services in Fairfax" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Commercial Office Renovation</h3>
+                        <p class="text-gray-600 mb-4">Complete electrical upgrade for a commercial office space in Fairfax Corner, featuring energy-efficient lighting systems, dedicated circuits for workstations, comprehensive data networking infrastructure, and automated lighting controls.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i> Fairfax Corner, Fairfax County
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="/gallery.html" class="inline-block bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition">
+                    View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas We Serve Within Fairfax -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Areas We Serve Within <span class="text-aj-orange">Fairfax</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our electricians provide services throughout Fairfax City and the surrounding neighborhoods in Fairfax County.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-gray-100 p-5 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-bold mb-3 text-aj-orange">Fairfax City</h3>
+                    <ul class="space-y-1 text-gray-700">
+                        <li>Old Town Fairfax</li>
+                        <li>Fairfax Circle</li>
+                        <li>Kamp Washington</li>
+                        <li>Fairchester</li>
+                        <li>Country Club Hills</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-5 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-bold mb-3 text-aj-orange">Fair Oaks Area</h3>
+                    <ul class="space-y-1 text-gray-700">
+                        <li>Fair Oaks</li>
+                        <li>Fair Lakes</li>
+                        <li>Fairfax Corner</li>
+                        <li>Penderbrook</li>
+                        <li>Greenbriar</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-5 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-bold mb-3 text-aj-orange">Oakton Area</h3>
+                    <ul class="space-y-1 text-gray-700">
+                        <li>Oakton</li>
+                        <li>Vale</li>
+                        <li>Difficult Run</li>
+                        <li>Waples Mill</li>
+                        <li>Fox Mill</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-5 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-bold mb-3 text-aj-orange">Vienna Area</h3>
+                    <ul class="space-y-1 text-gray-700">
+                        <li>Vienna</li>
+                        <li>Dunn Loring</li>
+                        <li>Tysons Corner</li>
+                        <li>Wolf Trap</li>
+                        <li>Merrifield</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">Don't see your neighborhood listed? We likely still serve your area! We provide electrical services throughout Fairfax County and Northern Virginia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fairfax Electrical FAQs -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked <span class="text-aj-orange">Electrical Questions</span> in Fairfax</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions from Fairfax homeowners about electrical services</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-aj-orange mr-2"><i class="fas fa-question-circle"></i></span>
+                        <span>How much does it cost to replace an electrical panel in Fairfax?</span>
+                    </h3>
+                    <div class="text-gray-700 pl-8">
+                        <p>The cost to replace an electrical panel in Fairfax typically ranges from $2,400 to $3,500, depending on the amperage and complexity. A standard 200-amp panel replacement in most Fairfax homes costs around $3,000. Older homes in areas like Old Town Fairfax may require additional work due to outdated wiring, potentially increasing costs. We provide detailed, transparent quotes after an on-site assessment of your specific situation.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-aj-orange mr-2"><i class="fas fa-question-circle"></i></span>
+                        <span>Do I need a permit to install an EV charger in Fairfax?</span>
+                    </h3>
+                    <div class="text-gray-700 pl-8">
+                        <p>Yes, both Fairfax City and Fairfax County require electrical permits for Level 2 EV charger installations. This is because these chargers typically require a new 240-volt circuit and potentially a panel upgrade. As licensed electricians in Fairfax, we handle the entire permit process for you, ensuring your EV charger installation is code-compliant and passes inspection. The permit requirements help ensure your charging system is installed safely and won't overload your home's electrical system.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-aj-orange mr-2"><i class="fas fa-question-circle"></i></span>
+                        <span>How long does a typical electrical project take in Fairfax?</span>
+                    </h3>
+                    <div class="text-gray-700 pl-8">
+                        <p>Project timelines in Fairfax vary by type: panel replacements typically take 1 day; recessed lighting installations 1-2 days depending on the number of fixtures; EV charger installations usually 4-6 hours. For Fairfax residents, permit processing can add 3-5 business days to the overall timeline. We coordinate closely with Fairfax City and County inspectors to minimize delays and can often schedule inspections within 24-48 hours of project completion.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-aj-orange mr-2"><i class="fas fa-question-circle"></i></span>
+                        <span>Is my Federal Pacific panel in my Fairfax home dangerous?</span>
+                    </h3>
+                    <div class="text-gray-700 pl-8">
+                        <p>Yes, Federal Pacific Electric (FPE) panels, commonly found in Fairfax homes built between 1950 and 1990, are considered dangerous and a fire hazard. The Consumer Product Safety Commission has identified these panels as failing to trip when they should during overloads or short circuits. We've replaced hundreds of these panels throughout Fairfax County, including many in the Kings Park, Mantua, and Fair Lakes neighborhoods where they were frequently installed. We recommend immediate replacement of FPE panels to protect your home and family.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <span class="text-aj-orange mr-2"><i class="fas fa-question-circle"></i></span>
+                        <span>What are common electrical issues in older Fairfax homes?</span>
+                    </h3>
+                    <div class="text-gray-700 pl-8">
+                        <p>Older Fairfax homes, particularly in established neighborhoods like Mosby Woods, Country Club Hills, and Old Town Fairfax, commonly face issues with outdated wiring (knob-and-tube or aluminum), insufficient electrical panels (60 or 100 amp), lack of grounded outlets, and inadequate circuits for modern appliances. These homes often need panel upgrades, rewiring, and additional circuits to safely handle today's electrical demands. Our Fairfax electricians specialize in updating these historic homes while preserving their character and ensuring safety and code compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Expert Electrical Services in Fairfax?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Contact AJ Long Electric today for a comprehensive estimate on your residential or commercial electrical needs in Fairfax City, Fairfax County, and surrounding areas.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request an Estimate
+                </a>
+                <a href="tel:7039974974" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Us: 703-997-4974
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="/assets/logos/ajlelogo_white.png" alt="AJ Long Electric Logo White" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC & MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039974974" class="hover:text-aj-orange transition">703-997-4974</a>
+                    </p>
+                     <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange"></i>
+                        <span>Fairfax, VA (Main Office)</span>
+                    </p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements & Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen & Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting & Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC & Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-6">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                    </div>
+                    <p class="text-sm mb-1">VA License #: 2705031092</p>
+                    <p class="text-sm mb-1">MD License #: 3309</p>
+                    <p class="text-sm mb-1">DC License #: EM40000654</p>
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                 <p>&copy; <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                 <div class="mt-4 md:mt-0 space-x-4">
+                     <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                     <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                     <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                 </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-aj-orange text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+            document.getElementById('menu-overlay').style.display = 'block';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('menu-overlay').style.display = 'none';
+        });
+
+        document.getElementById('menu-overlay').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            this.style.display = 'none';
+        });
+
+        
+        
+        const sendMessage = () => {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'bg-aj-orange text-white rounded-lg p-3 mb-2 ml-auto max-w-xs';
+                userDiv.innerHTML = `<p>${message}</p>`;
+                chatMessages.appendChild(userDiv);
+                
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate response after 1 second
+                setTimeout(() => {
+                    const responseDiv = document.createElement('div');
+                    responseDiv.className = 'bg-gray-200 rounded-lg p-3 mb-2 max-w-xs';
+                    responseDiv.innerHTML = `<p>Thanks for your message! One of our representatives will respond shortly. If you'd like an immediate response, please call us at 703-997-4974.</p>`;
+                    chatMessages.appendChild(responseDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        };
+        
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+<script src="/js/include-html.js?v=1746948964"></script>
+</body>
+</html>

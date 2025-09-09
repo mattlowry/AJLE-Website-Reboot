@@ -1,0 +1,1323 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request an Estimate - AJ Long Electric</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Places API for address auto-completion (key will be dynamically loaded) -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places" async="" defer=""></script>
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* File upload */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .preview-item img, .preview-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .preview-item .remove-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        /* Progress bar for estimate */
+        .progress-bar {
+            height: 4px;
+            background-color: #eee;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .progress-indicator {
+            position: absolute;
+            height: 100%;
+            background-color: var(--aj-orange);
+            transition: width 0.3s ease;
+        }
+        .step-dots {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .step-dot.active {
+            border-color: var(--aj-orange);
+            background-color: var(--aj-orange);
+        }
+        .step-dot.completed {
+            border-color: var(--aj-orange);
+            background-color: #fff;
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+
+        /* Service options styling */
+        .service-option {
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .service-option:hover {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+        }
+        .service-option.selected {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+            box-shadow: 0 2px 5px rgba(255, 114, 0, 0.1);
+        }
+        
+        /* Radio buttons and checkboxes styling */
+        input[type="radio"], input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        /* Quantity input styling */
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-btn {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Service description textarea */
+        .service-description {
+            min-height: 100px;
+            resize: vertical;
+        }
+    
+    /* Mobile Form Improvements */
+    @media (max-width: 768px) {
+        /* Larger tap targets for mobile */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            font-size: 16px; /* Prevents zoom on iOS */
+            min-height: 48px;
+        }
+        
+        /* Larger checkboxes and radio buttons */
+        input[type="checkbox"],
+        input[type="radio"] {
+            min-width: 24px;
+            min-height: 24px;
+        }
+        
+        /* Better button sizing */
+        button,
+        .btn,
+        a.btn {
+            min-height: 48px;
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+        
+        /* Form spacing */
+        form > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        /* Label spacing */
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 16px;
+        }
+        
+        /* Checkbox/radio label alignment */
+        label input[type="checkbox"],
+        label input[type="radio"] {
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+    }
+    
+    </style>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Request an Estimate - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/estimate-advanced.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request an Estimate - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Sticky Header -->
+    <header class="bg-white shadow-md sticky-nav">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="mr-4">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-16" loading="lazy">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h1>
+                    <p class="text-sm">Residential Electrical Services</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition">
+                    <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+                </a>
+                <a href="estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-6 py-2 rounded shadow hover:bg-orange-600 transition">
+                    Get an Estimate
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-aj-dark focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Desktop navigation -->
+        <nav class="bg-aj-dark hidden md:block">
+            <div class="container mx-auto px-4">
+                <ul class="flex">
+                <li><a href="/index.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">About Us</a></li>
+                <li><a href="/process.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Our Process</a></li>
+                <li><a href="/services.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Service Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Project Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-4 py-3 text-white hover:bg-gray-800 transition">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-4 flex justify-between items-center border-b">
+            <div>
+                <h2 class="text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+            </div>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a></li>
+                <li><a href="/about.html" class="block py-2 px-4 hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="/process.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Our Process</a></li>
+                <li><a href="/services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Services</a></li>
+                <li><a href="/testimonials.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Resources</a></li>
+                <li><a href="/faq.html" class="block py-2 px-4 hover:bg-gray-100 rounded">FAQs</a></li>
+                <li><a href="/blog.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Blog</a></li>
+                <li><a href="/contact.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-100">
+            <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg">
+                <i class="fas fa-phone mr-2"></i> Call: 703-997-0026
+            </a>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h2 class="text-4xl font-bold mb-4">Request Your <span class="text-aj-orange">Estimate</span></h2>
+                <p class="text-lg max-w-2xl mx-auto">Fill out the form below with details about your project, and we'll provide you with a detailed estimate within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area with Sidebar -->
+    <section class="py-16 bg-gray-100 relative">
+        <div class="container mx-auto px-4 md:flex md:space-x-8">
+
+            <!-- Left Sidebar: Our Process -->
+            <aside class="md:w-1/3 mb-12 md:mb-0">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Our <span class="text-aj-orange">Process</span></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">We follow a simple, transparent process to ensure your electrical projects are completed efficiently and to your satisfaction.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Process Steps -->
+                    <div class="hidden md:block absolute left-0 top-0 bottom-0 w-1 bg-gray-200 ml-8"></div>
+
+                    <!-- Step 1 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            1
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Request an Estimate</h3>
+                            <p class="text-gray-600 mb-3">Fill out our detailed estimate request form with information about your project. Add photos or videos to help us better understand your needs.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-lightbulb text-aj-orange mr-2"></i> Tip: The more details and photos you provide, the more accurate your estimate will be!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            2
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Receive Your Detailed Estimate</h3>
+                            <p class="text-gray-600 mb-3">Within 24 hours, you'll receive a comprehensive estimate that includes:</p>
+                            <ul class="list-disc pl-5 mb-3 space-y-1 text-gray-600">
+                                <li>Detailed step-by-step work plan</li>
+                                <li>Transparent materials list with pricing</li>
+                                <li>Estimated completion time</li>
+                                <li>Any potential variables that could affect the project</li>
+                            </ul>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-tag text-aj-orange mr-2"></i> Our flat-rate pricing means no surprises – you know exactly what you'll pay before we begin.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="md:flex items-start mb-12 relative animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            3
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Schedule Your Service</h3>
+                            <p class="text-gray-600 mb-3">Once you approve the estimate, we'll schedule a convenient time for your electrical work. We offer flexible appointment times to minimize disruption to your day.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-calendar-check text-aj-orange mr-2"></i> We confirm all service appointments 24 hours in advance and provide a 30-minute arrival window.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="md:flex items-start relative animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="md:flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-aj-dark text-white text-2xl font-bold z-10 mb-4 md:mb-0">
+                            4
+                        </div>
+                        <div class="md:ml-8">
+                            <h3 class="text-xl font-bold mb-2">Professional Installation &amp; Satisfaction</h3>
+                            <p class="text-gray-600 mb-3">Our licensed electricians arrive on time, work efficiently, and clean up when finished. Before we leave, we'll walk you through the completed work and answer any questions.</p>
+                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                                <p class="text-sm text-gray-700 italic"><i class="fas fa-shield-alt text-aj-orange mr-2"></i> All work is backed by our comprehensive 5-year warranty for your peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content: Estimate Request Form -->
+            <main class="md:w-2/3">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-aj-dark p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-4">Why Choose Us?</h3>
+                            <p class="mb-6 md:mb-6 mobile:mb-8">When you choose AJ Long Electric, you're choosing quality, reliability, and exceptional service.</p>
+
+                            <div class="mb-6 md:mb-6 mobile:mb-8">
+                                <h4 class="text-lg font-bold mb-2">Our Estimate Includes:</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                        <span>Transparent flat-rate pricing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                        <span>Detailed step-by-step work plans</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                        <span>Clear material and labor breakdown</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                        <span>5-year comprehensive warranty</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle mt-1 mr-2 text-aj-orange"></i>
+                                        <span>No surprises or hidden fees</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Contact Us</h4>
+                                <p class="flex items-center mb-2">
+                                    <i class="fas fa-phone mr-2"></i>
+                                    703-997-0026
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    info@ajlongelectric.com
+                                </p>
+                                <p class="flex items-center">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                    Fairfax County, VA
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="estimate-form-container" class="md:w-2/3 p-8">
+                            <!-- Progress Bar -->
+                            <div class="mb-8 relative">
+                                <div class="progress-bar">
+                                    <div class="progress-indicator" style="width: 25%"></div>
+                                    <div class="step-dots">
+                                        <div class="step-dot active"></div>
+                                        <div class="step-dot"></div>
+                                        <div class="step-dot"></div>
+                                        <div class="step-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                    <span>Contact Info</span>
+                                    <span>Project Details</span>
+                                    <span>Upload Photos</span>
+                                    <span>Review &amp; Submit</span>
+                                </div>
+                            </div>
+
+                            <!-- Multi-step form -->
+                            <form id="estimate-form" class="space-y-6">
+                                <!-- Step 1: Contact Information (visible by default) -->
+                                <div id="step-1" class="form-step">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Contact Information</h3>
+
+                                    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                                        <div>
+                                            <label for="name" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Full Name</label>
+                                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                        </div>
+                                        <div>
+                                            <label for="phone" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Phone Number</label>
+                                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="703-997-0026">
+                                            <small class="text-gray-500">Format: 703-997-0026</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 gap-4 md:gap-6 mt-4">
+                                        <div>
+                                            <label for="email" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Email Address</label>
+                                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                        </div>
+                                        <div>
+                                            <label for="address" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Property Address</label>
+                                            <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" placeholder="Start typing your address...">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-3 gap-4 md:gap-6 mt-4">
+                                        <div>
+                                            <label for="city" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">City</label>
+                                            <input type="text" id="city" name="city" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                        </div>
+                                        <div>
+                                            <label for="state" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">State</label>
+                                            <select id="state" name="state" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                                <option value="">Select State</option>
+                                                <option value="DC">Washington DC</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="VA">Virginia</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="zip" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Zip Code</label>
+                                            <input type="text" id="zip" name="zip" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" pattern="[0-9]{5}" placeholder="12345">
+                                        </div>
+                                    </div>
+
+                                    <div id="service-area-error" class="hidden mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                                        Sorry, it appears you are outside our service area. We currently serve locations within a 40-mile radius of Washington DC. If you believe this is incorrect, please call us at 703-997-0026.
+                                    </div>
+
+                                    <div class="mt-6 flex justify-end">
+                                        <button type="button" id="next-1" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">Next: Project Details <i class="fas fa-arrow-right ml-1"></i></button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Project Details (hidden initially) -->
+                                <div id="step-2" class="form-step hidden">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Project Details</h3>
+
+                                    <div>
+                                        <label for="service-category" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Select Service Category</label>
+                                        <select id="service-category" name="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                            <option value="" disabled="" selected="">Select a service category</option>
+                                            <option value="panel">Electrical Panel Services</option>
+                                            <option value="outlet">Outlet Installations</option>
+                                            <option value="switch">Switch Installations</option>
+                                            <option value="lighting">Recessed Lighting</option>
+                                            <option value="fan">Ceiling Fan Installations</option>
+                                            <option value="fixture">Light Fixture Installations</option>
+                                            <option value="ev">EV Charger Installation</option>
+                                            <option value="repair">Diagnose and Repair</option>
+                                            <option value="other">Other (Please Specify)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Panel Services Options -->
+                                    <div id="panel-options" class="service-options hidden mt-4">
+                                        <h4 class="font-medium mb-2">Main Panel Options</h4>
+                                        <div class="space-y-2">
+                                            <label class="block text-base md:text-sm font-medium mb-2">
+                                                <input type="radio" name="panel-option" value="200amp" class="mr-2">
+                                                200 Amp Panel Replacement <span class="text-sm text-gray-600">(Base price: $3,500.00)</span>
+                                            </label>
+                                            <label class="block text-base md:text-sm font-medium mb-2">
+                                                <input type="radio" name="panel-option" value="150amp" class="mr-2">
+                                                150 Amp Panel Replacement <span class="text-sm text-gray-600">(Base price: $3,100.00)</span>
+                                            </label>
+                                            <label class="block text-base md:text-sm font-medium mb-2">
+                                                <input type="radio" name="panel-option" value="100amp" class="mr-2">
+                                                100 Amp Panel Replacement <span class="text-sm text-gray-600">(Base price: $2,400.00)</span>
+                                            </label>
+                                            <label class="block text-base md:text-sm font-medium mb-2">
+                                                <input type="radio" name="panel-option" value="subpanel" class="mr-2">
+                                                Sub-Panel Installation <span class="text-sm text-gray-600">(Base price: $895.00)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" name="heavy-up" value="true" class="mr-2">
+                                                Optional Increase Service (Heavy Up) <span class="text-sm text-gray-600 ml-2">(Additional $500.00)</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="panel-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="panel-description" name="panel-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please upload: 1) Close-up of all circuit breakers, 2) Full panel area from 6ft back, 3) Close-up of electric meter, 4) Meter view from 6ft back, 5) Service cable to weather head (for overhead service)"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Outlet Installations Options -->
+                                    <div id="outlet-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Replace Existing Outlet <span class="text-sm text-gray-600">(Base price: $35.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="replace-outlet-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>New Outlet Installation <span class="text-sm text-gray-600">(Base price: $175.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="new-outlet-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>GFI Upgrade <span class="text-sm text-gray-600">(Base price: $80.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="gfi-upgrade-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Outdoor Upgrade with GFI &amp; Cover Plate <span class="text-sm text-gray-600">(Base price: $120.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="outdoor-gfi-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="outlet-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="outlet-description" name="outlet-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="For new installs, please upload: 1) Photo/video of desired location, 2) Nearby power source, 3) Marked installation spot, 4) Close-up of install location, 5) Video showing route from power source (preferred)"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Switch Installations Options -->
+                                    <div id="switch-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Switch Replacement <span class="text-sm text-gray-600">(Base price: $35.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="switch-replace-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>New Switch with Switch Leg <span class="text-sm text-gray-600">(Base price: $255.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="new-switch-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Dimmer Upgrade <span class="text-sm text-gray-600">(Base price: $150.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="dimmer-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2 text-sm text-gray-600">
+                                            <p>Volume discounts available - modernize multiple switches and save!</p>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="switch-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="switch-description" name="switch-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="For new installs, please upload: 1) Photo/video of existing switch box or power source, 2) Photo of ceiling area for light fixture, 3) Video showing route from switch to fixture location (preferred)"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recessed Lighting Options -->
+                                    <div id="lighting-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Light Replacement <span class="text-sm text-gray-600">(Base price: $100.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="light-replace-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>New Installation <span class="text-sm text-gray-600">(Base price: $175.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="new-light-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="lighting-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="lighting-description" name="lighting-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please indicate if attic access exists above installation area. Upload: 1) Close-up of existing light (for replacement) OR 2) Photo of overall area (for new installation)"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ceiling Fan Installations Options -->
+                                    <div id="fan-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Fan Replacement <span class="text-sm text-gray-600">(Base price: $175.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="fan-replace-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>New Fan Installation <span class="text-sm text-gray-600">(Base price: $395.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="new-fan-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="fan-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="fan-description" name="fan-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please indicate if attic access exists and approximate ceiling height. Upload photo/video showing both existing switch box and installation area."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Light Fixture Installations Options -->
+                                    <div id="fixture-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>Light Fixture Replacement <span class="text-sm text-gray-600">(Base price: $125.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="fixture-replace-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="flex items-center justify-between">
+                                                    <span>New Fixture Installation <span class="text-sm text-gray-600">(Base price: $345.00 each)</span></span>
+                                                    <div class="flex items-center">
+                                                        <button type="button" class="quantity-btn minus w-8 h-8 bg-gray-200 rounded-l-lg flex items-center justify-center">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="new-fixture-qty" min="0" value="0" class="w-12 h-8 border-t border-b text-center">
+                                                        <button type="button" class="quantity-btn plus w-8 h-8 bg-gray-200 rounded-r-lg flex items-center justify-center">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="fixture-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="fixture-description" name="fixture-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please indicate if attic access exists and approximate ceiling height. Upload photo/video showing both existing switch box and installation area."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- EV Charger Installation Options -->
+                                    <div id="ev-options" class="service-options hidden mt-4">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="mb-2 block text-base md:text-sm font-medium mb-2 font-medium">Select distance from panel to installation location</label>
+                                                <select id="ev-distance" name="ev-distance" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                                    <option value="">Select distance range</option>
+                                                    <option value="0-5">0-5 feet (Base price: $500.00)</option>
+                                                    <option value="5-10">5-10 feet (Base price: $600.00)</option>
+                                                    <option value="10-15">10-15 feet (Base price: $700.00)</option>
+                                                    <option value="15-20">15-20 feet (Base price: $800.00)</option>
+                                                    <option value="20-30">20-30 feet (Base price: $950.00)</option>
+                                                    <option value="30-45">30-45 feet (Base price: $1,185.00)</option>
+                                                    <option value="45-60">45-60 feet (Base price: $1,415.00)</option>
+                                                    <option value="60-80">60-80 feet (Base price: $1,750.00+)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label for="ev-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Project Description</label>
+                                            <textarea id="ev-description" name="ev-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please upload: 1) Close-up showing all circuit breakers, 2) Video starting at panel and following complete path to installation location, showing walls/ceiling along route"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Diagnose and Repair Options -->
+                                    <div id="repair-options" class="service-options hidden mt-4">
+                                        <h4 class="font-medium mb-2">Diagnose and Repair - Power Loss</h4>
+                                        <p class="text-sm text-gray-600 mb-3">$150 for the first 30 minutes and $40 per quarter hour after</p>
+                                        
+                                        <div class="mt-4">
+                                            <label for="repair-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Describe the Issue</label>
+                                            <textarea id="repair-description" name="repair-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please describe the power loss issue in detail and upload photos or videos that help illustrate the issue you are experiencing."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Other Service Options -->
+                                    <div id="other-options" class="service-options hidden mt-4">
+                                        <div class="mt-4">
+                                            <label for="other-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Specify the Service Needed</label>
+                                            <textarea id="other-description" name="other-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange service-description" placeholder="Please describe your electrical needs in detail and upload any relevant photos or videos to help us understand your project requirements."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Real-time Price Estimation Section -->
+                                    <div id="price-estimation" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                        <h4 class="font-medium mb-2 flex justify-between items-center">
+                                            <span>Estimated Price</span>
+                                            <span id="total-price" class="text-lg font-bold text-aj-orange">$0.00</span>
+                                        </h4>
+                                        <div id="price-breakdown" class="text-sm text-gray-600 space-y-1">
+                                            <!-- Line items will be added here dynamically -->
+                                        </div>
+                                        <div class="mt-3 text-xs text-gray-500 italic">
+                                            <p>This is an approximate estimate based on your selections. Final price may vary based on additional factors identified during review.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label for="timeline" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Preferred Timeline</label>
+                                        <select id="timeline" name="timeline" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                            <option value="asap">As Soon As Possible</option>
+                                            <option value="1-week">Within 1 Week</option>
+                                            <option value="2-weeks">Within 2 Weeks</option>
+                                            <option value="month">Within a Month</option>
+                                            <option value="flexible">Flexible (No Rush)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Phone Consultation Scheduling Fields -->
+                                    <div class="mt-4" id="appointment-fields">
+                                        <h4 class="font-medium mb-3 text-gray-700"><i class="fas fa-phone mr-2 text-aj-orange"></i>Schedule Phone Consultation (Optional)</h4>
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label for="preferred-date" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Preferred Date for Phone Call</label>
+                                                <input type="date" id="preferred-date" name="preferredDate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                                <small class="text-gray-500">Leave blank if flexible</small>
+                                            </div>
+                                            <div>
+                                                <label for="preferred-time" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Preferred Time Window for Call</label>
+                                                <select id="preferred-time" name="preferredTime" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                                    <option value="">Any time</option>
+                                                    <option value="08:00">8:00 AM - 10:00 AM</option>
+                                                    <option value="10:00">10:00 AM - 12:00 PM</option>
+                                                    <option value="12:00">12:00 PM - 2:00 PM</option>
+                                                    <option value="14:00">2:00 PM - 4:00 PM</option>
+                                                    <option value="16:00">4:00 PM - 6:00 PM</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" id="prev-2" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                            <i class="fas fa-arrow-left mr-1"></i> Previous
+                                        </button>
+                                        <button type="button" id="next-2" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                            Next: Upload Photos <i class="fas fa-arrow-right ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Upload Photos (enhanced) -->
+                                <div id="step-3" class="form-step hidden">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Upload Photos &amp; Videos</h3>
+                                    <p class="text-gray-600 mb-2">Upload photos or videos of your project area to help us provide a more accurate estimate.</p>
+                                    <p class="text-gray-600 mb-4" id="upload-instructions">Please upload photos or videos based on your selected service.</p>
+
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                        <div class="mb-4">
+                                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400"></i>
+                                        </div>
+                                        <h4 class="text-lg font-bold mb-2">Drag &amp; Drop Files Here</h4>
+                                        <p class="text-sm text-gray-500 mb-4">or</p>
+
+                                        <label for="photo-upload" class="inline-block text-base md:text-sm font-medium mb-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg cursor-pointer hover:bg-gray-300 transition">
+                                            <i class="fas fa-plus mr-2"></i> Browse Files
+                                            <input type="file" id="photo-upload" name="media[]" multiple="" accept="image/*,video/*,.heic" class="hidden">
+                                        </label>
+
+                                        <p class="text-xs text-gray-500 mt-4">Accepted file types: JPG, PNG, HEIC, MP4, MOV. Max file size: 50MB. Maximum 20 files.</p>
+                                    </div>
+
+                                    <div class="mt-3 text-sm text-gray-600 bg-gray-100 p-3 rounded-lg">
+                                        <p class="font-medium">Upload Tips:</p>
+                                        <ul class="list-disc ml-4">
+                                            <li>Clear, well-lit photos provide the most accurate estimates</li>
+                                            <li>Include multiple angles of the area</li>
+                                            <li>For videos, slowly pan across the entire work area</li>
+                                            <li>Include measurements when possible</li>
+                                        </ul>
+                                    </div>
+
+                                    <div id="upload-preview" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+                                        <!-- Upload previews will be inserted here via JavaScript -->
+                                    </div>
+
+                                    <div id="upload-count" class="mt-3 text-sm text-gray-600 hidden">
+                                        <span id="file-count">0</span>/20 files uploaded
+                                    </div>
+
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" id="prev-3" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                            <i class="fas fa-arrow-left mr-1"></i> Previous
+                                        </button>
+                                        <button type="button" id="next-3" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                            Next: Review &amp; Submit <i class="fas fa-arrow-right ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Review & Submit (hidden initially) -->
+                                <div id="step-4" class="form-step hidden">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Review &amp; Submit</h3>
+                                    <p class="text-gray-600 mb-6">Please review your information before submitting your estimate request.</p>
+
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h4 class="text-lg font-bold mb-2">Contact Information</h4>
+                                            <div class="bg-gray-100 p-4 rounded-lg">
+                                                <div class="flex justify-between mb-2">
+                                                    <span class="text-gray-600">Name:</span>
+                                                    <span class="font-medium" id="review-name"></span>
+                                                </div>
+                                                <div class="flex justify-between mb-2">
+                                                    <span class="text-gray-600">Phone:</span>
+                                                    <span class="font-medium" id="review-phone"></span>
+                                                </div>
+                                                <div class="flex justify-between mb-2">
+                                                    <span class="text-gray-600">Email:</span>
+                                                    <span class="font-medium" id="review-email"></span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Address:</span>
+                                                    <span class="font-medium" id="review-address"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="text-lg font-bold mb-2">Project Details</h4>
+                                            <div class="bg-gray-100 p-4 rounded-lg">
+                                                <div class="flex justify-between mb-2">
+                                                    <span class="text-gray-600">Service:</span>
+                                                    <span class="font-medium" id="review-service"></span>
+                                                </div>
+                                                <div class="flex justify-between mb-2">
+                                                    <span class="text-gray-600">Timeline:</span>
+                                                    <span class="font-medium" id="review-timeline"></span>
+                                                </div>
+                                                <div class="flex justify-between mb-2" id="review-appointment-row" style="display: none;">
+                                                    <span class="text-gray-600">Appointment:</span>
+                                                    <span class="font-medium" id="review-appointment"></span>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <span class="text-gray-600">Description:</span>
+                                                    <p class="font-medium mt-1" id="review-description"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="review-photos-section" class="hidden">
+                                            <h4 class="text-lg font-bold mb-2">Uploaded Media</h4>
+                                            <div class="bg-gray-100 p-4 rounded-lg">
+                                                <p class="text-gray-600" id="review-photos-count"></p>
+                                                <div id="review-photos" class="grid grid-cols-3 gap-2 mt-2">
+                                                    <!-- Photo/video thumbnails will appear here -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-6">
+                                        <label class="flex items-start">
+                                            <input type="checkbox" id="terms" name="terms" class="form-checkbox mt-1" required="">
+                                            <span class="ml-2 text-sm text-gray-700">I agree to the <a href="#" class="text-aj-orange hover:underline">Terms of Service</a> and acknowledge that my information will be used in accordance with the <a href="#" class="text-aj-orange hover:underline">Privacy Policy</a>.</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" id="prev-4" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                            <i class="fas fa-arrow-left mr-1"></i> Previous
+                                        </button>
+                                        <button type="submit" id="submit-form" class="min-h-[48px] px-8 py-4 px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                            Submit Estimate Request <i class="fas fa-check ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </section>
+    <!-- END Main Content Area with Sidebar -->
+
+    <!-- Why Choose Our Estimate Process -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Our <span class="text-aj-orange">Estimate Process</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our estimate process sets us apart from other electrical contractors with these key advantages:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-images text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Photo &amp; Video Estimates</h3>
+                    <p class="text-gray-600">We can provide accurate estimates based on the photos and videos you upload, eliminating the need for an in-person visit in many cases, saving you time and hassle.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Transparent Flat-Rate Pricing</h3>
+                    <p class="text-gray-600">Our estimates include detailed, itemized pricing with no hidden fees or surprise charges. You'll know exactly what you're paying for before work begins.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-phone-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direct Communication</h3>
+                    <p class="text-gray-600">Have questions about your estimate? You'll have direct access to the electrician who will be working on your project, not just a sales representative.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="process.html" class="inline-block text-aj-orange font-semibold hover:underline">
+                    View our complete process <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="bg-aj-dark text-gray-300 py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                     <div class="flex items-center mb-4">
+                        <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/ajlelogo_white.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo White" class="h-12 mr-3" loading="lazy">
+                        <h3 class="text-xl font-bold text-white"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h3>
+                    </div>
+                    <p class="mb-4 text-sm">Your trusted family-owned electricians serving Northern VA, DC &amp; MD since 1996. Over 1,200 5-star reviews.</p>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-phone mr-2 text-aj-orange"></i>
+                        <a href="tel:7039970026" class="hover:text-aj-orange transition">703-997-0026</a>
+                    </p>
+                     <div class="flex text-sm">
+                        <i class="fas fa-map-marker-alt mr-2 text-aj-orange mt-0.5"></i>
+                        <div>
+                            <div><span class="font-semibold">Main Office:</span> 2724 Dorr Ave</div>
+                            <div>Suite 102, Fairfax, VA 22031</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Popular Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html#panel-upgrades" class="hover:text-aj-orange transition">Panel Replacements &amp; Upgrades</a></li>
+                        <li><a href="/services.html#recessed-lighting" class="hover:text-aj-orange transition">Recessed Lighting</a></li>
+                        <li><a href="/services.html#ev-chargers" class="hover:text-aj-orange transition">EV Charger Installation</a></li>
+                        <li><a href="/services.html#kitchen-electrical" class="hover:text-aj-orange transition">Kitchen &amp; Bath Electrical</a></li>
+                        <li><a href="/services.html#ceiling-fans" class="hover:text-aj-orange transition">Ceiling Fan Installation</a></li>
+                        <li><a href="/services.html#repairs" class="hover:text-aj-orange transition">Troubleshooting &amp; Repairs</a></li>
+                         <li><a href="/services.html" class="hover:text-aj-orange transition font-semibold">View All Services...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Service Areas -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Key Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-x-4 text-sm">
+                        <div>
+                            <h5 class="font-semibold text-gray-100 mb-1">Virginia</h5>
+                            <ul class="space-y-1">
+                                <li><a href="/virginia-electrical-services/fairfax.html" class="hover:text-aj-orange transition">Fairfax</a></li>
+                                <li><a href="/virginia-electrical-services/arlington.html" class="hover:text-aj-orange transition">Arlington</a></li>
+                                <li><a href="/virginia-electrical-services/alexandria.html" class="hover:text-aj-orange transition">Alexandria</a></li>
+                                <li><a href="/virginia-electrical-services/vienna.html" class="hover:text-aj-orange transition">Vienna</a></li>
+                                <li><a href="/virginia-electrical-services/mclean.html" class="hover:text-aj-orange transition">McLean</a></li>
+                                 <li><a href="/virginia-electrical-services/burke.html" class="hover:text-aj-orange transition">Burke</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-semibold text-gray-100 mb-1">DC &amp; Maryland</h5>
+                             <ul class="space-y-1">
+                                <li><a href="/dc-electrical-services/washington-dc.html" class="hover:text-aj-orange transition">Washington DC</a></li>
+                                <li><a href="/maryland-electrical-services/montgomery-county.html" class="hover:text-aj-orange transition">Montgomery Co.</a></li>
+                                <li><a href="/maryland-electrical-services/prince-georges-county.html" class="hover:text-aj-orange transition">Prince George's Co.</a></li>
+                                 <li><a href="/maryland-electrical-services/bethesda.html" class="hover:text-aj-orange transition">Bethesda</a></li>
+                                <li><a href="/maryland-electrical-services/silver-spring.html" class="hover:text-aj-orange transition">Silver Spring</a></li>
+                                <li><a href="/maryland-electrical-services/bowie.html" class="hover:text-aj-orange transition">Bowie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <a href="/service-areas.html" class="inline-block mt-3 text-aj-orange font-semibold hover:underline text-sm">View All Areas... <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 mb-4">
+                         <a href="https://www.facebook.com/AJLongElectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Facebook" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-facebook-f"></i>
+                         </a>
+                         <a href="https://g.co/kgs/smNu5bB" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Google" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-google"></i>
+                         </a>
+                         <a href="https://www.instagram.com/ajlongelectric" target="_blank" rel="noopener noreferrer" aria-label="AJ Long Electric on Instagram" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-aj-orange transition">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-100 mb-2 text-sm">Additional Locations:</h5>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div>7138 Little River Turnpike #305, Annandale, VA</div>
+                            <div>5244 Lyngate Ct, Burke, VA</div>
+                            <div>15518 Orchard Run Dr, Bowie, MD</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm font-semibold">Licensed, Bonded, and Insured</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm mb-4">
+                    <p>© <span id="copyright-year"></span> AJ Long Electric. All rights reserved.</p>
+                    <div class="mt-2 md:mt-0 text-center">
+                        <p class="text-xs text-gray-400">VA License #: 2705031092 | MD License #: 3309 | DC License #: EM40000654</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 space-x-4">
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="/sitemap.xml" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+    <script src="/js/fix-tap-targets.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('estimate-form');
+        const statusMessage = document.createElement('div');
+        statusMessage.className = 'mt-4 p-4 rounded-lg';
+        form.parentNode.insertBefore(statusMessage, form.nextSibling);
+
+        form.addEventListener('submit', async function (event) {
+          event.preventDefault();
+          statusMessage.textContent = '';
+          statusMessage.className = 'mt-4 p-4 rounded-lg';
+
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          const estimate = {
+            type:'estimate',
+            payload:{
+              customer_id: null, // Will be created in the backend
+              address_id : null, // Will be created in the backend
+              title      : data.service,
+              line_items : [
+                { name: data.service, quantity: 1, price: 0 }
+              ]
+            }
+          };
+
+          try {
+            const response = await fetch('/.netlify/functions/hcp-book', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(estimate),
+            });
+
+            if (response.ok) {
+              const result = await response.json();
+              if (result.estimate_url) {
+                statusMessage.innerHTML = `Estimate created successfully! <a href="${result.estimate_url}" target="_blank" class="text-aj-orange underline">View and approve your estimate</a>.`;
+                statusMessage.classList.add('bg-green-100', 'text-green-700');
+                form.reset();
+              } else {
+                throw new Error(result.error || 'An unknown error occurred.');
+              }
+            } else {
+              throw new Error(`Server error: ${response.statusText}`);
+            }
+          } catch (error) {
+            statusMessage.textContent = `Error: ${error.message}`;
+            statusMessage.classList.add('bg-red-100', 'text-red-700');
+          }
+        });
+      });
+    </script>
+
+
+</body></html>

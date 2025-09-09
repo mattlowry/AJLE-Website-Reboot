@@ -1,0 +1,92 @@
+<!-- Standard Header for AJ Long Electric Website --><html><head><link rel="stylesheet" href="/assets/css/focus-override.css">
+<!-- Sticky Header -->
+</head><body><header class="bg-white shadow-md sticky-nav">
+    <div class="container mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
+        <div class="flex items-center flex-1 min-w-0">
+            <div class="mr-2 sm:mr-4 flex-shrink-0">
+                <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/logos/AJLongElectric-Logo.png?_a=BBFAAAAA0" alt="AJ Long Electric Logo" class="h-10 sm:h-12 md:h-16" loading="lazy">
+            </div>
+            <div class="min-w-0">
+                <div class="text-lg sm:text-xl md:text-2xl font-bold truncate"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</div>
+                <p class="text-xs sm:text-sm text-gray-600 hidden sm:block">Residential Electrical Services</p>
+            </div>
+        </div>
+        <div class="hidden lg:flex items-center space-x-3">
+            <a href="tel:7039970026" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 transition min-h-10">
+                <i class="fas fa-phone mr-2 text-aj-orange"></i> 703-997-0026
+            </a>
+            <a href="/estimate.html" id="header-estimate-btn" class="bg-aj-orange text-white font-bold px-4 lg:px-6 py-2 rounded shadow hover:bg-gray-800 transition min-h-10 text-sm lg:text-base">
+                Get Free Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold px-4 lg:px-6 py-2 rounded shadow hover:bg-gray-700 transition min-h-10 text-sm lg:text-base" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-2"></i> Book Online
+            </button>
+        </div>
+        <div class="lg:hidden">
+            <button id="menu-toggle" class="text-aj-dark focus:outline-none p-2 min-h-12 min-w-12 flex items-center justify-center">
+                <i class="fas fa-bars text-xl sm:text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Desktop navigation -->
+    <nav class="bg-aj-dark hidden lg:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap">
+                <li><a href="/index.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Home</a></li>
+                <li><a href="/about.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">About</a></li>
+                <li><a href="/process.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Process</a></li>
+                <li><a href="/services.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Services</a></li>
+                <li><a href="/testimonials.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Reviews</a></li>
+                <li><a href="/service-areas.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Areas</a></li>
+                <li><a href="/gallery.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Gallery</a></li>
+                <li><a href="/resources.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Resources</a></li>
+                <li><a href="/faq.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">FAQs</a></li>
+                <li><a href="/blog.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Blog</a></li>
+                <li><a href="/contact.html" class="inline-block px-3 xl:px-4 py-3 text-white hover:bg-gray-800 transition text-sm xl:text-base">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="p-4 flex justify-between items-center border-b bg-white">
+        <div>
+            <h2 class="text-lg sm:text-xl font-bold"><span class="text-aj-orange">AJ LONG</span> ELECTRIC</h2>
+        </div>
+        <button id="close-menu" class="text-gray-500 hover:text-gray-800 p-2 min-h-12 min-w-12 flex items-center justify-center">
+            <i class="fas fa-times text-xl sm:text-2xl"></i>
+        </button>
+    </div>
+    <nav class="p-4 overflow-y-auto bg-white" style="max-height: calc(100% - 200px);">
+        <ul class="space-y-1">
+                <li><a href="/index.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-home mr-3 text-aj-orange w-5"></i>Home</a></li>
+                <li><a href="/about.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-users mr-3 text-aj-orange w-5"></i>About Us</a></li>
+                <li><a href="/process.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-list-ol mr-3 text-aj-orange w-5"></i>Our Process</a></li>
+                <li><a href="/services.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-tools mr-3 text-aj-orange w-5"></i>Services</a></li>
+                <li><a href="/testimonials.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-star mr-3 text-aj-orange w-5"></i>Testimonials</a></li>
+                <li><a href="/service-areas.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-map-marker-alt mr-3 text-aj-orange w-5"></i>Service Areas</a></li>
+                <li><a href="/gallery.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-images mr-3 text-aj-orange w-5"></i>Project Gallery</a></li>
+                <li><a href="/resources.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-book mr-3 text-aj-orange w-5"></i>Resources</a></li>
+                <li><a href="/faq.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-question-circle mr-3 text-aj-orange w-5"></i>FAQs</a></li>
+                <li><a href="/blog.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-blog mr-3 text-aj-orange w-5"></i>Blog</a></li>
+                <li><a href="/contact.html" class="block py-3 px-4 hover:bg-gray-100 rounded-lg font-medium text-gray-800 min-h-12 flex items-center"><i class="fas fa-envelope mr-3 text-aj-orange w-5"></i>Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="absolute bottom-0 left-0 w-full p-4 bg-gray-50 space-y-3 shadow-inner border-t">
+        <a href="tel:7039970026" class="flex items-center justify-center py-3 bg-aj-orange text-white rounded-lg shadow hover:bg-orange-600 transition min-h-12">
+            <i class="fas fa-phone mr-2"></i> Call: 703-997-0026
+        </a>
+        <div class="grid grid-cols-2 gap-2">
+            <a href="/estimate.html" class="flex items-center justify-center py-2 px-3 bg-aj-orange text-white rounded-lg hover:bg-orange-700 transition shadow text-sm min-h-10">
+                <i class="fas fa-calculator mr-1"></i> Estimate
+            </a>
+            <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold py-2 px-3 rounded-lg hover:bg-gray-700 transition shadow text-sm min-h-10" onclick="HCPWidget.openModal()">
+                <i class="fas fa-calendar-alt mr-1"></i> Book
+            </button>
+        </div>
+    </div>
+</div></body></html>

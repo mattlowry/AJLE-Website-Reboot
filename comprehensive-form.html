@@ -1,0 +1,1440 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Service - AJ Long Electric</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Places API for address auto-completion (key will be dynamically loaded) -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places" async="" defer=""></script>
+    <!-- Calendar library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Progress bar for form */
+        .progress-bar {
+            height: 4px;
+            background-color: #eee;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .progress-indicator {
+            position: absolute;
+            height: 100%;
+            background-color: var(--aj-orange);
+            transition: width 0.3s ease;
+        }
+        .step-dots {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .step-dot.active {
+            border-color: var(--aj-orange);
+            background-color: var(--aj-orange);
+        }
+        .step-dot.completed {
+            border-color: var(--aj-orange);
+            background-color: #fff;
+        }
+
+        /* Service options styling */
+        .service-option {
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .service-option:hover {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+        }
+        .service-option.selected {
+            border-color: var(--aj-orange);
+            background-color: #fff8f3;
+            box-shadow: 0 2px 5px rgba(255, 114, 0, 0.1);
+        }
+        
+        /* Radio buttons and checkboxes styling */
+        input[type="radio"], input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        /* Calendar styling */
+        .flatpickr-calendar {
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .flatpickr-day.selected, .flatpickr-day.selected:hover {
+            background-color: var(--aj-orange);
+            border-color: var(--aj-orange);
+        }
+        .flatpickr-day.today {
+            border-color: var(--aj-orange);
+        }
+        .flatpickr-day:hover {
+            background-color: #fff8f3;
+        }
+        
+        /* Time slot buttons */
+        .time-slot {
+            transition: all 0.2s ease;
+        }
+        .time-slot:hover {
+            transform: translateY(-2px);
+        }
+        .time-slot.selected {
+            background-color: var(--aj-orange);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        .time-slot.unavailable {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    
+    /* Mobile Form Improvements */
+    @media (max-width: 768px) {
+        /* Larger tap targets for mobile */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            font-size: 16px; /* Prevents zoom on iOS */
+            min-height: 48px;
+        }
+        
+        /* Larger checkboxes and radio buttons */
+        input[type="checkbox"],
+        input[type="radio"] {
+            min-width: 24px;
+            min-height: 24px;
+        }
+        
+        /* Better button sizing */
+        button,
+        .btn,
+        a.btn {
+            min-height: 48px;
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+        
+        /* Form spacing */
+        form > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        /* Label spacing */
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 16px;
+        }
+        
+        /* Checkbox/radio label alignment */
+        label input[type="checkbox"],
+        label input[type="radio"] {
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+    }
+    
+    </style>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Schedule Service - AJ Long Electric">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/comprehensive-form.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schedule Service - AJ Long Electric">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Header would be included here -->
+    <div id="standard-header"></div>
+
+    <!-- Page Title -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h2 class="text-4xl font-bold mb-4">Schedule Your <span class="text-aj-orange">Service</span></h2>
+                <p class="text-lg max-w-2xl mx-auto">Book your appointment with AJ Long Electric and our licensed electricians will arrive on time to handle all your electrical needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area with Form -->
+    <section class="py-16 bg-gray-100 relative">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <!-- Progress Bar -->
+                    <div class="p-8 pb-0">
+                        <div class="mb-8 relative">
+                            <div class="progress-bar">
+                                <div class="progress-indicator" style="width: 25%"></div>
+                                <div class="step-dots">
+                                    <div class="step-dot active"></div>
+                                    <div class="step-dot"></div>
+                                    <div class="step-dot"></div>
+                                    <div class="step-dot"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                <span>Contact Info</span>
+                                <span>Service Details</span>
+                                <span>Schedule</span>
+                                <span>Confirmation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-step form -->
+                    <form id="scheduling-form" class="p-8" action="/api/schedule-job" method="POST" data-netlify="true" name="scheduling">
+                        <!-- Step 1: Contact Information (visible by default) -->
+                        <div id="step-1" class="form-step">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Contact Information</h3>
+
+                            <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                                <div>
+                                    <label for="name" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="703-997-0026">
+                                    <small class="text-gray-500">Format: 703-997-0026</small>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4 md:gap-6 mt-4">
+                                <div>
+                                    <label for="email" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                </div>
+                                <div>
+                                    <label for="address" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Property Address</label>
+                                    <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" placeholder="Start typing your address...">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-4 md:gap-6 mt-4">
+                                <div>
+                                    <label for="city" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">City</label>
+                                    <input type="text" id="city" name="city" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                </div>
+                                <div>
+                                    <label for="state" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">State</label>
+                                    <select id="state" name="state" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                        <option value="">Select State</option>
+                                        <option value="DC">Washington DC</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="VA">Virginia</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="zip" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Zip Code</label>
+                                    <input type="text" id="zip" name="zip" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="" pattern="[0-9]{5}" placeholder="12345">
+                                </div>
+                            </div>
+
+                            <div id="service-area-error" class="hidden mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                                Sorry, it appears you are outside our service area. We currently serve locations within a 40-mile radius of Washington DC. If you believe this is incorrect, please call us at 703-997-0026.
+                            </div>
+
+                            <div class="mt-6 flex justify-end">
+                                <button type="button" id="next-1" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">Next: Service Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Service Details (hidden initially) -->
+                        <div id="step-2" class="form-step hidden">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Service Details</h3>
+
+                            <div>
+                                <label for="service-category" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Select Service Type</label>
+                                <select id="service-category" name="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" required="">
+                                    <option value="" disabled="" selected="">Select service type</option>
+                                    <option value="panel">Panel Replacement/Upgrade</option>
+                                    <option value="lighting">Lighting Installation</option>
+                                    <option value="fan">Ceiling Fan Installation</option>
+                                    <option value="outlet">Outlet/Switch Installation</option>
+                                    <option value="ev">EV Charger Installation</option>
+                                    <option value="troubleshooting">Electrical Troubleshooting</option>
+                                    <option value="other">Other Electrical Service</option>
+                                </select>
+                            </div>
+
+                            <!-- Panel Options (initially hidden) -->
+                            <div id="panel-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Panel Specifications</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="panel-type" value="upgrade" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Panel Upgrade</span>
+                                                <p class="text-sm text-gray-600 mt-1">Increase capacity of your existing panel with more circuits and improved safety features.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="panel-type" value="replacement" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Panel Replacement</span>
+                                                <p class="text-sm text-gray-600 mt-1">Complete replacement of your existing electrical panel with a new one.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="panel-size" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Panel Size</label>
+                                    <select id="panel-size" name="panel-size" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                        <option value="">Select panel size</option>
+                                        <option value="100">100 Amp</option>
+                                        <option value="150">150 Amp</option>
+                                        <option value="200">200 Amp</option>
+                                        <option value="400">400 Amp</option>
+                                        <option value="unknown">I don't know</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Lighting Options (initially hidden) -->
+                            <div id="lighting-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Lighting Installation Details</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="lighting-type" value="recessed" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Recessed Lighting</span>
+                                                <p class="text-sm text-gray-600 mt-1">Installation of canister lights recessed into the ceiling.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="lighting-type" value="fixture" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Light Fixture Installation</span>
+                                                <p class="text-sm text-gray-600 mt-1">Installation of pendant lights, chandeliers, or other mounted fixtures.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="lighting-quantity" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Number of Lights</label>
+                                    <select id="lighting-quantity" name="lighting-quantity" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                        <option value="1-2">1-2 lights</option>
+                                        <option value="3-6">3-6 lights</option>
+                                        <option value="7-12">7-12 lights</option>
+                                        <option value="13+">13+ lights</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Ceiling Fan Options (initially hidden) -->
+                            <div id="fan-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Ceiling Fan Installation Details</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="fan-type" value="new" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">New Fan Installation</span>
+                                                <p class="text-sm text-gray-600 mt-1">Installation of a ceiling fan where there was no previous fixture.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="fan-type" value="replacement" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Fan Replacement</span>
+                                                <p class="text-sm text-gray-600 mt-1">Replace an existing ceiling fan or light fixture with a new ceiling fan.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="fan-quantity" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Number of Fans</label>
+                                    <select id="fan-quantity" name="fan-quantity" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                        <option value="1">1 fan</option>
+                                        <option value="2">2 fans</option>
+                                        <option value="3">3 fans</option>
+                                        <option value="4+">4+ fans</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Outlet/Switch Options (initially hidden) -->
+                            <div id="outlet-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Outlet/Switch Installation Details</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="outlet-type" value="standard" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Standard Outlets</span>
+                                                <p class="text-sm text-gray-600 mt-1">Installation of standard 120V electrical outlets.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="outlet-type" value="gfci" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">GFCI Outlets</span>
+                                                <p class="text-sm text-gray-600 mt-1">Safety outlets required in kitchens, bathrooms, and outdoor areas.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="outlet-type" value="switch" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Light Switches</span>
+                                                <p class="text-sm text-gray-600 mt-1">Installation or replacement of standard or smart light switches.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="outlet-type" value="usb" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">USB Outlets</span>
+                                                <p class="text-sm text-gray-600 mt-1">Outlets with built-in USB charging ports.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="outlet-quantity" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Quantity</label>
+                                    <select id="outlet-quantity" name="outlet-quantity" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                        <option value="1-2">1-2 outlets/switches</option>
+                                        <option value="3-5">3-5 outlets/switches</option>
+                                        <option value="6-10">6-10 outlets/switches</option>
+                                        <option value="10+">10+ outlets/switches</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- EV Charger Options (initially hidden) -->
+                            <div id="ev-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">EV Charger Installation Details</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="ev-type" value="level1" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Level 1 Charger (120V)</span>
+                                                <p class="text-sm text-gray-600 mt-1">Standard household outlet charging. Slowest charging option.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="ev-type" value="level2" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Level 2 Charger (240V)</span>
+                                                <p class="text-sm text-gray-600 mt-1">Faster charging requiring dedicated circuit installation.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="panel-distance" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Approximate Distance from Panel</label>
+                                    <select id="panel-distance" name="panel-distance" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange">
+                                        <option value="0-5">Less than 5 feet</option>
+                                        <option value="5-15">5-15 feet</option>
+                                        <option value="15-30">15-30 feet</option>
+                                        <option value="30-50">30-50 feet</option>
+                                        <option value="50+">More than 50 feet</option>
+                                        <option value="unknown">I don't know</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Troubleshooting Options (initially hidden) -->
+                            <div id="troubleshooting-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Electrical Troubleshooting</h4>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="troubleshooting-type" value="power-loss" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Power Loss Issues</span>
+                                                <p class="text-sm text-gray-600 mt-1">No power to outlets, lights, or sections of the home.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="troubleshooting-type" value="circuit-breakers" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Circuit Breaker Issues</span>
+                                                <p class="text-sm text-gray-600 mt-1">Breakers that frequently trip or won't reset.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="troubleshooting-type" value="flickering" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Flickering Lights</span>
+                                                <p class="text-sm text-gray-600 mt-1">Lights that dim or flicker unexpectedly.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="service-option p-4 rounded-lg cursor-pointer">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input type="radio" name="troubleshooting-type" value="other-issue" class="mt-1 mr-3">
+                                            <div>
+                                                <span class="font-medium">Other Electrical Issue</span>
+                                                <p class="text-sm text-gray-600 mt-1">Any other electrical problems not listed above.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Other Service Options (initially hidden) -->
+                            <div id="other-options" class="service-options hidden mt-4">
+                                <h4 class="font-medium mb-3">Other Electrical Service</h4>
+                                <div class="mt-2">
+                                    <label for="other-description" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Please describe the electrical service you need:</label>
+                                    <textarea id="other-description" name="other-description" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" placeholder="Please provide details about your electrical needs..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Additional Notes (for all services) -->
+                            <div class="mt-6">
+                                <label for="notes" class="block text-base md:text-sm font-medium mb-2 text-gray-700 font-medium mb-2">Additional Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-aj-orange" placeholder="Any other details that would help us better understand your needs..."></textarea>
+                            </div>
+
+                            <div class="mt-6 flex justify-between">
+                                <button type="button" id="prev-2" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                    <i class="fas fa-arrow-left mr-1"></i> Previous
+                                </button>
+                                <button type="button" id="next-2" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                    Next: Schedule <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Scheduling (hidden initially) -->
+                        <div id="step-3" class="form-step hidden">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Schedule Your Appointment</h3>
+                            <p class="text-gray-600 mb-6">Select a date and available time slot for your service appointment.</p>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Calendar Column -->
+                                <div>
+                                    <h4 class="font-medium mb-3">Select a Date</h4>
+                                    <div id="date-picker" class="border rounded-lg p-2 bg-white"></div>
+                                    <input type="hidden" id="selected-date" name="selected-date">
+                                    
+                                    <div class="mt-4 text-sm">
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-4 h-4 bg-aj-orange rounded-full mr-2"></div>
+                                            <span>Available date</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-4 h-4 bg-gray-200 rounded-full mr-2"></div>
+                                            <span>Unavailable date</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Time Slots Column -->
+                                <div>
+                                    <h4 class="font-medium mb-3">Select a Time</h4>
+                                    <div id="time-slots-container" class="border rounded-lg p-4 bg-white">
+                                        <p id="no-date-message" class="text-gray-500 text-center py-12">Please select a date first</p>
+                                        <div id="time-slots" class="grid grid-cols-2 gap-3 hidden"></div>
+                                        <input type="hidden" id="slot-start" name="slot-start">
+                                        <input type="hidden" id="slot-end" name="slot-end">
+                                    </div>
+                                    
+                                    <div class="bg-gray-100 p-4 rounded-lg mt-4">
+                                        <h5 class="font-medium mb-2 text-sm">What to Expect</h5>
+                                        <ul class="text-sm text-gray-600 space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-aj-orange mt-1 mr-2"></i>
+                                                <span>Our technician will call 30 minutes before arrival</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-aj-orange mt-1 mr-2"></i>
+                                                <span>Appointments include a comprehensive safety inspection</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-aj-orange mt-1 mr-2"></i>
+                                                <span>We'll provide upfront pricing before any work begins</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex justify-between">
+                                <button type="button" id="prev-3" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                    <i class="fas fa-arrow-left mr-1"></i> Previous
+                                </button>
+                                <button type="button" id="next-3" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition" disabled="">
+                                    Next: Review &amp; Confirm <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Confirmation (hidden initially) -->
+                        <div id="step-4" class="form-step hidden">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Review &amp; Confirm</h3>
+                            <p class="text-gray-600 mb-6">Please review your appointment details before confirming.</p>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-bold mb-2">Contact Information</h4>
+                                    <div class="bg-gray-100 p-4 rounded-lg">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Name:</span>
+                                                <p class="font-medium" id="review-name"></p>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Phone:</span>
+                                                <p class="font-medium" id="review-phone"></p>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Email:</span>
+                                                <p class="font-medium" id="review-email"></p>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Address:</span>
+                                                <p class="font-medium" id="review-address"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-lg font-bold mb-2">Service Details</h4>
+                                    <div class="bg-gray-100 p-4 rounded-lg">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Service Type:</span>
+                                                <p class="font-medium" id="review-service"></p>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Service Option:</span>
+                                                <p class="font-medium" id="review-service-option"></p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-gray-600 text-sm">Additional Notes:</span>
+                                            <p class="font-medium" id="review-notes"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-lg font-bold mb-2">Appointment Time</h4>
+                                    <div class="bg-gray-100 p-4 rounded-lg">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Date:</span>
+                                                <p class="font-medium" id="review-date"></p>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600 text-sm">Time:</span>
+                                                <p class="font-medium" id="review-time"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <label class="flex items-start">
+                                    <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2" required="">
+                                    <span class="text-sm text-gray-700">I agree to the <a href="/terms-of-service.html" class="text-aj-orange hover:underline">Terms of Service</a> and acknowledge that my information will be used in accordance with the <a href="/privacy-policy.html" class="text-aj-orange hover:underline">Privacy Policy</a>.</span>
+                                </label>
+                            </div>
+
+                            <div class="mt-6 flex justify-between">
+                                <button type="button" id="prev-4" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                    <i class="fas fa-arrow-left mr-1"></i> Previous
+                                </button>
+                                <button type="submit" id="submit-form" class="min-h-[48px] px-8 py-4 px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                    Confirm Appointment <i class="fas fa-check ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Submission Success Message (hidden initially) -->
+                    <div id="success-message" class="hidden p-8 text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check text-green-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800">Appointment Scheduled!</h3>
+                        <p class="text-gray-600 mb-6">Your appointment has been successfully scheduled. We've sent a confirmation email with all the details.</p>
+                        
+                        <div class="bg-gray-100 rounded-lg p-6 max-w-md mx-auto mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Appointment Date:</span>
+                                <span class="font-medium" id="confirm-date"></span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Appointment Time:</span>
+                                <span class="font-medium" id="confirm-time"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Confirmation #:</span>
+                                <span class="font-medium" id="confirm-number"></span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600 mb-6">A licensed electrician will call you 30 minutes before arrival.</p>
+                        
+                        <div class="flex flex-col md:flex-row justify-center gap-4">
+                            <a href="/index.html" class="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">
+                                Return to Homepage
+                            </a>
+                            <a href="/services.html" class="px-6 py-2 bg-aj-orange text-white font-bold rounded hover:bg-orange-600 transition">
+                                Explore Our Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Schedule with Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Schedule with <span class="text-aj-orange">AJ Long Electric</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    When you schedule service with AJ Long Electric, you're choosing expertise, reliability, and exceptional customer service.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-check text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Easy Scheduling</h3>
+                    <p class="text-gray-600">Our online booking system makes it simple to find an appointment time that works for your schedule, with real-time availability.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-user-tie text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Licensed Professionals</h3>
+                    <p class="text-gray-600">All of our electricians are fully licensed, background-checked, and trained to deliver the highest quality workmanship and service.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
+                    <div class="w-16 h-16 bg-aj-orange rounded-lg text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Satisfaction Guaranteed</h3>
+                    <p class="text-gray-600">Our work is backed by a 100% satisfaction guarantee and comprehensive warranty, giving you complete peace of mind.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">Still have questions about our scheduling process?</p>
+                <a href="tel:7039970026" class="inline-flex items-center justify-center px-6 py-3 bg-aj-dark text-white font-bold rounded-lg hover:bg-gray-800 transition">
+                    <i class="fas fa-phone-alt mr-2"></i> Call us at 703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer would be included here -->
+    <div id="standard-footer"></div>
+
+    <!-- JavaScript to handle the form -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Include HTML components
+            fetch('/include/standard-header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('standard-header').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading header:', error));
+
+            fetch('/include/standard-footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('standard-footer').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+
+            // Form steps navigation
+            const steps = document.querySelectorAll('.form-step');
+            const progressIndicator = document.querySelector('.progress-indicator');
+            const stepDots = document.querySelectorAll('.step-dot');
+            let currentStep = 1;
+            
+            // Function to go to a specific step
+            function goToStep(step) {
+                steps.forEach((stepEl, index) => {
+                    if (index + 1 === step) {
+                        stepEl.classList.remove('hidden');
+                    } else {
+                        stepEl.classList.add('hidden');
+                    }
+                });
+                
+                // Update progress bar
+                progressIndicator.style.width = `${(step - 1) * 100 / 3}%`;
+                
+                // Update step dots
+                stepDots.forEach((dot, index) => {
+                    if (index + 1 === step) {
+                        dot.classList.add('active');
+                        dot.classList.remove('completed');
+                    } else if (index + 1 < step) {
+                        dot.classList.remove('active');
+                        dot.classList.add('completed');
+                    } else {
+                        dot.classList.remove('active', 'completed');
+                    }
+                });
+                
+                currentStep = step;
+                
+                // Scroll to top of form
+                document.querySelector('.progress-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Handle step 1 validation and navigation
+            const next1Button = document.getElementById('next-1');
+            if (next1Button) {
+                next1Button.addEventListener('click', function() {
+                    // Validate required fields
+                    const requiredFields = document.querySelectorAll('#step-1 input[required], #step-1 select[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('border-red-500');
+                        } else {
+                            field.classList.remove('border-red-500');
+                        }
+                    });
+                    
+                    // Phone validation
+                    const phoneField = document.getElementById('phone');
+                    if (phoneField && phoneField.value.trim() && !phoneField.value.match(/^\d{3}-\d{3}-\d{4}$/)) {
+                        isValid = false;
+                        phoneField.classList.add('border-red-500');
+                    }
+                    
+                    // Email validation
+                    const emailField = document.getElementById('email');
+                    if (emailField && emailField.value.trim() && !emailField.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                        isValid = false;
+                        emailField.classList.add('border-red-500');
+                    }
+                    
+                    if (isValid) {
+                        goToStep(2);
+                    } else {
+                        alert('Please fill in all required fields correctly.');
+                    }
+                });
+            }
+            
+            // Handle step 2 validation and navigation
+            const next2Button = document.getElementById('next-2');
+            if (next2Button) {
+                next2Button.addEventListener('click', function() {
+                    // Validate service selection
+                    const serviceCategory = document.getElementById('service-category');
+                    let isValid = true;
+                    
+                    if (!serviceCategory.value) {
+                        isValid = false;
+                        serviceCategory.classList.add('border-red-500');
+                    } else {
+                        serviceCategory.classList.remove('border-red-500');
+                        
+                        // Validate options based on selected service
+                        const selectedService = serviceCategory.value;
+                        
+                        // Check if service-specific options are selected
+                        if (selectedService === 'panel') {
+                            const panelType = document.querySelector('input[name="panel-type"]:checked');
+                            if (!panelType) {
+                                isValid = false;
+                                alert('Please select a panel type.');
+                            }
+                        } else if (selectedService === 'lighting') {
+                            const lightingType = document.querySelector('input[name="lighting-type"]:checked');
+                            if (!lightingType) {
+                                isValid = false;
+                                alert('Please select a lighting type.');
+                            }
+                        } else if (selectedService === 'fan') {
+                            const fanType = document.querySelector('input[name="fan-type"]:checked');
+                            if (!fanType) {
+                                isValid = false;
+                                alert('Please select a fan installation type.');
+                            }
+                        } else if (selectedService === 'outlet') {
+                            const outletType = document.querySelector('input[name="outlet-type"]:checked');
+                            if (!outletType) {
+                                isValid = false;
+                                alert('Please select an outlet/switch type.');
+                            }
+                        } else if (selectedService === 'ev') {
+                            const evType = document.querySelector('input[name="ev-type"]:checked');
+                            if (!evType) {
+                                isValid = false;
+                                alert('Please select an EV charger type.');
+                            }
+                        } else if (selectedService === 'troubleshooting') {
+                            const troubleshootingType = document.querySelector('input[name="troubleshooting-type"]:checked');
+                            if (!troubleshootingType) {
+                                isValid = false;
+                                alert('Please select a troubleshooting issue type.');
+                            }
+                        } else if (selectedService === 'other') {
+                            const otherDescription = document.getElementById('other-description');
+                            if (!otherDescription.value.trim()) {
+                                isValid = false;
+                                otherDescription.classList.add('border-red-500');
+                                alert('Please describe the electrical service you need.');
+                            } else {
+                                otherDescription.classList.remove('border-red-500');
+                            }
+                        }
+                    }
+                    
+                    if (isValid) {
+                        goToStep(3);
+                        initializeCalendar();
+                    }
+                });
+            }
+            
+            // Service category selection
+            const serviceCategorySelect = document.getElementById('service-category');
+            if (serviceCategorySelect) {
+                serviceCategorySelect.addEventListener('change', function() {
+                    // Hide all service option divs
+                    document.querySelectorAll('.service-options').forEach(div => {
+                        div.classList.add('hidden');
+                    });
+                    
+                    // Show the selected service options
+                    const selectedService = this.value;
+                    if (selectedService && selectedService !== '') {
+                        const optionsDiv = document.getElementById(`${selectedService}-options`);
+                        if (optionsDiv) {
+                            optionsDiv.classList.remove('hidden');
+                        }
+                    }
+                });
+            }
+            
+            // Service option selection highlighting
+            document.querySelectorAll('.service-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Find the radio button inside this option
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) {
+                        radio.checked = true;
+                        
+                        // Add selected class to this option and remove from siblings
+                        const name = radio.getAttribute('name');
+                        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                            const parentOption = r.closest('.service-option');
+                            if (parentOption) {
+                                if (r === radio) {
+                                    parentOption.classList.add('selected');
+                                } else {
+                                    parentOption.classList.remove('selected');
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Initialize datepicker
+            function initializeCalendar() {
+                // Only initialize if not already initialized
+                if (window.datepicker) return;
+                
+                window.datepicker = flatpickr('#date-picker', {
+                    inline: true,
+                    minDate: 'today',
+                    maxDate: new Date().fp_incr(60), // 60 days from now
+                    disable: [
+                        function(date) {
+                            // Disable Sundays
+                            return date.getDay() === 0;
+                        }
+                    ],
+                    onChange: function(selectedDates, dateStr) {
+                        document.getElementById('selected-date').value = dateStr;
+                        document.getElementById('no-date-message').classList.add('hidden');
+                        document.getElementById('time-slots').classList.remove('hidden');
+                        
+                        // Generate time slots
+                        populateTimeSlots(dateStr);
+                        
+                        // Update review page
+                        document.getElementById('review-date').textContent = new Date(dateStr).toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                    }
+                });
+            }
+            
+            // Populate time slots
+            function populateTimeSlots(date) {
+                const timeSlotsContainer = document.getElementById('time-slots');
+                timeSlotsContainer.innerHTML = '';
+                
+                // In a real implementation, these would come from the server based on availability
+                // This is a simplified example with randomly available slots
+                const timeSlots = [
+                    { time: '8:00 AM', end: '10:00 AM', available: Math.random() > 0.3 },
+                    { time: '10:00 AM', end: '12:00 PM', available: Math.random() > 0.3 },
+                    { time: '12:00 PM', end: '2:00 PM', available: Math.random() > 0.3 },
+                    { time: '2:00 PM', end: '4:00 PM', available: Math.random() > 0.3 },
+                    { time: '4:00 PM', end: '6:00 PM', available: Math.random() > 0.3 }
+                ];
+                
+                timeSlots.forEach(slot => {
+                    const slotElement = document.createElement('div');
+                    slotElement.className = `time-slot p-3 border rounded-lg text-center ${slot.available ? 'cursor-pointer hover:border-aj-orange' : 'unavailable bg-gray-100'}`;
+                    slotElement.innerHTML = `
+                        <i class="fas ${slot.available ? 'fa-clock' : 'fa-ban'} mb-1"></i>
+                        <p class="font-medium">${slot.time}</p>
+                    `;
+                    
+                    if (slot.available) {
+                        slotElement.addEventListener('click', function() {
+                            // Remove selected class from all slots
+                            document.querySelectorAll('.time-slot').forEach(el => {
+                                el.classList.remove('selected');
+                            });
+                            
+                            // Add selected class to this slot
+                            this.classList.add('selected');
+                            
+                            // Store the selected time
+                            const selectedDate = document.getElementById('selected-date').value;
+                            
+                            // Create date objects for start and end times
+                            const startTimeParts = slot.time.match(/(\d+):(\d+) (\w+)/);
+                            let startHour = parseInt(startTimeParts[1]);
+                            if (startTimeParts[3] === 'PM' && startHour !== 12) startHour += 12;
+                            if (startTimeParts[3] === 'AM' && startHour === 12) startHour = 0;
+                            
+                            const endTimeParts = slot.end.match(/(\d+):(\d+) (\w+)/);
+                            let endHour = parseInt(endTimeParts[1]);
+                            if (endTimeParts[3] === 'PM' && endHour !== 12) endHour += 12;
+                            if (endTimeParts[3] === 'AM' && endHour === 12) endHour = 0;
+                            
+                            const dateParts = selectedDate.split('-');
+                            const startDateTime = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], startHour, 0);
+                            const endDateTime = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], endHour, 0);
+                            
+                            // Store as ISO strings
+                            document.getElementById('slot-start').value = startDateTime.toISOString();
+                            document.getElementById('slot-end').value = endDateTime.toISOString();
+                            
+                            // Update review page
+                            document.getElementById('review-time').textContent = `${slot.time} - ${slot.end}`;
+                            
+                            // Enable next button
+                            document.getElementById('next-3').disabled = false;
+                        });
+                    }
+                    
+                    timeSlotsContainer.appendChild(slotElement);
+                });
+            }
+            
+            // Handle step 3 validation and navigation
+            const next3Button = document.getElementById('next-3');
+            if (next3Button) {
+                next3Button.addEventListener('click', function() {
+                    // Validate time slot selection
+                    const slotStart = document.getElementById('slot-start').value;
+                    
+                    if (!slotStart) {
+                        alert('Please select a time slot for your appointment.');
+                        return;
+                    }
+                    
+                    // Populate review page
+                    populateReviewPage();
+                    goToStep(4);
+                });
+            }
+            
+            // Populate review page
+            function populateReviewPage() {
+                // Contact info
+                document.getElementById('review-name').textContent = document.getElementById('name').value;
+                document.getElementById('review-phone').textContent = document.getElementById('phone').value;
+                document.getElementById('review-email').textContent = document.getElementById('email').value;
+                
+                const address = `${document.getElementById('address').value}, ${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('zip').value}`;
+                document.getElementById('review-address').textContent = address;
+                
+                // Service details
+                const serviceCategory = document.getElementById('service-category');
+                const serviceText = serviceCategory.options[serviceCategory.selectedIndex].text;
+                document.getElementById('review-service').textContent = serviceText;
+                
+                // Find selected service option
+                let serviceOption = '';
+                const selectedService = serviceCategory.value;
+                
+                if (selectedService === 'panel') {
+                    const panelType = document.querySelector('input[name="panel-type"]:checked');
+                    if (panelType) {
+                        serviceOption = panelType.value === 'upgrade' ? 'Panel Upgrade' : 'Panel Replacement';
+                    }
+                } else if (selectedService === 'lighting') {
+                    const lightingType = document.querySelector('input[name="lighting-type"]:checked');
+                    if (lightingType) {
+                        serviceOption = lightingType.value === 'recessed' ? 'Recessed Lighting' : 'Light Fixture Installation';
+                    }
+                } else if (selectedService === 'fan') {
+                    const fanType = document.querySelector('input[name="fan-type"]:checked');
+                    if (fanType) {
+                        serviceOption = fanType.value === 'new' ? 'New Fan Installation' : 'Fan Replacement';
+                    }
+                } else if (selectedService === 'outlet') {
+                    const outletType = document.querySelector('input[name="outlet-type"]:checked');
+                    if (outletType) {
+                        switch (outletType.value) {
+                            case 'standard': serviceOption = 'Standard Outlets'; break;
+                            case 'gfci': serviceOption = 'GFCI Outlets'; break;
+                            case 'switch': serviceOption = 'Light Switches'; break;
+                            case 'usb': serviceOption = 'USB Outlets'; break;
+                        }
+                    }
+                } else if (selectedService === 'ev') {
+                    const evType = document.querySelector('input[name="ev-type"]:checked');
+                    if (evType) {
+                        serviceOption = evType.value === 'level1' ? 'Level 1 Charger (120V)' : 'Level 2 Charger (240V)';
+                    }
+                } else if (selectedService === 'troubleshooting') {
+                    const troubleshootingType = document.querySelector('input[name="troubleshooting-type"]:checked');
+                    if (troubleshootingType) {
+                        switch (troubleshootingType.value) {
+                            case 'power-loss': serviceOption = 'Power Loss Issues'; break;
+                            case 'circuit-breakers': serviceOption = 'Circuit Breaker Issues'; break;
+                            case 'flickering': serviceOption = 'Flickering Lights'; break;
+                            case 'other-issue': serviceOption = 'Other Electrical Issue'; break;
+                        }
+                    }
+                } else if (selectedService === 'other') {
+                    serviceOption = 'Custom Service';
+                }
+                
+                document.getElementById('review-service-option').textContent = serviceOption;
+                
+                // Notes
+                const notes = document.getElementById('notes').value;
+                document.getElementById('review-notes').textContent = notes || 'None provided';
+            }
+            
+            // Previous buttons
+            document.getElementById('prev-2').addEventListener('click', function() {
+                goToStep(1);
+            });
+            
+            document.getElementById('prev-3').addEventListener('click', function() {
+                goToStep(2);
+            });
+            
+            document.getElementById('prev-4').addEventListener('click', function() {
+                goToStep(3);
+            });
+            
+            // Form submission
+            const form = document.getElementById('scheduling-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate terms checkbox
+                    const termsCheckbox = document.getElementById('terms');
+                    if (!termsCheckbox.checked) {
+                        alert('Please agree to the terms and conditions.');
+                        return;
+                    }
+                    
+                    // Collect form data
+                    const formData = new FormData(form);
+                    
+                    // Disable submit button and show loading state
+                    const submitButton = document.getElementById('submit-form');
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+                    
+                    // In a real implementation, send data to server
+                    // This is a simplified mock version
+                    setTimeout(function() {
+                        // Hide form, show success message
+                        document.getElementById('step-4').classList.add('hidden');
+                        document.getElementById('success-message').classList.remove('hidden');
+                        
+                        // Update confirmation details
+                        document.getElementById('confirm-date').textContent = document.getElementById('review-date').textContent;
+                        document.getElementById('confirm-time').textContent = document.getElementById('review-time').textContent;
+                        document.getElementById('confirm-number').textContent = 'AJ' + Date.now().toString().slice(-6);
+                        
+                        // Update progress bar to 100%
+                        document.querySelector('.progress-indicator').style.width = '100%';
+                        document.querySelectorAll('.step-dot').forEach(dot => {
+                            dot.classList.remove('active');
+                            dot.classList.add('completed');
+                        });
+                    }, 2000);
+                    
+                    // In a real implementation, this would be an AJAX call
+                    /*
+                    fetch('/api/schedule-job', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Hide form, show success message
+                            document.getElementById('step-4').classList.add('hidden');
+                            document.getElementById('success-message').classList.remove('hidden');
+                            
+                            // Update confirmation details
+                            document.getElementById('confirm-date').textContent = document.getElementById('review-date').textContent;
+                            document.getElementById('confirm-time').textContent = document.getElementById('review-time').textContent;
+                            document.getElementById('confirm-number').textContent = data.confirmationNumber || 'AJ' + Date.now().toString().slice(-6);
+                            
+                            // Update progress bar to 100%
+                            document.querySelector('.progress-indicator').style.width = '100%';
+                            document.querySelectorAll('.step-dot').forEach(dot => {
+                                dot.classList.remove('active');
+                                dot.classList.add('completed');
+                            });
+                        } else {
+                            alert('There was a problem scheduling your appointment. Please try again or call us.');
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = 'Confirm Appointment <i class="fas fa-check ml-1"></i>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form:', error);
+                        alert('There was a problem scheduling your appointment. Please try again or call us.');
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Confirm Appointment <i class="fas fa-check ml-1"></i>';
+                    });
+                    */
+                });
+            }
+            
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    const phoneNumber = phoneInput.value.replace(/\D/g, '');
+                    if (phoneNumber.length >= 10) {
+                        const formattedNumber = phoneNumber.substring(0, 10).replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+                        phoneInput.value = formattedNumber;
+                    }
+                });
+            }
+
+            // Function to initialize Google Places Autocomplete for address field
+            function initAutocomplete(apiKey) {
+                // Load the Google Maps script with the API key
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+                script.async = true;
+                script.defer = true;
+                script.onload = function() {
+                    if (document.getElementById('address')) {
+                        const autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'), {
+                            types: ['address'],
+                            componentRestrictions: { country: 'us' }
+                        });
+
+                        autocomplete.addListener('place_changed', function() {
+                            const place = autocomplete.getPlace();
+                            if (place.address_components) {
+                                // Extract and fill address components
+                                for (const component of place.address_components) {
+                                    const componentType = component.types[0];
+
+                                    if (componentType === 'locality') {
+                                        document.getElementById('city').value = component.long_name;
+                                    }
+                                    if (componentType === 'administrative_area_level_1') {
+                                        const stateSelect = document.getElementById('state');
+                                        for (let i = 0; i < stateSelect.options.length; i++) {
+                                            if (stateSelect.options[i].value === component.short_name) {
+                                                stateSelect.selectedIndex = i;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (componentType === 'postal_code') {
+                                        document.getElementById('zip').value = component.long_name;
+                                    }
+                                }
+
+                                // Check if in service area
+                                if (place.geometry && place.geometry.location) {
+                                    const lat = place.geometry.location.lat();
+                                    const lng = place.geometry.location.lng();
+                                    
+                                    // DC coordinates (approximate)
+                                    const dcLat = 38.9072;
+                                    const dcLng = -77.0369;
+                                    
+                                    // Calculate distance in miles
+                                    const distance = calculateDistance(lat, lng, dcLat, dcLng);
+                                    
+                                    if (distance > 40) {
+                                        document.getElementById('service-area-error').classList.remove('hidden');
+                                    } else {
+                                        document.getElementById('service-area-error').classList.add('hidden');
+                                    }
+                                }
+                            }
+                        });
+                    }
+                };
+                document.head.appendChild(script);
+            }
+
+            // Fetch the Google API key from the serverless function
+            fetch('/api/get-google-api-key')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch API key');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.apiKey) {
+                        initAutocomplete(data.apiKey);
+                    } else {
+                        console.error('No API key returned from server');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching Google API key:', error);
+                });
+
+            // Function to calculate distance between two points (Haversine formula)
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                const R = 3958.8; // Radius of the Earth in miles
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                const distance = R * c;
+                return distance;
+            }
+        });
+    </script>
+    <!-- Footer -->
+    <div data-include="/include/standard-footer.html"></div>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

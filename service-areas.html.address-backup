@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Areas | AJ Long Electric | NoVA, DC & MD Electricians</title>
+    <meta name="description" content="AJ Long Electric provides expert residential electrical services throughout Northern VA (Fairfax, Arlington, Alexandria), Washington DC, and Maryland (Montgomery Co., PG County). Serving the DMV area with over 1200 5-star reviews.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --aj-text-gray: #4a5568; /* Slightly darker gray for text for better readability */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif; /* A more modern sans-serif font if available, fallback to Tailwind's default */
+            color: var(--aj-text-gray);
+            background-color: #f9fafb; /* Slightly off-white for the main background */
+        }
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .map-responsive { overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0; border-radius: 0.375rem; box-shadow: var(--shadow-md); }
+        .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0; }
+
+        /* New Tabs */
+        .service-area-tabs button {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            color: var(--aj-text-gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .service-area-tabs button:hover {
+            color: var(--aj-orange);
+        }
+        .service-area-tabs button.active {
+            color: var(--aj-orange);
+            border-bottom-color: var(--aj-orange);
+        }
+        .service-area-content { display: none; }
+        .service-area-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Sticky Sidebar for Counties/Regions */
+        .sticky-sidebar {
+            position: sticky;
+            top: 100px; /* Adjust based on sticky header height */
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sticky-sidebar a {
+            display: block;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.375rem;
+            color: var(--aj-text-gray);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        .sticky-sidebar a:hover {
+            background-color: #ffe8d6; /* Light orange */
+            color: var(--aj-orange);
+        }
+        .sticky-sidebar a.active {
+            background-color: var(--aj-orange);
+            color: white;
+            font-weight: 600;
+            border-left-color: var(--aj-dark);
+        }
+
+        /* County Section Styling */
+        .county-block {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--aj-orange);
+        }
+        .county-block h3 {
+            font-size: 1.75rem; /* Increased size */
+            font-weight: 700;
+            color: var(--aj-dark);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* City Link / Highlight Card (Unified) */
+        .city-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .city-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        .city-card img.card-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-card .card-content {
+            padding: 1rem;
+        }
+        .city-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--aj-dark);
+            margin-bottom: 0.25rem;
+        }
+        .city-card p.card-description {
+            font-size: 0.875rem;
+            color: var(--aj-text-gray);
+            margin-bottom: 0.5rem;
+            min-height: 40px; /* For consistent card height */
+        }
+        .city-card .featured-service-tag {
+            display: inline-block;
+            background-color: #ffe8d6; /* Light orange */
+            color: var(--aj-orange);
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+        }
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .city-link-list a {
+            display: inline-block;
+            margin: 0.25rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--aj-light-gray);
+            border-radius: 999px; /* Pill shape */
+            transition: all 0.3s ease;
+            color: var(--aj-dark);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+        .city-link-list a:hover {
+            background-color: var(--aj-orange);
+            color: white;
+            border-color: var(--aj-orange);
+            transform: translateY(-2px);
+        }
+        .city-link-list a .tooltip {
+            visibility: hidden; background-color: var(--aj-dark); color: white; text-align: center;
+            border-radius: 0.25rem; padding: 0.5rem; position: absolute; z-index: 10; bottom: 125%;
+            left: 50%; transform: translateX(-50%); width: 200px; opacity: 0; transition: opacity 0.3s;
+            box-shadow: var(--shadow-md); font-size: 0.75rem;
+        }
+        .city-link-list a .tooltip::after {
+            content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+            border-width: 5px; border-style: solid; border-color: var(--aj-dark) transparent transparent transparent;
+        }
+        .city-link-list a:hover .tooltip { visibility: visible; opacity: 1; }
+
+        /* ZIP Code Search */
+        .zip-search-form input {
+            border: 1px solid #cbd5e0;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .zip-search-form input:focus {
+            border-color: var(--aj-orange);
+            box-shadow: 0 0 0 3px rgba(255, 114, 0, 0.2);
+            outline: none;
+        }
+        .zip-search-form button {
+            transition: background-color 0.2s ease;
+        }
+        .zip-search-form button:hover {
+            background-color: #E65A00; /* Darker orange */
+        }
+        
+        /* Office Location Card */
+        .office-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .office-card:hover {
+             box-shadow: var(--shadow-xl);
+             transform: translateY(-5px);
+        }
+        .office-card .office-tag {
+            background-color: var(--aj-orange);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Why Choose Us Icons */
+        .why-choose-icon {
+            background-color: #fff5eb; /* Very light orange */
+            color: var(--aj-orange);
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb-nav { display: flex; align-items: center; padding: 1rem 0; flex-wrap: wrap; font-size: 0.9rem; }
+        .breadcrumb-nav a { color: var(--aj-orange); font-weight: 500; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-nav span.separator { display: inline-flex; align-items: center; margin: 0 0.5rem; color: #9ca3af; }
+        .breadcrumb-nav span.current { color: var(--aj-text-gray); }
+
+        /* Back to top button */
+        #back-to-top { position: fixed; bottom: 20px; right: 20px; z-index: 99; opacity: 0; visibility: hidden; transition: all 0.3s ease; width: 3rem; height: 3rem; border-radius: 50%; background-color: var(--aj-orange); color: white; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); }
+        #back-to-top:hover { background-color: #E65A00; }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+
+        /* Lazy loading */
+        .lazy-load { opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .lazy-load.loaded { opacity: 1; }
+
+        /* Mobile menu & Chat (from original, ensure elements exist in header/footer includes) */
+        .sticky-nav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background-color: white; z-index: 200; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; overflow-y: auto; }
+        .mobile-menu.active { right: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 199; display: none; }
+        .menu-overlay.active { display: block; } /* Added for overlay control */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+        .chat-button { width: 60px; height: 60px; border-radius: 50%; background-color: var(--aj-orange); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .chat-popup { position: absolute; bottom: 80px; right: 0; width: 300px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); overflow: hidden; display: none; flex-direction: column; max-height: 400px; }
+        .chat-header { background-color: var(--aj-dark); color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+        .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; }
+        .chat-input { display: flex; border-top: 1px solid #eee; padding: 10px; flex-shrink: 0; }
+        .chat-input input { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px; }
+        .chat-input button { background-color: var(--aj-orange); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+    </style>
+    <!-- Schema.org markup for Service Area Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "AJ Long Electric Service Areas",
+      "url": "https://ajlongelectric.com/service-areas.html",
+      "description": "View the service areas covered by AJ Long Electric, including Northern Virginia, Washington DC, and Maryland counties like Montgomery and Prince George's.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          { "@type": "AdministrativeArea", "name": "Fairfax County, VA" },
+          { "@type": "AdministrativeArea", "name": "Arlington County, VA" },
+          { "@type": "City", "name": "Alexandria, VA" },
+          { "@type": "City", "name": "Washington, DC" },
+          { "@type": "AdministrativeArea", "name": "Montgomery County, MD" },
+          { "@type": "AdministrativeArea", "name": "Prince George's County, MD" },
+          { "@type": "AdministrativeArea", "name": "Loudoun County, VA" },
+          { "@type": "AdministrativeArea", "name": "Anne Arundel County, MD" },
+          { "@type": "AdministrativeArea", "name": "Howard County, MD" }
+        ]
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://ajlongelectric.com/",
+        "name": "AJ Long Electric"
+      },
+      "provider": {
+        "@type": "ElectricalContractor",
+        "@id": "https://ajlongelectric.com/#organization",
+        "name": "AJ Long Electric",
+        "address": [
+            { "@type": "PostalAddress", "streetAddress": "2832 Dorr Ave Suite D", "addressLocality": "Fairfax", "addressRegion": "VA", "postalCode": "22031", "telephone": "+1-571-616-9996" },
+            { "@type": "PostalAddress", "streetAddress": "5244 Lyngate Ct", "addressLocality": "Burke", "addressRegion": "VA", "postalCode": "22015", "telephone": "+1-571-616-9996" },
+            { "@type": "PostalAddress", "streetAddress": "7138 Little River Turnpike #305", "addressLocality": "Annandale", "addressRegion": "VA", "postalCode": "22003", "telephone": "+1-703-775-4886" },
+            { "@type": "PostalAddress", "streetAddress": "15518 Orchard Run Dr", "addressLocality": "Bowie", "addressRegion": "MD", "postalCode": "20715", "telephone": "+1-301-679-7447" }
+        ],
+        "telephone": "+1-703-997-0026"
+      }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script> <!-- Assuming this loads a sticky header -->
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="bg-gray-50"> <!-- Changed default bg -->
+
+    <!-- Assume header is loaded by header-loader.js or include-html.js -->
+    <!-- Example: <div id="header-placeholder"></div> -->
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-20 md:py-28">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate__animated animate__fadeInDown">
+                Your Trusted Electricians in <span class="text-aj-orange">VA, DC & MD</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+                AJ Long Electric proudly serves communities across Northern Virginia, Washington D.C., and Maryland. Explore our service areas below.
+            </p>
+        </div>
+    </section>
+
+    <!-- Empty section to replace the old breadcrumb navigation -->
+    <section class="py-2 bg-white">
+        <div class="container mx-auto px-4"></div>
+    </section>
+
+    <!-- Communities We Serve - Tabbed Interface -->
+    <section class="py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-3">Communities We <span class="text-aj-orange">Serve</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Select your region below to explore the counties and cities where AJ Long Electric provides expert electrical services.
+                </p>
+            </div>
+
+            <!-- Area Selector Tabs -->
+            <div class="service-area-tabs flex justify-center border-b border-gray-300 mb-8 sticky top-[60px] md:top-[70px] bg-gray-50 z-40 py-2">
+                 <!-- Adjust top value if sticky header height changes -->
+                <button class="area-tab-button active" data-area="virginia"><i class="fas fa-map-marker-alt mr-2"></i>Northern Virginia</button>
+                <button class="area-tab-button" data-area="dc"><i class="fas fa-landmark mr-2"></i>Washington DC</button>
+                <button class="area-tab-button" data-area="maryland"><i class="fas fa-flag mr-2"></i>Maryland</button>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Sidebar Navigation -->
+                <aside class="w-full lg:w-1/4">
+                    <div id="region-navigation-sidebar" class="sticky-sidebar bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-aj-dark mb-4">Quick Navigation</h3>
+                        <!-- Sidebar content will be dynamically populated by JS -->
+                    </div>
+                </aside>
+            
+                <!-- Main Content Area for Tabs -->
+                <main class="w-full lg:w-3/4">
+                    <!-- Virginia Content -->
+                    <div id="virginia-content" class="service-area-content active">
+                        <div id="virginia-section" data-region-name="Northern Virginia" data-region-icon="fas fa-map-marker-alt">
+                            <!-- Fairfax County -->
+                            <div id="fairfax-county" class="county-block" data-county-name="Fairfax County">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Fairfax County</h3>
+                                <p class="text-gray-600 mb-6">Fairfax County is our primary service area and home to our headquarters. We're proud to offer comprehensive electrical services to all communities within the county.</p>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Communities:</h4>
+                                <div class="city-grid mb-6">
+                                    <a href="/virginia-electrical-services/fairfax.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/Fairfax-highlighted-cities.jpeg" alt="Electrician working in Fairfax" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Fairfax</h4>
+                                            <p class="card-description">Our hometown and HQ. Full-service electrical experts.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-bolt mr-1"></i> Panel Upgrades</span>
+                                        </div>
+                                    </a>
+                                    <a href="/virginia-electrical-services/vienna.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/Vienna-highlighted-cities.jpg" alt="Home in Vienna needing electrical work" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Vienna</h4>
+                                            <p class="card-description">Historic town charm, modern electrical solutions.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-fan mr-1"></i> Ceiling Fans</span>
+                                        </div>
+                                    </a>
+                                    <a href="/virginia-electrical-services/mclean.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/Mclean-highlighted-cities.webp" alt="Luxury home in McLean" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>McLean</h4>
+                                            <p class="card-description">Upscale homes, distinctive electrical needs handled.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-lightbulb mr-1"></i> Recessed Lighting</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">All Fairfax County Communities:</h4>
+                                <div class="city-link-list">
+                                    <a href="/virginia-electrical-services/annandale.html" class="relative">Annandale<span class="tooltip">Home to our Annandale office. Popular services: Panel upgrades, recessed lighting, and electrical repairs.</span></a>
+                                    <a href="/virginia-electrical-services/burke.html" class="relative">Burke<span class="tooltip">Home to one of our offices. Established community with older homes often needing panel upgrades.</span></a>
+                                    <a href="/virginia-electrical-services/centreville.html" class="relative">Centreville<span class="tooltip">Mix of older and newer homes. Common services: ceiling fans, outlet upgrades, and smart home installs.</span></a>
+                                    <a href="/virginia-electrical-services/chantilly.html" class="relative">Chantilly<span class="tooltip">Growing community with many new developments. Popular for EV charger installations.</span></a>
+                                    <a href="/virginia-electrical-services/falls-church.html" class="relative">Falls Church<span class="tooltip">Historic homes often needing electrical updates. Specializing in older home rewiring.</span></a>
+                                    <a href="/virginia-electrical-services/great-falls.html" class="relative">Great Falls<span class="tooltip">Luxury homes with high-end electrical needs. Landscape lighting and custom installations.</span></a>
+                                    <a href="/virginia-electrical-services/herndon.html" class="relative">Herndon<span class="tooltip">Mix of residential styles with growing tech community. Smart home integrations popular.</span></a>
+                                    <a href="/virginia-electrical-services/merrifield.html" class="relative">Merrifield<span class="tooltip">Modern community with newer construction. EV charging and smart home technology.</span></a>
+                                    <a href="/virginia-electrical-services/oakton.html" class="relative">Oakton<span class="tooltip">Established neighborhood with diverse housing stock. Panel upgrades common.</span></a>
+                                    <a href="/virginia-electrical-services/reston.html" class="relative">Reston<span class="tooltip">Planned community with varied housing ages. Electrical modernization services.</span></a>
+                                    <a href="/virginia-electrical-services/springfield.html" class="relative">Springfield<span class="tooltip">Large community with homes of various ages. Common for rewiring and panel upgrades.</span></a>
+                                    <a href="/virginia-electrical-services/tysons.html" class="relative">Tysons<span class="tooltip">Growing urban center with many new condos and apartments. Smart lighting popular.</span></a>
+                                </div>
+                            </div>
+
+                            <div id="arlington-county" class="county-block" data-county-name="Arlington County">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Arlington County</h3>
+                                <p class="text-gray-600 mb-6">Arlington County features urban neighborhoods and suburban communities. We provide prompt service to all neighborhoods.</p>
+                                 <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Neighborhoods:</h4>
+                                <div class="city-grid mb-6">
+                                     <a href="/virginia-electrical-services/arlington.html" class="city-card">
+                                        <img data-src="/assets/images/index/recess-light-install.jpeg.png" alt="Recessed lighting in Arlington" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Arlington</h4>
+                                            <p class="card-description">Urban community, historic homes & modern development.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-lightbulb mr-1"></i> Recessed Lighting</span>
+                                        </div>
+                                    </a>
+                                     <a href="/virginia-electrical-services/ballston.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/ev/Tesla-EV-WallCharger.jpg" alt="EV Charger in Ballston" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Ballston</h4>
+                                            <p class="card-description">Modern neighborhood, residential & commercial properties.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-car-battery mr-1"></i> EV Chargers</span>
+                                        </div>
+                                    </a>
+                                     <a href="/virginia-electrical-services/clarendon.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/Clarendon-condo-electrical-repair.jpeg" alt="Condo electrical work in Clarendon" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Clarendon</h4>
+                                            <p class="card-description">Vibrant urban district, diverse housing options.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-home mr-1"></i> Smart Home</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Arlington Neighborhoods:</h4>
+                                <div class="city-link-list">
+                                    <a href="/virginia-electrical-services/arlington.html" class="relative">Arlington</a>
+                                    <a href="/virginia-electrical-services/rosslyn.html" class="relative">Rosslyn</a>
+                                    <a href="/virginia-electrical-services/virginia-square.html" class="relative">Virginia Square</a>
+                                    <a href="/virginia-electrical-services/shirlington.html" class="relative">Shirlington</a>
+                                    <a href="/virginia-electrical-services/yorktown.html" class="relative">Yorktown</a>
+                                    <a href="/virginia-electrical-services/crystal-city.html" class="relative">Crystal City</a>
+                                    <a href="/virginia-electrical-services/pentagon-city.html" class="relative">Pentagon City</a>
+                                    <a href="/virginia-electrical-services/courthouse.html" class="relative">Courthouse</a>
+                                    <a href="/virginia-electrical-services/columbia-pike.html" class="relative">Columbia Pike</a>
+                                    <a href="/virginia-electrical-services/langston.html" class="relative">Langston</a>
+                                </div>
+                            </div>
+                            
+                            <div id="alexandria-city" class="county-block" data-county-name="Alexandria">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Alexandria</h3>
+                                <p class="text-gray-600 mb-6">The historic City of Alexandria contains some of the region's oldest homes along with newer developments, requiring specialized electrical expertise.</p>
+                                 <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Areas:</h4>
+                                <div class="city-grid mb-6">
+                                     <a href="/virginia-electrical-services/alexandria.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg" alt="Electrical panel upgrade in Alexandria" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>City of Alexandria</h4>
+                                            <p class="card-description">Historic city with unique electrical needs.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-bolt mr-1"></i> Panel Upgrades</span>
+                                        </div>
+                                    </a>
+                                     <a href="/virginia-electrical-services/old-town-alexandria.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/lighting/Electrical-Under-Cabinet-Lighting.webp" alt="Lighting in Old Town Alexandria" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Old Town Alexandria</h4>
+                                            <p class="card-description">Historic district, special electrical considerations.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-lightbulb mr-1"></i> Historic Homes</span>
+                                        </div>
+                                    </a>
+                                     <a href="/virginia-electrical-services/del-ray.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/kitchen/Kitchen-Lighting-square.jpg" alt="Kitchen lighting in Del Ray" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Del Ray</h4>
+                                            <p class="card-description">Charming neighborhood, growing electrical needs.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-home mr-1"></i> Kitchen Lighting</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Alexandria Neighborhoods:</h4>
+                                <div class="city-link-list">
+                                    <a href="/virginia-electrical-services/belle-haven.html" class="relative">Belle Haven</a>
+                                    <a href="/virginia-electrical-services/fort-hunt.html" class="relative">Fort Hunt</a>
+                                    <a href="/virginia-electrical-services/Mount-Vernon.html" class="relative">Mount Vernon</a>
+                                    <a href="/virginia-electrical-services/lincolnia.html" class="relative">Lincolnia</a>
+                                </div>
+                            </div>
+
+                            <div id="loudoun-county" class="county-block" data-county-name="Loudoun County">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Loudoun County</h3>
+                                <p class="text-gray-600 mb-6">Eastern Loudoun County falls within our service area, focusing on the rapidly growing communities along the Dulles corridor.</p>
+                                 <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Communities:</h4>
+                                <div class="city-grid mb-6">
+                                     <a href="/virginia-electrical-services/ashburn.html" class="city-card">
+                                        <img data-src="/assets/images/ashburndataalley.webp" alt="Modern home in Ashburn" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Ashburn</h4>
+                                            <p class="card-description">Modern community with tech-forward homes.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-car-battery mr-1"></i> EV Chargers</span>
+                                        </div>
+                                    </a>
+                                     <a href="/virginia-electrical-services/leesburg.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/fan/Ceiling-fan-install.jpg" alt="Ceiling fan installation in Leesburg" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Leesburg</h4>
+                                            <p class="card-description">Historic town, mix of classic and new construction.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-fan mr-1"></i> Ceiling Fans</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Loudoun County Communities:</h4>
+                                <div class="city-link-list">
+                                    <!-- Add more Loudoun communities as they're created -->
+                                     <a href="/virginia-electrical-services/sterling.html" class="relative">Sterling</a>
+                                     <a href="/virginia-electrical-services/south-riding.html" class="relative">South Riding</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- DC Content -->
+                    <div id="dc-content" class="service-area-content">
+                        <div id="dc-section" data-region-name="Washington DC" data-region-icon="fas fa-landmark">
+                            <div id="dc-main" class="county-block" data-county-name="Washington, DC">
+                                <h3 class="flex items-center"><i class="fas fa-city mr-3 text-aj-orange"></i>Washington, DC</h3>
+                                <p class="text-gray-600 mb-6">Washington DC has diverse neighborhoods with both historic and modern electrical needs. Our team is experienced with DC's unique building codes and regulations.</p>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Neighborhoods:</h4>
+                                <div class="city-grid mb-6">
+                                    <a href="/dc-electrical-services/washington-dc.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/panel/Gallery-After-ElectricalPanel.jpg" alt="Electrical work in Washington DC" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Washington DC</h4>
+                                            <p class="card-description">Full-service electrical solutions throughout the capital.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-bolt mr-1"></i> Comprehensive Services</span>
+                                        </div>
+                                    </a>
+                                    <a href="/dc-electrical-services/georgetown.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/lighting/Electrical-Under-Cabinet-Lighting.webp" alt="Lighting in a Georgetown home" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Georgetown</h4>
+                                            <p class="card-description">Historic district, specialized electrical needs.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-lightbulb mr-1"></i> Historic Home Specialists</span>
+                                        </div>
+                                    </a>
+                                    <a href="/dc-electrical-services/capitol-hill.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/lighting/Landscape-lighting-install.jpg" alt="Outdoor lighting in Capitol Hill" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Capitol Hill</h4>
+                                            <p class="card-description">Historic rowhouses, unique electrical requirements.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-home mr-1"></i> Historic Homes</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <h4 id="dc-quadrants" class="text-xl font-semibold text-aj-dark mb-3">DC Quadrants:</h4>
+                                <div class="city-link-list mb-6">
+                                    <a href="/dc-electrical-services/northwest-dc.html" class="relative">Northwest DC<span class="tooltip">Includes many residential neighborhoods and embassies with diverse electrical needs.</span></a>
+                                    <a href="/dc-electrical-services/northeast-dc.html" class="relative">Northeast DC<span class="tooltip">Mix of residential communities and growing developments requiring modern electrical solutions.</span></a>
+                                    <a href="/dc-electrical-services/southwest-dc.html" class="relative">Southwest DC<span class="tooltip">Waterfront area with mix of historic and newly developed properties.</span></a>
+                                    <a href="/dc-electrical-services/southeast-dc.html" class="relative">Southeast DC<span class="tooltip">Diverse area with growing residential developments and established neighborhoods.</span></a>
+                                </div>
+                                
+                                <h4 id="dc-neighborhoods-list" class="text-xl font-semibold text-aj-dark mb-3">Popular DC Neighborhoods:</h4>
+                                <div class="city-link-list">
+                                    <a href="/dc-electrical-services/dupoint-circle.html" class="relative">Dupont Circle<span class="tooltip">Urban neighborhood with mix of historic buildings and newer renovations.</span></a>
+                                    <a href="/dc-electrical-services/foggy-bottom.html" class="relative">Foggy Bottom<span class="tooltip">Home to GWU and many government buildings with diverse electrical needs.</span></a>
+                                    <a href="/dc-electrical-services/adams-morgan.html" class="relative">Adams Morgan<span class="tooltip">Vibrant neighborhood with diverse housing stock from rowhouses to condos.</span></a>
+                                    <a href="/dc-electrical-services/cleveland-park.html" class="relative">Cleveland Park<span class="tooltip">Residential neighborhood with many historic homes needing electrical updates.</span></a>
+                                    <a href="/dc-electrical-services/columbia-heights.html" class="relative">Columbia Heights<span class="tooltip">Revitalized area with mix of historic buildings and new construction.</span></a>
+                                    <a href="/dc-electrical-services/navy-yard.html" class="relative">Navy Yard<span class="tooltip">Rapidly developing waterfront area with modern electrical requirements.</span></a>
+                                    <a href="/dc-electrical-services/shaw.html" class="relative">Shaw<span class="tooltip">Historic neighborhood with growing development and renovation projects.</span></a>
+                                    <a href="/dc-electrical-services/u-street.html" class="relative">U Street<span class="tooltip">Vibrant corridor with mix of residential and commercial electrical needs.</span></a>
+                                    <a href="/dc-electrical-services/woodley-park.html" class="relative">Woodley Park<span class="tooltip">Established residential area with many historic homes and apartments.</span></a>
+                                    <a href="/dc-electrical-services/tenleytown.html" class="relative">Tenleytown<span class="tooltip">Northwest DC neighborhood with variety of housing styles and ages.</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Maryland Content -->
+                    <div id="maryland-content" class="service-area-content">
+                        <div id="maryland-section" data-region-name="Maryland" data-region-icon="fas fa-flag">
+                            <div id="montgomery-county" class="county-block" data-county-name="Montgomery County, MD">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Montgomery County, MD</h3>
+                                <p class="text-gray-600 mb-6">Montgomery County offers a diverse mix of urban, suburban, and semi-rural communities, each with unique electrical service needs.</p>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Communities:</h4>
+                                <div class="city-grid mb-6">
+                                    <a href="/maryland-electrical-services/bethesda.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/kitchen/Kitchen-Remodel.jpg" alt="Kitchen electrical work in Bethesda" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Bethesda</h4>
+                                            <p class="card-description">Upscale community, new and renovated homes.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-utensils mr-1"></i> Kitchen Remodels</span>
+                                        </div>
+                                    </a>
+                                    <a href="/maryland-electrical-services/silver-spring.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/ev/EV-Charger-Fairfax.jpeg" alt="EV Charger installation in Silver Spring" class="lazy-load card-image"> <!-- Consider a Silver Spring specific image -->
+                                        <div class="card-content">
+                                            <h4>Silver Spring</h4>
+                                            <p class="card-description">Vibrant community with diverse housing stock.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-car-battery mr-1"></i> EV Chargers</span>
+                                        </div>
+                                    </a>
+                                    <a href="/maryland-electrical-services/rockville.html" class="city-card">
+                                        <img data-src="/assets/images/gallery/panel/Gallery-Before-ElectricalPanel.jpg" alt="Old electrical panel in Rockville" class="lazy-load card-image">
+                                        <div class="card-content">
+                                            <h4>Rockville</h4>
+                                            <p class="card-description">Mix of historic homes and newer developments.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-plug mr-1"></i> Panel Upgrades</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Montgomery County Communities:</h4>
+                                <div class="city-link-list">
+                                    <a href="/maryland-electrical-services/potomac.html" class="relative">Potomac<span class="tooltip">Luxury homes and estates with sophisticated electrical needs and smart home technology.</span></a>
+                                    <a href="/maryland-electrical-services/chevychase.html" class="relative">Chevy Chase<span class="tooltip">Established neighborhood with many historic homes requiring specialized electrical work.</span></a>
+                                    <a href="/maryland-electrical-services/kensington.html" class="relative">Kensington<span class="tooltip">Charming town with historic homes and growing need for electrical modernization.</span></a>
+                                    <a href="/maryland-electrical-services/takoma-park.html" class="relative">Takoma Park<span class="tooltip">Progressive community with mix of vintage homes and eco-friendly electrical upgrades.</span></a>
+                                    <a href="/maryland-electrical-services/wheaton.html" class="relative">Wheaton<span class="tooltip">Diverse community with growing redevelopment and electrical service needs.</span></a>
+                                    <a href="/maryland-electrical-services/gaithersburg.html" class="relative">Gaithersburg<span class="tooltip">Growing area with mix of established neighborhoods and new developments.</span></a>
+                                    <a href="/maryland-electrical-services/germantown.html" class="relative">Germantown<span class="tooltip">Expanding community with modern homes and electrical requirements.</span></a>
+                                    <a href="/maryland-electrical-services/north-bethesda.html" class="relative">North Bethesda<span class="tooltip">Upscale area with mix of luxury condos and single-family homes.</span></a>
+                                </div>
+                            </div>
+
+                            <div id="prince-georges-county" class="county-block" data-county-name="Prince George's County, MD">
+                                <h3 class="flex items-center"><i class="fas fa-map-pin mr-3 text-aj-orange"></i>Prince George's County, MD</h3>
+                                <p class="text-gray-600 mb-6">Prince George's County features a wide range of communities from urban areas near DC to more suburban and rural settings.</p>
+                                 <h4 class="text-xl font-semibold text-aj-dark mb-4">Featured Communities:</h4>
+                                <div class="city-grid mb-6">
+                                    <a href="/maryland-electrical-services/bowie.html" class="city-card">
+                                         <img data-src="/assets/images/service-areas/Bowie-highlight.jpg" alt="Residential street in Bowie, MD" class="lazy-load card-image"> <!-- Placeholder image -->
+                                        <div class="card-content">
+                                            <h4>Bowie</h4>
+                                            <p class="card-description">Home to our office, serving this growing community.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-tools mr-1"></i> General Repairs</span>
+                                        </div>
+                                    </a>
+                                    <a href="/maryland-electrical-services/college-park.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/CollegePark-highlight.jpg" alt="University area in College Park" class="lazy-load card-image"> <!-- Placeholder image -->
+                                        <div class="card-content">
+                                            <h4>College Park</h4>
+                                            <p class="card-description">University town with diverse housing needs.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-graduation-cap mr-1"></i> Student Housing</span>
+                                        </div>
+                                    </a>
+                                    <a href="/maryland-electrical-services/upper-marlboro.html" class="city-card">
+                                        <img data-src="/assets/images/service-areas/UpperMarlboro-highlight.jpg" alt="Suburban home in Upper Marlboro" class="lazy-load card-image"> <!-- Placeholder image -->
+                                        <div class="card-content">
+                                            <h4>Upper Marlboro</h4>
+                                            <p class="card-description">Established & newer homes, varied electrical work.</p>
+                                            <span class="featured-service-tag"><i class="fas fa-home mr-1"></i> Residential Safety</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Prince George's County Communities:</h4>
+                                <div class="city-link-list">
+                                    <a href="/maryland-electrical-services/greenbelt.html" class="relative">Greenbelt<span class="tooltip">Historic planned community with unique electrical infrastructure and growing needs.</span></a>
+                                    <a href="/maryland-electrical-services/hyattsville.html" class="relative">Hyattsville<span class="tooltip">Revitalizing community with mix of historic homes and new development projects.</span></a>
+                                    <a href="/maryland-electrical-services/laurel.html" class="relative">Laurel<span class="tooltip">Growing city with diverse housing stock and expanding electrical service needs.</span></a>
+                                    <a href="/maryland-electrical-services/lanham.html" class="relative">Lanham<span class="tooltip">Established community with mix of residential and commercial electrical needs.</span></a>
+                                    <a href="/maryland-electrical-services/largo.html" class="relative">Largo<span class="tooltip">Developing area with modern homes and contemporary electrical requirements.</span></a>
+                                    <a href="/maryland-electrical-services/new-carrollton.html" class="relative">New Carrollton<span class="tooltip">Transit-oriented community with growing electrical infrastructure needs.</span></a>
+                                    <a href="/maryland-electrical-services/riverdale.html" class="relative">Riverdale<span class="tooltip">Historic area with aging electrical systems often requiring upgrades.</span></a>
+                                    <a href="/maryland-electrical-services/fort-washington.html" class="relative">Fort Washington<span class="tooltip">Established community with growing demand for electrical modernization.</span></a>
+                                    <a href="/maryland-electrical-services/clinton.html" class="relative">Clinton<span class="tooltip">Suburban community with diverse electrical service requirements.</span></a>
+                                </div>
+                            </div>
+                            
+                            <div id="other-md-counties" class="county-block" data-county-name="Other Maryland Areas">
+                                <h3 class="flex items-center"><i class="fas fa-map-signs mr-3 text-aj-orange"></i>Additional Maryland Service Areas</h3>
+                                <p class="text-gray-600 mb-6">We also serve select areas in these additional Maryland counties:</p>
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <div class="p-6 rounded-lg shadow-md bg-gray-100 border-l-4 border-aj-orange">
+                                        <h4 class="font-bold text-lg text-aj-dark mb-1">Anne Arundel County</h4>
+                                        <p class="text-sm text-gray-600">Limited service to areas near Prince George's County border.</p>
+                                    </div>
+                                    <div class="p-6 rounded-lg shadow-md bg-gray-100 border-l-4 border-aj-orange">
+                                        <h4 class="font-bold text-lg text-aj-dark mb-1">Howard County</h4>
+                                        <p class="text-sm text-gray-600">Limited service to eastern portions of the county.</p>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-semibold text-aj-dark mb-3">Select Communities:</h4>
+                                <div class="city-link-list">
+                                    <a href="/maryland-electrical-services/crofton.html" class="relative">Crofton<span class="tooltip">Growing community in Anne Arundel County with diverse electrical needs.</span></a>
+                                    <a href="/maryland-electrical-services/odenton.html" class="relative">Odenton<span class="tooltip">Rapidly developing area with modern homes and growing electrical needs.</span></a>
+                                    <a href="/maryland-electrical-services/columbia.html" class="relative">Columbia<span class="tooltip">Planned community in Howard County with varied electrical service requirements.</span></a>
+                                    <a href="/maryland-electrical-services/ellicott-city.html" class="relative">Ellicott City<span class="tooltip">Historic town in Howard County with mix of vintage homes and new developments.</span></a>
+                                    <a href="/maryland-electrical-services/severna-park.html" class="relative">Severna Park<span class="tooltip">Established residential area in Anne Arundel County with growing electrical demands.</span></a>
+                                    <a href="/maryland-electrical-services/annapolis.html" class="relative">Annapolis<span class="tooltip">Maryland's historic capital city with specialized electrical requirements.</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Locations -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-3">Our Office <span class="text-aj-orange">Locations</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Strategically placed offices ensure prompt and efficient service across the DMV.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Main Office -->
+                <div class="office-card">
+                    <div class="map-responsive h-56">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.1085790981777!2d-77.26902858870073!3d38.8383686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64c0325cc1293%3A0x7d2783cfbec92c1a!2s2832%20Dorr%20Ave%2C%20Fairfax%2C%20VA%2022031!5e0!3m2!1sen!2sus!4v1700775468968!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to AJ Long Electric Fairfax Office"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <span class="office-tag">HEADQUARTERS</span>
+                        <h3 class="text-xl font-bold text-aj-dark mb-2">Fairfax Office</h3>
+                        <p class="text-gray-600 mb-3 text-sm">2832 Dorr Ave Suite D<br>Fairfax, VA 22031</p>
+                        <a href="https://maps.app.goo.gl/bJdZBAgSRGjQscQZ7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-aj-orange hover:underline font-semibold">
+                            <i class="fas fa-directions mr-2"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Burke Office -->
+                <div class="office-card">
+                     <div class="map-responsive h-56">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.4885351535407!2d-77.29940542352832!3d38.78513825949694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64e0c01bd0ad1%3A0xe7db7c17e5b38a30!2s5244%20Lyngate%20Ct%2C%20Burke%2C%20VA%2022015!5e0!3m2!1sen!2sus!4v1682169400531!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to AJ Long Electric Burke Office"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-aj-dark mb-2">Burke Office</h3>
+                        <p class="text-gray-600 mb-3 text-sm">5244 Lyngate Ct<br>Burke, VA 22015</p>
+                        <a href="https://goo.gl/maps/1JzV5RmXMjtFt6hN6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-aj-orange hover:underline font-semibold">
+                            <i class="fas fa-directions mr-2"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Annandale Office -->
+                <div class="office-card">
+                    <div class="map-responsive h-56">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.1236798481483!2d-77.19623622352694!3d38.81533215844793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b27e0cd9e337%3A0x25beac1b66587a19!2s7138%20Little%20River%20Turnpike%20%23305%2C%20Annandale%2C%20VA%2022003!5e0!3m2!1sen!2sus!4v1682169476456!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to AJ Long Electric Annandale Office"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-aj-dark mb-2">Annandale Office</h3>
+                        <p class="text-gray-600 mb-3 text-sm">7138 Little River Turnpike #305<br>Annandale, VA 22003</p>
+                        <a href="https://goo.gl/maps/QSZ94ZXF8fKfmdAMA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-aj-orange hover:underline font-semibold">
+                            <i class="fas fa-directions mr-2"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bowie Office -->
+                <div class="office-card">
+                     <div class="map-responsive h-56">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.3895201686984!2d-76.73872172351714!3d38.91975615349619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7eb8bb8962d65%3A0x3b24b8df31ade2ca!2s15518%20Orchard%20Run%20Dr%2C%20Bowie%2C%20MD%2020715!5e0!3m2!1sen!2sus!4v1682169534602!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to AJ Long Electric Bowie Office"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-aj-dark mb-2">Bowie Office</h3>
+                        <p class="text-gray-600 mb-3 text-sm">15518 Orchard Run Dr<br>Bowie, MD 20715</p>
+                        <a href="https://goo.gl/maps/3qp3WEjgpFwuSg3n7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-aj-orange hover:underline font-semibold">
+                            <i class="fas fa-directions mr-2"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Service Area Section -->
+    <section class="py-12 md:py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <i class="fas fa-question-circle text-aj-orange text-5xl mb-4"></i>
+            <h2 class="text-3xl font-bold text-gray-800 mb-3">Don't See Your Area Listed?</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Our service radius extends approximately 25 miles from each of our four locations. If your community isn't listed, we might still be able to help!</p>
+            <a href="/estimate.html" class="bg-aj-orange hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition text-lg inline-flex items-center">
+                <i class="fas fa-paper-plane mr-2"></i> Request a Service Estimate
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-3">Why Choose <span class="text-aj-orange">AJ Long Electric</span>?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Across the DMV, benefit from our commitment to quality, safety, and customer satisfaction.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 hover-lift">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-aj-dark mb-2">Local Expertise</h3>
+                    <p class="text-gray-600 text-sm">Deep knowledge of local codes and regulations across VA, DC, and MD.</p>
+                </div>
+                <div class="text-center p-6 hover-lift">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-aj-dark mb-2">Prompt Service</h3>
+                    <p class="text-gray-600 text-sm">Multiple locations allow us to provide timely service throughout the DMV.</p>
+                </div>
+                <div class="text-center p-6 hover-lift">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-aj-dark mb-2">Fully Licensed</h3>
+                    <p class="text-gray-600 text-sm">Licensed electricians in Virginia, DC, and Maryland for compliant work.</p>
+                </div>
+                <div class="text-center p-6 hover-lift">
+                     <div class="why-choose-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-aj-dark mb-2">Consistent Quality</h3>
+                    <p class="text-gray-600 text-sm">The same high standards of service and workmanship, wherever you are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pattern-bg text-white py-16 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready for 5-Star Electrical Service?</h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Whether you're in Virginia, Washington DC, or Maryland, our team of expert electricians is ready to serve you. Contact us today for reliable and professional electrical solutions!</p>
+            <div class="flex justify-center flex-col sm:flex-row flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center justify-center text-lg">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request an Estimate
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center justify-center text-lg">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Us: 703-997-0026
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZIP Code Checker Section - Moved to bottom -->
+    <section id="zip-checker-section" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center bg-gray-50 p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl md:text-3xl font-bold text-aj-dark mb-3">Do We Serve <span class="text-aj-orange">Your Area?</span></h2>
+                <p class="text-gray-600 mb-6">Enter your 5-digit ZIP code to quickly find out if you're within our service range.</p>
+                <div class="zip-search-form flex max-w-md mx-auto">
+                    <input type="text" id="zip-search-input" placeholder="Enter your ZIP code" maxlength="5" pattern="[0-9]{5}" class="flex-grow p-3 rounded-l-md text-lg focus:ring-aj-orange focus:border-aj-orange">
+                    <button id="check-zip-button" class="bg-aj-orange text-white font-semibold p-3 px-6 rounded-r-md text-lg">
+                        <i class="fas fa-paper-plane mr-1"></i> Check
+                    </button>
+                </div>
+                <div id="zip-search-result" class="mt-4 text-md min-h-[2em]">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Assume footer is loaded by include-html.js -->
+    <!-- Example: <div id="footer-placeholder"></div> -->
+          
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu (assuming elements are in header include)
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            if (menuToggle && mobileMenu && menuOverlay) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    menuOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                const hideMenu = () => {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                };
+
+                if (closeMenu) closeMenu.addEventListener('click', hideMenu);
+                menuOverlay.addEventListener('click', hideMenu);
+            }
+
+            // New Tab functionality
+            const areaTabButtons = document.querySelectorAll('.area-tab-button');
+            const areaContents = document.querySelectorAll('.service-area-content');
+            const sidebarContainer = document.getElementById('region-navigation-sidebar');
+
+            function updateSidebar(activeAreaId) {
+                sidebarContainer.innerHTML = '<h3 class="text-xl font-bold text-aj-dark mb-4">Quick Navigation</h3>'; // Reset sidebar
+                const activeContent = document.getElementById(activeAreaId);
+                if (!activeContent) return;
+
+                const regionDiv = activeContent.querySelector('div[data-region-name]');
+                if (regionDiv) {
+                    const regionName = regionDiv.dataset.regionName;
+                    const regionIcon = regionDiv.dataset.regionIcon;
+                    
+                    const regionHeader = document.createElement('a');
+                    regionHeader.href = `#${regionDiv.id}`;
+                    regionHeader.innerHTML = `<i class="${regionIcon} mr-2"></i>${regionName}`;
+                    regionHeader.classList.add('text-lg', 'font-semibold', 'mb-2', 'block', 'text-aj-orange');
+                    // sidebarContainer.appendChild(regionHeader); // Decided against this as main region is clear
+                }
+
+                const countyBlocks = activeContent.querySelectorAll('.county-block');
+                countyBlocks.forEach((block, index) => {
+                    const countyName = block.dataset.countyName;
+                    const countyId = block.id;
+                    const link = document.createElement('a');
+                    link.href = `#${countyId}`;
+                    link.textContent = countyName;
+                    if (index === 0) link.classList.add('active'); // Make first county active by default
+                    
+                    // Smooth scroll for sidebar links
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' 
+                        });
+                        // Update active state in sidebar
+                        sidebarContainer.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                    sidebarContainer.appendChild(link);
+                });
+            }
+            
+            areaTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    areaTabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const targetArea = button.dataset.area;
+                    areaContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${targetArea}-content`) {
+                            content.classList.add('active');
+                            updateSidebar(content.id);
+                        }
+                    });
+                });
+            });
+
+            // Initial sidebar population for the default active tab
+            const initialActiveTab = document.querySelector('.area-tab-button.active');
+            if (initialActiveTab) {
+                const initialAreaId = `${initialActiveTab.dataset.area}-content`;
+                updateSidebar(initialAreaId);
+            }
+            
+            // Lazy loading for images
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '100px 0px', threshold: 0.01 });
+            lazyImages.forEach(image => lazyLoadObserver.observe(image));
+            
+            // ZIP code search functionality
+            const zipInput = document.getElementById('zip-search-input');
+            const checkZipBtn = document.getElementById('check-zip-button');
+            const zipResult = document.getElementById('zip-search-result');
+            
+            const serviceZips = { // These would ideally come from a more dynamic source
+                virginia: ['22030', '22031', '22032', '22033', '22034', '22035', '22036', '22037', '22038', '22039', '22042', '22043', '22044', '22046', '22066', '22101', '22102', '22180', '22181', '22182', '22183', '22124', '22003', '22015'], // Fairfax, Arlington etc.
+                dc: ['20001', '20002', '20003', '20004', '20005', '20006', '20007', '20008', '20009', '20010', '20011', '20012', '20015', '20016', '20017', '20018', '20019', '20020'],
+                maryland: ['20814', '20815', '20816', '20817', '20850', '20851', '20852', '20853', '20854', '20895', '20901', '20902', '20903', '20904', '20705', '20706', '20715', '20716', '20770', '20742'] // Montgomery, PG etc.
+            };
+            
+            if (checkZipBtn && zipInput && zipResult) {
+                checkZipBtn.addEventListener('click', () => {
+                    const zip = zipInput.value.trim();
+                    zipResult.innerHTML = ''; // Clear previous result
+                    
+                    if (/^\d{5}$/.test(zip)) {
+                        let found = false;
+                        let region = '';
+                        
+                        for (const [key, zips] of Object.entries(serviceZips)) {
+                            if (zips.includes(zip)) {
+                                found = true;
+                                region = key.charAt(0).toUpperCase() + key.slice(1);
+                                break;
+                            }
+                        }
+                        
+                        if (found) {
+                            zipResult.innerHTML = `<div class="text-green-600 font-semibold"><i class="fas fa-check-circle mr-1"></i> Great news! We serve ZIP code ${zip} in ${region}. <a href="/estimate.html" class="text-aj-orange hover:underline">Request an estimate now!</a></div>`;
+                        } else {
+                            zipResult.innerHTML = `<div class="text-yellow-700 bg-yellow-100 border border-yellow-300 p-3 rounded-md"><i class="fas fa-info-circle mr-1"></i> We may be able to service ZIP code ${zip}. Please <a href="/estimate.html" class="text-aj-orange font-semibold hover:underline">request an estimate</a> or call us at <a href="tel:7039970026" class="text-aj-orange font-semibold hover:underline">703-997-0026</a> to confirm.</div>`;
+                        }
+                    } else {
+                        zipResult.innerHTML = `<div class="text-red-600 font-semibold"><i class="fas fa-exclamation-circle mr-1"></i> Please enter a valid 5-digit ZIP code.</div>`;
+                    }
+                });
+                
+                zipInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        checkZipBtn.click();
+                    }
+                });
+            }
+
+            // Chat Widget (assuming elements are in footer include or loaded elsewhere)
+            const chatToggle = document.getElementById('chat-toggle-button'); // You'll need a button with this ID
+            const chatPopup = document.querySelector('.chat-popup');
+            const closeChat = document.getElementById('close-chat-button'); // You'll need a button with this ID in chat header
+            const chatInputEl = document.querySelector('.chat-input input');
+            const sendChatBtn = document.querySelector('.chat-input button');
+            const chatMessages = document.querySelector('.chat-messages');
+
+            if (chatToggle && chatPopup) {
+                chatToggle.addEventListener('click', () => {
+                    chatPopup.style.display = chatPopup.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+            if (closeChat && chatPopup) {
+                closeChat.addEventListener('click', () => {
+                    chatPopup.style.display = 'none';
+                });
+            }
+            if (sendChatBtn && chatInputEl && chatMessages) {
+                 const addChatMessage = (text, sender = 'user') => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('mb-2', 'clear-both', 'max-w-[80%]');
+                    const p = document.createElement('p');
+                    p.classList.add('rounded-lg', 'py-2', 'px-3', 'inline-block', 'text-sm', 'break-words');
+                    if (sender === 'user') {
+                        p.classList.add('bg-aj-orange', 'text-white', 'float-right');
+                        messageDiv.classList.add('ml-auto');
+                    } else {
+                        p.classList.add('bg-gray-200', 'text-gray-800', 'float-left');
+                         messageDiv.classList.add('mr-auto');
+                    }
+                    p.textContent = text;
+                    messageDiv.appendChild(p);
+                    chatMessages.appendChild(messageDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                };
+                sendChatBtn.addEventListener('click', () => {
+                    const message = chatInputEl.value.trim();
+                    if (message) {
+                        addChatMessage(message, 'user');
+                        chatInputEl.value = '';
+                        setTimeout(() => {
+                            addChatMessage("Thanks for your message! An agent will be with you shortly. For immediate help, call 703-997-0026.", 'agent');
+                        }, 1000);
+                    }
+                });
+                chatInputEl.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') sendChatBtn.click();
+                });
+            }
+            
+            // Back to top functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Copyright Year (assuming element with ID 'copyright-year' is in footer include)
+            const copyrightYearElement = document.getElementById('copyright-year');
+            if (copyrightYearElement) {
+                copyrightYearElement.textContent = new Date().getFullYear();
+            }
+
+            // Sticky sidebar active link on scroll
+            const countySectionsForScroll = document.querySelectorAll('.service-area-content.active .county-block');
+            const sidebarLinks = sidebarContainer.querySelectorAll('a');
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        const id = entry.target.getAttribute('id');
+                        sidebarLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if(link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5, rootMargin: "-50% 0px -50% 0px" }); // Adjust rootMargin to trigger when section is in middle of viewport
+
+             function observeActiveTabSections() {
+                document.querySelectorAll('.service-area-content.active .county-block').forEach(section => {
+                    scrollObserver.observe(section);
+                });
+            }
+            observeActiveTabSections(); // Initial observation
+            // Re-observe when tabs change
+             areaTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    setTimeout(observeActiveTabSections, 10); // slight delay to ensure content is active
+                });
+            });
+
+
+        });
+    </script>
+    
+    <!-- Housecall Pro Booking Widget Script -->
+    <script async src="https://online-booking.housecallpro.com/script.js?token=4bcbc2f7231b4633abc97173fe9db382&orgName=AJ-Long-Electric"></script>
+    <!-- Include HTML components (header, footer) -->
+    <script src="/js/include-html.js?v=.1746952695."></script>
+</body>
+</html>

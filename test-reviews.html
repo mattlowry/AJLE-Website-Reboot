@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Reviews</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Test Reviews">
+    <meta property="og:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/test-reviews.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Test Reviews">
+    <meta name="twitter:description" content="Professional electrical services in Northern Virginia, Maryland, and DC">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+</head>
+<body>
+    <h1>Testing Reviews API</h1>
+    
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        // Test HouseCall Pro Reviews
+        async function testHouseCallProReviews() {
+            resultsDiv.innerHTML += '<h2>Testing HouseCall Pro Reviews...</h2>';
+            try {
+                const response = await fetch('/.netlify/functions/housecall-pro-reviews?minRating=3&limit=500');
+                const data = await response.json();
+                resultsDiv.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                resultsDiv.innerHTML += '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+        
+        // Test Google Reviews
+        async function testGoogleReviews() {
+            resultsDiv.innerHTML += '<h2>Testing Google Reviews...</h2>';
+            try {
+                const response = await fetch('/.netlify/functions/google-reviews');
+                const data = await response.json();
+                resultsDiv.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                resultsDiv.innerHTML += '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+        
+        // Run tests
+        testHouseCallProReviews();
+        testGoogleReviews();
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+
+</body></html>

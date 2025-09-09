@@ -1,0 +1,449 @@
+/* Mobile UX Improvements for AJ Long Electric */
+
+/* Ensure minimum tap target sizes (48x48px) */
+@media (max-width: 768px) {
+    /* Navigation and buttons */
+    a, button, .btn {
+        min-height: 48px;
+        min-width: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation; /* Improves touch responsiveness */
+    }
+    
+    /* Navigation links */
+    nav a {
+        padding: 12px 16px;
+    }
+    
+    /* Form elements */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 48px;
+        padding: 12px 16px;
+    }
+    
+    /* Checkboxes and radio buttons */
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    
+    /* Labels for better touch targets */
+    label {
+        display: block;
+        padding: 8px 0;
+        cursor: pointer;
+    }
+    
+    /* Checkbox and radio labels */
+    label:has(input[type="checkbox"]),
+    label:has(input[type="radio"]) {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    /* File upload areas */
+    .drag-drop-zone {
+        min-height: 150px;
+        padding: 24px;
+    }
+    
+    /* Social media icons */
+    .social-icons a {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Phone and email links */
+    a[href^="tel:"],
+    a[href^="mailto:"] {
+        padding: 12px 16px;
+        display: inline-block;
+    }
+    
+    /* Close buttons */
+    .close-btn,
+    button[aria-label*="close"],
+    button[aria-label*="Close"] {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    /* Dropdown menus */
+    .dropdown-item {
+        padding: 12px 16px;
+        min-height: 48px;
+    }
+    
+    /* Service area links */
+    .service-area-link {
+        padding: 16px;
+        margin: 4px 0;
+    }
+    
+    /* Card click areas */
+    .service-card,
+    .testimonial-card {
+        padding: 16px;
+    }
+    
+    /* FAQ accordions */
+    .accordion-header {
+        padding: 16px;
+        min-height: 56px;
+    }
+    
+    /* Pagination */
+    .pagination a,
+    .pagination button {
+        min-width: 48px;
+        min-height: 48px;
+        margin: 0 4px;
+    }
+}
+
+/* Improve form field focus states */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #0066CC;
+    outline-offset: 2px;
+}
+
+/* Better touch feedback */
+@media (hover: none) {
+    a:active,
+    button:active,
+    .btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+}
+
+/* Ensure proper spacing between interactive elements */
+@media (max-width: 768px) {
+    /* Form fields */
+    .form-group + .form-group {
+        margin-top: 24px;
+    }
+    
+    /* Buttons in groups */
+    .btn-group > * + * {
+        margin-left: 12px;
+    }
+    
+    /* Links in lists */
+    li > a {
+        display: block;
+        padding: 12px 0;
+    }
+    
+    /* Navigation menu items */
+    .mobile-menu li {
+        margin: 8px 0;
+    }
+    
+    /* Call-to-action sections */
+    .cta-buttons > * + * {
+        margin-top: 12px;
+    }
+}
+
+/* Improve readability on mobile */
+@media (max-width: 768px) {
+    /* Increase line height for better readability */
+    p, li {
+        line-height: 1.7;
+    }
+    
+    /* Ensure text isn't too small */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Headings with better mobile hierarchy */
+    h1 { 
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    h2 { 
+        font-size: 22px;
+        line-height: 1.3;
+        margin-bottom: 0.875rem;
+    }
+    h3 { 
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+    }
+    h4 { 
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 0.625rem;
+    }
+    h5 { 
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    h6 { 
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Better paragraph spacing */
+    p {
+        margin-bottom: 1rem;
+    }
+    
+    /* Form labels */
+    label {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    
+    /* Better list spacing */
+    ul, ol {
+        margin-bottom: 1rem;
+        padding-left: 1.25rem;
+    }
+    
+    li {
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Better section spacing */
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    /* Card content spacing */
+    .card-content p:last-child,
+    .bg-white p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Improve mobile menu accessibility */
+.mobile-menu {
+    /* Ensure menu items are easily tappable */
+    a {
+        display: block;
+        padding: 16px 20px;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s ease;
+    }
+    
+    a:hover, a:focus {
+        background-color: #f8f9fa;
+        outline: none;
+    }
+    
+    /* Highlight active page */
+    .active {
+        background-color: #fff8f3;
+        border-left: 4px solid #FF7200;
+        font-weight: bold;
+    }
+}
+
+/* Enhanced mobile-specific utilities */
+@media (max-width: 768px) {
+    /* Better container spacing */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Improved card layouts */
+    .card, .bg-white {
+        margin-bottom: 1.5rem;
+        border-radius: 0.75rem;
+    }
+    
+    /* Better image responsiveness */
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+    }
+    
+    /* Enhanced CTA buttons */
+    .cta-button, .btn-primary {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Better table responsiveness */
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+        vertical-align: top;
+    }
+    
+    /* Improved alert/notification styling */
+    .alert, .notification {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Better footer spacing */
+    footer {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    footer h4 {
+        margin-bottom: 1rem;
+    }
+    
+    footer ul {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Error states for form fields */
+.error input,
+.error textarea,
+.error select {
+    border-color: #dc3545;
+    border-width: 2px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid #0066CC;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Additional mobile enhancements */
+@media (max-width: 480px) {
+    /* Extra small devices - phones in portrait */
+    h1 { font-size: 22px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 18px; }
+    
+    /* Tighter container on very small screens */
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    /* Stack grid items on very small screens */
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    /* Smaller button text on very small screens */
+    button, .btn {
+        font-size: 14px;
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Better form field spacing */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Adjusted modal/popup sizing */
+    .modal, .popup {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+}
+
+/* Landscape phone adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Reduce vertical spacing in landscape */
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Smaller hero sections in landscape */
+    .hero, .page-header {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    /* Compact mobile menu in landscape */
+    .mobile-menu {
+        max-width: 280px;
+    }
+    
+    .mobile-menu nav {
+        max-height: calc(100vh - 140px);
+    }
+}
+
+/* High DPI/Retina display adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Slightly larger touch targets on high-DPI displays */
+    @media (max-width: 768px) {
+        button, .btn {
+            min-height: 50px;
+        }
+        
+        input, textarea, select {
+            min-height: 50px;
+        }
+    }
+}

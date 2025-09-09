@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Electrical Guides | When to DIY vs Call a Pro | AJ Long Electric</title>
+    <meta name="description" content="Learn which electrical projects you can DIY with caution (yellow) and which require a professional (red). Expert safety guides from AJ Long Electric, Northern Virginia's trusted electrician with 1,200+ 5-star reviews.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="DIY Electrical Guides | When to DIY vs Call a Pro | AJ Long Electric">
+    <meta property="og:description" content="Learn which electrical projects you can DIY with caution (yellow) and which require a professional (red). Expert safety guides from AJ Long Electric, Northern Virginia's trusted electrician with 1,200+ 5-star reviews.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-og.jpg">
+    <meta property="og:url" content="https://ajlongelectric.com/diy.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DIY Electrical Guides | When to DIY vs Call a Pro | AJ Long Electric">
+    <meta name="twitter:description" content="Learn which electrical projects you can DIY with caution (yellow) and which require a professional (red). Expert safety guides from AJ Long Electric, Northern Virginia's trusted electrician with 1,200+ 5-star reviews.">
+    <meta name="twitter:image" content="https://ajlongelectric.com/assets/images/aj-long-electric-twitter.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/mobile-ux-improvements.css">
+    <link rel="stylesheet" href="/assets/css/mobile-optimized.css">
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom variables */
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light-gray: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Utilities */
+        .bg-aj-orange { background-color: var(--aj-orange); }
+        .text-aj-orange { color: var(--aj-orange); }
+        .bg-aj-dark { background-color: var(--aj-dark); }
+        .text-aj-dark { color: var(--aj-dark); }
+        .border-aj-orange { border-color: var(--aj-orange); }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: var(--aj-dark);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7200' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* DIY Category Cards */
+        .diy-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .diy-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        /* Color-coded categories */
+        .caution-diy {
+            border-left: 4px solid #F59E0B; /* Yellow border */
+        }
+        
+        .pro-only {
+            border-left: 4px solid #EF4444; /* Red border */
+        }
+        
+        /* Tab functionality */
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid transparent;
+            border-bottom: none;
+            background-color: #f3f4f6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+        
+        .tab-btn.active {
+            background-color: white;
+            border-color: #e5e7eb;
+            border-bottom: 2px solid white;
+            margin-bottom: -2px;
+            color: var(--aj-orange);
+        }
+        
+        .tab-content { 
+            display: none; 
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            background-color: white;
+        }
+        .tab-content.active { 
+            display: block; 
+        }
+
+        /* Sticky header */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 199;
+            display: none;
+        }
+    </style>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DIY Electrical Safety Guide: When to DIY vs Call a Professional",
+        "description": "Learn which electrical projects you can safely DIY with caution and which projects require a licensed electrician for safety and code compliance.",
+        "url": "https://ajlongelectric.com/diy.html",
+        "author": {
+            "@type": "Organization",
+            "name": "AJ Long Electric",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ajlongelectric.com/assets/logos/AJLongElectric-Logo.png"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AJ Long Electric"
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2024-01-15",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ajlongelectric.com/diy.html"
+        },
+        "articleSection": "Electrical Safety",
+        "about": {
+            "@type": "Thing",
+            "name": "DIY Electrical Safety"
+        }
+    }
+    </script>
+  <script src="/js/header-loader.js?v=1746953030"></script>
+  <script src="/js/include-html.js?v=1746953607"></script>
+  <script src="/js/housecall-pro-integration.js?v=1746955357"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header -->
+    <div w3-include-html="/include/standard-header.html"></div>
+    
+    <!-- Breadcrumbs -->
+    <nav class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center space-x-2 text-sm">
+                <a href="/" class="text-aj-orange hover:underline">Home</a>
+                <i class="fas fa-chevron-right text-gray-500"></i>
+                <a href="/resources.html" class="text-aj-orange hover:underline">Resources</a>
+                <i class="fas fa-chevron-right text-gray-500"></i>
+                <span class="text-gray-700">DIY Electrical Guides</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pattern-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">DIY <span class="text-aj-orange">Electrical</span> Safety Guide</h1>
+                <p class="text-lg max-w-3xl mx-auto mb-8">Learn which electrical projects you can handle yourself with caution and which require a professional electrician. Our color-coded system helps you make safe decisions for your home's electrical needs.</p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <div class="flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="font-semibold">Yellow = DIY with Caution</span>
+                    </div>
+                    <div class="flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-lg">
+                        <i class="fas fa-times-circle mr-2"></i>
+                        <span class="font-semibold">Red = Professional Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Warning -->
+    <section class="py-8 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-yellow-100 rounded-lg p-6 border-l-4 border-yellow-500">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-2 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> Critical Safety Notice
+                    </h3>
+                    <p class="text-yellow-700 mb-4">Electrical work can be extremely dangerous and mistakes can lead to fires, injuries, electrocution, or death. These guides are for informational purposes only. Always prioritize safety over saving money.</p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <h4 class="font-bold text-yellow-800 mb-2">Before ANY DIY Electrical Work:</h4>
+                            <ul class="list-disc pl-5 text-yellow-700 space-y-1">
+                                <li>Turn off power at the circuit breaker</li>
+                                <li>Test with a voltage tester to confirm power is off</li>
+                                <li>Use proper tools and safety equipment</li>
+                                <li>Check local permit requirements</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-yellow-800 mb-2">Stop and Call a Pro If:</h4>
+                            <ul class="list-disc pl-5 text-yellow-700 space-y-1">
+                                <li>You encounter aluminum wiring</li>
+                                <li>Wiring doesn't match standard color codes</li>
+                                <li>You feel unsure at any point</li>
+                                <li>Local codes require permits/inspections</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-wrap border-b border-gray-300">
+                    <button onclick="showTab('caution')" class="tab-btn active" id="tab-caution-btn">
+                        <i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i>
+                        DIY with Caution
+                    </button>
+                    <button onclick="showTab('pro-only')" class="tab-btn" id="tab-pro-btn">
+                        <i class="fas fa-times-circle text-red-600 mr-2"></i>
+                        Professional Only
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIY with Caution Tab -->
+    <section id="caution-content" class="tab-content active">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <span class="text-yellow-600">DIY with Caution</span> Projects
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">These electrical projects can be done by experienced DIYers with proper tools, safety precautions, and careful attention to detail. Always verify local permit requirements.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- DIY Project 1: Light Switch Replacement -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/smart-dimmer-switch.jpg?_a=BBFAAAAA0" alt="Light switch replacement" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">30-60 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Light Switch Replacement</h3>
+                        <p class="text-gray-600 mb-4">Replace worn switches with new ones. Ensure power is off and follow proper wiring connections.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Turn off circuit breaker</li>
+                                <li>Test with voltage tester</li>
+                                <li>Take photo of existing wiring</li>
+                                <li>Use proper wire nuts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DIY Project 2: Outlet Replacement -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/GFCI-Near-Sink.jpg?_a=BBFAAAAA0" alt="Outlet replacement" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">30-45 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Standard Outlet Replacement</h3>
+                        <p class="text-gray-600 mb-4">Replace worn or damaged outlets with like-for-like replacements.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Verify circuit is off</li>
+                                <li>Match wire colors correctly</li>
+                                <li>Ensure proper grounding</li>
+                                <li>Test outlet after installation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DIY Project 3: Light Fixture Replacement -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Recesse-Lighting-install.jpeg?_a=BBFAAAAA0" alt="Light fixture replacement" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">45-90 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Light Fixture Replacement</h3>
+                        <p class="text-gray-600 mb-4">Replace existing fixtures with new ones of similar type and mounting.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Ensure mounting box supports weight</li>
+                                <li>Use proper wire connections</li>
+                                <li>Follow manufacturer instructions</li>
+                                <li>Have helper for heavy fixtures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DIY Project 4: Dimmer Switch Installation -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/surge-smart-dimmer/smart-dimmer-switch.jpg?_a=BBFAAAAA0" alt="Dimmer switch installation" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">45-75 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Dimmer Switch Installation</h3>
+                        <p class="text-gray-600 mb-4">Install compatible dimmer switches for compatible lighting types only.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Verify dimmer compatibility</li>
+                                <li>Check wattage ratings</li>
+                                <li>Some require neutral wire</li>
+                                <li>Follow wiring diagram exactly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DIY Project 5: Lamp Rewiring -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/hanging-lighting-stranded.jpg?_a=BBFAAAAA0" alt="Lamp rewiring" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">60-120 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Lamp Rewiring</h3>
+                        <p class="text-gray-600 mb-4">Replace damaged lamp cords and internal wiring on portable lamps.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Unplug lamp before starting</li>
+                                <li>Use correct gauge wire</li>
+                                <li>Proper strain relief at cord entry</li>
+                                <li>Test before reassembly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DIY Project 6: Doorbell Replacement -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden caution-diy">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Electrical-Under-Cabinet-Lighting.webp?_a=BBFAAAAA0" alt="Doorbell replacement" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">DIY with Caution</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full ml-2">30-60 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Doorbell Replacement</h3>
+                        <p class="text-gray-600 mb-4">Replace doorbell buttons and chimes with compatible replacements.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-yellow-700 mb-2">Safety Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                                <li>Turn off doorbell transformer</li>
+                                <li>Low voltage but still use caution</li>
+                                <li>Test wires with multimeter</li>
+                                <li>Check transformer compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-500">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4">Essential DIY Electrical Safety Rules</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-yellow-700 mb-2">Always Required:</h4>
+                            <ul class="list-disc pl-5 text-yellow-700 space-y-1">
+                                <li>Turn off power at circuit breaker</li>
+                                <li>Test circuits with voltage tester</li>
+                                <li>Use insulated tools</li>
+                                <li>Work in dry conditions only</li>
+                                <li>Have fire extinguisher nearby</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-yellow-700 mb-2">When to Stop and Call a Pro:</h4>
+                            <ul class="list-disc pl-5 text-yellow-700 space-y-1">
+                                <li>Aluminum wiring encountered</li>
+                                <li>Unusual wire colors or configurations</li>
+                                <li>Water damage or corrosion present</li>
+                                <li>Panel modifications needed</li>
+                                <li>Any uncertainty about safety</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Only Tab -->
+    <section id="pro-only-content" class="tab-content">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <span class="text-red-600">Professional Only</span> Projects
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">These electrical projects involve significant safety risks, require permits, or need specialized knowledge. Always hire a licensed electrician for these jobs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Pro Project 1: Panel Upgrade -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/panelbyside.webp?_a=BBFAAAAA0" alt="Electrical panel upgrade" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Panel Upgrades &amp; Replacements</h3>
+                        <p class="text-gray-600 mb-4">Main panel work involves deadly voltages and requires utility coordination.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>Lethal voltage levels</li>
+                                <li>Utility company coordination required</li>
+                                <li>Permits and inspections mandatory</li>
+                                <li>Complex load calculations needed</li>
+                            </ul>
+                        </div>
+                        <a href="/services/panel-replacements/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Project 2: New Circuits -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/ev-charger-installation.jpg?_a=BBFAAAAA0" alt="EV charger installation" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Adding New Circuits</h3>
+                        <p class="text-gray-600 mb-4">Running new wiring from the panel requires permits and professional expertise.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>Panel work at live voltages</li>
+                                <li>Code compliance critical</li>
+                                <li>Load calculations required</li>
+                                <li>Permits and inspections needed</li>
+                            </ul>
+                        </div>
+                        <a href="/services/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Project 3: EV Charger Installation -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/lighting/Landscape-lighting-install.jpg?_a=BBFAAAAA0" alt="EV charger installation" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">EV Charger Installation</h3>
+                        <p class="text-gray-600 mb-4">240V circuits for electric vehicle charging require specialized installation.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>High-power 240V circuit needed</li>
+                                <li>Specific safety requirements</li>
+                                <li>Permits required in most areas</li>
+                                <li>Panel upgrades often necessary</li>
+                            </ul>
+                        </div>
+                        <a href="/services/ev-charger-installation/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Project 4: Whole House Rewiring -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/remodel/Remodel-basement.webp?_a=BBFAAAAA0" alt="Home rewiring" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Whole House Rewiring</h3>
+                        <p class="text-gray-600 mb-4">Complete home rewiring projects require extensive code knowledge and permits.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>Complex code requirements</li>
+                                <li>Multiple permits needed</li>
+                                <li>Extensive safety knowledge required</li>
+                                <li>Proper installation techniques critical</li>
+                            </ul>
+                        </div>
+                        <a href="/services/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Project 5: Aluminum Wiring -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/gallery/panel/Gallery-Before-ElectricalPanel.jpg?_a=BBFAAAAA0" alt="Aluminum wiring remediation" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Aluminum Wiring Work</h3>
+                        <p class="text-gray-600 mb-4">Aluminum wiring requires specialized connectors and techniques.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>Fire hazard if done incorrectly</li>
+                                <li>Specialized connectors required</li>
+                                <li>Insurance implications</li>
+                                <li>Complex safety protocols needed</li>
+                            </ul>
+                        </div>
+                        <a href="/services/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Project 6: Surge Protection -->
+                <div class="diy-card bg-white rounded-lg overflow-hidden pro-only">
+                    <img src="https://res.cloudinary.com/dpcn7qowz/image/fetch/f_auto,q_auto/https://ajle-test.netlify.app/assets/images/surrge%20large.jpeg?_a=BBFAAAAA0" alt="Whole house surge protection" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full">Professional Only</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Whole House Surge Protection</h3>
+                        <p class="text-gray-600 mb-4">Panel-mounted surge protection requires professional installation.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-red-700 mb-2">Why Professional Only:</h4>
+                            <ul class="list-disc pl-5 text-red-600 space-y-1 text-sm">
+                                <li>Panel modifications required</li>
+                                <li>Proper grounding essential</li>
+                                <li>Live voltage work</li>
+                                <li>Warranty requirements</li>
+                            </ul>
+                        </div>
+                        <a href="/services/surge-protection/" class="text-aj-orange font-semibold hover:underline">Professional Service →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">Why Professional Installation Matters</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-red-700 mb-2">Safety Risks of DIY:</h4>
+                            <ul class="list-disc pl-5 text-red-700 space-y-1">
+                                <li>Electrocution and death</li>
+                                <li>House fires from improper connections</li>
+                                <li>Code violations affecting home sale</li>
+                                <li>Insurance claim denials</li>
+                                <li>Costly repairs to fix DIY mistakes</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-700 mb-2">Professional Benefits:</h4>
+                            <ul class="list-disc pl-5 text-red-700 space-y-1">
+                                <li>Licensed, bonded, and insured</li>
+                                <li>Code compliant installations</li>
+                                <li>Proper permits and inspections</li>
+                                <li>Warranty on work performed</li>
+                                <li>Safety for you and your family</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="/estimate.html" class="inline-block bg-aj-orange text-white font-bold px-8 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+                            Get Professional Estimate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-aj-dark text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">When in Doubt, Call the Professionals</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">AJ Long Electric's licensed electricians are here to help with all your electrical needs. We ensure safe, code-compliant installations that protect your family and property.</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="/estimate.html" class="bg-aj-orange hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition inline-flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Get Free Estimate
+                </a>
+                <a href="tel:7039970026" class="bg-transparent border-2 border-white hover:bg-white hover:text-aj-dark text-white font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call: 703-997-0026
+                </a>
+                <button data-token="4bcbc2f7231b4633abc97173fe9db382" data-orgname="AJ-Long-Electric" class="hcp-button bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-gray-700 transition" onclick="HCPWidget.openModal()">
+                    <i class="fas fa-calendar-alt mr-2"></i> Book Online Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+    
+    <!-- JavaScript for Tab Functionality -->
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            const selectedContent = document.getElementById(tabName + '-content');
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            // Mark selected button as active
+            const selectedButton = document.getElementById('tab-' + tabName + '-btn');
+            if (selectedButton) {
+                selectedButton.classList.add('active');
+            }
+        }
+
+        // Initialize tab functionality when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default tab
+            showTab('caution');
+            
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    menuOverlay.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            const hideMenu = () => {
+                if (mobileMenu) mobileMenu.classList.remove('active');
+                if (menuOverlay) menuOverlay.style.display = 'none';
+                document.body.style.overflow = '';
+            };
+
+            if (closeMenu) closeMenu.addEventListener('click', hideMenu);
+            if (menuOverlay) menuOverlay.addEventListener('click', hideMenu);
+
+            // Update copyright year
+            const copyrightYear = document.getElementById('copyright-year');
+            if (copyrightYear) {
+                copyrightYear.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment System Planning Guide - Home Theater Electrical Design | AJ Long Electric</title>
+    <meta name="description" content="Comprehensive entertainment system planning guide for Northern Virginia homes. Professional home theater electrical design, equipment placement, and wiring requirements.">
+    <meta name="keywords" content="entertainment system planning, home theater design, media room electrical, AV system wiring, Northern Virginia electrician">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ajlongelectric.com/services/home-theater-wiring/entertainment-system-planning">
+    <meta property="og:title" content="Entertainment System Planning Guide - Home Theater Electrical Design">
+    <meta property="og:description" content="Professional entertainment system planning guide for home theater electrical design and installation.">
+    <meta property="og:image" content="https://ajlongelectric.com/assets/images/entertainment-system-planning.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ajlongelectric.com/services/home-theater-wiring/entertainment-system-planning">
+    <meta property="twitter:title" content="Entertainment System Planning Guide - Home Theater Electrical Design">
+    <meta property="twitter:description" content="Professional entertainment system planning guide for home theater electrical design and installation.">
+    <meta property="twitter:image" content="https://ajlongelectric.com/assets/images/entertainment-system-planning.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aj-orange': '#FF7200',
+                        'aj-dark': '#222222',
+                        'aj-light': '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --aj-orange: #FF7200;
+            --aj-dark: #222222;
+            --aj-light: #f8f9fa;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--aj-orange) 0%, #e55a00 100%);
+        }
+        
+        .planning-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--aj-orange);
+        }
+        
+        .planning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 114, 0, 0.15);
+        }
+        
+        .calculator-input {
+            border: 2px solid #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        
+        .calculator-input:focus {
+            border-color: var(--aj-orange);
+            outline: none;
+        }
+        
+        .checklist-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .checklist-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--aj-orange);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 2rem 1rem;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            }
+            
+            .mobile-menu.active {
+                right: 0;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Entertainment System Planning Guide",
+        "description": "Complete guide for planning home theater and entertainment system electrical requirements",
+        "image": "https://ajlongelectric.com/assets/images/entertainment-system-planning.jpg",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Room Assessment",
+                "text": "Evaluate room size, layout, and existing electrical infrastructure"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Equipment Planning", 
+                "text": "Determine equipment needs and placement requirements"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Electrical Design",
+                "text": "Plan circuits, outlets, and cable management systems"
+            }
+        ],
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "AJ Long Electric",
+            "telephone": "703-997-0026",
+            "url": "https://ajlongelectric.com"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/assets/css/accessibility-improvements.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <div w3-include-html="/include/standard-header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Entertainment System <span class="text-yellow-300">Planning Guide</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Professional electrical design for your Northern Virginia home theater
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:703-997-0026" class="bg-white text-aj-orange px-8 py-4 rounded-lg font-bold text-xl transition duration-300 hover:bg-gray-100">
+                        📞 Call (703) 997-0026
+                    </a>
+                    <a href="#planning-calculator" class="bg-aj-dark hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300">
+                        Start Planning
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planning Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Why Professional <span class="text-aj-orange">Planning Matters</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Proper electrical planning ensures optimal performance, safety, and future expandability</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">⚡</div>
+                        <h3 class="text-xl font-semibold mb-3">Power Requirements</h3>
+                        <p class="text-gray-600">Dedicated circuits prevent voltage drops that affect picture and sound quality in high-end systems.</p>
+                    </div>
+
+                    <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">📺</div>
+                        <h3 class="text-xl font-semibold mb-3">Equipment Integration</h3>
+                        <p class="text-gray-600">Proper cable management and signal routing ensure clean installations and optimal performance.</p>
+                    </div>
+
+                    <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">🔮</div>
+                        <h3 class="text-xl font-semibold mb-3">Future Expansion</h3>
+                        <p class="text-gray-600">Strategic conduit placement allows easy upgrades without wall damage or rewiring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Assessment Guide -->
+    <section class="py-16 bg-aj-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Step 1: <span class="text-aj-orange">Room Assessment</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Evaluate your space for optimal entertainment system design</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-aj-dark">Physical Requirements</h3>
+                        <div class="space-y-4">
+                            <div class="checklist-item">Room dimensions (length × width × height)</div>
+                            <div class="checklist-item">Seating layout and viewing distances</div>
+                            <div class="checklist-item">Window locations and lighting control needs</div>
+                            <div class="checklist-item">Structural elements (beams, columns, HVAC)</div>
+                            <div class="checklist-item">Floor type and accessibility for cable runs</div>
+                            <div class="checklist-item">Wall construction (drywall, plaster, brick)</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-aj-dark">Electrical Infrastructure</h3>
+                        <div class="space-y-4">
+                            <div class="checklist-item">Current panel capacity and available circuits</div>
+                            <div class="checklist-item">Existing outlet locations and types</div>
+                            <div class="checklist-item">Cable/data wiring already in place</div>
+                            <div class="checklist-item">Grounding system adequacy</div>
+                            <div class="checklist-item">HVAC and climate control systems</div>
+                            <div class="checklist-item">Proximity to electrical panel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Planning Calculator -->
+    <section id="planning-calculator" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Step 2: <span class="text-aj-orange">Equipment Planning Calculator</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Calculate power requirements and plan your equipment layout</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Equipment Selection</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Display Type</label>
+                                    <select id="displayType" class="calculator-input w-full p-3 rounded-lg">
+                                        <option value="tv-65">65" LED TV (150W)</option>
+                                        <option value="tv-75">75" LED TV (200W)</option>
+                                        <option value="tv-85">85" LED TV (250W)</option>
+                                        <option value="projector-lcd">LCD Projector (300W)</option>
+                                        <option value="projector-laser">Laser Projector (400W)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Audio System</label>
+                                    <select id="audioSystem" class="calculator-input w-full p-3 rounded-lg">
+                                        <option value="soundbar">Soundbar (50W)</option>
+                                        <option value="5-1-system">5.1 Surround (200W)</option>
+                                        <option value="7-1-system">7.1 Surround (350W)</option>
+                                        <option value="atmos-system">Dolby Atmos (500W)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Gaming Systems</label>
+                                    <input type="number" id="gamingSystems" class="calculator-input w-full p-3 rounded-lg" min="0" max="5" value="0" placeholder="Number of consoles">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Additional Equipment</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="bluray" class="mr-2"> Blu-ray Player (25W)
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="streaming" class="mr-2"> Streaming Device (15W)
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="cable" class="mr-2"> Cable/Satellite Box (40W)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Power Analysis</h3>
+                            <div class="bg-white p-6 rounded-lg border-2 border-aj-orange">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span>Total Power Draw:</span>
+                                        <span id="totalPower" class="font-bold text-aj-orange">0W</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Recommended Circuits:</span>
+                                        <span id="recommendedCircuits" class="font-bold text-aj-orange">0</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Dedicated AV Circuit:</span>
+                                        <span id="avCircuit" class="font-bold text-aj-orange">Yes</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-3">
+                                <h4 class="font-semibold">Recommended Outlets:</h4>
+                                <div id="outletRecommendations" class="text-sm text-gray-600 space-y-1">
+                                    <!-- Dynamic recommendations will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateRequirements()" class="mt-6 w-full bg-aj-orange hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition duration-300">
+                        Calculate Requirements
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cable Management Planning -->
+    <section class="py-16 bg-aj-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Step 3: <span class="text-aj-orange">Cable Management</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Plan for clean, organized cable routing and future expansion</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-aj-orange">Power Cables</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="checklist-item">Dedicated 20A circuits for high-power equipment</li>
+                            <li class="checklist-item">Isolated ground circuits for sensitive AV gear</li>
+                            <li class="checklist-item">Surge protection at panel and equipment</li>
+                            <li class="checklist-item">Separate analog and digital power feeds</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-aj-orange">Signal Cables</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="checklist-item">HDMI 2.1 cables for 4K/8K content</li>
+                            <li class="checklist-item">Speaker wire routing (14-12 AWG)</li>
+                            <li class="checklist-item">Ethernet for streaming and smart devices</li>
+                            <li class="checklist-item">Coaxial for cable/satellite signals</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-aj-orange">Conduit Strategy</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="checklist-item">2" conduit for equipment rack connections</li>
+                            <li class="checklist-item">1" conduit for individual device runs</li>
+                            <li class="checklist-item">Pull strings for future cable additions</li>
+                            <li class="checklist-item">Access panels for maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room-Specific Considerations -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-aj-dark mb-4">
+                        Room-Specific <span class="text-aj-orange">Considerations</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Tailored electrical solutions for different entertainment spaces</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3 text-aj-orange">🏠 Living Room Theater</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Wall-mounted TV with hidden cables</li>
+                                <li>• Discrete speaker placement options</li>
+                                <li>• Dimmable lighting integration</li>
+                                <li>• Minimal visible equipment</li>
+                            </ul>
+                        </div>
+
+                        <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3 text-aj-orange">🏠 Basement Media Room</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Moisture considerations for electronics</li>
+                                <li>• Adequate ventilation circuits</li>
+                                <li>• Ceiling-mounted projector wiring</li>
+                                <li>• Acoustic treatment integration</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3 text-aj-orange">🎯 Dedicated Theater</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Complete electrical isolation from house</li>
+                                <li>• Tiered seating power requirements</li>
+                                <li>• Professional-grade equipment circuits</li>
+                                <li>• Climate control integration</li>
+                            </ul>
+                        </div>
+
+                        <div class="planning-card bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3 text-aj-orange">🎮 Gaming Setup</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Multiple console power requirements</li>
+                                <li>• High-speed internet infrastructure</li>
+                                <li>• Gaming chair power for massage/heat</li>
+                                <li>• LED lighting and RGB systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Design Service -->
+    <section class="py-16 bg-aj-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Need Professional <span class="text-aj-orange">Design Help?</span>
+                </h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Our experts create custom electrical designs for your entertainment system
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">📐</div>
+                        <h3 class="text-lg font-semibold mb-2">Custom Design</h3>
+                        <p class="text-gray-300 text-sm">Tailored electrical plans for your specific equipment and room</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">🔧</div>
+                        <h3 class="text-lg font-semibold mb-2">Professional Install</h3>
+                        <p class="text-gray-300 text-sm">Licensed electricians ensure code compliance and safety</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <div class="text-aj-orange text-3xl mb-4">🛡️</div>
+                        <h3 class="text-lg font-semibold mb-2">5-Year Warranty</h3>
+                        <p class="text-gray-300 text-sm">Industry-leading warranty on all workmanship</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:703-997-0026" class="bg-aj-orange hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-xl transition duration-300">
+                        📞 Call (703) 997-0026
+                    </a>
+                    <a href="/services/home-theater-wiring/" class="border-2 border-white hover:bg-white hover:text-aj-dark text-white px-8 py-4 rounded-lg font-semibold transition duration-300">
+                        Learn More About Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div w3-include-html="/include/standard-footer.html"></div>
+
+    <!-- Scripts -->
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        includeHTML();
+
+        // Equipment Calculator
+        function calculateRequirements() {
+            const displayType = document.getElementById('displayType').value;
+            const audioSystem = document.getElementById('audioSystem').value;
+            const gamingSystems = parseInt(document.getElementById('gamingSystems').value) || 0;
+            const bluray = document.getElementById('bluray').checked;
+            const streaming = document.getElementById('streaming').checked;
+            const cable = document.getElementById('cable').checked;
+
+            // Power calculations
+            let totalPower = 0;
+            const powerMap = {
+                'tv-65': 150, 'tv-75': 200, 'tv-85': 250,
+                'projector-lcd': 300, 'projector-laser': 400,
+                'soundbar': 50, '5-1-system': 200, '7-1-system': 350, 'atmos-system': 500
+            };
+
+            totalPower += powerMap[displayType] || 0;
+            totalPower += powerMap[audioSystem] || 0;
+            totalPower += gamingSystems * 150; // 150W per gaming system
+            if (bluray) totalPower += 25;
+            if (streaming) totalPower += 15;
+            if (cable) totalPower += 40;
+
+            // Circuit recommendations
+            const recommendedCircuits = Math.ceil(totalPower / 1500); // 15A circuits with 80% load
+            const needsAVCircuit = totalPower > 500 ? "Yes" : "Optional";
+
+            // Update display
+            document.getElementById('totalPower').textContent = totalPower + 'W';
+            document.getElementById('recommendedCircuits').textContent = Math.max(2, recommendedCircuits);
+            document.getElementById('avCircuit').textContent = needsAVCircuit;
+
+            // Outlet recommendations
+            const recommendations = [
+                "• Equipment rack: 4-6 outlets on dedicated 20A circuit",
+                "• Display location: 2 outlets behind TV/projector",
+                "• Seating area: USB charging outlets",
+                "• Control location: Outlet for automation hub"
+            ];
+
+            if (totalPower > 1000) {
+                recommendations.push("• Secondary equipment: Additional 20A circuit");
+            }
+
+            document.getElementById('outletRecommendations').innerHTML = recommendations.join('<br>');
+        }
+
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateRequirements();
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    <!-- Mobile Enhancements -->
+    <script src="/js/mobile-enhancements.js"></script>
+    <script src="/js/accessibility-enhancements.js"></script>
+
+</body></html>
