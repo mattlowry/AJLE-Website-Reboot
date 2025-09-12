@@ -451,6 +451,193 @@ class DatabaseService {
             throw error;
         }
     }
+
+    // Enhanced search functionality
+    async searchFormSubmissions(query, options = {}) {
+        try {
+            const { page = 1, limit = 20, status, formType, dateFrom, dateTo } = options;
+            const offset = (page - 1) * limit;
+
+            // Use the existing submission_details view for search
+            let supabaseQuery = supabase
+                .from('submission_details')
+                .select('*', { count: 'exact' })
+                .or(`subject.ilike.%${query}%,message.ilike.%${query}%,customer_name.ilike.%${query}%,customer_email.ilike.%${query}%`)
+                .order('created_at', { ascending: false })
+                .range(offset, offset + limit - 1);
+
+            // Apply additional filters
+            if (status) {
+                supabaseQuery = supabaseQuery.eq('status', status);
+            }
+            if (formType) {
+                supabaseQuery = supabaseQuery.eq('form_type', formType);
+            }
+            if (dateFrom) {
+                supabaseQuery = supabaseQuery.gte('created_at', dateFrom);
+            }
+            if (dateTo) {
+                supabaseQuery = supabaseQuery.lte('created_at', dateTo);
+            }
+
+            const { data: submissions, error, count } = await supabaseQuery;
+
+            if (error) {
+                throw new Error(`Error searching submissions: ${error.message}`);
+            }
+
+            return {
+                submissions: submissions || [],
+                total: count || 0
+            };
+        } catch (error) {
+            console.error('Error in searchFormSubmissions:', error);
+            throw error;
+        }
+    }
+
+    // Bulk operations
+    async bulkUpdateSubmissionStatus(ids, status, notes = null, adminId = null) {
+        try {
+            const updates = [];
+            
+            for (const id of ids) {
+                const updateData = {
+                    status,
+                    updated_at: new Date().toISOString()
+                };
+
+                if (notes) {
+                    updateData.admin_notes = notes;
+                }
+
+                if (adminId) {
+                    updateData.admin_id = adminId;
+                }
+
+                const { data, error } = await supabase
+                    .from('form_submissions')
+                    .update(updateData)
+                    .eq('id', id)
+                    .select()
+                    .single();
+
+                if (error) {
+                    console.error(`Error updating submission ${id}:`, error);
+                    continue;
+                }
+
+                updates.push(data);
+            }
+
+            return updates;
+        } catch (error) {
+            console.error('Error in bulkUpdateSubmissionStatus:', error);
+            throw error;
+        }
+    }
+
+    async bulkCreateAdminResponses(submissionIds, message, adminId, sendEmail = false) {
+        try {
+            const responses = [];
+            
+            for (const submissionId of submissionIds) {
+                const responseData = {
+                    submission_id: submissionId,
+                    admin_id: adminId,
+                    message,
+                    send_email: sendEmail
+                };
+
+                const { data, error } = await supabase
+                    .from('admin_responses')
+                    .insert([responseData])
+                    .select()
+                    .single();
+
+                if (error) {
+                    console.error(`Error creating response for submission ${submissionId}:`, error);
+                    continue;
+                }
+
+                responses.push(data);
+            }
+
+            return responses;
+        } catch (error) {
+            console.error('Error in bulkCreateAdminResponses:', error);
+            throw error;
+        }
+    }
+
+    // Export functionality
+    async exportFormSubmissions(format, filters = {}) {
+        try {
+            let query = supabase
+                .from('submission_details')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            // Apply filters
+            if (filters.status) {
+                query = query.eq('status', filters.status);
+            }
+            if (filters.formType) {
+                query = query.eq('form_type', filters.formType);
+            }
+            if (filters.dateFrom) {
+                query = query.gte('created_at', filters.dateFrom);
+            }
+            if (filters.dateTo) {
+                query = query.lte('created_at', filters.dateTo);
+            }
+
+            const { data, error } = await query;
+
+            if (error) {
+                throw new Error(`Error fetching export data: ${error.message}`);
+            }
+
+            switch (format) {
+                case 'csv':
+                    return this.formatAsCSV(data);
+                case 'json':
+                    return data;
+                default:
+                    throw new Error(`Unsupported export format: ${format}`);
+            }
+        } catch (error) {
+            console.error('Error in exportFormSubmissions:', error);
+            throw error;
+        }
+    }
+
+    formatAsCSV(data) {
+        if (!data || data.length === 0) {
+            return 'No data to export';
+        }
+
+        const headers = Object.keys(data[0]);
+        const csvHeaders = headers.join(',');
+        
+        const csvRows = data.map(row => {
+            return headers.map(header => {
+                let value = row[header];
+                if (value === null || value === undefined) {
+                    value = '';
+                } else if (typeof value === 'string') {
+                    // Escape quotes and wrap in quotes if contains comma
+                    value = value.replace(/"/g, '""');
+                    if (value.includes(',') || value.includes('"') || value.includes('\n')) {
+                        value = `"${value}"`;
+                    }
+                }
+                return value;
+            }).join(',');
+        });
+
+        return [csvHeaders, ...csvRows].join('\n');
+    }
 }
 
 module.exports = new DatabaseService();

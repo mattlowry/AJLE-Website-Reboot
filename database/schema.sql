@@ -3,7 +3,13 @@
 
 -- Create enum types for form types and status
 CREATE TYPE form_type AS ENUM ('estimate', 'schedule', 'inquiry');
-CREATE TYPE submission_status AS ENUM ('new', 'in_progress', 'resolved', 'archived');
+CREATE TYPE submission_status AS ENUM ('new', 'in_progress', 'completed', 'closed');
+
+-- Migration note: If you have an existing database with the old enum values, run:
+-- ALTER TYPE submission_status ADD VALUE 'completed';
+-- ALTER TYPE submission_status ADD VALUE 'closed';
+-- UPDATE form_submissions SET status = 'completed' WHERE status = 'resolved';
+-- UPDATE form_submissions SET status = 'closed' WHERE status = 'archived';
 
 -- Create customers table
 CREATE TABLE customers (
@@ -105,15 +111,22 @@ CREATE TRIGGER update_form_submissions_updated_at BEFORE UPDATE ON form_submissi
 CREATE TRIGGER update_admin_users_updated_at BEFORE UPDATE ON admin_users
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- Insert default admin user (password should be changed immediately)
--- Default password is 'admin123' - CHANGE THIS IMMEDIATELY
-INSERT INTO admin_users (email, password_hash, first_name, last_name, role) VALUES (
-    'admin@ajlongelectric.com',
-    '$2b$10$rQg4QqH8GrIzGqGqQqGqQeQqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', -- Change this hash
-    'Admin',
-    'User',
-    'admin'
-);
+-- Create your admin user with this command after setup:
+-- 
+-- First, generate a secure password hash using bcrypt:
+-- Node.js: node -e "console.log(require('bcryptjs').hashSync('YourSecurePassword123!', 10))"
+-- Online: Use bcrypt-generator.com with cost factor 10
+--
+-- Then run:
+-- INSERT INTO admin_users (email, password_hash, first_name, last_name, role, is_active) 
+-- VALUES (
+--     'your-email@ajlongelectric.com',
+--     'your_bcrypt_hashed_password_here',
+--     'Your',
+--     'Name',
+--     'admin',
+--     true
+-- );
 
 -- Create view for customer summary with submission counts
 CREATE VIEW customer_summary AS

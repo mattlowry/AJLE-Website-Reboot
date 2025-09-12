@@ -1,146 +1,167 @@
-# AJ Long Electric - Website & Form Management System
+# AJ Long Electric - Form Management System
 
-A comprehensive website and form management system for AJ Long Electric, featuring a customer-facing website with multiple form types and a complete admin dashboard for managing submissions.
+A professional form management system with admin dashboard for AJ Long Electric, built with modern web technologies and deployed on Netlify.
 
-## 🚀 Features
+## 🚀 Deployment Guide
 
-### Customer Features
-- **Enhanced Contact Page** with 3 form types:
-  - Estimate Requests
-  - Service Scheduling
-  - General Inquiries
-- **File Upload Support** with drag-and-drop functionality
-- **Responsive Design** optimized for mobile and desktop
-- **Real-time Form Validation**
+### Prerequisites
+1. **Netlify Account** - Sign up at [netlify.com](https://netlify.com)
+2. **Supabase Account** - Sign up at [supabase.com](https://supabase.com)
+3. **GitHub Repository** - Already set up at https://github.com/mattlowry/AJLE-Website-Reboot.git
 
-### Admin Features
-- **Secure Admin Dashboard** with JWT authentication
-- **Real-time Notifications** for new submissions
-- **Customer Message History** tracking
-- **Status Management** (New, In Progress, Completed, Closed)
-- **Email Response System** integrated with Postmark
-- **File Attachment Management** with Cloudinary
-- **Dashboard Analytics** and statistics
+### Step 1: Set Up Supabase
 
-## 🛠 Tech Stack
+1. **Create a new Supabase project**:
+   - Go to [app.supabase.com](https://app.supabase.com)
+   - Click "New Project"
+   - Fill in project details
+   - Save the database password securely
 
-- **Frontend**: HTML, CSS (Tailwind), Vanilla JavaScript
-- **Backend**: Netlify Functions (Node.js)
-- **Database**: Supabase (PostgreSQL)
-- **Email**: Postmark
-- **File Storage**: Cloudinary
-- **Authentication**: JWT tokens
-- **Deployment**: Netlify
+2. **Run the database schema**:
+   - Go to SQL Editor in Supabase dashboard
+   - Copy contents from `database/schema.sql`
+   - Run the SQL to create tables
 
-## 📋 Setup Instructions
+3. **Get your Supabase credentials**:
+   - Go to Settings → API
+   - Copy the following:
+     - Project URL
+     - anon public key
+     - service_role key (keep this secret!)
 
-### 1. Install Dependencies
-```bash
-npm install
+### Step 2: Deploy to Netlify
+
+1. **Connect GitHub to Netlify**:
+   - Log in to Netlify
+   - Click "Add new site" → "Import an existing project"
+   - Choose GitHub and select your repository
+
+2. **Configure build settings**:
+   - Build command: (leave empty)
+   - Publish directory: `.`
+   - Functions directory: `netlify/functions`
+
+3. **Set environment variables in Netlify**:
+   Go to Site Settings → Environment Variables and add:
+   
+   ```
+   SUPABASE_URL=your_supabase_project_url
+   SUPABASE_ANON_KEY=your_anon_key
+   SUPABASE_SERVICE_KEY=your_service_key
+   JWT_SECRET=generate_a_32_char_random_string
+   JWT_REFRESH_SECRET=generate_another_32_char_random_string
+   ```
+
+   To generate secure secrets, use:
+   ```bash
+   openssl rand -base64 32
+   ```
+
+4. **Deploy the site**:
+   - Click "Deploy site"
+   - Wait for deployment to complete
+   - Your site will be live at `https://your-site-name.netlify.app`
+
+### Step 3: Create Admin User
+
+1. **Access Supabase SQL Editor**
+2. **Run this SQL to create an admin user**:
+   ```sql
+   INSERT INTO admins (email, password_hash, first_name, last_name, role)
+   VALUES (
+     'admin@ajlongelectric.com',
+     crypt('YourSecurePassword123!', gen_salt('bf')),
+     'Admin',
+     'User',
+     'super_admin'
+   );
+   ```
+   **IMPORTANT**: Change the email and password immediately!
+
+### Step 4: Test Your Deployment
+
+1. **Visit your site**: `https://your-site-name.netlify.app`
+2. **Test form submissions**: Try each form type
+3. **Access admin dashboard**: `/dashboard`
+4. **Log in with your admin credentials**
+5. **Verify all features work**:
+   - Form submissions appear
+   - Filters and search work
+   - Status updates save
+   - Responses can be sent
+
+## 🔧 Configuration
+
+### Email Notifications (Optional)
+
+To enable email notifications, add these environment variables:
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_specific_password
+EMAIL_FROM=noreply@ajlongelectric.com
 ```
 
-### 2. Environment Configuration
-Copy the example environment file:
-```bash
-cp .env.example .env
-```
+### Custom Domain
 
-Configure the following variables in `.env`:
-- `SUPABASE_URL` - Your Supabase project URL
-- `SUPABASE_ANON_KEY` - Your Supabase anon key
-- `POSTMARK_SERVER_TOKEN` - Your Postmark server token
-- `JWT_SECRET` - A secure random string for JWT tokens
-- `CLOUDINARY_CLOUD_NAME` - Your Cloudinary cloud name
-- `CLOUDINARY_API_KEY` - Your Cloudinary API key
-- `CLOUDINARY_API_SECRET` - Your Cloudinary API secret
+1. Go to Netlify Site Settings → Domain Management
+2. Add your custom domain
+3. Update DNS settings with your domain provider
+4. Enable HTTPS (automatic with Netlify)
 
-### 3. Database Setup
-1. Create a new Supabase project
-2. Run the SQL schema from `/database/schema.sql` in your Supabase SQL editor
-3. Create an admin user:
-```sql
-INSERT INTO admin_users (email, password_hash, name, role, is_active) 
-VALUES (
-    'admin@ajlongelectric.com',
-    '$2a$10$your_bcrypt_hashed_password_here',
-    'Admin User',
-    'admin',
-    true
-);
-```
+## 📱 Features
 
-### 4. Development
-```bash
-netlify dev
-```
+### Public Forms
+- **Estimate Requests** - Get project quotes
+- **Schedule Service** - Book appointments
+- **General Inquiries** - Contact form
 
-### 5. Deployment
-```bash
-netlify deploy --prod
-```
+### Admin Dashboard
+- **Secure Authentication** - JWT-based auth with refresh tokens
+- **Real-time Updates** - Live notifications for new submissions
+- **Advanced Search** - Full-text search across all data
+- **Bulk Operations** - Update multiple submissions at once
+- **Data Export** - Export to CSV/JSON
+- **Keyboard Shortcuts** - Power user features
+- **Auto-save** - Never lose draft responses
+- **Dashboard Widgets** - Quick insights and analytics
 
-## 📂 Project Structure
+## 🔐 Security
 
-```
-├── database/
-│   └── schema.sql              # Database schema
-├── dashboard/
-│   ├── index.html             # Admin dashboard interface
-│   └── js/admin-dashboard.js  # Dashboard functionality
-├── netlify/functions/
-│   ├── lib/
-│   │   ├── database.js        # Database service layer
-│   │   └── email.js           # Email service integration
-│   ├── admin-auth.js          # Admin authentication
-│   ├── admin-dashboard.js     # Dashboard API
-│   ├── admin-notifications.js # Real-time notifications
-│   ├── form-estimate.js       # Estimate form handler
-│   ├── form-inquiry.js        # Inquiry form handler
-│   └── form-schedule.js       # Schedule form handler
-├── contact-new.html           # Enhanced contact page
-├── .env.example              # Environment template
-└── package.json              # Dependencies
-```
+- **Input Validation** - Comprehensive client and server-side validation
+- **XSS Protection** - All inputs sanitized
+- **SQL Injection Prevention** - Parameterized queries
+- **HTTPS Only** - Enforced by Netlify
+- **Secure Headers** - CSP, X-Frame-Options, etc.
+- **Rate Limiting** - Prevent abuse
+- **HttpOnly Cookies** - Secure token storage
 
-## 🔧 API Endpoints
+## 🛠️ Maintenance
 
-### Form Submission
-- `POST /.netlify/functions/form-estimate` - Submit estimate requests
-- `POST /.netlify/functions/form-schedule` - Submit scheduling requests
-- `POST /.netlify/functions/form-inquiry` - Submit general inquiries
+### Update Environment Variables
+1. Go to Netlify dashboard
+2. Site Settings → Environment Variables
+3. Update values
+4. Trigger redeploy
 
-### Admin API
-- `POST /.netlify/functions/admin-auth` - Admin authentication
-- `GET/POST /.netlify/functions/admin-dashboard` - Dashboard data and actions
-- `GET /.netlify/functions/admin-notifications` - Real-time notifications (SSE)
+### Database Migrations
+1. New migrations in `database/migrations/`
+2. Run via Supabase SQL Editor
+3. Test thoroughly before production
 
-## 📧 Email Configuration
-
-The system uses Postmark with dedicated email addresses:
-- **Estimates**: Estimate@AJLongElectric.com
-- **Scheduling**: Schedule@AJLongElectric.com
-- **Inquiries**: Contact@AJLongElectric.com
-
-## 🔐 Admin Access
-
-Access the admin dashboard at `/dashboard/index.html` with your configured admin credentials.
-
-## 📱 Mobile Support
-
-The entire system is fully responsive and optimized for mobile devices, including touch-friendly form interactions and mobile-optimized admin dashboard.
-
-## 🚀 Deployment on Netlify
-
-1. Connect your GitHub repository to Netlify
-2. Configure environment variables in Netlify dashboard
-3. Set build command: `npm run build` (if applicable)
-4. Set publish directory: `./` (root directory)
-5. Deploy!
+### Monitor Performance
+- Check Netlify Analytics
+- Monitor Supabase dashboard
+- Review function logs in Netlify
 
 ## 📞 Support
 
-For technical support or questions about this system, contact the development team.
+For issues or questions:
+1. Check Netlify function logs
+2. Review Supabase logs
+3. Open issue on GitHub
 
----
+## 📄 License
 
-Built with ❤️ for AJ Long Electric
+© 2024 AJ Long Electric. All rights reserved.

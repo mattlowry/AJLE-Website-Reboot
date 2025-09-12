@@ -149,13 +149,44 @@
                 </div>
             </div>
 
-            <!-- Filters -->
+            <!-- Search and Filters -->
             <div class="bg-white shadow rounded-lg mb-6">
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <h3 class="text-lg font-medium text-gray-900">Filter Submissions</h3>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">Search & Filter Submissions</h3>
+                        <div class="flex space-x-2">
+                            <button id="exportBtn" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-download mr-2"></i>Export
+                            </button>
+                            <button id="bulkActionsBtn" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-edit mr-2"></i>Bulk Actions
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="px-6 py-4">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Global Search -->
+                    <div class="mb-4">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="globalSearch" 
+                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="Search submissions, customers, messages..."
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <button id="clearSearch" class="text-gray-400 hover:text-gray-600 hidden">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Basic Filters -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
                             <select id="statusFilter" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
@@ -176,8 +207,39 @@
                             </select>
                         </div>
                         <div class="flex items-end">
-                            <button id="applyFilters" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
-                                Apply Filters
+                            <button id="advancedFiltersToggle" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-md">
+                                <i class="fas fa-sliders-h mr-2"></i>Advanced Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Filters (Initially Hidden) -->
+                    <div id="advancedFilters" class="hidden border-t pt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date From</label>
+                                <input type="date" id="dateFromFilter" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date To</label>
+                                <input type="date" id="dateToFilter" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex justify-between">
+                        <div class="flex space-x-2">
+                            <button id="applyFilters" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
+                                <i class="fas fa-filter mr-2"></i>Apply Filters
+                            </button>
+                            <button id="clearFilters" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md">
+                                <i class="fas fa-times mr-2"></i>Clear All
+                            </button>
+                        </div>
+                        <div>
+                            <button id="refreshData" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md">
+                                <i class="fas fa-sync-alt mr-2"></i>Refresh
                             </button>
                         </div>
                     </div>
@@ -187,7 +249,18 @@
             <!-- Submissions Table -->
             <div class="bg-white shadow overflow-hidden sm:rounded-md">
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <h3 class="text-lg font-medium text-gray-900">Form Submissions</h3>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">Form Submissions</h3>
+                        <div class="flex items-center space-x-4">
+                            <div id="selectionInfo" class="text-sm text-gray-600 hidden">
+                                <span id="selectedCount">0</span> selected
+                            </div>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="selectAll" class="mr-2">
+                                <span class="text-sm text-gray-700">Select All</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div id="submissionsContainer" class="min-h-96">
                     <div id="loadingSpinner" class="flex justify-center items-center py-12">
@@ -318,6 +391,153 @@
         </div>
     </div>
 
-    <script src="js/admin-dashboard.js"></script>
+    <!-- Bulk Actions Modal -->
+    <div id="bulkModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-md shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">Bulk Actions</h3>
+                <button id="closeBulkModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <p class="text-sm text-gray-600">
+                    Selected: <span id="bulkSelectedCount">0</span> submissions
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button id="bulkStatusUpdate" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm">
+                        <i class="fas fa-edit mr-2"></i>Update Status
+                    </button>
+                    <button id="bulkResponse" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm">
+                        <i class="fas fa-reply mr-2"></i>Send Response
+                    </button>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end">
+                <button id="cancelBulk" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Status Update Modal -->
+    <div id="bulkStatusModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-md shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">Bulk Status Update</h3>
+                <button id="closeBulkStatusModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="bulkStatusForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">New Status</label>
+                    <select id="bulkNewStatus" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="new">New</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Notes (optional)</label>
+                    <textarea id="bulkStatusNotes" rows="3" 
+                              class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                              placeholder="Add notes about this status change..."></textarea>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="cancelBulkStatus" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                        Update All
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bulk Response Modal -->
+    <div id="bulkResponseModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">Bulk Response</h3>
+                <button id="closeBulkResponseModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="bulkResponseForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Response Message</label>
+                    <textarea id="bulkResponseMessage" rows="6" required 
+                              class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                              placeholder="Enter your response message..."></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="bulkSendEmail" class="mr-2">
+                        <span class="text-sm text-gray-700">Send email to customers</span>
+                    </label>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="cancelBulkResponse" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                        Send to All
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-md shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">Export Submissions</h3>
+                <button id="closeExportModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="exportForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Export Format</label>
+                    <select id="exportFormat" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="csv">CSV (Spreadsheet)</option>
+                        <option value="json">JSON (Data)</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 mb-2">Export will include current filters:</p>
+                    <ul id="exportFiltersPreview" class="text-xs text-gray-500 list-disc list-inside">
+                        <li>All submissions</li>
+                    </ul>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="cancelExport" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                        <i class="fas fa-download mr-2"></i>Export
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Core Managers -->
+    <script src="js/toast-manager.js"></script>
+    <script src="js/auth-manager.js"></script>
+    <script src="js/ui-manager.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/notification-manager.js"></script>
+    <script src="js/auto-save-manager.js"></script>
+    <script src="js/dashboard-widgets.js"></script>
+    <script src="js/validation-manager.js"></script>
+    
+    <!-- Main Dashboard -->
+    <script src="js/admin-dashboard-v2.js"></script>
 </body>
 </html>

@@ -19,33 +19,24 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        // Verify admin token
-        const authHeader = event.headers.authorization || event.headers.Authorization;
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return {
-                statusCode: 401,
-                headers,
-                body: JSON.stringify({
-                    success: false,
-                    message: 'Authorization required'
-                })
-            };
-        }
-
-        const token = authHeader.substring(7);
-        const adminData = verifyAdminToken(token);
+        // Verify admin token using the new secure method
+        const adminData = verifyAdminToken(event);
 
         // Route based on HTTP method and query parameters
-        const { action, page = 1, limit = 20, status, formType, customerId } = event.queryStringParameters || {};
+        const { action, page = 1, limit = 20, status, formType, customerId, q, dateFrom, dateTo } = event.queryStringParameters || {};
 
         switch (event.httpMethod) {
             case 'GET':
                 if (action === 'stats') {
                     return await getDashboardStats(headers);
                 } else if (action === 'submissions') {
-                    return await getFormSubmissions(headers, { page, limit, status, formType });
+                    return await getFormSubmissions(headers, { page, limit, status, formType, q, dateFrom, dateTo });
+                } else if (action === 'search') {
+                    return await searchSubmissions(headers, { q, page, limit, status, formType, dateFrom, dateTo });
                 } else if (action === 'customer-history' && customerId) {
                     return await getCustomerHistory(headers, customerId);
+                } else if (action === 'export') {
+                    return await exportSubmissions(headers, event.queryStringParameters);
                 } else {
                     return await getDashboardData(headers, { page, limit, status, formType });
                 }
@@ -56,6 +47,10 @@ exports.handler = async (event, context) => {
                     return await createAdminResponse(headers, body, adminData.adminId);
                 } else if (body.action === 'update-status') {
                     return await updateSubmissionStatus(headers, body, adminData.adminId);
+                } else if (body.action === 'bulk-update') {
+                    return await bulkUpdateSubmissions(headers, body, adminData.adminId);
+                } else if (body.action === 'bulk-respond') {
+                    return await bulkRespondSubmissions(headers, body, adminData.adminId);
                 }
                 break;
 
@@ -245,6 +240,173 @@ async function updateSubmissionStatus(headers, body, adminId) {
         };
     } catch (error) {
         console.error('Error updating submission status:', error);
+        throw error;
+    }
+}
+
+async function searchSubmissions(headers, options) {
+    try {
+        const { q, page = 1, limit = 20, status, formType, dateFrom, dateTo } = options;
+        
+        if (!q || q.trim().length < 2) {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({
+                    success: false,
+                    message: 'Search query must be at least 2 characters'
+                })
+            };
+        }
+
+        const { submissions, total } = await database.searchFormSubmissions(q.trim(), {
+            page: parseInt(page),
+            limit: parseInt(limit),
+            status,
+            formType,
+            dateFrom,
+            dateTo
+        });
+
+        return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+                success: true,
+                submissions,
+                pagination: {
+                    page: parseInt(page),
+                    limit: parseInt(limit),
+                    total,
+                    pages: Math.ceil(total / parseInt(limit))
+                },
+                query: q.trim()
+            })
+        };
+    } catch (error) {
+        console.error('Error searching submissions:', error);
+        throw error;
+    }
+}
+
+async function bulkUpdateSubmissions(headers, body, adminId) {
+    try {
+        const { ids, status, notes } = body;
+        
+        if (!ids || !Array.isArray(ids) || ids.length === 0) {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({
+                    success: false,
+                    message: 'Submission IDs are required'
+                })
+            };
+        }
+
+        if (!status) {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({
+                    success: false,
+                    message: 'Status is required'
+                })
+            };
+        }
+
+        const results = await database.bulkUpdateSubmissionStatus(ids, status, notes, adminId);
+
+        return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+                success: true,
+                updated: results.length,
+                results
+            })
+        };
+    } catch (error) {
+        console.error('Error in bulk update:', error);
+        throw error;
+    }
+}
+
+async function bulkRespondSubmissions(headers, body, adminId) {
+    try {
+        const { ids, message, sendEmail = false } = body;
+        
+        if (!ids || !Array.isArray(ids) || ids.length === 0) {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({
+                    success: false,
+                    message: 'Submission IDs are required'
+                })
+            };
+        }
+
+        if (!message || !message.trim()) {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({
+                    success: false,
+                    message: 'Response message is required'
+                })
+            };
+        }
+
+        const results = await database.bulkCreateAdminResponses(ids, message.trim(), adminId, sendEmail);
+
+        return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+                success: true,
+                sent: results.length,
+                results
+            })
+        };
+    } catch (error) {
+        console.error('Error in bulk respond:', error);
+        throw error;
+    }
+}
+
+async function exportSubmissions(headers, queryParams) {
+    try {
+        const { format = 'csv', status, formType, dateFrom, dateTo } = queryParams;
+        
+        const filters = {
+            status,
+            formType,
+            dateFrom,
+            dateTo
+        };
+
+        const data = await database.exportFormSubmissions(format, filters);
+        
+        const contentTypes = {
+            'csv': 'text/csv',
+            'json': 'application/json',
+            'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        };
+
+        const filename = `form_submissions_${new Date().toISOString().split('T')[0]}.${format}`;
+        
+        return {
+            statusCode: 200,
+            headers: {
+                ...headers,
+                'Content-Type': contentTypes[format] || 'text/plain',
+                'Content-Disposition': `attachment; filename="${filename}"`
+            },
+            body: format === 'json' ? JSON.stringify(data) : data
+        };
+    } catch (error) {
+        console.error('Error exporting submissions:', error);
         throw error;
     }
 }
