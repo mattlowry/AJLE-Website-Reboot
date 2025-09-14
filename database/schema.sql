@@ -58,13 +58,12 @@ CREATE TABLE file_attachments (
     uploaded_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create admin responses table
 CREATE TABLE admin_responses (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     submission_id UUID NOT NULL REFERENCES form_submissions(id) ON DELETE CASCADE,
-    admin_email VARCHAR(255) NOT NULL,
-    response_text TEXT NOT NULL,
-    response_type VARCHAR(50) DEFAULT 'email', -- email, phone, in_person
+    admin_id UUID REFERENCES admin_users(id),
+    message TEXT NOT NULL,
+    send_email BOOLEAN DEFAULT false,
     sent_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
@@ -77,7 +76,7 @@ CREATE TABLE admin_users (
     last_name VARCHAR(100) NOT NULL,
     role VARCHAR(50) DEFAULT 'admin',
     is_active BOOLEAN DEFAULT true,
-    last_login TIMESTAMP WITH TIME ZONE,
+    last_login_at TIMESTAMP WITH TIME ZONE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -135,7 +134,8 @@ SELECT
     COUNT(fs.id) as total_submissions,
     COUNT(CASE WHEN fs.status = 'new' THEN 1 END) as new_submissions,
     COUNT(CASE WHEN fs.status = 'in_progress' THEN 1 END) as in_progress_submissions,
-    COUNT(CASE WHEN fs.status = 'resolved' THEN 1 END) as resolved_submissions,
+    COUNT(CASE WHEN fs.status = 'completed' THEN 1 END) as completed_submissions,
+    COUNT(CASE WHEN fs.status = 'closed' THEN 1 END) as closed_submissions,
     MAX(fs.created_at) as last_submission_date
 FROM customers c
 LEFT JOIN form_submissions fs ON c.id = fs.customer_id
@@ -148,6 +148,8 @@ SELECT
     c.first_name,
     c.last_name,
     c.email,
+    (c.first_name || ' ' || c.last_name) AS customer_name,
+    c.email AS customer_email,
     c.phone,
     c.address,
     c.city,

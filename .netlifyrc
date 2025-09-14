@@ -1,0 +1,13 @@
+# Netlify Runtime Configuration
+# This file provides additional runtime configuration to ensure root deployment
+
+[build]
+base = ""
+publish = "."
+functions = "netlify/functions"
+ignore = "exit 0"
+
+[dev]
+framework = "#static"
+targetPort = 8080
+publish = "."

@@ -1,7 +1,22 @@
-[build]
-  publish = "."
-  functions = "netlify/functions"
+# Netlify Configuration - Explicitly override UI settings
+# This configuration forces deployment from the root directory
 
+[build]
+  # Explicitly set base directory to root (empty string means root)
+  base = ""
+  # Publish directory is the root of the repository
+  publish = "."
+  # Functions directory
+  functions = "netlify/functions"
+  # Force ignore any package.json commands
+  ignore = "exit 0"
+
+# Environment variables
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "8"
+
+# Redirects configuration
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
@@ -12,6 +27,15 @@
   to = "/dashboard/index.html"
   status = 200
 
+# Catch-all redirect for SPA behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"], Country = ["US"]}
+  force = false
+
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -19,6 +43,13 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    # Cache control for static assets
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
 
 [[headers]]
   for = "/.netlify/functions/*"

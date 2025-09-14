@@ -9,6 +9,10 @@ package-lock.json
 
 # Netlify
 .netlify/
+!.netlify/state.json
+# Keep deployment verification files
+!_netlify
+!verify-netlify-deploy.sh
 
 # IDE
 .vscode/

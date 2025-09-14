@@ -1,0 +1,16 @@
+# Netlify Deployment Marker
+# This file marks the root directory for Netlify deployment
+# Presence of this file helps Netlify identify the correct base directory
+
+# Site Configuration
+SITE_NAME=AJ Long Electric Website
+BASE_DIRECTORY=
+PUBLISH_DIRECTORY=.
+FUNCTIONS_DIRECTORY=netlify/functions
+
+# Build Settings
+BUILD_COMMAND=
+IGNORE_COMMAND=exit 0
+
+# Created: 2025-09-14
+# Purpose: Force root directory deployment and override UI settings

@@ -37,7 +37,8 @@ A professional form management system with admin dashboard for AJ Long Electric,
    - Choose GitHub and select your repository
 
 2. **Configure build settings**:
-   - Build command: (leave empty)
+   - Base directory: leave blank
+   - Build command: leave blank (static site)
    - Publish directory: `.`
    - Functions directory: `netlify/functions`
 
@@ -50,6 +51,11 @@ A professional form management system with admin dashboard for AJ Long Electric,
    SUPABASE_SERVICE_KEY=your_service_key
    JWT_SECRET=generate_a_32_char_random_string
    JWT_REFRESH_SECRET=generate_another_32_char_random_string
+   # Optional services used by functions
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   POSTMARK_SERVER_TOKEN=your_postmark_token
    ```
 
    To generate secure secrets, use:
@@ -65,18 +71,24 @@ A professional form management system with admin dashboard for AJ Long Electric,
 ### Step 3: Create Admin User
 
 1. **Access Supabase SQL Editor**
-2. **Run this SQL to create an admin user**:
-   ```sql
-   INSERT INTO admins (email, password_hash, first_name, last_name, role)
-   VALUES (
-     'admin@ajlongelectric.com',
-     crypt('YourSecurePassword123!', gen_salt('bf')),
-     'Admin',
-     'User',
-     'super_admin'
-   );
-   ```
-   **IMPORTANT**: Change the email and password immediately!
+2. **Create an admin in `admin_users`**:
+   - Generate a bcrypt hash for your password (cost 10):
+     ```bash
+     node -e "console.log(require('bcryptjs').hashSync('YourSecurePassword123!', 10))"
+     ```
+   - Insert the admin:
+     ```sql
+     INSERT INTO admin_users (email, password_hash, first_name, last_name, role, is_active)
+     VALUES (
+       'admin@ajlongelectric.com',
+       '<paste_bcrypt_hash_here>',
+       'Admin',
+       'User',
+       'super_admin',
+       true
+     );
+     ```
+   - IMPORTANT: Use a unique email and a strong password.
 
 ### Step 4: Test Your Deployment
 
