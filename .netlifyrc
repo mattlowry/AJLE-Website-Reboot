@@ -5,7 +5,6 @@
 base = ""
 publish = "."
 functions = "netlify/functions"
-ignore = "exit 0"
 
 [dev]
 framework = "#static"

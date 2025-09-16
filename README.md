@@ -106,13 +106,13 @@ A professional form management system with admin dashboard for AJ Long Electric,
 
 ### Email Notifications (Optional)
 
-To enable email notifications, add these environment variables:
+To enable email notifications, add these environment variables (use your provider-specific values):
 ```
-SMTP_HOST=smtp.gmail.com
+SMTP_HOST=smtp.example.com
 SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
+SMTP_USER=your_email@example.com
 SMTP_PASS=your_app_specific_password
-EMAIL_FROM=noreply@ajlongelectric.com
+EMAIL_FROM=no-reply@example.com
 ```
 
 ### Custom Domain

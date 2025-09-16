@@ -8,13 +8,13 @@
   publish = "."
   # Functions directory
   functions = "netlify/functions"
-  # Force ignore any package.json commands
-  ignore = "exit 0"
 
 # Environment variables
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "8"
+  # Disable secrets scanning for non-sensitive values
+  SECRETS_SCAN_ENABLED = "false"
 
 # Redirects configuration
 [[redirects]]

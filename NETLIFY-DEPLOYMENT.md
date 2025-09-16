@@ -14,11 +14,11 @@ Netlify was incorrectly looking for a base directory "AJLE-Website-Reboot" that 
   - `base = ""` - Forces root directory as base
   - `publish = "."` - Publishes from root directory
   - `functions = "netlify/functions"` - Functions directory
-  - `ignore = "exit 0"` - Ignores any build commands
+  - Note: Do not set `ignore = "exit 0"` — that skips all builds and prevents deployments from running.
 
 ### 2. .netlify/state.json
-- **Purpose**: Overrides Netlify UI settings
-- **Function**: Ensures local configuration takes precedence over web UI settings
+- **Purpose**: Local CLI linkage metadata (optional)
+- **Note**: Netlify’s hosted build uses the repo and `netlify.toml`. This file isn’t required for server builds.
 
 ### 3. _netlify
 - **Purpose**: Deployment marker file
